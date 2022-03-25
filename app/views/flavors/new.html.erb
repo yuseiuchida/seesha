@@ -1,0 +1,9 @@
+<h1>新規フレーバー</h1>
+
+<%= form_with model: @flavor, local: true do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.submit "登録"%>
+<% end %>
+
+<%= link_to "戻る", flavors_path %>

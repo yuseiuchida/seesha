@@ -1,0 +1,7 @@
+<h1>フレーバー</h1>
+<% @flavors.each do |flavor| %>
+	<%= flavor.name %>
+<% end %>
+
+<%= link_to "新規フレーバー", new_flavor_path %>
+<%= link_to "コンビネーション", combinations_path %>

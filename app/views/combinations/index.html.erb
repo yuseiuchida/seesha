@@ -1,0 +1,8 @@
+<h1>コンビネーション</h1>
+<% @combinations.each do |comb| %>
+	<%= comb.first_flavor %>
+	<%= comb.second_flavor %>
+	<%= comb.third_flavor %>
+<% end %>
+
+<%= link_to "新規コンビネーション", new_combination_path %>

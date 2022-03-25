@@ -1,0 +1,13 @@
+<h1>新規フレーバー</h1>
+
+<%= form_with model: @combination, url: combinations_path, local: true do |f| %>
+	<%= f.label :first_flavor %>
+	<%= f.select :first_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
+	<%= f.label :second_flavor %>
+	<%= f.select :second_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
+	<%= f.label :third_flavor %>
+	<%= f.select :third_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
+	<%= f.submit "登録"%>
+<% end %>
+
+<%= link_to "戻る", combinations_path %>
