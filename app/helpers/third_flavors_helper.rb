@@ -1,0 +1,2 @@
+module ThirdFlavorsHelper
+end

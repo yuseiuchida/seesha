@@ -1,0 +1,2 @@
+module FirstFlavorsHelper
+end

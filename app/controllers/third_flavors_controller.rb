@@ -1,0 +1,2 @@
+class ThirdFlavorsController < ApplicationController
+end

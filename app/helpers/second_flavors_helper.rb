@@ -1,0 +1,2 @@
+module SecondFlavorsHelper
+end
