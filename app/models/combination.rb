@@ -4,6 +4,7 @@ class Combination < ApplicationRecord
 	has_many :likes	
 	has_many :compabilities, class_name: "Compability", foreign_key: "main_combination_id"
 	has_many :compabilities, class_name: "Compability", foreign_key: "sub_combination_id"
+	has_many :review_combinations
 
 	validates :keyword, uniqueness: true
 end

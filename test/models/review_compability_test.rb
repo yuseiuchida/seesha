@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RecommendTest < ActiveSupport::TestCase
+class ReviewCompabilityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

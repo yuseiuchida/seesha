@@ -5,7 +5,6 @@ class CreateCombinations < ActiveRecord::Migration[6.1]
       t.references :second_flavor, forein_key: {to_table: :flavors}
       t.string :content
       t.string :keyword, null: false
-      t.references :recommend, foreign_key: true
 
 
       t.timestamps
