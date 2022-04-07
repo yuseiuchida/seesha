@@ -12,6 +12,6 @@ class UserSessionsController < ApplicationController
 
 	def destroy
 		logout
-		redirect_to :new
+		render :new
 	end
 end

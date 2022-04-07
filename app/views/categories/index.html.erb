@@ -1,0 +1,114 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+					<!-- Section -->
+					<div class="main-section dark-1-color-bg pt-36 pb-18">
+						<!-- container -->
+						<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
+								<!-- col-lg-12 -->
+								<div class="col-lg-12">
+									<!-- CTA -->
+									<div class="main-block cta-block light-color">
+										<!-- Block container -->
+										<div class="main-block-container cta-block-container">
+											<!-- Block body -->
+											<div class="main-block-body cta-block-body">
+
+												<!-- Block content -->
+												<div class="main-block-content cta-block-content">
+													<!-- CTA content container -->
+													<div class="main-block-content-container cta-block-content-container">
+
+														<h3>新規カテゴリー登録</h3>
+
+													</div><!-- /End CTA content container -->
+												</div><!-- /End Block content -->
+
+												<!-- Block footer -->
+												<div class="main-block-footer cta-block-footer">
+													<%= link_to "GO", new_category_path, class: "btn btn-block btn-lg btn-light btn-outline btn-round" %>
+												</div><!-- /End Block footer -->
+
+											</div><!-- /End Block body -->
+										</div><!-- /End Block container -->
+									</div><!-- /End CTA -->
+								</div><!-- /End col-lg-12 -->
+							</div><!-- /End row -->
+						</div><!-- /End container -->
+					</div><!-- /End Section -->
+
+
+					<!-- Section -->
+					<div class="main-section">
+						<!-- container -->
+						<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
+								<!-- col-lg-8 -->
+								<div class="col-lg-8 offset-lg-2">
+
+										<!-- Section title -->
+										<div class="section-title text-center">
+												<!-- Section title container -->
+												<div class="section-title-container">
+
+														<!-- Section title body -->
+														<div class="section-title-body">
+
+																<!-- Section title heading -->
+																<div class="section-title-heading">
+																		<h2>カテゴリー</h2>
+																</div><!-- /End Section title heading -->
+
+														</div><!--/End Section title body -->
+
+												</div><!-- /End Section title container -->
+										</div><!-- /End Section title -->
+
+										<!-- GAP -->
+										<div class="gap gap-36"></div>
+
+								</div><!-- /End col-lg-8 -->
+								<!-- col-lg-3 -->
+								<% @categories.each do |category| %>
+									<div class="col-lg-3 col-sm-6">
+									<!-- Counter -->
+										<div class="main-block counter-block boxed-block-2y white-color-bg grey-2-color-border text-center">
+										<!-- Block container -->
+											<div class="main-block-container counter-block-container">
+												<!-- Block header -->
+												<div class="main-block-header contact-block-header block-header-absolute bottom-right" style="color: #1a8450">
+													<i class="fas fa-code"></i>
+												</div><!-- /End Block header -->
+												<!-- Block body -->
+												<div class="main-block-body counter-block-body">
+													<!-- Heading -->
+													<div class="main-block-heading counter-block-heading">
+														<h5 class="h2" style="color: #1a8450">
+															<%= category.flavors.count %>
+														</h5>
+													</div><!-- /End Heading -->
+													<!-- Block content -->
+													<div class="main-block-content counter-block-content secondary-font-family">
+														<h7><%= category.name %></h7>
+													</div><!-- /End Block content -->
+												</div><!--/End Body -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Counter -->
+									</div><!-- /End col-lg-3 -->
+								<% end %>
+							</div><!-- /End row -->
+						</div><!-- /End container -->
+					</div><!-- /End Section -->
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

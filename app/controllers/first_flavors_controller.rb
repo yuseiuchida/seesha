@@ -1,2 +1,0 @@
-class FirstFlavorsController < ApplicationController
-end

@@ -1,0 +1,68 @@
+<header class="header-section header-section-fixed">
+	<!-- Header section container -->
+	<div class="header-section-container">
+		<!-- Header menu section -->
+		<div class="header-menu-section">
+			<!-- Header menu section container -->
+			<div class="header-menu-section-container">
+				<!-- Navbar -->
+				<nav class="navbar navbar-expand-lg">
+					<!-- container -->
+					<div class="container gx-4">
+						<!-- Logo -->
+						<a class="navbar-brand" href="/" title="Seesha">
+							<p>SeeSha</p>
+						</a><!-- /End Logo -->
+						<!-- Header menu (Desktop) -->
+						<div class="header-menu desktop-menu navbar-collapse">
+							<!-- Header menu links -->
+							<ul class="navbar-nav ms-auto">
+								<!-- Home -->
+								<li class="nav-item">
+									<%= link_to "HOME", root_path, class: "nav-link" %>
+								</li>
+								<!-- Search -->
+								<li class="nav-item">
+									<%= link_to "SEARCH", root_path, class: "nav-link" %>
+								</li>
+								<!-- Flavor -->
+								<li class="nav-item">
+									<%= link_to "FLAVOR", combinations_path, class: "nav-link" %>
+									<ul>
+										<li class="nav-item">
+											<%= link_to "組み合わせ", combinations_path, class: "nav-link" %>
+										</li>
+										<li class="nav-item">
+											<%= link_to "フレーバー", flavors_path, class: "nav-link" %>
+										</li>
+										<li class="nav-item">
+											<%= link_to "カテゴリー", categories_path, class: "nav-link" %>
+										</li>
+									</ul>
+								</li>
+								<!-- Shop -->
+								<li class="nav-item">
+									<%= link_to "SHOP", root_path, class: "nav-link" %>
+								</li>
+								<!-- Bookmark -->
+								<li class="nav-item">
+									<%= link_to "BOOKMARK", root_path, class: "nav-link" %>
+								</li>
+								<!-- User -->
+								<% if current_user %>
+									<li class="nav-item">
+										<%= link_to "LOGOUT", logout_path, method: :delete, class: "nav-link" %>
+									</li>
+								<% else %>
+									<li class="nav-item">
+										<%= link_to "LOGIN", login_path, class: "nav-link" %>
+									</li>
+								<% end %>
+							</ul><!-- /End Header menu links -->
+						</div><!-- /End Header menu (Desktop) -->
+					</div><!-- /End container -->
+				</nav><!-- /End Navbar -->
+			</div><!-- /End Header menu section container -->
+		</div><!-- /End Header menu section -->
+	</div><!-- /End Header section container -->
+</header><!-- /End Header section -->

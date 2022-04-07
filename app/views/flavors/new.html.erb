@@ -1,0 +1,91 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+				<!-- Section -->
+				<div class="main-section">
+					<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+
+
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+
+										<!-- Section title body -->
+										<div class="section-title-body">
+
+											<!-- Section title heading -->
+											<div class="section-title-heading">
+												<h2>新規フレーバー</h2>
+											</div><!-- /End Section title heading -->
+
+										</div><!--/End Section title body -->
+
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+
+
+							<!-- col-lg-10 -->
+							<div class="col-lg-10 offset-lg-1">
+
+
+
+								<div class="form-block form-block-validation form-block-bmi">
+									<!-- Form container -->
+									<div class="form-block-container">
+										<!-- Form -->
+										<%= form_with model: @flavor, class: "row", local: true do |f| %>
+
+											<!-- Name -->
+											<div class="col-lg-4">
+												<%= f.label :name, "フレーバー名", class: "label" %>
+												<%= f.text_field :name, class: "form-control" %>
+											</div>
+
+
+											<!-- Category -->
+											<div class="col-lg-4">
+												<%= f.label :category_id, "カテゴリー", class: "label" %>
+												<%= f.select :category_id, @categories.map{|category| [category.name, category.id]}, {}, {class: "form-control valid"} %>
+											</div>
+
+
+											<!-- Submit button -->
+											<div class="col-lg-4">
+												<%= f.submit "登録", class: "btn btn-primary btn-block mt-48" %>
+											</div>
+
+
+										<% end %><!-- /End Form -->
+									</div><!-- /End Form container -->
+								</div>
+
+
+							</div><!-- /End col-lg-10 -->
+
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

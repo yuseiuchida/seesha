@@ -1,0 +1,2 @@
+module ReviewCompabilitiesHelper
+end

@@ -1,0 +1,112 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+					<!-- Section -->
+					<div class="main-section dark-1-color-bg pt-36 pb-18">
+						<!-- container -->
+						<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
+								<!-- col-lg-12 -->
+								<div class="col-lg-12">
+									<!-- CTA -->
+									<div class="main-block cta-block light-color">
+										<!-- Block container -->
+										<div class="main-block-container cta-block-container">
+											<!-- Block body -->
+											<div class="main-block-body cta-block-body">
+
+												<!-- Block content -->
+												<div class="main-block-content cta-block-content">
+													<!-- CTA content container -->
+													<div class="main-block-content-container cta-block-content-container">
+
+														<h3>新規フレーバー登録</h3>
+
+													</div><!-- /End CTA content container -->
+												</div><!-- /End Block content -->
+
+												<!-- Block footer -->
+												<div class="main-block-footer cta-block-footer">
+													<%= link_to "GO", new_flavor_path, class: "btn btn-block btn-lg btn-light btn-outline btn-round" %>
+												</div><!-- /End Block footer -->
+
+											</div><!-- /End Block body -->
+										</div><!-- /End Block container -->
+									</div><!-- /End CTA -->
+								</div><!-- /End col-lg-12 -->
+							</div><!-- /End row -->
+						</div><!-- /End container -->
+					</div><!-- /End Section -->
+
+					<!-- Section -->
+					<div class="main-section">
+						<!-- container -->
+						<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
+
+								<!-- col-lg-8 -->
+								<div class="col-lg-8 offset-lg-2">
+									<!-- Section title -->
+									<div class="section-title text-center">
+										<!-- Section title container -->
+										<div class="section-title-container">
+											<!-- Section title body -->
+											<div class="section-title-body">
+												<!-- Section title heading -->
+												<div class="section-title-heading">
+														<h2>フレーバー</h2>
+												</div><!-- /End Section title heading -->
+											</div><!--/End Section title body -->
+										</div><!-- /End Section title container -->
+									</div><!-- /End Section title -->
+									<!-- GAP -->
+									<div class="gap gap-36"></div>
+								</div><!-- /End col-lg-8 -->
+
+
+								<!-- col-lg-4 -->
+								<% @flavors.each do |flavor| %>
+									<div class="col-lg-4">
+										<!-- Testimonials block -->
+										<div class="main-block boxed-block testimonials-block white-color-bg grey-2-color-border">
+											<!-- Block container -->
+											<div class="main-block-container testimonials-block-container">
+												<!-- Block body -->
+												<div class="main-block-body testimonials-block-body">
+
+													<!-- Block content -->
+													<div class="main-block-content testimonials-block-content">
+														<p><%= flavor.category.name %></p>
+													</div><!-- /End Block content -->
+
+													<!-- Block footer -->
+													<div class="main-block-footer testimonials-block-footer">
+														<h5 class="name"><%= flavor.name %></h5>
+														<%= link_to "詳細", flavor_path(flavor), class: "btn btn-md btn-accent" %>
+													</div><!-- /End Block footer -->
+
+												</div><!--/End Block body -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Testimonials block -->
+									</div><!-- /End col-lg-4 -->
+								<% end %>
+
+
+							</div><!-- /End row -->
+						</div><!-- /End container -->
+					</div><!-- /End Section -->
+
+
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->
