@@ -1,13 +1,90 @@
-<h1>新規フレーバー</h1>
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
 
-<%= form_with model: @combination, url: combinations_path, local: true do |f| %>
-	<%= f.label :first_flavor %>
-	<%= f.select :first_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
-	<%= f.label :second_flavor %>
-	<%= f.select :second_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
-	<%= f.label :third_flavor %>
-	<%= f.select :third_flavor, @flavors.map{ |flavor| [flavor.name, flavor.name]} %>
-	<%= f.submit "登録"%>
-<% end %>
 
-<%= link_to "戻る", combinations_path %>
+				<!-- Section -->
+				<div class="main-section">
+					<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+
+
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+
+										<!-- Section title body -->
+										<div class="section-title-body">
+
+											<!-- Section title heading -->
+											<div class="section-title-heading">
+												<h2>新規コンビネーション</h2>
+											</div><!-- /End Section title heading -->
+
+										</div><!--/End Section title body -->
+
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+
+
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+								<!-- Contact form -->
+								<div class="form-block form-block-validation form-block-contact">
+									<!-- Form container -->
+									<div class="form-block-container">
+										<!-- Form -->
+										<%= form_with model: @combination, url: combinations_path, class: "row", local: true do |f| %>
+
+
+											<!-- FirstFlavor -->
+											<div class="col-md-6">
+												<%= f.label :first_flavor_id, "1つ目", class: "label" %>
+												<%= f.select :first_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+											</div>
+
+
+											<!-- SecondFlavor -->
+											<div class="col-md-6">
+												<%= f.label :second_flavor_id, "2つ目", class: "label" %>
+												<%= f.select :second_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+											</div>
+
+
+											<!-- Submit button -->
+											<div class="col-lg-12">
+												<%= f.submit "登録", class: "btn btn-primary btn-block" %>
+											</div>
+
+
+										<% end %><!-- /End Form -->
+									</div><!-- /End Form container -->
+								</div><!-- /End Contact form -->
+							</div><!-- /End col-lg-8 -->
+
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
+
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

@@ -1,0 +1,2 @@
+class ReviewCompabilitiesController < ApplicationController
+end

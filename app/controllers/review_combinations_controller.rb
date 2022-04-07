@@ -1,0 +1,2 @@
+class ReviewCombinationsController < ApplicationController
+end
