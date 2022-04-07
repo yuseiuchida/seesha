@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_082921) do
+ActiveRecord::Schema.define(version: 2022_04_07_105929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,31 @@ ActiveRecord::Schema.define(version: 2022_04_07_082921) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "review_combinations", force: :cascade do |t|
+    t.bigint "combination_id"
+    t.bigint "user_id"
+    t.string "opinion", null: false
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combination_id"], name: "index_review_combinations_on_combination_id"
+    t.index ["user_id"], name: "index_review_combinations_on_user_id"
+  end
+
+  create_table "review_compabilities", force: :cascade do |t|
+    t.bigint "compability_id"
+    t.bigint "user_id"
+    t.string "sweet"
+    t.string "refresh"
+    t.string "easy"
+    t.string "opinion", null: false
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["compability_id"], name: "index_review_compabilities_on_compability_id"
+    t.index ["user_id"], name: "index_review_compabilities_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -87,4 +112,8 @@ ActiveRecord::Schema.define(version: 2022_04_07_082921) do
   add_foreign_key "compabilities", "combinations", column: "sub_combination_id"
   add_foreign_key "likes", "combinations"
   add_foreign_key "likes", "users"
+  add_foreign_key "review_combinations", "combinations"
+  add_foreign_key "review_combinations", "users"
+  add_foreign_key "review_compabilities", "compabilities"
+  add_foreign_key "review_compabilities", "users"
 end
