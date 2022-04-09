@@ -29,7 +29,12 @@ class CombinationsController < ApplicationController
 
 	def show
 		@combination = Combination.find(params[:id])
+		if @combination.review_combinations.exists?
+			@combination.set_status
+		end
 		@compabilities = Compability.where(main_combination_id: @combination.id)
+		@review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
+		@review_combination = ReviewCombination.new
 	end
 
 	def likes

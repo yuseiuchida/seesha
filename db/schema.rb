@@ -26,11 +26,14 @@ ActiveRecord::Schema.define(version: 2022_04_07_105929) do
     t.bigint "second_flavor_id"
     t.string "content"
     t.string "keyword", null: false
-    t.bigint "recommend_id"
+    t.integer "score"
+    t.string "status"
+    t.integer "sweet_rate"
+    t.integer "refresh_rate"
+    t.integer "easy_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["first_flavor_id"], name: "index_combinations_on_first_flavor_id"
-    t.index ["recommend_id"], name: "index_combinations_on_recommend_id"
     t.index ["second_flavor_id"], name: "index_combinations_on_second_flavor_id"
   end
 
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_105929) do
     t.bigint "main_combination_id"
     t.bigint "sub_combination_id"
     t.string "kind", null: false
+    t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["main_combination_id"], name: "index_compabilities_on_main_combination_id"
@@ -74,6 +78,9 @@ ActiveRecord::Schema.define(version: 2022_04_07_105929) do
   create_table "review_combinations", force: :cascade do |t|
     t.bigint "combination_id"
     t.bigint "user_id"
+    t.string "sweet"
+    t.string "refresh"
+    t.string "easy"
     t.string "opinion", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
@@ -85,9 +92,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_105929) do
   create_table "review_compabilities", force: :cascade do |t|
     t.bigint "compability_id"
     t.bigint "user_id"
-    t.string "sweet"
-    t.string "refresh"
-    t.string "easy"
     t.string "opinion", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
@@ -101,13 +105,13 @@ ActiveRecord::Schema.define(version: 2022_04_07_105929) do
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
+    t.integer "role", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
-  add_foreign_key "combinations", "recommends"
   add_foreign_key "compabilities", "combinations", column: "main_combination_id"
   add_foreign_key "compabilities", "combinations", column: "sub_combination_id"
   add_foreign_key "likes", "combinations"
