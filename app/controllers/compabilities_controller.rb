@@ -1,7 +1,18 @@
 class CompabilitiesController < ApplicationController
 	before_action :set_combinations, only: %i[new create]
+
+	def index
+		@compabilities = Compability.all
+	end
+
 	def new
 		@compability = Compability.new
+	end
+
+	def show
+		@compability = Compability.find(params[:id])
+		@review = ReviewCompability.where(compability_id: @compability.id)
+		@review_compsbility = ReviewCompability.new
 	end
 
 	def create

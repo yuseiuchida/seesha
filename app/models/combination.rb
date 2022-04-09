@@ -7,4 +7,18 @@ class Combination < ApplicationRecord
 	has_many :review_combinations
 
 	validates :keyword, uniqueness: true
+
+	STATUS = ["VERY GOOD", "GOOD", "NOT BAD", "NOT GOOD"]
+
+	def set_status
+		if self.score > 5
+			self.update(status: Combination::STATUS[0])
+		elsif self.score >= 1
+			self.update(status: Combination::STATUS[1])
+		elsif self.score < -2
+			self.update(status: Combination::STATUS[2])
+		else
+			self.update(status: Combination::STATUS[3])
+		end
+	end
 end

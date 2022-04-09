@@ -14,35 +14,6 @@
 								<!-- row -->
 								<div class="row gx-36">
 
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
-
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
-
-												<!-- Section title body -->
-												<div class="section-title-body">
-
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2>
-															<%= @combination.keyword %>
-														</h2>
-													</div><!-- /End Section title heading -->
-
-												</div><!--/End Section title body -->
-
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
-
-										<!-- GAP -->
-										<div class="gap gap-36"></div>
-
-									</div><!-- /End col-lg-8 -->
-
-									<% if @combination.review_combinations.exists? %>
 										<!-- col-lg-8 -->
 										<div class="col-lg-8 offset-lg-2">
 
@@ -56,16 +27,22 @@
 
 														<!-- Section title heading -->
 														<div class="section-title-heading">
-															<h2><%= @combination.status %></h2>
+															<h2>
+																<%= @compability.main_combination.keyword %>
+																<%= @compability.sub_combination.keyword %>
+															</h2>
 														</div><!-- /End Section title heading -->
 
 													</div><!--/End Section title body -->
 
 												</div><!-- /End Section title container -->
 											</div><!-- /End Section title -->
+
+											<!-- GAP -->
+											<div class="gap gap-36"></div>
+
 										</div><!-- /End col-lg-8 -->
 
-									<% else %>
 										<!-- col-lg-8 -->
 										<div class="col-lg-8 offset-lg-2">
 
@@ -79,7 +56,11 @@
 
 														<!-- Section title heading -->
 														<div class="section-title-heading">
-															<h2>まだ評価されていません</h2>
+															<% if @compability.review_compabilities.exists? %>
+																<h2><%= @compability.review_compabilities.first.opinion %></h2>
+															<% else %>
+																<h2>評価なし</h2>
+															<% end %>
 														</div><!-- /End Section title heading -->
 
 													</div><!--/End Section title body -->
@@ -87,124 +68,10 @@
 												</div><!-- /End Section title container -->
 											</div><!-- /End Section title -->
 										</div><!-- /End col-lg-8 -->
-									<% end %>
-
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
-
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
-
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-solid fa-cubes-stacked"></i>
-													</div><!-- /End Block header -->
-
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
-
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>甘さ</h4>
-														</div><!-- /End Block heading -->
-
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.sweet_rate %>%</p>
-														</div><!-- /End Block content -->
-
-													</div><!--/End Block body -->
-
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
-
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
-
-									</div><!-- /End col-lg-4 -->
-
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
-
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
-
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-solid fa-wind"></i>
-													</div><!-- /End Block header -->
-
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
-
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>スッキリ感</h4>
-														</div><!-- /End Block heading -->
-
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.refresh_rate %>%</p>
-														</div><!-- /End Block content -->
-
-													</div><!--/End Block body -->
-
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
-
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
-
-									</div><!-- /End col-lg-4 -->
-
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
-
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
-
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-brands fa-ello"></i>
-													</div><!-- /End Block header -->
-
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
-
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>吸いやすさ</h4>
-														</div><!-- /End Block heading -->
-
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.easy_rate %>%</p>
-														</div><!-- /End Block content -->
-
-													</div><!--/End Block body -->
-
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
-
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
-
-									</div><!-- /End col-lg-4 -->
-
 
 								</div><!-- /End row -->
 						</div><!-- /End container -->
 				</div><!-- /End Section -->
-
-				<% if @compabilities.exists? %>
-					<%= render 'compability', {compabilities: @compabilities} %>
-				<% end %>
 
 			</main><!-- /End Main -->
 		</div><!-- /End Content area -->
@@ -256,7 +123,7 @@
 														<div class="main-block-body comments-block-body">
 															<!-- Block heading -->
 															<div class="main-block-heading comments-block-heading section-title-small">
-																<h6 class="font-weight-500"><span><%= @review.count %> Comments</span></h6>
+																<h6 class="font-weight-500"><span><%= @compability.review_compabilities.count %> Comments</span></h6>
 															</div><!-- /End Block heading -->
 															<!-- Block content -->
 															<div class="main-block-content comments-block-content">
@@ -270,7 +137,6 @@
 																			<div class="main-block-container comment-block-container">
 
 																				<% @review.each do |review| %>
-
 																					<!-- Comment Block Avatar -->
 																					<div class="main-block-header comment-block-header">
 																						<%= image_tag "avatar.jpeg" %>
@@ -289,7 +155,6 @@
 																						</div><!-- /End Comment Block Description -->
 
 																					</div><!-- /End Comment Block Body -->
-
 																				<% end %>
 
 																			</div><!-- /End Comment Block Container -->
@@ -320,7 +185,7 @@
 																	<!-- Form container -->
 																	<div class="form-block-container">
 																		<!-- Form -->
-																		<%= form_with model: @review_combination, url: combination_review_combinations_path(@combination), class: "row", local: true do |f| %>
+																		<%= form_with model: @review_compsbility, url: compability_review_compabilities_path(@compability), class: "row", local: true do |f| %>
 
 
 																			<!-- Opinion -->
@@ -328,35 +193,8 @@
 																				<%= f.label :opinion, class: "label" do %>
 																					評価 <span class="red-color">*</span>
 																				<% end %>
-																				<%= f.select :opinion, ReviewCombination::OPINION.map, {}, {class: "form-control"} %>
+																				<%= f.select :opinion, ReviewCompability::OPINION.map, {}, {class: "form-control"} %>
 																			</div><!-- /End Opinion -->
-
-
-																			<!-- Sweet -->
-																			<div class="col-md-7">
-																				<%= f.label :sweet, class: "label" do %>
-																					甘さ
-																				<% end %>
-																				<%= f.select :sweet, ReviewCombination::SWEET.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Sweet -->
-
-
-																			<!-- Refresh -->
-																			<div class="col-md-7">
-																				<%= f.label :refresh, class: "label" do %>
-																					スッキリ感
-																				<% end %>
-																				<%= f.select :refresh, ReviewCombination::REFRESH.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Refresh -->
-
-
-																			<!-- Easy -->
-																			<div class="col-md-7">
-																				<%= f.label :easy, class: "label" do %>
-																					吸いやすさ
-																				<% end %>
-																				<%= f.select :easy, ReviewCombination::EASY.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Easy -->
 
 
 																			<!-- Comment -->
