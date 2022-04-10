@@ -11,14 +11,17 @@ class CompabilitiesController < ApplicationController
 
 	def show
 		@compability = Compability.find(params[:id])
-		@review = ReviewCompability.where(compability_id: @compability.id)
+		if @compability.review_compabilities.exists?
+			@compability.set_status
+		end
+		@review = ReviewCompability.where(compability_id: @compability.id).where.not(comment: "")
 		@review_compsbility = ReviewCompability.new
 	end
 
 	def create
-		@compability = Compability.new(main_combination_id: params[:combination_id], sub_combination_id: compability_params[:sub_combination_id], kind: compability_params[:kind])
+		@compability = Compability.new(compability_params)
 		if @compability.save
-			redirect_to combination_path(params[:combination_id])
+			redirect_to combinations_path
 		else
 			render :new
 		end
@@ -27,11 +30,11 @@ class CompabilitiesController < ApplicationController
 	private
 
 	def compability_params
-		params.require(:compability).permit(:sub_combination_id, :kind)
+		params.require(:compability).permit(:main_combination_id, :sub_combination_id, :kind)
 	end
 
 	def set_combinations
-		@main_combination = Combination.find(params[:combination_id])
+		@main_combination = Combination.all
 		@combinations = Combination.all
 	end
 end

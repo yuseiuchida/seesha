@@ -2,29 +2,29 @@ class ReviewCombination < ApplicationRecord
 	belongs_to :user
 	belongs_to :combination
 
-	OPINION = ["", "VERY GOOD", "GOOD", "NOT BAD", "NOT GOOD", "BAD"]
+	OPINION = ["VERY GOOD", "GOOD", "NOT BAD", "NOT GOOD", "BAD"]
 	SWEET = ["", "甘い", "甘くない"]
 	REFRESH = ["", "スッキリする", "スッキリしない"]
+	RELAX = ["", "リラックスする", "リラックスしない"]
 	EASY = ["", "吸いやすい", "個性的"]
 
-	def set_rate_for_combination
-		sweet_rate = (( ReviewCombination.where(sweet: "甘い", combination_id: self.combination.id).count.to_f / ReviewCombination.all.count.to_f ).round(3) * 100).to_i
-		Combination.find(self.combination.id).update(sweet_rate: sweet_rate)
+	def setup_score
+		status = Status.find_by(combination_id: self.combination_id)
+		sweet = ((self.where(sweet: ReviewCombination::SWEET[1]).count.to_f / self.where.not(sweet: ReviewCombination::SWEET[0]).count.to_f).round(3)) * 100
+		refresh = ((self.where(sweet: ReviewCombination::REFRESH[1]).count.to_f / self.where.not(sweet: ReviewCombination::REFRESH[0]).count.to_f).round(3)) * 100
+		relax = ((self.where(sweet: ReviewCombination::RELAX[1]).count.to_f / self.where.not(sweet: ReviewCombination::RELAX[0]).count.to_f).round(3)) * 100
+		easy = ((self.where(sweet: ReviewCombination::EASY[1]).count.to_f / self.where.not(sweet: ReviewCombination::EASY[0]).count.to_f).round(3)) * 100
 
-		refresh_rate = (( ReviewCombination.where(refresh: "スッキリする", combination_id: self.combination.id).count.to_f / ReviewCombination.all.count.to_f ).round(3) * 100).to_i
-		Combination.find(self.combination.id).update(refresh_rate: refresh_rate)
-
-		easy_rate = (( ReviewCombination.where(easy: "吸いやすい", combination_id: self.combination.id).count.to_f / ReviewCombination.all.count.to_f ).round(3) * 100).to_i
-		Combination.find(self.combination.id).update(easy_rate: easy_rate)
-	end
-
-	def set_score_for_combination
-		reviews = ReviewCombination.where(combination_id: self.combination.id)
-		positive2 = reviews.where(opinion: "VERY GOOD").count * 2
-		positive1 = reviews.where(opinion: "GOOD").count * 1
-		negative1 = reviews.where(opinion: "NOT GOOD").count * -1
-		negative2 = reviews.where(opinion: "BAD").count * -2
-		total_score = positive2 + positive1 + negative1 + negative2
-		Combination.find(self.combination.id).update(score: total_score)
+		if self.opinion == ReviewCombination::OPINION[0]
+			status.update(sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy, opinion: status.opinion + 5)
+		elsif self.opinion == ReviewCombination::OPINION[1]
+			status.update(sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy, opinion: status.opinion + 2)
+		elsif self.opinion == ReviewCombination::OPINION[2]
+			status.update(sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy, opinion: status.opinion + 0)
+		elsif self.opinion == ReviewCombination::OPINION[3]
+			status.update(sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy, opinion: status.opinion - 2)
+		else
+			status.update(sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy, opinion: status.opinion - 5)
+		end
 	end
 end

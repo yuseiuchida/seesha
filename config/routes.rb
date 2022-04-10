@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :flavors, only: %i[index new create show]
   resources :categories, only: %i[index new create show]
   resources :likes, only: %i[create destroy]
-  get 'search' => 'searchs#index'
+  resources :searchs, only: %i[index show create]
 end

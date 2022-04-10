@@ -16,52 +16,6 @@
 						<div class="row gx-36">
 
 
-							<!-- col-lg-12 -->
-							<div class="col-lg-12">
-
-									<!-- CTA -->
-									<div class="main-block cta-block boxed-block white-color-bg grey-2-color-border">
-										<!-- Block container -->
-										<div class="main-block-container cta-block-container">
-
-											<!-- Block body -->
-											<div class="main-block-body cta-block-body">
-
-												<!-- Block content -->
-												<div class="main-block-content cta-block-content">
-													<!-- CTA content container -->
-													<div class="main-block-content-container cta-block-content-container">
-
-														<h4>新しい組み合わせを投稿する</h4>
-
-													</div><!-- /End CTA content container -->
-												</div><!-- /End Block content -->
-
-												<!-- Block footer -->
-												<div class="main-block-footer cta-block-footer">
-													<%= link_to "GO", new_combination_path, class: "btn btn-block btn-lg btn-primary text-light" %>
-												</div><!-- /End Block footer -->
-
-											</div><!-- /End Block body -->
-
-										</div><!-- /End Block container -->
-									</div><!-- /End CTA -->
-
-							</div><!-- /End col-lg-12 -->
-
-
-						</div><!-- /End row -->
-					</div><!-- /End container -->
-				</div><!-- /End Section -->
-
-				<!-- Section -->
-				<div class="main-section">
-						<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
-
-
 							<!-- col-lg-8 -->
 							<div class="col-lg-8 offset-lg-2">
 
@@ -97,8 +51,9 @@
 										<div class="main-block-container testimonials-block-container">
 
 											<!-- Block header -->
-											<div class="main-block-header testimonials-block-header">
-												<%= image_tag 'sample.jpeg' %>
+											<div class="main-block-header row">
+												<div class="col-lg-6 testimonials-block-header"><%= image_tag 'sample.jpeg' %></div>
+												<div class="col-lg-6 testimonials-block-header"><%= image_tag 'sample.jpeg' %></div>
 											</div><!-- /End Block header -->
 
 											<!-- Block body -->
@@ -107,7 +62,7 @@
 												<!-- Block heading -->
 												<div class="main-block-heading testimonials-block-heading">
 													<h5 class="name">
-														<%= combination.keyword %>
+														<%= combination.title %>
 													</h5>
 													<h6 class="role font-weight-500 accent-color">Hoge Hoge</h6>
 												</div><!-- /End Block heading -->
@@ -129,12 +84,75 @@
 								</div><!-- /End col-lg-4 -->
 							<% end %>
 
+							<!-- col-lg-12 -->
+							<div class="col-lg-12 text-center">
+								<%= link_to 'コンビネーション追加', new_combination_path, class: "btn btn-md btn-outline btn-round btn-primary ml-18 mr-18 mb-36" %>
+							</div>
+
 
 						</div><!-- /End row -->
 					</div><!-- /End container -->
 				</div><!-- /End Section -->
 
+				<!-- boarder -->
+				<div class="main-section section-fullwidth pt-0 pb-0">
+					<div class="container-fluid gx-0">
+						<div class="row gx-36">
+							<div class="col-lg-12">
+								<div class="hr-divider hr-divider-layout-3 hr-divider-1px-border hr-divider-fullwidth grey-2-color"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<!-- Section -->
+				<div class="main-section">
+						<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+
+
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+
+										<!-- Section title body -->
+										<div class="section-title-body">
+
+											<!-- Section title heading -->
+											<div class="section-title-heading">
+												<h2>オーダーの組み合わせ</h2>
+											</div><!-- /End Section title heading -->
+
+										</div><!--/End Section title body -->
+
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+
+							<% @compabilities.each do |compability| %>
+								<%= render 'compabilities/content', {compability: compability} %>
+							<% end %>
+
+
+							<!-- col-lg-12 -->
+							<div class="col-lg-12 text-center">
+								<%= link_to '組み合わせ追加', new_compability_path, class: "btn btn-md btn-outline btn-round btn-primary ml-18 mr-18 mb-36" %>
+							</div>
+
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
 
 			</main><!-- /End Main -->
 		</div><!-- /End Content area -->

@@ -20,7 +20,7 @@ class FlavorsController < ApplicationController
 	private
 
 	def flavor_params
-		params.require(:flavor).permit(:name, :category_id)
+		params.require(:flavor).permit(:name, :category_id, :image)
 	end
 
 	def set_category

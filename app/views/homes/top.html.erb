@@ -10,276 +10,125 @@
 
         <!-- Section -->
         <div class="main-section pb-0">
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
+					<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
 
 
-                    <!-- col-lg-8 -->
-                    <div class="col-lg-8 offset-lg-2">
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
 
-                        <!-- Section title -->
-                        <div class="section-title text-center">
-                            <!-- Section title container -->
-                            <div class="section-title-container">
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
 
-                                <!-- Section title body -->
-                                <div class="section-title-body">
+										<!-- Section title body -->
+										<div class="section-title-body">
 
-                                    <!-- Section title heading -->
-                                    <div class="section-title-heading">
-                                        <h6 class="font-weight-500 accent-color">Our Work</h6>
-                                        <h2>Recent Projects</h2>
-                                    </div><!-- /End Section title heading -->
+											<!-- Section title heading -->
+											<div class="section-title-heading">
+												<h2>フレーバー診断</h2>
+											</div><!-- /End Section title heading -->
 
-                                    <!-- Divider -->
-                                    <div class="hr-divider hr-divider-layout-1 accent-color"></div>
+											<!-- Block content -->
+											<div class="section-title-content">
+												<p>シーシャのフレーバーの組み合わせは無限大、自分に合うフレーバーを探してみよう</p>
+											</div><!-- /End Block content -->
 
-                                    <!-- Block content -->
-                                    <div class="section-title-content">
-                                        <p>Praesent dignissim nibh quis ante dignissim, in posuere dui feugiat. duis elit dui, vestibulum nec ipsum id, finibus sollicitudin elit. cras et purus sagittis, volutpat est id.</p>
-                                    </div><!-- /End Block content -->
+										</div><!--/End Section title body -->
 
-                                </div><!--/End Section title body -->
-
-                            </div><!-- /End Section title container -->
-                        </div><!-- /End Section title -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-36"></div>
-
-                    </div><!-- /End col-lg-8 -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
 
 
-                </div><!-- /End row -->
-            </div><!-- /End container -->
+							</div><!-- /End col-lg-8 -->
+
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
         </div><!-- /End Section -->
 
 
         <!-- Section -->
         <div class="main-section">
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
+					<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
 
 
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
+							<!-- col-lg-6 -->
+							<div class="col-lg-6">
 
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
+								<!-- Text block -->
+								<div class="main-block text-block">
+									<!-- Block container -->
+									<div class="main-block-container text-block-container">
 
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
+										<!-- Block body -->
+										<div class="main-block-body text-block-body">
 
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>General contracting</h4>
-                                    </div><!-- /End Block heading -->
+											<!-- Block heading -->
+											<div class="main-block-heading text-block-heading">
+                        <% if @easy_searchs.exists? %>
+                          <%= link_to search_path(@easy_search_id) do %>
+                            <h4>とりあえず診断</h4>
+                          <% end %>
+                        <% else %>
+                          <%= link_to new_combination_path do%>
+                            <h4>新規フレーバー登録</h4>
+                          <% end %>
+                        <% end %>
+											</div><!-- /End Block heading -->
 
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis nibh ac erat sodales egestas. Praesent in luctus dui.</p>
-                                    </div><!-- /End Block content -->
+											<!-- Block content -->
+											<div class="main-block-content text-block-content">
+												<p>シンプルに診断、なんでも良いけど迷っている人におすすめ！</p>
+											</div><!-- /End Block content -->
 
-                                </div><!--/End Block body -->
+										</div><!--/End Block body -->
 
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
+									</div><!-- /End Block container -->
+								</div><!-- /End Text block -->
 
-                        <!-- GAP -->
-                        <div class="gap gap-18 d-none d-lg-block"></div>
-                        <div class="gap gap-18"></div>
+							</div>
 
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
+							<!-- col-lg-6 -->
+							<div class="col-lg-6">
 
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
+								<!-- Text block -->
+								<div class="main-block text-block">
+									<!-- Block container -->
+									<div class="main-block-container text-block-container">
 
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>Pre-construction</h4>
-                                    </div><!-- /End Block heading -->
+										<!-- Block body -->
+										<div class="main-block-body text-block-body">
 
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>In neque enim, congue ac mattis sed, ultricies pretium leo. Fusce el, nulla lobortis. In dui, eget mollis quis ante. Fusce el, nulla lobortis.</p>
-                                    </div><!-- /End Block content -->
+											<!-- Block heading -->
+											<div class="main-block-heading text-block-heading">
+												<%= link_to searchs_path do %>
+                          <h4>おすすめ診断</h4>
+                        <% end %>
+											</div><!-- /End Block heading -->
 
-                                </div><!--/End Block body -->
+											<!-- Block content -->
+											<div class="main-block-content text-block-content">
+												<p>好みや評価を考慮して診断、自分にピッタリなモノを探している人におすすめ！</p>
+											</div><!-- /End Block content -->
 
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
+										</div><!--/End Block body -->
 
-                        <!-- GAP -->
-                        <div class="gap gap-18 d-lg-none"></div>
+									</div><!-- /End Block container -->
+								</div><!-- /End Text block -->
 
-                    </div><!-- /End col-lg-4 -->
-
-
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
-
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>Renovations</h4>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>Duis euismod diam sit amet sem bibendum consectetur. Praesent in luctus dui, eget mollis quis ante. Vestibulum nec ipsum id, finibus elit.</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-18 d-none d-lg-block"></div>
-                        <div class="gap gap-18"></div>
-
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>Design &amp; build</h4>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>In neque enim, congue ac mattis sed, ultricies pretium leo. Fusce el, nulla lobortis interdum urna, rutrum a felis. Nam nibh ac erat sodales.</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-18 d-lg-none"></div>
-
-                    </div><!-- /End col-lg-4 -->
+							</div>
 
 
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
 
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>Tiling &amp; painting</h4>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>Mauris lectus urna, rutrum a felis a, consectetur placerat quam. Quisque placerat turpis magna. In dui, eget mollis quis ante.</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-18 d-none d-lg-block"></div>
-                        <div class="gap gap-18"></div>
-
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading text-block-heading">
-                                        <h4>Consulting</h4>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-                                        <p>Praesent dignissim nibh quis ante dignissim, in posuere dui feugiat. Duis elit dui, vestibulum nec. Vestibulum nec ipsum id, finibus elit.</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                    </div><!-- /End col-lg-4 -->
-
-
-                </div><!-- /End row -->
-            </div><!-- /End container -->
-        </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section dark-1-color-bg pt-72 pb-36">
-          <!-- container -->
-          <div class="container gx-4">
-            <!-- row -->
-            <div class="row gx-36">
-              <!-- col-lg-12 -->
-              <div class="col-lg-12">
-                <!-- CTA -->
-                <div class="main-block cta-block light-color">
-                  <!-- Block container -->
-                  <div class="main-block-container cta-block-container">
-                    <!-- Block body -->
-                    <div class="main-block-body cta-block-body">
-
-                      <!-- Block content -->
-                      <div class="main-block-content cta-block-content">
-                        <!-- CTA content container -->
-                        <div class="main-block-content-container cta-block-content-container">
-
-                          <h3>フレーバーの組み合わせを探す</h3>
-
-                        </div><!-- /End CTA content container -->
-                      </div><!-- /End Block content -->
-
-                      <!-- Block footer -->
-                      <div class="main-block-footer cta-block-footer">
-                        <%= link_to "GO", search_path, class: "btn btn-block btn-lg btn-light btn-outline btn-round" %>
-                      </div><!-- /End Block footer -->
-
-                    </div><!-- /End Block body -->
-                  </div><!-- /End Block container -->
-                </div><!-- /End CTA -->
-              </div><!-- /End col-lg-12 -->
-            </div><!-- /End row -->
-          </div><!-- /End container -->
+						</div><!-- /End row -->
+					</div><!-- /End container -->
         </div><!-- /End Section -->
 
 

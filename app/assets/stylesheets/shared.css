@@ -9677,6 +9677,10 @@ table th {
   border-radius: 50%;
 }
 
+.testimonials-block .twin-block-header img {
+  width: 150px;
+}
+
 .testimonials-block .testimonials-block-heading.name-rate {
   margin: 0 0 18px;
 

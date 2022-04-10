@@ -72,33 +72,42 @@
 								</div><!-- /End col-lg-8 -->
 
 
-								<!-- col-lg-4 -->
+
 								<% @flavors.each do |flavor| %>
+									<!-- col-lg-4 -->
 									<div class="col-lg-4">
 										<!-- Testimonials block -->
-										<div class="main-block boxed-block testimonials-block white-color-bg grey-2-color-border">
+										<div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center">
 											<!-- Block container -->
 											<div class="main-block-container testimonials-block-container">
+
+												<!-- Block header -->
+												<div class="main-block-header testimonials-block-header">
+													<%= image_tag 'sample.jpeg' %>
+												</div><!-- /End Block header -->
+
 												<!-- Block body -->
 												<div class="main-block-body testimonials-block-body">
 
+													<!-- Block heading -->
+													<div class="main-block-heading testimonials-block-heading">
+														<h5 class="name">
+															<%= flavor.name %>
+														</h5>
+														<h6 class="role font-weight-500 accent-color"><%= flavor.category.name %></h6>
+													</div><!-- /End Block heading -->
+
 													<!-- Block content -->
 													<div class="main-block-content testimonials-block-content">
-														<p><%= flavor.category.name %></p>
+														<p><%= link_to 'show', flavor_path(flavor) %></p>
 													</div><!-- /End Block content -->
 
-													<!-- Block footer -->
-													<div class="main-block-footer testimonials-block-footer">
-														<h5 class="name"><%= flavor.name %></h5>
-														<%= link_to "詳細", flavor_path(flavor), class: "btn btn-md btn-accent" %>
-													</div><!-- /End Block footer -->
-
 												</div><!--/End Block body -->
+
 											</div><!-- /End Block container -->
 										</div><!-- /End Testimonials block -->
 									</div><!-- /End col-lg-4 -->
 								<% end %>
-
 
 							</div><!-- /End row -->
 						</div><!-- /End container -->

@@ -3,6 +3,7 @@ class CombinationsController < ApplicationController
 
 	def index
 		@combinations = Combination.all
+		@compabilities = Compability.all
 	end
 
 	def new
@@ -10,17 +11,13 @@ class CombinationsController < ApplicationController
 	end
 
 	def create
-		first_flavor_key = combination_params[:first_flavor_id]
-		second_flavor_key = combination_params[:second_flavor_id]
-		if first_flavor_key <= second_flavor_key
-			keyword = Flavor.find(first_flavor_key).name + " " + Flavor.find(second_flavor_key).name
-		else
-			keyword = Flavor.find(second_flavor_key).name + " " + Flavor.find(first_flavor_key).name
-		end
+		title = Flavor.find(combination_params[:first_flavor_id]).name + " " + Flavor.find(combination_params[:second_flavor_id]).name
 
-		@combination = Combination.new(first_flavor_id: first_flavor_key, second_flavor_id: second_flavor_key, keyword: keyword)
-
+		@combination = Combination.new(first_flavor_id: combination_params[:first_flavor_id], second_flavor_id: combination_params[:second_flavor_id], title: title)
 		if @combination.save
+			
+			@poster_status = PosterStatus.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
+			@poster_status.setup_score
 			redirect_to combinations_path
 		else
 			render :new
@@ -29,9 +26,6 @@ class CombinationsController < ApplicationController
 
 	def show
 		@combination = Combination.find(params[:id])
-		if @combination.review_combinations.exists?
-			@combination.set_status
-		end
 		@compabilities = Compability.where(main_combination_id: @combination.id)
 		@review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
 		@review_combination = ReviewCombination.new
@@ -44,7 +38,7 @@ class CombinationsController < ApplicationController
 	private
 
 	def combination_params
-		params.require(:combination).permit(:first_flavor_id, :second_flavor_id)
+		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :title, :sweet, :refresh, :relax, :easy, :opinion)
 	end
 
 	def set_flavors
