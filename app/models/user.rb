@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :email, :name, uniqueness: true
   validates :email, :name, presence: true
 
+  enum role: { general: 0, admin: 1 }
+
   def like(combination)
     like_combinations << combination
   end

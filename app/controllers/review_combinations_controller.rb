@@ -3,7 +3,6 @@ class ReviewCombinationsController < ApplicationController
 		@review_combination = current_user.review_combinations.new(review_combination_params)
 		if @review_combination.save
 			@review_combination.setup_score
-			binding.pry
 			redirect_to combination_path(params[:combination_id])
 		else
 			redirect_to combination_path(params[:combination_id])

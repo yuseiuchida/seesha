@@ -1,3 +1,18 @@
 // Place all the styles related to the flavors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.flavor-image img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 20%;
+}
+
+.flavor-image:hover {
+  background-position: right;
+}
+
+.flavor-name {
+  font-weight: 300;
+  font-size: 24px;
+}

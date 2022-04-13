@@ -11,7 +11,7 @@ class SearchsController < ApplicationController
 	def show
 		@combination = Combination.find(params[:id])
 		@compabilities = Compability.where(main_combination_id: @combination.id).limit(2)
-		easy_searchs = Combination.where(status: Combination::STATUS[0]).or(Combination.where(status: Combination::STATUS[1]))
+		easy_searchs = Combination.all
 		ids = []
 		easy_searchs.each do |easy_search|
 			ids << easy_search.id
@@ -20,6 +20,5 @@ class SearchsController < ApplicationController
 	end
 
 	private
-
 
 end

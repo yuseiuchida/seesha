@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_140216) do
+ActiveRecord::Schema.define(version: 2022_04_10_214507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2022_04_10_140216) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coefficients", force: :cascade do |t|
+    t.bigint "combination_id"
+    t.float "sweet", default: 1.0
+    t.float "refresh", default: 1.0
+    t.float "relax", default: 1.0
+    t.float "easy", default: 1.0
+    t.float "opinion", default: 1.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combination_id"], name: "index_coefficients_on_combination_id"
   end
 
   create_table "combinations", force: :cascade do |t|
@@ -46,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_04_10_140216) do
   create_table "flavors", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "category_id"
-    t.string "image"
+    t.string "flavor_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_flavors_on_category_id"
@@ -62,16 +74,29 @@ ActiveRecord::Schema.define(version: 2022_04_10_140216) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "poster_statuses", force: :cascade do |t|
+  create_table "posters", force: :cascade do |t|
     t.bigint "combination_id"
-    t.string "opinion"
-    t.string "sweet"
-    t.string "refresh"
-    t.string "relax"
-    t.string "easy"
+    t.float "sweet"
+    t.float "refresh"
+    t.float "relax"
+    t.float "easy"
+    t.float "opinion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["combination_id"], name: "index_poster_statuses_on_combination_id"
+    t.index ["combination_id"], name: "index_posters_on_combination_id"
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.bigint "combination_id"
+    t.float "sweet"
+    t.float "refresh"
+    t.float "relax"
+    t.float "easy"
+    t.float "opinion"
+    t.string "opinion_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combination_id"], name: "index_rates_on_combination_id"
   end
 
   create_table "review_combinations", force: :cascade do |t|
@@ -100,18 +125,6 @@ ActiveRecord::Schema.define(version: 2022_04_10_140216) do
     t.index ["user_id"], name: "index_review_compabilities_on_user_id"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.bigint "combination_id"
-    t.integer "sweet_rate"
-    t.integer "refresh_rate"
-    t.integer "relax_rate"
-    t.integer "easy_rate"
-    t.integer "score"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["combination_id"], name: "index_statuses_on_combination_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -125,14 +138,15 @@ ActiveRecord::Schema.define(version: 2022_04_10_140216) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "coefficients", "combinations"
   add_foreign_key "compabilities", "combinations", column: "main_combination_id"
   add_foreign_key "compabilities", "combinations", column: "sub_combination_id"
   add_foreign_key "likes", "combinations"
   add_foreign_key "likes", "users"
-  add_foreign_key "poster_statuses", "combinations"
+  add_foreign_key "posters", "combinations"
+  add_foreign_key "rates", "combinations"
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"
   add_foreign_key "review_compabilities", "compabilities"
   add_foreign_key "review_compabilities", "users"
-  add_foreign_key "statuses", "combinations"
 end

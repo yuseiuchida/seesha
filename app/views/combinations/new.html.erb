@@ -79,14 +79,14 @@
 													評価 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :opinion, 'strong', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_strong, 'VERY GOOD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, 'positive', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_positive, 'GOOD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, 'neutral', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_neutral, 'NOT BAD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, 'negative', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_negative, 'NOT GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :opinion, '5', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :opinion_5, 'VERY GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :opinion, '4', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :opinion_4, 'GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :opinion, '3', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :opinion_3, 'NOT BAD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :opinion, '2', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :opinion_2, 'NOT GOOD', class: "btn btn-outline-success col-lg-3" %>
 												</div>
 											</div>
 											
@@ -99,12 +99,10 @@
 													甘さ <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :sweet, 'positive', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :sweet_positive, 'かなり甘い', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :sweet, 'neutral', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :sweet_neutral, '甘い', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :sweet, 'negative', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :sweet_negative, '甘くない', class: "btn btn-outline-success col-lg-4" %>
+													<%= f.radio_button :sweet, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :sweet_1, '甘い', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :sweet, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :sweet_0, '甘くない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -117,12 +115,10 @@
 													スッキリ感 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :refresh, 'positive', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :refresh_positive, 'かなりスッキリ', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :refresh, 'neutral', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :refresh_neutral, 'スッキリ', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :refresh, 'negative', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :refresh_negative, 'スッキリしない', class: "btn btn-outline-success col-lg-4" %>
+													<%= f.radio_button :refresh, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :refresh_1, 'スッキリ', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :refresh, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :refresh_0, 'スッキリしない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -135,12 +131,10 @@
 													リラックス感 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :relax, 'positive', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :relax_positive, 'かなりリラックス', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :relax, 'neutral', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :relax_neutral, 'リラックス', class: "btn btn-outline-success col-lg-4" %>
-													<%= f.radio_button :relax, 'negative', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :relax_negative, 'リラックスしない', class: "btn btn-outline-success col-lg-4" %>
+													<%= f.radio_button :relax, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :relax_1, 'リラックス', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :relax, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :relax_0, 'リラックスしない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -153,10 +147,10 @@
 													吸いやすさ <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :easy, 'positive', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :easy_positive, '吸いやすい', class: "btn btn-outline-success col-lg-6" %>
-													<%= f.radio_button :easy, 'negative', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :easy_negative, '癖がある', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :easy, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :easy_1, '吸いやすい', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :easy, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :easy_0, '癖がある', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											

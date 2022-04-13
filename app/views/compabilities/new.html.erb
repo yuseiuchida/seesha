@@ -55,13 +55,13 @@
 											<!-- Main Combination -->
 											<div class="col-md-12">
 												<%= f.label :main_combination_id, "1つ目", class: "label" %>
-												<%= f.select :main_combination_id, @combinations.map{ |combination| [combination.keyword, combination.id]}, {}, {class: "form-control"} %>
+												<%= f.select :main_combination_id, @combinations.map{ |combination| [combination.title, combination.id]}, {}, {class: "form-control"} %>
 											</div>
 
 											<!-- Sub Combination -->
 											<div class="col-md-12">
 												<%= f.label :sub_combination_id, "2つ目", class: "label" %>
-												<%= f.select :sub_combination_id, @combinations.map{ |combination| [combination.keyword, combination.id]}, {}, {class: "form-control"} %>
+												<%= f.select :sub_combination_id, @combinations.map{ |combination| [combination.title, combination.id]}, {}, {class: "form-control"} %>
 											</div>
 
 											<!-- Kind -->

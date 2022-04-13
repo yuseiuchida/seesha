@@ -5,4 +5,6 @@ class Flavor < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
+
+	mount_uploader :flavor_image, FlavorImageUploader
 end

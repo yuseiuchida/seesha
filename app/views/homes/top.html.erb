@@ -7,6 +7,109 @@
       <!-- Main -->
       <main id="main" class="content-area-container site-main">
 
+        <!-- Section -->
+        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg background-test">
+          <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36 align-items-center justify-content-center height-100vh pt-72 pb-72">
+
+              <!-- col-lg-12 -->
+              <div class="col-lg-12">
+
+
+                <!-- GAP -->
+                <div class="gap gap-72 d-none d-xl-block"></div>
+
+
+                <!-- Section title -->
+                <div class="section-title section-title-intro text-center light-color mb-18" data-animation="animate__fadeInDown">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h1 class="font-weight-900">BASON</h1>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+
+
+                <!-- Section title -->
+                <div class="section-title section-title-intro text-center light-color mb-0" data-animation="animate__fadeInUp">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h2 class="h1 font-weight-900">Man's Salon</h2>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+
+
+              </div><!-- /End col-lg-12 -->
+
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
+
+        <!-- Section -->
+        <div class="main-section">
+          <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
+
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-8 offset-lg-2">
+
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h6 class="font-weight-500 accent-color">What say about hookah</h6>
+                        <h2>シーシャとは？</h2>
+                      </div><!-- /End Section title heading -->
+
+                      <!-- Block content -->
+                      <div class="section-title-content">
+                        <p>Praesent dignissim nibh quis ante dignissim, in posuere dui feugiat. duis elit dui, vestibulum nec ipsum id, finibus sollicitudin elit. cras et purus sagittis, volutpat est id.</p>
+                      </div><!-- /End Block content -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
+
+
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
 
         <!-- Section -->
         <div class="main-section pb-0">
@@ -72,14 +175,8 @@
 
 											<!-- Block heading -->
 											<div class="main-block-heading text-block-heading">
-                        <% if @easy_searchs.exists? %>
-                          <%= link_to search_path(@easy_search_id) do %>
-                            <h4>とりあえず診断</h4>
-                          <% end %>
-                        <% else %>
-                          <%= link_to new_combination_path do%>
-                            <h4>新規フレーバー登録</h4>
-                          <% end %>
+                        <%= link_to search_path(@easy_search_id) do %>
+                          <h4>とりあえず診断</h4>
                         <% end %>
 											</div><!-- /End Block heading -->
 
@@ -444,149 +541,7 @@
         </div><!-- /End Section -->
 
 
-        <!-- Section -->
-        <div class="main-section">
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
 
-
-                    <!-- col-lg-8 -->
-                    <div class="col-lg-8 offset-lg-2">
-
-                        <!-- Section title -->
-                        <div class="section-title text-center">
-                            <!-- Section title container -->
-                            <div class="section-title-container">
-
-                                <!-- Section title body -->
-                                <div class="section-title-body">
-
-                                    <!-- Section title heading -->
-                                    <div class="section-title-heading">
-                                        <h6 class="font-weight-500 accent-color">What they say about us</h6>
-                                        <h2>Don't take our word for it</h2>
-                                    </div><!-- /End Section title heading -->
-
-                                    <!-- Divider -->
-                                    <div class="hr-divider hr-divider-layout-1 accent-color"></div>
-
-                                    <!-- Block content -->
-                                    <div class="section-title-content">
-                                        <p>Praesent dignissim nibh quis ante dignissim, in posuere dui feugiat. duis elit dui, vestibulum nec ipsum id, finibus sollicitudin elit. cras et purus sagittis, volutpat est id.</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Section title body -->
-
-                            </div><!-- /End Section title container -->
-                        </div><!-- /End Section title -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-36"></div>
-
-                    </div><!-- /End col-lg-8 -->
-
-
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
-                        <!-- Testimonials block -->
-                        <div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center" data-animation="animate__zoomIn">
-                            <!-- Block container -->
-                            <div class="main-block-container testimonials-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body testimonials-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading testimonials-block-heading">
-                                        <h5 class="name">Amorette</h5>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content testimonials-block-content">
-                                        <p>Donec ex sapien, accumsan at nec, a erat. Pellentesque ac venenatis quam, vel lacinia erat. Phasellus in ante vehicula quis.</p>
-                                    </div><!-- /End Block content -->
-
-                                    <!-- Block footer -->
-                                    <div class="main-block-footer testimonials-block-footer">
-                                        <span class="rate rate-5 rate-2x"></span>
-                                    </div><!-- /End Block footer -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Testimonials block -->
-                    </div><!-- /End col-lg-4 -->
-
-
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
-                        <!-- Testimonials block -->
-                        <div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center" data-animation="animate__zoomIn">
-                            <!-- Block container -->
-                            <div class="main-block-container testimonials-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body testimonials-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading testimonials-block-heading">
-                                        <h5 class="name">Thomas</h5>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content testimonials-block-content">
-                                        <p>Maecenas fringilla mattis quam vitae blandit. Duis fermentum, purus vitae semper sollicitudin, lorem risus nisl, arcu sed odio.</p>
-                                    </div><!-- /End Block content -->
-
-                                    <!-- Block footer -->
-                                    <div class="main-block-footer testimonials-block-footer">
-                                        <span class="rate rate-5 rate-2x"></span>
-                                    </div><!-- /End Block footer -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Testimonials block -->
-                    </div><!-- /End col-lg-4 -->
-
-
-                    <!-- col-lg-4 -->
-                    <div class="col-lg-4">
-                        <!-- Testimonials block -->
-                        <div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center" data-animation="animate__zoomIn">
-                            <!-- Block container -->
-                            <div class="main-block-container testimonials-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body testimonials-block-body">
-
-                                    <!-- Block heading -->
-                                    <div class="main-block-heading testimonials-block-heading">
-                                        <h5 class="name">Ann</h5>
-                                    </div><!-- /End Block heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content testimonials-block-content">
-                                        <p>Proin vehicula tortor vitae erat dapibus venenatis. Duis eleifend justo a odio efficitur consectetur. Etiam quis tortor sagittis.</p>
-                                    </div><!-- /End Block content -->
-
-                                    <!-- Block footer -->
-                                    <div class="main-block-footer testimonials-block-footer">
-                                        <span class="rate rate-5 rate-2x"></span>
-                                    </div><!-- /End Block footer -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Testimonials block -->
-                    </div><!-- /End col-lg-4 -->
-
-
-                </div><!-- /End row -->
-            </div><!-- /End container -->
-        </div><!-- /End Section -->
 
 
       </main><!-- /End Main -->

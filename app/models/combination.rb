@@ -5,8 +5,9 @@ class Combination < ApplicationRecord
 	has_many :compabilities, class_name: "Compability", foreign_key: "main_combination_id"
 	has_many :compabilities, class_name: "Compability", foreign_key: "sub_combination_id"
 	has_many :review_combinations, dependent: :destroy
-	has_one :status, dependent: :destroy
-	has_one :poster_status, dependent: :destroy
+	has_one :rate, dependent: :destroy
+	has_one :poster, dependent: :destroy
+	has_one :coefficient, dependent: :destroy
 
 	validates :title, uniqueness: true
 

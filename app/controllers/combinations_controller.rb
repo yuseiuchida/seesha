@@ -15,9 +15,10 @@ class CombinationsController < ApplicationController
 
 		@combination = Combination.new(first_flavor_id: combination_params[:first_flavor_id], second_flavor_id: combination_params[:second_flavor_id], title: title)
 		if @combination.save
-			
-			@poster_status = PosterStatus.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
-			@poster_status.setup_score
+			@rate = Rate.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
+			@rate.set_opinion_status
+			@poster = Poster.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
+			Coefficient.create(combination_id: @combination.id)
 			redirect_to combinations_path
 		else
 			render :new
