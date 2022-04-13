@@ -26,10 +26,12 @@
 													<div class="section-title-body">
 
 														<!-- Section title heading -->
-														<div class="section-title-heading">
-															<h2>
-																<%= @compability.main_combination.keyword %>
-																<%= @compability.sub_combination.keyword %>
+														<div class="section-title-heading row">
+															<h2 class="col-lg-6">
+																<%= @compability.main_combination.title %>
+															</h2>
+															<h2 class="col-lg-6">
+																<%= @compability.sub_combination.title %>
 															</h2>
 														</div><!-- /End Section title heading -->
 
@@ -123,7 +125,7 @@
 														<div class="main-block-body comments-block-body">
 															<!-- Block heading -->
 															<div class="main-block-heading comments-block-heading section-title-small">
-																<h6 class="font-weight-500"><span><%= @compability.review_compabilities.count %> Comments</span></h6>
+																<h6 class="font-weight-500"><span><%= @review.count %> Comments</span></h6>
 															</div><!-- /End Block heading -->
 															<!-- Block content -->
 															<div class="main-block-content comments-block-content">
@@ -134,30 +136,37 @@
 																		<!-- Comment Block -->
 																		<div class="main-block comment-block">
 																			<!-- Comment Block Container -->
-																			<div class="main-block-container comment-block-container">
+																			<% @review.each do |review| %>
+																				<div class="main-block-container comment-block-container">
 
-																				<% @review.each do |review| %>
 																					<!-- Comment Block Avatar -->
 																					<div class="main-block-header comment-block-header">
 																						<%= image_tag "avatar.jpeg" %>
 																					</div><!-- /End Comment Block Avatar -->
-																					<!-- Comment Block Body -->
-																					<div class="main-block-body comment-block-body mb-3">
+																						<!-- Comment Block Body -->
+																						<div class="main-block-body comment-block-body mb-3">
 
-																						<!-- Comment Block Heading -->
-																						<div class="main-block-heading comment-block-heading secondary-font-family">
-																							<h5><%= review.user.name %></h5>
-																						</div><!-- /End Comment Block Heading -->
+																							<!-- Comment Block Heading -->
+																							<div class="main-block-heading comment-block-heading secondary-font-family">
+																								<h5><%= review.user.name %></h5>
+																							</div><!-- /End Comment Block Heading -->
 
-																						<!-- Comment Block Description -->
-																						<div class="main-block-content comment-block-content">
-																							<p><%= review.comment %></p>
-																						</div><!-- /End Comment Block Description -->
+																							<!-- Comment Block Description -->
+																							<div class="main-block-content comment-block-content">
+																								<div class="row">
+																									<div class="col-10"><p><%= review.comment %></p></div>
+																									<div class="col-2">
+																										<% if review.user.id == current_user.id %>
+																											<%= link_to "削除", compability_review_compability_path(review.id), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
+																										<% end %>
+																									</div>
+																								</div>
+																							</div><!-- /End Comment Block Description -->
+																						</div>
 
-																					</div><!-- /End Comment Block Body -->
-																				<% end %>
+																				</div><!-- /End Comment Block Container -->
+																			<% end %>
 
-																			</div><!-- /End Comment Block Container -->
 																		</div><!-- /End Comment Block -->
 																	</li><!-- /End Comments Block Item -->
 																</ul><!-- /End Comments Block List -->

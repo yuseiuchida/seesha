@@ -3,6 +3,7 @@ class CreateFlavors < ActiveRecord::Migration[6.1]
     create_table :flavors do |t|
       t.string :name, null: false
       t.references :category, forein_key: true
+      t.string :flavor_image
       t.timestamps
     end
   end

@@ -21,10 +21,6 @@
 								<li class="nav-item">
 									<%= link_to "HOME", root_path, class: "nav-link" %>
 								</li>
-								<!-- Search -->
-								<li class="nav-item">
-									<%= link_to "SEARCH", root_path, class: "nav-link" %>
-								</li>
 								<!-- Flavor -->
 								<li class="nav-item">
 									<%= link_to "FLAVOR", combinations_path, class: "nav-link" %>
@@ -33,13 +29,7 @@
 											<%= link_to "コンビネーション", combinations_path, class: "nav-link" %>
 										</li>
 										<li class="nav-item">
-											<%= link_to "オーダーの組み合わせ", compabilities_path, class: "nav-link" %>
-										</li>
-										<li class="nav-item">
 											<%= link_to "フレーバー", flavors_path, class: "nav-link" %>
-										</li>
-										<li class="nav-item">
-											<%= link_to "カテゴリー", categories_path, class: "nav-link" %>
 										</li>
 									</ul>
 								</li>
@@ -47,9 +37,9 @@
 								<li class="nav-item">
 									<%= link_to "SHOP", root_path, class: "nav-link" %>
 								</li>
-								<!-- Bookmark -->
+								<!-- Mypage -->
 								<li class="nav-item">
-									<%= link_to "BOOKMARK", root_path, class: "nav-link" %>
+									<%= link_to "MYPAGE", root_path, class: "nav-link" %>
 								</li>
 								<!-- User -->
 								<% if current_user %>

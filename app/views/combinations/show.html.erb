@@ -28,7 +28,7 @@
 													<!-- Section title heading -->
 													<div class="section-title-heading">
 														<h2>
-															<%= @combination.keyword %>
+															<%= @combination.title %>
 														</h2>
 													</div><!-- /End Section title heading -->
 
@@ -42,55 +42,33 @@
 
 									</div><!-- /End col-lg-8 -->
 
-									<% if @combination.review_combinations.exists? %>
-										<!-- col-lg-8 -->
-										<div class="col-lg-8 offset-lg-2">
+									<!-- col-lg-8 -->
+									<div class="col-lg-8 offset-lg-2">
 
-											<!-- Section title -->
-											<div class="section-title text-center">
-												<!-- Section title container -->
-												<div class="section-title-container">
+										<!-- Section title -->
+										<div class="section-title text-center">
+											<!-- Section title container -->
+											<div class="section-title-container">
 
-													<!-- Section title body -->
-													<div class="section-title-body">
+												<!-- Section title body -->
+												<div class="section-title-body">
 
-														<!-- Section title heading -->
-														<div class="section-title-heading">
-															<h2><%= @combination.status %></h2>
-														</div><!-- /End Section title heading -->
+													<!-- Section title heading -->
+													<div class="section-title-heading">
+														<h2><%= @combination.rate.opinion_status %></h2>
+													</div><!-- /End Section title heading -->
 
-													</div><!--/End Section title body -->
+												</div><!--/End Section title body -->
 
-												</div><!-- /End Section title container -->
-											</div><!-- /End Section title -->
-										</div><!-- /End col-lg-8 -->
+											</div><!-- /End Section title container -->
+										</div><!-- /End Section title -->
+									</div><!-- /End col-lg-8 -->
 
-									<% else %>
-										<!-- col-lg-8 -->
-										<div class="col-lg-8 offset-lg-2">
+									<!-- GAP -->
+									<div class="gap gap-36"></div>
 
-											<!-- Section title -->
-											<div class="section-title text-center">
-												<!-- Section title container -->
-												<div class="section-title-container">
-
-													<!-- Section title body -->
-													<div class="section-title-body">
-
-														<!-- Section title heading -->
-														<div class="section-title-heading">
-															<h2>まだ評価されていません</h2>
-														</div><!-- /End Section title heading -->
-
-													</div><!--/End Section title body -->
-
-												</div><!-- /End Section title container -->
-											</div><!-- /End Section title -->
-										</div><!-- /End col-lg-8 -->
-									<% end %>
-
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
+									<!-- col-lg-3 -->
+									<div class="col-lg-3">
 
 											<!-- Icon block -->
 											<div class="main-block icon-block text-center">
@@ -112,7 +90,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.sweet_rate %>%</p>
+															<p><%= @combination.rate.sweet %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -123,10 +101,10 @@
 											<!-- GAP -->
 											<div class="gap gap-18 d-lg-none"></div>
 
-									</div><!-- /End col-lg-4 -->
+									</div><!-- /End col-lg-3 -->
 
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
+									<!-- col-lg-3 -->
+									<div class="col-lg-3">
 
 											<!-- Icon block -->
 											<div class="main-block icon-block text-center">
@@ -148,7 +126,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.refresh_rate %>%</p>
+															<p><%= @combination.rate.refresh %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -159,10 +137,46 @@
 											<!-- GAP -->
 											<div class="gap gap-18 d-lg-none"></div>
 
-									</div><!-- /End col-lg-4 -->
+									</div><!-- /End col-lg-3 -->
 
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
+									<!-- col-lg-3 -->
+									<div class="col-lg-3">
+
+											<!-- Icon block -->
+											<div class="main-block icon-block text-center">
+												<!-- Block container -->
+												<div class="main-block-container icon-block-container">
+
+													<!-- Block header -->
+													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+														<i class="fas fa-couch"></i>
+													</div><!-- /End Block header -->
+
+													<!-- Block body -->
+													<div class="main-block-body icon-block-body">
+
+														<!-- Block heading -->
+														<div class="main-block-heading icon-block-heading">
+															<h4>リラックス感</h4>
+														</div><!-- /End Block heading -->
+
+														<!-- Block content -->
+														<div class="main-block-content icon-block-content">
+															<p><%= @combination.rate.relax %></p>
+														</div><!-- /End Block content -->
+
+													</div><!--/End Block body -->
+
+												</div><!-- /End Block container -->
+											</div><!-- /End Icon block -->
+
+											<!-- GAP -->
+											<div class="gap gap-18 d-lg-none"></div>
+
+									</div><!-- /End col-lg-3 -->
+
+									<!-- col-lg-3 -->
+									<div class="col-lg-3">
 
 											<!-- Icon block -->
 											<div class="main-block icon-block text-center">
@@ -184,7 +198,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.easy_rate %>%</p>
+															<p><%= @combination.rate.easy %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -195,7 +209,7 @@
 											<!-- GAP -->
 											<div class="gap gap-18 d-lg-none"></div>
 
-									</div><!-- /End col-lg-4 -->
+									</div><!-- /End col-lg-3 -->
 
 
 								</div><!-- /End row -->
@@ -285,7 +299,14 @@
 
 																						<!-- Comment Block Description -->
 																						<div class="main-block-content comment-block-content">
-																							<p><%= review.comment %></p>
+																							<div class="row">
+																								<div class="col-10 mt-2"><p><%= review.comment %></p></div>
+																								<div class="col-2">
+																									<% if review.user.id == current_user.id %>
+																										<%= link_to "削除", combination_review_combination_path(review.id), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
+																									<% end %>
+																								</div>
+																							</div>
 																						</div><!-- /End Comment Block Description -->
 
 																					</div><!-- /End Comment Block Body -->
@@ -348,6 +369,15 @@
 																				<% end %>
 																				<%= f.select :refresh, ReviewCombination::REFRESH.map, {}, {class: "form-control"} %>
 																			</div><!-- /End Refresh -->
+
+
+																			<!-- Relax -->
+																			<div class="col-md-7">
+																				<%= f.label :relax, class: "label" do %>
+																					リラックス感
+																				<% end %>
+																				<%= f.select :relax, ReviewCombination::RELAX.map, {}, {class: "form-control"} %>
+																			</div><!-- /End Relax -->
 
 
 																			<!-- Easy -->

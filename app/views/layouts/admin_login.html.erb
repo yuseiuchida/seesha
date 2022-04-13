@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="card p-3">
+		<h2 class="text-center">管理ページ</h2>
+    <div class="card-body login-card-body">
+      <%= form_with url: admin_login_path, local: true do |f| %>
+        <div class="col-xs-3 mb-3">
+					<%= f.text_field :email, placeholder: "メールアドレス", class: 'form-control' %>
+        </div>
+        <div class="col-xs-3 mb-3">
+					<%= f.password_field :password, placeholder: "パスワード", class: 'form-control' %>
+        </div>
+        <div class="text-center">
+					<%= f.submit "ログイン", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

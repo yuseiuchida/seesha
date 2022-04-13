@@ -2,6 +2,7 @@ class FlavorsController < ApplicationController
 	before_action :set_category
 	def index
 		@flavors = Flavor.all
+		@categories = Category.all
 	end
 
 	def new
@@ -20,7 +21,7 @@ class FlavorsController < ApplicationController
 	private
 
 	def flavor_params
-		params.require(:flavor).permit(:name, :category_id)
+		params.require(:flavor).permit(:name, :category_id, :flavor_image)
 	end
 
 	def set_category

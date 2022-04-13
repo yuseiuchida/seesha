@@ -29,7 +29,7 @@
 
 											<!-- Section title heading -->
 											<div class="section-title-heading">
-												<h2>「<%= @main_combination.keyword%>」と相性の良いフレーバー</h2>
+												<h2>新規組み合わせ</h2>
 											</div><!-- /End Section title heading -->
 
 										</div><!--/End Section title body -->
@@ -50,13 +50,18 @@
 									<!-- Form container -->
 									<div class="form-block-container">
 										<!-- Form -->
-										<%= form_with model: @compability, url: combination_compabilities_path, class: "row", local: true do |f| %>
+										<%= form_with model: @compability, url: compabilities_path, class: "row", local: true do |f| %>
 
+											<!-- Main Combination -->
+											<div class="col-md-12">
+												<%= f.label :main_combination_id, "1つ目", class: "label" %>
+												<%= f.select :main_combination_id, @combinations.map{ |combination| [combination.title, combination.id]}, {}, {class: "form-control"} %>
+											</div>
 
 											<!-- Sub Combination -->
 											<div class="col-md-12">
-												<%= f.label :sub_combination_id, "フレーバー", class: "label" %>
-												<%= f.select :sub_combination_id, @combinations.map{ |combination| [combination.keyword, combination.id]}, {}, {class: "form-control"} %>
+												<%= f.label :sub_combination_id, "2つ目", class: "label" %>
+												<%= f.select :sub_combination_id, @combinations.map{ |combination| [combination.title, combination.id]}, {}, {class: "form-control"} %>
 											</div>
 
 											<!-- Kind -->

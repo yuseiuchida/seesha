@@ -1,0 +1,2 @@
+module Admin::CombinationsHelper
+end

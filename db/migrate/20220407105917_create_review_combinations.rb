@@ -5,6 +5,7 @@ class CreateReviewCombinations < ActiveRecord::Migration[6.1]
       t.references :user, foreign_key: true
       t.string :sweet
       t.string :refresh
+      t.string :relax
       t.string :easy
       t.string :opinion, null: false
       t.string :comment
