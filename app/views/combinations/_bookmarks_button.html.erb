@@ -1,0 +1,5 @@
+<% if current_user.bookmark?(combination) %>
+	<%= render 'bookmarks/unbookmark', {combination: combination} %>
+<% else %>
+	<%= render 'bookmarks/bookmark', {combination: combination} %>
+<% end %>

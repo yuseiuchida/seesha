@@ -28,8 +28,11 @@
 													<!-- Section title heading -->
 													<div class="section-title-heading">
 														<h2>
-															<%= @combination.title %>
+															<%= @combination.name %>
 														</h2>
+														<div id="bookmark_combination_<%= @combination.id %>">
+															<%= render 'bookmarks_button', {combination: @combination} %>
+														</div>
 													</div><!-- /End Section title heading -->
 
 												</div><!--/End Section title body -->
@@ -55,7 +58,7 @@
 
 													<!-- Section title heading -->
 													<div class="section-title-heading">
-														<h2><%= @combination.rate.opinion_status %></h2>
+														<h2><%= @combination.status %></h2>
 													</div><!-- /End Section title heading -->
 
 												</div><!--/End Section title body -->
@@ -90,7 +93,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.sweet %></p>
+															<p><%= @combination.rate.sweet_rate %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -126,7 +129,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.refresh %></p>
+															<p><%= @combination.rate.refresh_rate %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -162,7 +165,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.relax %></p>
+															<p><%= @combination.rate.relax_rate %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -198,7 +201,7 @@
 
 														<!-- Block content -->
 														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.easy %></p>
+															<p><%= @combination.rate.easy_rate %></p>
 														</div><!-- /End Block content -->
 
 													</div><!--/End Block body -->
@@ -344,49 +347,49 @@
 																		<%= form_with model: @review_combination, url: combination_review_combinations_path(@combination), class: "row", local: true do |f| %>
 
 
-																			<!-- Opinion -->
+
 																			<div class="col-md-7">
-																				<%= f.label :opinion, class: "label" do %>
+																				<%= f.label :rating, class: "label" do %>
 																					評価 <span class="red-color">*</span>
 																				<% end %>
-																				<%= f.select :opinion, ReviewCombination::OPINION.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Opinion -->
+																				<%= f.select :rating, ReviewCombination::RATING.map, {}, {class: "form-control"} %>
+																			</div>
 
 
-																			<!-- Sweet -->
+
 																			<div class="col-md-7">
 																				<%= f.label :sweet, class: "label" do %>
 																					甘さ
 																				<% end %>
 																				<%= f.select :sweet, ReviewCombination::SWEET.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Sweet -->
+																			</div>
 
 
-																			<!-- Refresh -->
+
 																			<div class="col-md-7">
 																				<%= f.label :refresh, class: "label" do %>
 																					スッキリ感
 																				<% end %>
 																				<%= f.select :refresh, ReviewCombination::REFRESH.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Refresh -->
+																			</div>
 
 
-																			<!-- Relax -->
+
 																			<div class="col-md-7">
 																				<%= f.label :relax, class: "label" do %>
 																					リラックス感
 																				<% end %>
 																				<%= f.select :relax, ReviewCombination::RELAX.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Relax -->
+																			</div>
 
 
-																			<!-- Easy -->
+
 																			<div class="col-md-7">
 																				<%= f.label :easy, class: "label" do %>
 																					吸いやすさ
 																				<% end %>
 																				<%= f.select :easy, ReviewCombination::EASY.map, {}, {class: "form-control"} %>
-																			</div><!-- /End Easy -->
+																			</div>
 
 
 																			<!-- Comment -->

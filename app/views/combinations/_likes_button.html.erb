@@ -1,5 +1,0 @@
-<% if current_user.like?(combination) %>
-	<%= render 'combinations/unlikes', {combination: combination} %>
-<% else %>
-	<%= render 'combinations/likes', {combination: combination} %>
-<% end %>

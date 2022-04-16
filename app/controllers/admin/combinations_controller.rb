@@ -1,5 +1,6 @@
 class Admin::CombinationsController < Admin::BaseController
 	before_action :set_flavors, only: %i[new create]
+	before_action :set_combination, only: %i[show edit update destroy]
 
 	def index
 		@combinations = Combination.all
@@ -7,26 +8,20 @@ class Admin::CombinationsController < Admin::BaseController
 	end
 
 	def new
-		@flavors = Flavor.all
 		@combination = Combination.new
 	end
 
 	def create
-		title = Flavor.find(combination_params[:first_flavor_id]).name + " " + Flavor.find(combination_params[:second_flavor_id]).name
-
-		@combination = Combination.new(first_flavor_id: combination_params[:first_flavor_id], second_flavor_id: combination_params[:second_flavor_id], title: title)
+		@combination = Combination.new(combination_params)
 		if @combination.save
-			@rate = Rate.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
-			@poster = Poster.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
-			Coefficient.create(combination_id: @combination.id)
-			redirect_to admin_combinations_path
+			@combination.setup
+			redirect_to admin_combination_path(@combination)
 		else
 			render :new
 		end
 	end
 
 	def show
-		@combination = Combination.find(params[:id])
 		@compabilities = Compability.where(main_combination_id: @combination.id)
 		@review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
 		@review_combination = ReviewCombination.new
@@ -37,21 +32,19 @@ class Admin::CombinationsController < Admin::BaseController
 	end
 
 	def edit
-		@combination = Combination.find(params[:id])
 		@flavors = Flavor.all
 	end
 
 	def update
-		@combination = Combination.find(params[:id])
 		if @combination.update(combination_params)
-			redirect_to admin_combinations-path
+			@combination.set_rate
+			redirect_to admin_combination_path(@combination)
 		else
 			render :edit
 		end
 	end
 
 	def destroy
-		@combination = Combination.find(params[:id])
 		if @combination.destroy!
 			redirect_to admin_combinations_path
 		else
@@ -62,10 +55,14 @@ class Admin::CombinationsController < Admin::BaseController
 	private
 
 	def combination_params
-		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :title, :sweet, :refresh, :relax, :easy, :opinion)
+		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
 	end
 
 	def set_flavors
 		@flavors = Flavor.all
+	end
+
+	def set_combination
+		@combination = Combination.find(params[:id])
 	end
 end

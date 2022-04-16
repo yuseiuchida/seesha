@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_214507) do
+ActiveRecord::Schema.define(version: 2022_04_16_010044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "combination_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combination_id"], name: "index_bookmarks_on_combination_id"
+    t.index ["user_id", "combination_id"], name: "index_bookmarks_on_user_id_and_combination_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -27,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
     t.float "refresh", default: 1.0
     t.float "relax", default: 1.0
     t.float "easy", default: 1.0
-    t.float "opinion", default: 1.0
+    t.float "rating", default: 1.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["combination_id"], name: "index_coefficients_on_combination_id"
@@ -36,9 +46,16 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
   create_table "combinations", force: :cascade do |t|
     t.bigint "first_flavor_id"
     t.bigint "second_flavor_id"
-    t.string "title", null: false
+    t.string "status"
+    t.string "name"
+    t.integer "rating_score", null: false
+    t.integer "sweet_score", null: false
+    t.integer "refresh_score", null: false
+    t.integer "relax_score", null: false
+    t.integer "easy_score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["first_flavor_id", "second_flavor_id"], name: "index_combinations_on_first_flavor_id_and_second_flavor_id", unique: true
     t.index ["first_flavor_id"], name: "index_combinations_on_first_flavor_id"
     t.index ["second_flavor_id"], name: "index_combinations_on_second_flavor_id"
   end
@@ -64,36 +81,13 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
     t.index ["category_id"], name: "index_flavors_on_category_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "combination_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["combination_id"], name: "index_likes_on_combination_id"
-    t.index ["user_id", "combination_id"], name: "index_likes_on_user_id_and_combination_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "posters", force: :cascade do |t|
-    t.bigint "combination_id"
-    t.float "sweet"
-    t.float "refresh"
-    t.float "relax"
-    t.float "easy"
-    t.float "opinion"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["combination_id"], name: "index_posters_on_combination_id"
-  end
-
   create_table "rates", force: :cascade do |t|
     t.bigint "combination_id"
-    t.float "sweet"
-    t.float "refresh"
-    t.float "relax"
-    t.float "easy"
-    t.float "opinion"
-    t.string "opinion_status"
+    t.float "sweet_rate"
+    t.float "refresh_rate"
+    t.float "relax_rate"
+    t.float "easy_rate"
+    t.float "rating_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["combination_id"], name: "index_rates_on_combination_id"
@@ -106,7 +100,7 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
     t.string "refresh"
     t.string "relax"
     t.string "easy"
-    t.string "opinion", null: false
+    t.string "rating", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -117,7 +111,7 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
   create_table "review_compabilities", force: :cascade do |t|
     t.bigint "compability_id"
     t.bigint "user_id"
-    t.string "opinion", null: false
+    t.string "rating", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -138,12 +132,11 @@ ActiveRecord::Schema.define(version: 2022_04_10_214507) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "bookmarks", "combinations"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "coefficients", "combinations"
   add_foreign_key "compabilities", "combinations", column: "main_combination_id"
   add_foreign_key "compabilities", "combinations", column: "sub_combination_id"
-  add_foreign_key "likes", "combinations"
-  add_foreign_key "likes", "users"
-  add_foreign_key "posters", "combinations"
   add_foreign_key "rates", "combinations"
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"

@@ -1,0 +1,57 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="../admin" class="brand-link">
+		<span class="brand-text font-weight-light">AdminLTE 3</span>
+	</a>
+
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<!-- Sidebar user (optional) -->
+		<div class="user-panel mt-3 mb-3 d-flex">
+			<div class="info">
+				<p class="d-block text-white"><%= current_user.name %></p>
+			</div>
+		</div>
+
+		<!-- Sidebar Menu -->
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<!-- Add icons to the links using the .nav-icon class
+						with font-awesome or any other icon font library -->
+				<li class="nav-item">
+					<%= link_to admin_root_path, class: "nav-link" do %>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>ダッシュボード</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to admin_users_path, class: "nav-link" do %>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>ユーザー</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to admin_categories_path, class: "nav-link" do %>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>カテゴリー</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to admin_flavors_path, class: "nav-link" do %>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>フレーバー</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to admin_combinations_path, class: "nav-link" do %>
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>コンビネーション</p>
+					<% end %>
+				</li>
+			</ul>
+		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
+	<!-- /.sidebar -->
+</aside>
