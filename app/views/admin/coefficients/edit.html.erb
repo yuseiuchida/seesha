@@ -1,21 +1,18 @@
 <div class="wrapper">
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>コンビネーション</h1>
+            <h1>コンビネーション編集</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
-		<div class="container">
-
+    <div class="container">
 			<div class="row">
+
 				<div class="card col-12">
 					<div class="card-head">
 						<div class="row">
@@ -32,18 +29,39 @@
 						<h5 class="text-center">スッキリ: <%= (@combination.rate.refresh_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.refresh %></span></h5>
 						<h5 class="text-center">リラックス: <%= (@combination.rate.relax_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.relax %></span></h5>
 						<h5 class="text-center">吸いやすさ: <%= (@combination.rate.easy_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.easy %></span></h5>
-						<div class="text-center m-3"><%= link_to '係数変更', edit_admin_combination_coefficient_path(@combination), class: "btn btn-warning" %></div>
 					</div>
-						
-
 				</div>
 
-
-
-
-
-
-
+				<div class="card card-primary col-12">
+					<div class="card-body row">
+						<%= form_with model: @coefficient, url: admin_combination_coefficient_path(@coefficient), method: :patch, local: true do |f| %>
+							<div class="form-group col-4">
+								<%= f.label :rating, "評価", class: "form-group-label" %>
+								<%= f.select :rating, Coefficient::NUMBER.map, {}, {class: "form-control"} %>
+							</div>
+							<div class="form-group col-4">
+								<%= f.label :sweet, "甘さ", class: "form-group-label" %>
+								<%= f.select :sweet, Coefficient::NUMBER.map, {}, {class: "form-control"} %>
+							</div>
+							<div class="form-group col-4">
+								<%= f.label :refresh, "スッキリ", class: "form-group-label" %>
+								<%= f.select :refresh, Coefficient::NUMBER.map, {}, {class: "form-control"} %>
+							</div>
+							<div class="form-group col-4">
+								<%= f.label :relax, "リラックス", class: "form-group-label" %>
+								<%= f.select :relax, Coefficient::NUMBER.map, {}, {class: "form-control"} %>
+							</div>
+							<div class="form-group col-4">
+								<%= f.label :easy, "吸いやすさ", class: "form-group-label" %>
+								<%= f.select :easy, Coefficient::NUMBER.map, {}, {class: "form-control"} %>
+							</div>
+							<div class="text-center mt-3 col-12">
+								<%= f.submit "変更", class: 'btn btn-success btn-lg' %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
 		</div>
   </div>
 </div>

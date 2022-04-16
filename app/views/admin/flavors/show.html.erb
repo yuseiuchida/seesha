@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>フレーバー</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+		<div class="container">
+
+			<div class="row">
+				<div class="card offset-4 col-4">
+					<div class="card-head">
+						<div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
+					</div>
+					<div class="card-body">
+						<h3 class="text-center"><%= @flavor.category.name %></h3>
+						<h1 class="text-center"><%= @flavor.name %></h1>
+						<div class="text-center mt-3"><%= link_to '編集', edit_admin_flavor_path(@flavor), class: "btn btn-success" %></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+  </div>
+</div>

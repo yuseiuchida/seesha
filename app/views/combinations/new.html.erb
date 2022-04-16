@@ -75,18 +75,18 @@
 
 											<!-- Opinion -->
 											<div class="col-md-12">
-												<%= f.label :opinion, class: "label" do %>
+												<%= f.label :rating_score, class: "label" do %>
 													評価 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :opinion, '5', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_5, 'VERY GOOD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, '4', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_4, 'GOOD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, '3', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_3, 'NOT BAD', class: "btn btn-outline-success col-lg-3" %>
-													<%= f.radio_button :opinion, '2', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :opinion_2, 'NOT GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :rating_score, '4', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :rating_score_4, 'VERY GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :rating_score, '3', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :rating_score_3, 'GOOD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :rating_score, '2', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :rating_score_2, 'NOT BAD', class: "btn btn-outline-success col-lg-3" %>
+													<%= f.radio_button :rating_score, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :rating_score_1, 'NOT GOOD', class: "btn btn-outline-success col-lg-3" %>
 												</div>
 											</div>
 											
@@ -95,14 +95,14 @@
 
 											<!-- Sweet -->
 											<div class="col-md-12">
-												<%= f.label :sweet, class: "label" do %>
+												<%= f.label :sweet_score, class: "label" do %>
 													甘さ <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :sweet, '1', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :sweet_1, '甘い', class: "btn btn-outline-success col-lg-6" %>
-													<%= f.radio_button :sweet, '0', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :sweet_0, '甘くない', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :sweet_score, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :sweet_score_1, '甘い', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :sweet_score, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :sweet_score_0, '甘くない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -111,14 +111,14 @@
 
 											<!-- Refresh -->
 											<div class="col-md-12">
-												<%= f.label :refresh, class: "label" do %>
+												<%= f.label :refresh_score, class: "label" do %>
 													スッキリ感 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :refresh, '1', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :refresh_1, 'スッキリ', class: "btn btn-outline-success col-lg-6" %>
-													<%= f.radio_button :refresh, '0', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :refresh_0, 'スッキリしない', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :refresh_score, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :refresh_score_1, 'スッキリ', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :refresh_score, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :refresh_score_0, 'スッキリしない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -127,14 +127,14 @@
 
 											<!-- Relax -->
 											<div class="col-md-12">
-												<%= f.label :relax, class: "label" do %>
+												<%= f.label :relax_score, class: "label" do %>
 													リラックス感 <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :relax, '1', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :relax_1, 'リラックス', class: "btn btn-outline-success col-lg-6" %>
-													<%= f.radio_button :relax, '0', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :relax_0, 'リラックスしない', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :relax_score, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :relax_score_1, 'リラックス', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :relax_score, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :relax_score_0, 'リラックスしない', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											
@@ -143,14 +143,14 @@
 
 											<!-- Easy -->
 											<div class="col-md-12">
-												<%= f.label :easy, class: "label" do %>
+												<%= f.label :easy_score, class: "label" do %>
 													吸いやすさ <span class="red-color">*</span>
 												<% end %>
 												<div class="row">
-													<%= f.radio_button :easy, '1', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :easy_1, '吸いやすい', class: "btn btn-outline-success col-lg-6" %>
-													<%= f.radio_button :easy, '0', class: "btn-check", autocomplete: "off" %>
-													<%= f.label :easy_0, '癖がある', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :easy_score, '1', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :easy_score_1, '吸いやすい', class: "btn btn-outline-success col-lg-6" %>
+													<%= f.radio_button :easy_score, '0', class: "btn-check", autocomplete: "off" %>
+													<%= f.label :easy_score_0, '癖がある', class: "btn btn-outline-success col-lg-6" %>
 												</div>
 											</div>
 											

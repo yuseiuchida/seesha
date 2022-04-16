@@ -7,7 +7,7 @@ class CreateReviewCombinations < ActiveRecord::Migration[6.1]
       t.string :refresh
       t.string :relax
       t.string :easy
-      t.string :opinion, null: false
+      t.string :rating, null: false
       t.string :comment
       t.timestamps
     end

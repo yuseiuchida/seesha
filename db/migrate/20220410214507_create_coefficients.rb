@@ -6,7 +6,7 @@ class CreateCoefficients < ActiveRecord::Migration[6.1]
       t.float :refresh, default: 1
       t.float :relax, default: 1
       t.float :easy, default: 1
-      t.float :opinion, default: 1
+      t.float :rating, default: 1
       t.timestamps
     end
   end

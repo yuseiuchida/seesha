@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>新規ユーザー</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+			<div class="row">
+				<div class="col align-self-center">
+					<div class="card card-primary">
+						<div class="card-body row">
+							<%= form_with model: @user, url: admin_users_path, local: true do |f| %>
+								<div class="form-group col-4">
+									<%= f.label :name, "名前", class: "form-group-label" %>
+									<%= f.text_field :name, class: "form-control" %>
+								</div>
+								<div class="form-group col-4">
+									<%= f.label :email, "メールアドレス", class: "form-group-label" %>
+									<%= f.text_field :email, class: "form-control" %>
+								</div>
+								<div class="form-group col-4">
+									<%= f.label :role, "権限", class: "form-group-label" %>
+									<%= f.select :role, User.roles.keys, {}, {class: "form-control"} %>
+								</div>
+								<div class="text-center mt-3 col-12">
+									<%= f.submit "登録", class: 'btn btn-success btn-lg' %>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>

@@ -11,15 +11,10 @@ class CombinationsController < ApplicationController
 	end
 
 	def create
-		title = Flavor.find(combination_params[:first_flavor_id]).name + " " + Flavor.find(combination_params[:second_flavor_id]).name
-
-		@combination = Combination.new(first_flavor_id: combination_params[:first_flavor_id], second_flavor_id: combination_params[:second_flavor_id], title: title)
+		@combination = Combination.new(combination_params)
 		if @combination.save
-			@rate = Rate.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
-			@rate.set_opinion_status
-			@poster = Poster.create(combination_id: @combination.id, sweet: combination_params[:sweet], refresh: combination_params[:refresh], relax: combination_params[:relax], easy: combination_params[:easy], opinion: combination_params[:opinion])
-			Coefficient.create(combination_id: @combination.id)
-			redirect_to combinations_path
+			@combination.setup
+			redirect_to combination_path(@combination)
 		else
 			render :new
 		end
@@ -39,7 +34,7 @@ class CombinationsController < ApplicationController
 	private
 
 	def combination_params
-		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :title, :sweet, :refresh, :relax, :easy, :opinion)
+		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
 	end
 
 	def set_flavors

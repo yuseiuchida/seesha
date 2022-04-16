@@ -1,6 +1,10 @@
 class Admin::FlavorsController < Admin::BaseController
+	before_action :set_flavor, only: %i[show edit destroy]
 	def index
 		@flavors = Flavor.all
+	end
+	
+	def new
 		@flavor = Flavor.new
 		@categories = Category.all
 	end
@@ -8,33 +12,30 @@ class Admin::FlavorsController < Admin::BaseController
 	def create
 		@flavor = Flavor.new(flavor_params)
 		if @flavor.save
-			redirect_to flavors_path
+			redirect_to admin_flavors_path
 		else
 			render :new
 		end
 	end
 
 	def show
-		@flavor = Flavor.find(params[:id])
 		@combinations = Combination.where(first_flavor_id: @flavor.id).or(Combination.where(second_flavor_id: @flavor.id))
 	end
 
 	def edit
-		@flavor = Flavor.find(params[:id])
 		@categories = Category.all
 	end
 
 	def update
-		@flaovr = Flavor.find(params[:id])
-		if @flaovr.update(flavor_params)
-			redirect_to admin_flavors_path
+		@flavor = Flavor.find(params[:id])
+		if @flavor.update(flavor_params)
+			redirect_to admin_flavor_path(@flavor)
 		else
 			render :edit
 		end
 	end
 
 	def destroy
-		@flavor = Flavor.find(params[:id])
 		if @flavor.destroy!
 			redirect_to admin_flavors_path
 		else
@@ -51,6 +52,10 @@ class Admin::FlavorsController < Admin::BaseController
 
 	def set_category
 		@categories = Category.all
+	end
+
+	def set_flavor
+		@flavor = Flavor.find(params[:id])
 	end
 
 end

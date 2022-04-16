@@ -1,0 +1,159 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>コンビネーション編集</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+			<div class="row">
+
+				<div class="card col-12">
+					<div class="card-head">
+						<div class="row">
+							<div class="flavor-image col-6 text-right mt-3"><%= image_tag @combination.first_flavor.flavor_image_url %></div>
+							<div class="flavor-image col-6 text-left mt-3"><%= image_tag @combination.second_flavor.flavor_image_url %></div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h3 class="text-center"><%= @combination.name %></h3>
+						<h1 class="text-center"><%= @combination.status %></h1>
+						<h5 class="text-center">スコア: <%= (@combination.rate.rating_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.rating %></span></h5>
+						<h5 class="text-center">甘さ: <%= (@combination.rate.sweet_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.sweet %></span></h5>
+						<h5 class="text-center">スッキリ: <%= (@combination.rate.refresh_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.refresh %></span></h5>
+						<h5 class="text-center">リラックス: <%= (@combination.rate.relax_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.relax %></span></h5>
+						<h5 class="text-center">吸いやすさ: <%= (@combination.rate.easy_rate * 100) %> <span class="badge bg-warning"><%= @combination.coefficient.easy %></span></h5>
+						<div class="text-center m-3"><%= link_to '係数変更', edit_admin_combination_coefficient_path(@combination), class: "btn btn-warning" %></div>
+					</div>
+				</div>
+
+				<div class="card card-primary col-12">
+					<div class="card-body row">
+						<!-- Form -->
+						<%= form_with model: @combination, url: admin_combination_path(@combination),method: :patch, class: "row", local: true do |f| %>
+
+
+							<!-- FirstFlavor -->
+							<div class="col-md-4">
+								<%= f.label :first_flavor_id, class: "label" do %>
+									フレーバー <span class="red-color">*</span>
+								<% end %>
+								<%= f.select :first_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+							</div>
+
+
+							<!-- SecondFlavor -->
+							<div class="col-md-4">
+								<%= f.label :second_flavor_id, class: "label" do %>
+									フレーバー <span class="red-color">*</span>
+								<% end %>
+								<%= f.select :second_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+							</div>
+
+							<!-- GAP -->
+							<div class="gap gap-36"></div>
+
+							<!-- Rating -->
+							<div class="col-md-12 mt-3">
+								<%= f.label :rating_score, class: "label" do %>
+									評価 <span class="red-color">*</span>
+								<% end %>
+								<div class="row">
+									<%= f.radio_button :rating_score, '4', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :rating_score_4, 'VERY GOOD', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :rating_score, '3', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :rating_score_3, 'GOOD', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :rating_score, '2', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :rating_score_2, 'NOT BAD', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :rating_score, '1', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :rating_score_1, 'NOT GOOD', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :rating_score, '0', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :rating_score_1, 'BAD', class: "btn btn-outline-success col-lg-2" %>
+								</div>
+							</div>
+							
+							<!-- GAP -->
+							<div class="gap gap-36"></div>								
+
+							<!-- Sweet -->
+							<div class="col-md-12">
+								<%= f.label :sweet_score, class: "label" do %>
+									甘さ <span class="red-color">*</span>
+								<% end %>
+								<div class="row">
+									<%= f.radio_button :sweet_score, '1', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :sweet_score_1, '甘い', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :sweet_score, '0', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :sweet_score_0, '甘くない', class: "btn btn-outline-success col-lg-2" %>
+								</div>
+							</div>
+							
+							<!-- GAP -->
+							<div class="gap gap-36"></div>								
+
+							<!-- Refresh -->
+							<div class="col-md-12">
+								<%= f.label :refresh_score, class: "label" do %>
+									スッキリ感 <span class="red-color">*</span>
+								<% end %>
+								<div class="row">
+									<%= f.radio_button :refresh_score, '1', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :refresh_score_1, 'スッキリ', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :refresh_score, '0', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :refresh_score_0, 'スッキリしない', class: "btn btn-outline-success col-lg-2" %>
+								</div>
+							</div>
+							
+							<!-- GAP -->
+							<div class="gap gap-36"></div>								
+
+							<!-- Relax -->
+							<div class="col-md-12">
+								<%= f.label :relax_score, class: "label" do %>
+									リラックス感 <span class="red-color">*</span>
+								<% end %>
+								<div class="row">
+									<%= f.radio_button :relax_score, '1', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :relax_score_1, 'リラックス', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :relax_score, '0', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :relax_score_0, 'リラックスしない', class: "btn btn-outline-success col-lg-2" %>
+								</div>
+							</div>
+							
+							<!-- GAP -->
+							<div class="gap gap-36"></div>								
+
+							<!-- Easy -->
+							<div class="col-md-12">
+								<%= f.label :easy_score, class: "label" do %>
+									吸いやすさ <span class="red-color">*</span>
+								<% end %>
+								<div class="row">
+									<%= f.radio_button :easy_score, '1', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :easy_score_1, '吸いやすい', class: "btn btn-outline-success col-lg-2" %>
+									<%= f.radio_button :easy_score, '0', class: "btn-check", autocomplete: "off" %>
+									<%= f.label :easy_score_0, '癖がある', class: "btn btn-outline-success col-lg-2" %>
+								</div>
+							</div>
+							
+							<!-- GAP -->
+							<div class="gap gap-72"></div>								
+
+							<!-- Submit button -->
+							<div class="col-lg-12 mt-3">
+								<%= f.submit "編集", class: "btn btn-success" %>
+							</div>
+
+
+						<% end %><!-- /End Form -->
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>

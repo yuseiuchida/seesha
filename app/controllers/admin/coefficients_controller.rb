@@ -1,12 +1,14 @@
-class Admin::CoefficientsController < ApplicationController
+class Admin::CoefficientsController < Admin::BaseController
 	def edit
-		@rate = Coefficient.find(params[:id])
+		@coefficient = Coefficient.find_by(combination_id: params[:id])
+		@combination = Combination.find_by(id: @coefficient.combination_id)
 	end
 
 	def update
-		@rate = Coefficient.find(params[:id])
-		if @rate.update(rate_params)
-			redirect_to admin_combination_path(id: @rate.combination_id)
+		@coefficient = Coefficient.find_by(combination_id: params[:id])
+		if @coefficient.update(coefficient_params)
+			Combination.find(@coefficient.combination_id).set_rate
+			redirect_to admin_combination_path(id: @coefficient.combination_id)
 		else
 			render :edit
 		end
@@ -14,7 +16,7 @@ class Admin::CoefficientsController < ApplicationController
 
 	private
 
-	def rate_params
-		params.require(:rate).permit(:opinion, :sweet, :refresh, :relax, :easy)
+	def coefficient_params
+		params.require(:coefficient).permit(:rating, :sweet, :refresh, :relax, :easy)
 	end
 end

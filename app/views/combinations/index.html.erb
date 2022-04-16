@@ -28,7 +28,7 @@
 										<div class="section-title-body">
 
 											<!-- Section title heading -->
-											<div class="section-title-heading">
+											<div class="section-title-heading unchi">
 												<h2>コンビネーション</h2>
 											</div><!-- /End Section title heading -->
 
@@ -41,6 +41,11 @@
 								<div class="gap gap-36"></div>
 
 							</div><!-- /End col-lg-8 -->
+
+							<!-- col-lg-12 -->
+							<div class="col-lg-12 text-center">
+								<%= link_to 'コンビネーション追加', new_combination_path, class: "btn btn-md btn-outline btn-round btn-primary ml-18 mr-18 mb-36" %>
+							</div>
 
 							<% @combinations.each do |combination| %>
 								<!-- col-lg-4 -->
@@ -62,9 +67,9 @@
 												<!-- Block heading -->
 												<div class="main-block-heading testimonials-block-heading">
 													<h5 class="name">
-														<%= combination.title %>
+														<%= combination.name %>
 													</h5>
-													<h6 class="role font-weight-500 accent-color">Hoge Hoge</h6>
+													<h6 class="role font-weight-500 accent-color"><%= combination.status %></h6>
 												</div><!-- /End Block heading -->
 
 												<!-- Block content -->
@@ -73,8 +78,10 @@
 												</div><!-- /End Block content -->
 
 												<!-- Block footer -->
-												<div class="main-block-footer testimonials-block-footer">
-													<%= render 'likes_button', {combination: combination} %>
+												<div class="main-block-footer testimonials-block-footer", id="hoge">
+													<div id="bookmark_combination_<%= combination.id %>">
+														<%= render 'bookmarks_button', {combination: combination} %>
+													</div>
 												</div><!-- /End Block footer -->
 
 											</div><!--/End Block body -->
@@ -84,10 +91,6 @@
 								</div><!-- /End col-lg-4 -->
 							<% end %>
 
-							<!-- col-lg-12 -->
-							<div class="col-lg-12 text-center">
-								<%= link_to 'コンビネーション追加', new_combination_path, class: "btn btn-md btn-outline btn-round btn-primary ml-18 mr-18 mb-36" %>
-							</div>
 
 
 						</div><!-- /End row -->

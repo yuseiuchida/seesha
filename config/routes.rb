@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :combinations, only: %i[index new create show] do
     resources :review_combinations, only: %i[create destroy]
+    resources :bookmarks, only: %i[create destroy]
     collection do
-      get :likes
+      get :bookmarks
     end
   end
   resources :compabilities, only: %i[index new create show] do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
   end
   resources :flavors, only: %i[index new create show]
   resources :categories, only: %i[index new create show]
-  resources :likes, only: %i[create destroy]
   resources :searchs, only: %i[index show create]
 
   namespace :admin do
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     resources :categories
     resources :flavors
+    resources :users
     resources :combinations do
       resources :review_combinations, only: %i[destroy]
       resources :coefficients, only: %i[edit update]
