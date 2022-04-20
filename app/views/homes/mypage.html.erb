@@ -1,0 +1,117 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+
+				<!-- Section -->
+				<div class="main-section">
+						<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+										<!-- Section title body -->
+										<div class="section-title-body">
+											<!-- Section title heading -->
+											<div class="section-title-heading">
+												<h2>My Page</h2>
+											</div><!-- /End Section title heading -->
+										</div><!--/End Section title body -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+							</div>
+
+							<div class="offset-lg-4 col-lg-4">
+
+									<!-- Team member block -->
+									<div class="main-block team-member-block team-member-block-layout-2">
+										<!-- Block container -->
+										<div class="main-block-container team-member-block-container">
+
+											<!-- Block header -->
+											<div class="main-block-header team-member-block-header">
+												<%= image_tag current_user.avatar_url %>
+											</div><!-- /End Block header -->
+
+											<!-- Block body -->
+											<div class="main-block-body team-member-block-body">
+
+												<!-- Block heading -->
+												<div class="main-block-heading team-member-block-heading">
+													<h4 class="name"><%= current_user.name %></h4>
+												</div><!-- /End Block heading -->
+												<div><%= link_to "編集", edit_user_path(current_user), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+
+											</div><!--/End Block body -->
+
+										</div><!-- /End Block container -->
+									</div><!-- /End Team member block -->
+
+									<!-- GAP -->
+									<div class="gap gap-18 d-lg-none"></div>
+
+							</div><!-- /End col-lg-3 -->							
+							<!-- GAP -->
+							<div class="gap gap-36"></div>
+
+							<div class="combination-title">
+									<span>ブックマーク</span>
+							</div>
+							<% @bookmarks.each do |bookmark| %>
+								<% Combination.where(id: bookmark.combination_id).each do |combination| %>
+									<div class="col-lg-6">
+										<!-- Block -->
+										<div class="main-block">
+											<!-- Block container -->
+											<div class="main-block-container">
+												<!-- Block body -->
+												<div class="main-block-body">
+													<!-- Block content -->
+													<div class="main-block-content">
+														<ul class="icon-list bordered-list grey-2-color-border">
+															<li>
+																<div class="row text-left">
+																	<div class="col-6">
+																		<%= link_to combination_path(combination) do %>
+																			<p><%= combination.name %></p>
+																		<% end %>
+																	</div>
+																	<div class="col-5">
+																		<span class="badge bg-success"><%= easy_status(combination) %></span>
+																		<span class="badge bg-danger"><%= sweet_status(combination) %></span>
+																		<span class="badge bg-warning"><%= refresh_status(combination) %></span>
+																		<span class="badge bg-primary"><%= relax_status(combination) %></span>
+																	</div>
+																	<div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								<% end %>
+							<% end %>
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+
+		
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>SeeSHA</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<div class="row">
+
+			<div class="col-12 ml-3">
+				<h5>お問い合せ</h5>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">ジャンル</th>
+							<th scope="col">コメント</th>
+							<th scope="col">お名前</th>
+							<th scope="col">メールアドレス</th>
+							<th scope="col">ステータス</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @inquiries.each do |inquiry| %>
+							<tr>
+								<td><%= inquiry.id %></td>
+								<td><%= inquiry.kind %></td>
+								<td><%= inquiry.content %></td>
+								<td><%= inquiry.user_name %></td>
+								<td><%= inquiry.user_email %></td>
+								<td><span class="badge bg-success"><%= inquiry.status %></span></td>
+								<td>
+									<%= link_to 'ステータス変更', admin_inquiry_path(inquiry), class: "btn btn-success", method: :patch %>
+									<%= link_to '削除', admin_inquiry_path(inquiry), class: "btn btn-danger", method: :delete %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+  </div>
+</div>

@@ -11,7 +11,7 @@ class Admin::UsersController < Admin::BaseController
 
 	def update
 		if @user.update(user_params)
-			redirect_to admin_user_path(@user)
+			redirect_to admin_users_path
 		else
 			render :edit
 		end
@@ -25,7 +25,7 @@ class Admin::UsersController < Admin::BaseController
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :role)
+		params.require(:user).permit(:name, :email, :role, :avatar)
 	end
 
 	def set_user

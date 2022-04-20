@@ -8,64 +8,147 @@
       <main id="main" class="content-area-container site-main">
 
         <!-- Section -->
-        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg background-test">
+        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg home-background">
           <!-- container -->
           <div class="container gx-4">
             <!-- row -->
-            <div class="row gx-36 align-items-center justify-content-center height-100vh pt-72 pb-72">
-
-              <!-- col-lg-12 -->
-              <div class="col-lg-12">
-
-
-                <!-- GAP -->
-                <div class="gap gap-72 d-none d-xl-block"></div>
-
-
-                <!-- Section title -->
-                <div class="section-title section-title-intro text-center light-color mb-18" data-animation="animate__fadeInDown">
-                  <!-- Section title container -->
-                  <div class="section-title-container">
-
-                    <!-- Section title body -->
-                    <div class="section-title-body">
-
-                      <!-- Section title heading -->
-                      <div class="section-title-heading">
-                        <h1 class="font-weight-900">BASON</h1>
-                      </div><!-- /End Section title heading -->
-
-                    </div><!--/End Section title body -->
-
-                  </div><!-- /End Section title container -->
-                </div><!-- /End Section title -->
-
-
-                <!-- Section title -->
-                <div class="section-title section-title-intro text-center light-color mb-0" data-animation="animate__fadeInUp">
-                  <!-- Section title container -->
-                  <div class="section-title-container">
-
-                    <!-- Section title body -->
-                    <div class="section-title-body">
-
-                      <!-- Section title heading -->
-                      <div class="section-title-heading">
-                        <h2 class="h1 font-weight-900">Man's Salon</h2>
-                      </div><!-- /End Section title heading -->
-
-                    </div><!--/End Section title body -->
-
-                  </div><!-- /End Section title container -->
-                </div><!-- /End Section title -->
-
-
-              </div><!-- /End col-lg-12 -->
-
+            <div class="row gx-36 text-center">
+              <div class="col-12 title-logo mt-3"><%= image_tag 'logo.png' %></div>
+              <div class="col-12"><h2>フレーバーをオーダーする悩みから解放するアプリ</h2></div>
+              <!-- search -->
+              <div class="container search-block offset-2 col-8 row mt-72">
+                <div class="search-title">
+                  <h3>START SEARCHING</h3>
+                  <div class="search-content mt-36">
+                    <% if Combination.all.length > 0 %>
+                      <p><%= link_to 'ランダム診断', search_path(@search_combination), class: "btn btn-danger btn-lg btn-round text-white" %></p>
+                      <p><%= link_to 'おすすめ診断', searchs_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div><!-- /End row -->
           </div><!-- /End container -->
         </div><!-- /End Section -->
 
+        <!-- Section -->
+        <div class="main-section dark-1-color-bg">
+          <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
+
+              <!-- col-lg-3 -->
+              <div class="col-lg-4 col-md-3 col-sm-6">
+
+                <!-- Counter -->
+                <div class="main-block counter-block text-center light-color">
+                  <!-- Block container -->
+                  <div class="main-block-container counter-block-container">
+
+                    <!-- Block body -->
+                    <div class="main-block-body counter-block-body">
+
+                      <!-- Heading -->
+                      <div class="main-block-heading counter-block-heading">
+                        <h5 class="h2 accent-color">
+                          <span
+                            data-from="0"
+                            data-to="900"
+                            data-speed="1000"
+                            data-refresh-interval="50">
+                            <%= Flavor.all.length %>
+                          </span>
+                        </h5>
+                      </div><!-- /End Heading -->
+
+                      <!-- Block content -->
+                      <div class="main-block-content counter-block-content secondary-font-family">
+                        <p>Flavors</p>
+                      </div><!-- /End Block content -->
+
+                    </div><!--/End Body -->
+
+                  </div><!-- /End Block container -->
+                </div><!-- /End Counter -->
+
+              </div><!-- /End col-lg-3 -->
+
+              <!-- col-lg-3 -->
+              <div class="col-lg-4 col-md-3 col-sm-6">
+
+                <!-- Counter -->
+                <div class="main-block counter-block text-center light-color">
+                  <!-- Block container -->
+                  <div class="main-block-container counter-block-container">
+
+                    <!-- Block body -->
+                    <div class="main-block-body counter-block-body">
+
+                      <!-- Heading -->
+                      <div class="main-block-heading counter-block-heading">
+                        <h5 class="h2 accent-color">
+                          <span
+                            data-from="0"
+                            data-to="900"
+                            data-speed="1000"
+                            data-refresh-interval="50">
+                            <%= Combination.all.length %>
+                          </span>
+                        </h5>
+                      </div><!-- /End Heading -->
+
+                      <!-- Block content -->
+                      <div class="main-block-content counter-block-content secondary-font-family">
+                        <p>Combinations</p>
+                      </div><!-- /End Block content -->
+
+                    </div><!--/End Body -->
+
+                  </div><!-- /End Block container -->
+                </div><!-- /End Counter -->
+
+              </div><!-- /End col-lg-3 -->
+
+              <!-- col-lg-3 -->
+              <div class="col-lg-4 col-md-3 col-sm-6">
+
+                <!-- Counter -->
+                <div class="main-block counter-block text-center light-color">
+                  <!-- Block container -->
+                  <div class="main-block-container counter-block-container">
+
+                    <!-- Block body -->
+                    <div class="main-block-body counter-block-body">
+
+                      <!-- Heading -->
+                      <div class="main-block-heading counter-block-heading">
+                        <h5 class="h2 accent-color">
+                          <span
+                            data-from="0"
+                            data-to="900"
+                            data-speed="1000"
+                            data-refresh-interval="50">
+                            0
+                          </span>
+                        </h5>
+                      </div><!-- /End Heading -->
+
+                      <!-- Block content -->
+                      <div class="main-block-content counter-block-content secondary-font-family">
+                        <p>Shops</p>
+                      </div><!-- /End Block content -->
+
+                    </div><!--/End Body -->
+
+                  </div><!-- /End Block container -->
+                </div><!-- /End Counter -->
+
+              </div><!-- /End col-lg-3 -->
+
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
 
         <!-- Section -->
         <div class="main-section">
@@ -88,13 +171,15 @@
 
                       <!-- Section title heading -->
                       <div class="section-title-heading">
-                        <h6 class="font-weight-500 accent-color">What say about hookah</h6>
-                        <h2>シーシャとは？</h2>
+                        <h6 class="font-weight-500 accent-color">What SeeSHA</h6>
+                        <h2>アプリについて</h2>
                       </div><!-- /End Section title heading -->
 
                       <!-- Block content -->
                       <div class="section-title-content">
-                        <p>Praesent dignissim nibh quis ante dignissim, in posuere dui feugiat. duis elit dui, vestibulum nec ipsum id, finibus sollicitudin elit. cras et purus sagittis, volutpat est id.</p>
+                        <p>シーシャ（水タバコ）を提供しているお店では多くの種類のフレーバーがあり、フレーバーを組み合わせてシーシャを楽しみます。</p>
+                        <p>フレーバーの組み合わせは自由だけど、選択肢がありすぎて困ってしまうことありませんか？</p>
+                        <p>このアプリはどのフレーバーの組み合わせにしようか迷っている人にフレーバーを提案するサービスです。</p>
                       </div><!-- /End Block content -->
 
                     </div><!--/End Section title body -->
@@ -102,448 +187,13 @@
                   </div><!-- /End Section title container -->
                 </div><!-- /End Section title -->
 
-                <!-- GAP -->
-                <div class="gap gap-36"></div>
+                  <!-- GAP -->
+                  <div class="gap gap-36"></div>
 
-
+              </div><!-- /End col-lg-8 -->
             </div><!-- /End row -->
           </div><!-- /End container -->
         </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section pb-0">
-					<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
-
-
-							<!-- col-lg-8 -->
-							<div class="col-lg-8 offset-lg-2">
-
-								<!-- Section title -->
-								<div class="section-title text-center">
-									<!-- Section title container -->
-									<div class="section-title-container">
-
-										<!-- Section title body -->
-										<div class="section-title-body">
-
-											<!-- Section title heading -->
-											<div class="section-title-heading">
-												<h2>フレーバー診断</h2>
-											</div><!-- /End Section title heading -->
-
-											<!-- Block content -->
-											<div class="section-title-content">
-												<p>シーシャのフレーバーの組み合わせは無限大、自分に合うフレーバーを探してみよう</p>
-											</div><!-- /End Block content -->
-
-										</div><!--/End Section title body -->
-
-									</div><!-- /End Section title container -->
-								</div><!-- /End Section title -->
-
-
-							</div><!-- /End col-lg-8 -->
-
-
-						</div><!-- /End row -->
-					</div><!-- /End container -->
-        </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section">
-					<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
-
-
-							<!-- col-lg-6 -->
-							<div class="col-lg-6">
-
-								<!-- Text block -->
-								<div class="main-block text-block">
-									<!-- Block container -->
-									<div class="main-block-container text-block-container">
-
-										<!-- Block body -->
-										<div class="main-block-body text-block-body">
-
-											<!-- Block heading -->
-											<div class="main-block-heading text-block-heading">
-                        <%= link_to search_path(@easy_search_id) do %>
-                          <h4>とりあえず診断</h4>
-                        <% end %>
-											</div><!-- /End Block heading -->
-
-											<!-- Block content -->
-											<div class="main-block-content text-block-content">
-												<p>シンプルに診断、なんでも良いけど迷っている人におすすめ！</p>
-											</div><!-- /End Block content -->
-
-										</div><!--/End Block body -->
-
-									</div><!-- /End Block container -->
-								</div><!-- /End Text block -->
-
-							</div>
-
-							<!-- col-lg-6 -->
-							<div class="col-lg-6">
-
-								<!-- Text block -->
-								<div class="main-block text-block">
-									<!-- Block container -->
-									<div class="main-block-container text-block-container">
-
-										<!-- Block body -->
-										<div class="main-block-body text-block-body">
-
-											<!-- Block heading -->
-											<div class="main-block-heading text-block-heading">
-												<%= link_to searchs_path do %>
-                          <h4>おすすめ診断</h4>
-                        <% end %>
-											</div><!-- /End Block heading -->
-
-											<!-- Block content -->
-											<div class="main-block-content text-block-content">
-												<p>好みや評価を考慮して診断、自分にピッタリなモノを探している人におすすめ！</p>
-											</div><!-- /End Block content -->
-
-										</div><!--/End Block body -->
-
-									</div><!-- /End Block container -->
-								</div><!-- /End Text block -->
-
-							</div>
-
-
-
-						</div><!-- /End row -->
-					</div><!-- /End container -->
-        </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section pt-0">
-
-            <!-- Media (Half) -->
-            <div class="section-media section-media-half section-media-half-left" style="background-image: url(assets/images/index/construction/009.jpg);">
-                <img src="assets/images/index/construction/009.jpg" alt="Image" class="section-media-half-img" />
-            </div><!-- /End Media (Half) -->
-
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
-
-
-                    <!-- col-lg-12 -->
-                    <div class="col-lg-12">
-
-                        <!-- GAP -->
-                        <div class="gap gap-72 d-none d-lg-block"></div>
-                        <div class="gap gap-36 d-none d-xxl-block"></div>
-
-                        <!-- Section title -->
-                        <div class="section-title">
-                            <!-- Section title container -->
-                            <div class="section-title-container">
-
-                                <!-- Section title body -->
-                                <div class="section-title-body">
-
-                                    <!-- Section title heading -->
-                                    <div class="section-title-heading">
-                                        <h6 class="font-weight-500 accent-color">About Bason</h6>
-                                        <h3>We are more than builders</h3>
-                                    </div><!-- /End Section title heading -->
-
-                                </div><!--/End Section title body -->
-
-                            </div><!-- /End Section title container -->
-                        </div><!-- /End Section title -->
-
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-
-                                        <p>Fusce volutpat dolor pellentesque, consequat nibh nec, ultrices urna. Proin id eros scelerisque, posuere dolor laoreet, pretium ligula. Donec auctor eget tellus quis imperdiet. Morbi aliquet et orci in ultricies. Duis auctor diam eu massa maximus ultrices.</p>
-
-                                        <p>Integer quis neque et tortor fermentum ultricies. Sed laoreet ipsum neque, id dignissim dolor tempus ut. Nulla tincidunt semper quam. Ut a ante sit amet felis vehicula mollis. Nullam at fermentum ipsum, ac vehicula urna id eros scelerisque, posuere dolor laoreet.</p>
-
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                    </div><!-- /End col-lg-12 -->
-
-
-                </div><!-- /End row -->
-            </div><!-- /End container -->
-
-        </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section pt-0">
-
-            <!-- Media (Half) -->
-            <div class="section-media section-media-half section-media-half-right" style="background-image: url(assets/images/index/construction/010.jpg);">
-                <img src="assets/images/index/construction/010.jpg" alt="Image" class="section-media-half-img" />
-            </div><!-- /End Media (Half) -->
-
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
-
-
-                    <!-- col-lg-12 -->
-                    <div class="col-lg-12">
-
-                        <!-- GAP -->
-                        <div class="gap gap-72 d-none d-lg-block"></div>
-                        <div class="gap gap-36 d-none d-xxl-block"></div>
-
-                        <!-- Section title -->
-                        <div class="section-title">
-                            <!-- Section title container -->
-                            <div class="section-title-container">
-
-                                <!-- Section title body -->
-                                <div class="section-title-body">
-
-                                    <!-- Section title heading -->
-                                    <div class="section-title-heading">
-                                        <h6 class="font-weight-500 accent-color">Our Benefits</h6>
-                                        <h3>Why choose us?</h3>
-                                    </div><!-- /End Section title heading -->
-
-                                </div><!--/End Section title body -->
-
-                            </div><!-- /End Section title container -->
-                        </div><!-- /End Section title -->
-
-                        <!-- Text block -->
-                        <div class="main-block text-block">
-                            <!-- Block container -->
-                            <div class="main-block-container text-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body text-block-body">
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content text-block-content">
-
-                                        <ul class="icon-list">
-                                            <li><i class="fas fa-check heading-color"></i>Donec pulvinar quam dolor.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Phasellus vitae turpis vel nisi pharetra.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Nunc ullamcorper commodo facilisis.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Donec dapibus sapien elit semper.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Sed ac orci nulla.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Sed finibus sapien vel rhoncus.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Aliquam at nisl ac magna tempus.</li>
-                                            <li><i class="fas fa-check heading-color"></i>Vivamus ornare tortor eu leo varius.</li>
-                                        </ul>
-
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Block body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Text block -->
-
-                    </div><!-- /End col-lg-12 -->
-
-
-                </div><!-- /End row -->
-            </div><!-- /End container -->
-
-        </div><!-- /End Section -->
-
-
-        <!-- Section -->
-        <div class="main-section dark-1-color-bg">
-            <!-- container -->
-            <div class="container gx-4">
-                <!-- row -->
-                <div class="row gx-36">
-
-
-                    <!-- col-lg-3 -->
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-
-                        <!-- Counter -->
-                        <div class="main-block counter-block text-center light-color">
-                            <!-- Block container -->
-                            <div class="main-block-container counter-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body counter-block-body">
-
-                                    <!-- Heading -->
-                                    <div class="main-block-heading counter-block-heading">
-                                        <h5 class="h2 accent-color">
-                                            <span
-                                                data-from="0"
-                                                data-to="900"
-                                                data-speed="1000"
-                                                data-refresh-interval="50">
-                                                900
-                                            </span>
-                                        </h5>
-                                    </div><!-- /End Heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content counter-block-content secondary-font-family">
-                                        <p><i class="fas fa-gem"></i> Projects</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Counter -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-36 d-none d-sm-block d-md-none"></div>
-
-                    </div><!-- /End col-lg-3 -->
-
-
-                    <!-- col-lg-3 -->
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-
-                        <!-- Counter -->
-                        <div class="main-block counter-block text-center light-color">
-                            <!-- Block container -->
-                            <div class="main-block-container counter-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body counter-block-body">
-
-                                    <!-- Heading -->
-                                    <div class="main-block-heading counter-block-heading">
-                                        <h5 class="h2 accent-color">
-                                            <span
-                                                data-from="0"
-                                                data-to="450"
-                                                data-speed="1000"
-                                                data-refresh-interval="50">
-                                                450
-                                            </span>
-                                        </h5>
-                                    </div><!-- /End Heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content counter-block-content secondary-font-family">
-                                        <p><i class="fas fa-thumbs-up"></i> Customers</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Counter -->
-
-                        <!-- GAP -->
-                        <div class="gap gap-36 d-none d-sm-block d-md-none"></div>
-
-                    </div><!-- /End col-lg-3 -->
-
-
-                    <!-- col-lg-3 -->
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <!-- Counter -->
-                        <div class="main-block counter-block text-center light-color">
-                            <!-- Block container -->
-                            <div class="main-block-container counter-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body counter-block-body">
-
-                                    <!-- Heading -->
-                                    <div class="main-block-heading counter-block-heading">
-                                        <h5 class="h2 accent-color">
-                                            <span
-                                                data-from="0"
-                                                data-to="800"
-                                                data-speed="1000"
-                                                data-refresh-interval="50">
-                                                800
-                                            </span>
-                                        </h5>
-                                    </div><!-- /End Heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content counter-block-content secondary-font-family">
-                                        <p><i class="fas fa-trophy"></i> Awards won</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Counter -->
-                    </div><!-- /End col-lg-3 -->
-
-
-                    <!-- col-lg-3 -->
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <!-- Counter -->
-                        <div class="main-block counter-block text-center light-color">
-                            <!-- Block container -->
-                            <div class="main-block-container counter-block-container">
-
-                                <!-- Block body -->
-                                <div class="main-block-body counter-block-body">
-
-                                    <!-- Heading -->
-                                    <div class="main-block-heading counter-block-heading">
-                                        <h5 class="h2 accent-color">
-                                            <span
-                                                data-from="0"
-                                                data-to="17583"
-                                                data-speed="1000"
-                                                data-refresh-interval="50">
-                                                17583
-                                            </span>
-                                        </h5>
-                                    </div><!-- /End Heading -->
-
-                                    <!-- Block content -->
-                                    <div class="main-block-content counter-block-content secondary-font-family">
-                                        <p><i class="fas fa-code"></i> Lines of code</p>
-                                    </div><!-- /End Block content -->
-
-                                </div><!--/End Body -->
-
-                            </div><!-- /End Block container -->
-                        </div><!-- /End Counter -->
-                    </div><!-- /End col-lg-3 -->
-
-
-                </div><!-- /End row -->
-            </div><!-- /End container -->
-        </div><!-- /End Section -->
-
-
-
-
-
       </main><!-- /End Main -->
     </div><!-- /End Content area -->
   </div><!-- /End row -->

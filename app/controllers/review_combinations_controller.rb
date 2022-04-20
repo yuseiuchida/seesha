@@ -3,9 +3,9 @@ class ReviewCombinationsController < ApplicationController
 		@review_combination = current_user.review_combinations.new(review_combination_params)
 		if @review_combination.save
 			Combination.find(@review_combination.combination_id).set_rate
-			redirect_to combination_path(params[:combination_id])
+			redirect_to combination_path(params[:combination_id]), success: 'レビューを投稿しました'
 		else
-			redirect_to combination_path(params[:combination_id])
+			redirect_to combination_path(params[:combination_id]), danger: '入力に誤りがあるため投稿できませんでした'
 		end
 	end
 

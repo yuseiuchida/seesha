@@ -1,0 +1,92 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+
+        <!-- Section -->
+        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg">
+					<div class="flavor_background"><%= image_tag @flavor.flavor_image_url %></div>
+        </div><!-- /End Section -->
+
+
+
+				<!-- Section -->
+				<div class="main-section">
+						<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+
+
+							<!-- col-lg-8 -->
+							<div class="col-lg-8 offset-lg-2">
+
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+										<!-- Section title body -->
+										<div class="section-title-body">
+											<!-- Section title heading -->
+											<div class="section-title-heading unchi">
+												<h2>Flavor</h2>
+												<h2><%= @flavor.name %></h2>
+												<p><%= @flavor.category.name %></p>
+											</div><!-- /End Section title heading -->
+										</div><!--/End Section title body -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+
+							<% @combinations.each do |combination| %>
+								<div class="col-lg-6">
+									<!-- Block -->
+									<div class="main-block">
+										<!-- Block container -->
+										<div class="main-block-container">
+											<!-- Block body -->
+											<div class="main-block-body">
+												<!-- Block content -->
+												<div class="main-block-content">
+													<ul class="icon-list bordered-list grey-2-color-border">
+														<li>
+															<div class="row text-left">
+																<div class="col-6">
+																	<%= link_to combination_path(combination) do %>
+																		<p><%= combination.name %></p>
+																	<% end %>
+																</div>
+																<div class="col-5">
+																	<span class="badge bg-success"><%= easy_status(combination) %></span>
+																	<span class="badge bg-danger"><%= sweet_status(combination) %></span>
+																	<span class="badge bg-warning"><%= refresh_status(combination) %></span>
+																	<span class="badge bg-primary"><%= relax_status(combination) %></span>
+																</div>
+																<div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							<% end %>
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

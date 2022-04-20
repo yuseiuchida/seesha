@@ -1,0 +1,94 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+
+
+				<!-- col-lg-8 -->
+				<div class="offset-2 col-lg-8">
+
+					<!-- Section title -->
+					<div class="section-title text-center">
+						<!-- Section title container -->
+						<div class="section-title-container">
+							<!-- Section title body -->
+							<div class="section-title-body">
+								<!-- Section title heading -->
+								<div class="section-title-heading">
+									<br>
+									<br>
+									<h2>お問い合わせ</h2>
+								</div><!-- /End Section title heading -->
+							</div><!--/End Section title body -->
+						</div><!-- /End Section title container -->
+					</div><!-- /End Section title -->
+				</div>
+				<!-- col-lg-12 -->
+				<div class="col-lg-12">
+
+					<!-- GAP -->
+					<div class="gap gap-36"></div>
+
+					<!-- Sign form -->
+					<div class="form-block form-block-validation form-block-sign">
+						<!-- Form container -->
+						<div class="form-block-container">
+							
+							<!-- Form -->
+							<%= form_with model: @inquiry, url: inquiry_path, class: "row form-block-sign-form", local: true do |f| %>
+
+								<div class="col-md-12"><p>*アプリにないフレーバーの申請もこちらからお願いします。</p></div>
+								<br>
+								<br>
+								<br>
+
+								<div class="col-md-12 form-group">
+									<%= f.label :user_name, "ニックネーム", class: "label" %>
+									<%= render 'shared/error_messages', object: f.object, item: :name %>
+									<%= f.text_field :user_name, class: "form-control" %>
+								</div>
+
+								<div class="col-md-12">
+									<%= f.label :user_email, "メールアドレス", class: "label" %>
+									<%= render 'shared/error_messages', object: f.object, item: :email %>
+									<%= f.text_field :user_email, class: "form-control" %>
+								</div>
+
+								<div class="col-md-12 form-group">
+									<%= f.label :kind, class: "label" do %>
+										問い合わせのジャンル <span class="red-color">*</span>
+									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :kind %>
+									<%= f.select :kind, Inquiry::KIND.map, {}, {class: "form-control"} %>
+								</div>
+
+								<div class="col-md-12">
+									<%= f.label :content, class: "label" do %>
+										内容 <span class="red-color">*</span>
+									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :content %>
+									<%= f.text_area :content, class: "form-control" %>
+								</div>
+
+								<!-- Submit button -->
+								<div class="col-lg-12">
+									<%= f.submit "お問い合わせ", class: "btn btn-accent btn-block" %>
+								</div><!-- /End Submit button -->
+
+							<% end %><!-- /End Form -->
+
+
+						</div><!-- /End Form container -->
+					</div><!-- /End Sign form -->
+
+				</div><!-- /End col-lg-12 -->
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->

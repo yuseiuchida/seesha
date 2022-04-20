@@ -7,4 +7,9 @@ class Flavor < ApplicationRecord
 	validates :name, uniqueness: true
 
 	mount_uploader :flavor_image, FlavorImageUploader
+
+	def count_combinations
+		num = Combination.where(first_flavor_id: self.id).or(Combination.where(second_flavor_id: self.id))
+		num.count
+	end
 end

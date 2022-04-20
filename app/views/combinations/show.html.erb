@@ -7,222 +7,229 @@
 			<!-- Main -->
 			<main id="main" class="content-area-container site-main">
 
+        <!-- Section -->
+        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg">
+					<div class="first_flavor_background"><%= image_tag @combination.first_flavor.flavor_image_url %></div>
+					<div class="second_flavor_background"><%= image_tag @combination.second_flavor.flavor_image_url %></div>
+        </div><!-- /End Section -->
+
+
 				<!-- Section -->
 				<div class="main-section">
-						<!-- container -->
-						<div class="container gx-4">
-								<!-- row -->
-								<div class="row gx-36">
+					<!-- container -->
+					<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
 
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
+								<!-- col-lg-8 -->
+								<div class="col-lg-8 offset-lg-2">
 
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
+									<!-- Section title -->
+									<div class="section-title text-center">
+										<!-- Section title container -->
+										<div class="section-title-container">
 
-												<!-- Section title body -->
-												<div class="section-title-body">
+											<!-- Section title body -->
+											<div class="section-title-body">
 
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2>
-															<%= @combination.name %>
-														</h2>
+												<!-- Section title heading -->
+												<div class="section-title-heading">
+													<h2>
+														<%= link_to flavor_path(@combination.first_flavor) do %>
+															<%= @combination.first_flavor.name %>
+														<% end %>
+														<%= link_to flavor_path(@combination.second_flavor) do %>
+															<%= @combination.second_flavor.name %>
+														<% end %>
+													</h2>
+													<% if current_user.exists? %>
 														<div id="bookmark_combination_<%= @combination.id %>">
 															<%= render 'bookmarks_button', {combination: @combination} %>
 														</div>
-													</div><!-- /End Section title heading -->
+													<% end %>
+												</div><!-- /End Section title heading -->
 
-												</div><!--/End Section title body -->
+											</div><!--/End Section title body -->
 
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
-
-										<!-- GAP -->
-										<div class="gap gap-36"></div>
-
-									</div><!-- /End col-lg-8 -->
-
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
-
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
-
-												<!-- Section title body -->
-												<div class="section-title-body">
-
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2><%= @combination.status %></h2>
-													</div><!-- /End Section title heading -->
-
-												</div><!--/End Section title body -->
-
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
-									</div><!-- /End col-lg-8 -->
+										</div><!-- /End Section title container -->
+									</div><!-- /End Section title -->
 
 									<!-- GAP -->
 									<div class="gap gap-36"></div>
 
-									<!-- col-lg-3 -->
-									<div class="col-lg-3">
+								</div><!-- /End col-lg-8 -->
 
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
+								<!-- col-lg-8 -->
+								<div class="col-lg-8 offset-lg-2">
 
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-solid fa-cubes-stacked"></i>
-													</div><!-- /End Block header -->
+									<!-- Section title -->
+									<div class="section-title text-center">
+										<!-- Section title container -->
+										<div class="section-title-container">
 
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
+											<!-- Section title body -->
+											<div class="section-title-body">
 
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>甘さ</h4>
-														</div><!-- /End Block heading -->
+												<!-- Section title heading -->
+												<div class="section-title-heading">
+													<h2><%= @combination.status %></h2>
+												</div><!-- /End Section title heading -->
 
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.sweet_rate %></p>
-														</div><!-- /End Block content -->
+											</div><!--/End Section title body -->
 
-													</div><!--/End Block body -->
+										</div><!-- /End Section title container -->
+									</div><!-- /End Section title -->
+								</div><!-- /End col-lg-8 -->
 
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
 
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
+								<!-- col-lg-3 -->
+								<div class="col-lg-3">
 
-									</div><!-- /End col-lg-3 -->
+										<!-- Icon block -->
+										<div class="main-block icon-block text-center">
+											<!-- Block container -->
+											<div class="main-block-container icon-block-container">
 
-									<!-- col-lg-3 -->
-									<div class="col-lg-3">
+												<!-- Block header -->
+												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+													<i class="fa-brands fa-ello"></i>
+												</div><!-- /End Block header -->
 
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
+												<!-- Block body -->
+												<div class="main-block-body icon-block-body">
 
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-solid fa-wind"></i>
-													</div><!-- /End Block header -->
+													<!-- Block heading -->
+													<div class="main-block-heading icon-block-heading">
+														<h4>吸いやすさ</h4>
+													</div><!-- /End Block heading -->
 
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
+													<!-- Block content -->
+													<div class="main-block-content icon-block-content">
+														<p><%= easy_status_for_show(@combination) %></p>
+													</div><!-- /End Block content -->
 
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>スッキリ感</h4>
-														</div><!-- /End Block heading -->
+												</div><!--/End Block body -->
 
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.refresh_rate %></p>
-														</div><!-- /End Block content -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Icon block -->
 
-													</div><!--/End Block body -->
+										<!-- GAP -->
+										<div class="gap gap-18 d-lg-none"></div>
 
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
+								</div><!-- /End col-lg-3 -->
 
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
+								<!-- col-lg-3 -->
+								<div class="col-lg-3">
 
-									</div><!-- /End col-lg-3 -->
+										<!-- Icon block -->
+										<div class="main-block icon-block text-center">
+											<!-- Block container -->
+											<div class="main-block-container icon-block-container">
 
-									<!-- col-lg-3 -->
-									<div class="col-lg-3">
+												<!-- Block header -->
+												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+													<i class="fa-solid fa-cubes-stacked"></i>
+												</div><!-- /End Block header -->
 
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
+												<!-- Block body -->
+												<div class="main-block-body icon-block-body">
 
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fas fa-couch"></i>
-													</div><!-- /End Block header -->
+													<!-- Block heading -->
+													<div class="main-block-heading icon-block-heading">
+														<h4>甘さ</h4>
+													</div><!-- /End Block heading -->
 
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
+													<!-- Block content -->
+													<div class="main-block-content icon-block-content">
+														<p><%= sweet_status_for_show(@combination) %></p>
+													</div><!-- /End Block content -->
 
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>リラックス感</h4>
-														</div><!-- /End Block heading -->
+												</div><!--/End Block body -->
 
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.relax_rate %></p>
-														</div><!-- /End Block content -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Icon block -->
 
-													</div><!--/End Block body -->
+										<!-- GAP -->
+										<div class="gap gap-18 d-lg-none"></div>
 
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
+								</div><!-- /End col-lg-3 -->
 
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
+								<!-- col-lg-3 -->
+								<div class="col-lg-3">
 
-									</div><!-- /End col-lg-3 -->
+										<!-- Icon block -->
+										<div class="main-block icon-block text-center">
+											<!-- Block container -->
+											<div class="main-block-container icon-block-container">
 
-									<!-- col-lg-3 -->
-									<div class="col-lg-3">
+												<!-- Block header -->
+												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+													<i class="fa-solid fa-wind"></i>
+												</div><!-- /End Block header -->
 
-											<!-- Icon block -->
-											<div class="main-block icon-block text-center">
-												<!-- Block container -->
-												<div class="main-block-container icon-block-container">
+												<!-- Block body -->
+												<div class="main-block-body icon-block-body">
 
-													<!-- Block header -->
-													<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-														<i class="fa-brands fa-ello"></i>
-													</div><!-- /End Block header -->
+													<!-- Block heading -->
+													<div class="main-block-heading icon-block-heading">
+														<h4>スッキリ感</h4>
+													</div><!-- /End Block heading -->
 
-													<!-- Block body -->
-													<div class="main-block-body icon-block-body">
+													<!-- Block content -->
+													<div class="main-block-content icon-block-content">
+														<p><%= refresh_status_for_show(@combination) %></p>
+													</div><!-- /End Block content -->
 
-														<!-- Block heading -->
-														<div class="main-block-heading icon-block-heading">
-															<h4>吸いやすさ</h4>
-														</div><!-- /End Block heading -->
+												</div><!--/End Block body -->
 
-														<!-- Block content -->
-														<div class="main-block-content icon-block-content">
-															<p><%= @combination.rate.easy_rate %></p>
-														</div><!-- /End Block content -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Icon block -->
 
-													</div><!--/End Block body -->
+										<!-- GAP -->
+										<div class="gap gap-18 d-lg-none"></div>
 
-												</div><!-- /End Block container -->
-											</div><!-- /End Icon block -->
+								</div><!-- /End col-lg-3 -->
 
-											<!-- GAP -->
-											<div class="gap gap-18 d-lg-none"></div>
+								<!-- col-lg-3 -->
+								<div class="col-lg-3">
 
-									</div><!-- /End col-lg-3 -->
+										<!-- Icon block -->
+										<div class="main-block icon-block text-center">
+											<!-- Block container -->
+											<div class="main-block-container icon-block-container">
 
+												<!-- Block header -->
+												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+													<i class="fas fa-couch"></i>
+												</div><!-- /End Block header -->
 
-								</div><!-- /End row -->
-						</div><!-- /End container -->
+												<!-- Block body -->
+												<div class="main-block-body icon-block-body">
+
+													<!-- Block heading -->
+													<div class="main-block-heading icon-block-heading">
+														<h4>リラックス感</h4>
+													</div><!-- /End Block heading -->
+
+													<!-- Block content -->
+													<div class="main-block-content icon-block-content">
+														<p><%= relax_status_for_show(@combination) %></p>
+													</div><!-- /End Block content -->
+
+												</div><!--/End Block body -->
+
+											</div><!-- /End Block container -->
+										</div><!-- /End Icon block -->
+
+										<!-- GAP -->
+										<div class="gap gap-18 d-lg-none"></div>
+
+								</div><!-- /End col-lg-3 -->
+							</div><!-- /End row -->
+					</div><!-- /End container -->
 				</div><!-- /End Section -->
-
-				<% if @compabilities.exists? %>
-					<%= render 'compability', {compabilities: @compabilities} %>
-				<% end %>
-
 			</main><!-- /End Main -->
 		</div><!-- /End Content area -->
 	</div><!-- /End row -->
@@ -306,7 +313,7 @@
 																								<div class="col-10 mt-2"><p><%= review.comment %></p></div>
 																								<div class="col-2">
 																									<% if review.user.id == current_user.id %>
-																										<%= link_to "削除", combination_review_combination_path(review.id), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
+																										<%= link_to "削除", combination_review_combination_path(@combination, review), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
 																									<% end %>
 																								</div>
 																							</div>

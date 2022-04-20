@@ -5,7 +5,8 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12 text-center">
+            <h1>Flavors</h1>
             <h1>フレーバー</h1>
           </div>
         </div>
@@ -20,9 +21,9 @@
 					<div class="card-head">
 						<div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
 					</div>
-					<div class="card-body">
-						<h3 class="text-center"><%= @flavor.category.name %></h3>
-						<h1 class="text-center"><%= @flavor.name %></h1>
+					<div class="card-body text-center">
+						<p><%= @flavor.name %></p>
+						<p><%= @flavor.category.name %></p>
 						<div class="text-center mt-3"><%= link_to '編集', edit_admin_flavor_path(@flavor), class: "btn btn-success" %></div>
 					</div>
 				</div>

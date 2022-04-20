@@ -1,0 +1,126 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+
+		<div id="primary" class="content-area col-lg-12">
+				<!-- Main -->
+				<main id="main" class="content-area-container site-main">
+
+
+					<!-- Section -->
+					<div class="main-section">
+							<!-- container -->
+						<div class="container gx-4">
+							<!-- row -->
+							<div class="row gx-36">
+
+
+								<!-- col-lg-8 -->
+								<div class="col-lg-8 offset-lg-2">
+
+									<!-- Section title -->
+									<div class="section-title text-center">
+										<!-- Section title container -->
+										<div class="section-title-container">
+											<!-- Section title body -->
+											<div class="section-title-body">
+												<!-- Section title heading -->
+												<div class="section-title-heading unchi">
+													<h2>Combinations</h2>
+													<h2>フレーバーの組み合わせ</h2>
+												</div><!-- /End Section title heading -->
+											</div><!--/End Section title body -->
+										</div><!-- /End Section title container -->
+									</div><!-- /End Section title -->
+
+									<div class="row">
+										<%= search_form_for @q, url: finds_combinations_path do |f| %>
+											<div class="col-8">
+												<%= f.label :name_cont, 'キーワード', class: "label" %>
+												<%= f.search_field :name_cont, class: "form-control" %>
+											</div>
+											<div class="col-4 mt-48">
+												<%= f.submit '検索', class: "btn btn-dark btn-block" %>
+											</div>
+										<% end %>
+									</div>
+
+									<!-- GAP -->
+									<div class="gap gap-36"></div>
+
+								</div><!-- /End col-lg-8 -->
+								<div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+
+								<div class="combination-title">
+									<span>検索結果</span>
+								</div>
+								<div class="gap gap-36"></div>
+								<!-- col-lg-4 -->
+								<% if @results.exists? %>
+
+
+									<% @results.each do |combination| %>
+										<div class="col-lg-6">
+											<!-- Block -->
+											<div class="main-block">
+												<!-- Block container -->
+												<div class="main-block-container">
+													<!-- Block body -->
+													<div class="main-block-body">
+														<!-- Block content -->
+														<div class="main-block-content">
+																<ul class="icon-list bordered-list grey-2-color-border">
+																	<li>
+																		<div class="row text-left">
+																			<div class="col-6">
+																				<%= link_to combination_path(combination) do %>
+																					<p><%= combination.name %></p>
+																				<% end %>
+																			</div>
+																			<div class="col-5">
+																				<span class="badge bg-success"><%= easy_status(combination) %></span>
+																				<span class="badge bg-danger"><%= sweet_status(combination) %></span>
+																				<span class="badge bg-warning"><%= refresh_status(combination) %></span>
+																				<span class="badge bg-primary"><%= relax_status(combination) %></span>
+																			</div>
+																			<% if current_user.exists? %>
+																				<div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
+																			<% end %>
+																		</div>
+																	</li>
+																</ul>
+														</div><!-- /End Block content -->
+													</div><!--/End Block body -->
+												</div><!-- /End Block container -->
+											</div><!-- /End Block -->
+										</div><!-- /End col-lg-4 -->
+									<% end %>
+								<% else %>
+									<p class="text-center">該当なし</p>
+								<% end %>
+
+
+
+
+
+							</div><!-- /End row -->
+						</div><!-- /End container -->
+					</div><!-- /End Section -->
+
+					<!-- boarder -->
+					<div class="main-section section-fullwidth pt-0 pb-0">
+						<div class="container-fluid gx-0">
+							<div class="row gx-36">
+								<div class="col-lg-12">
+									<div class="hr-divider hr-divider-layout-3 hr-divider-1px-border hr-divider-fullwidth grey-2-color"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+
+		
+	</div><!-- /End row -->
+</div><!-- /End Page body -->
