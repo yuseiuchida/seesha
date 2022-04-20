@@ -259,6 +259,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -315,7 +316,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
-  pg (~> 1.1)
+  pg
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -326,6 +327,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   sorcery
   spring
+  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   twitter (~> 7.0)
   tzinfo-data
