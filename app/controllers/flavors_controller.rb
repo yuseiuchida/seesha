@@ -1,21 +1,14 @@
 class FlavorsController < ApplicationController
 	before_action :set_category
+	skip_before_action :require_login
 	def index
 		@flavors = Flavor.all
 		@categories = Category.all
 	end
 
-	def new
-		@flavor = Flavor.new
-	end
-
-	def create
-		@flavor = Flavor.new(flavor_params)
-		if @flavor.save
-			redirect_to flavors_path
-		else
-			render :new
-		end
+	def show
+		@flavor = Flavor.find(params[:id])
+		@combinations = Combination.where(first_flavor_id: @flavor.id).or(Combination.where(second_flavor_id: @flavor.id))
 	end
 
 	private

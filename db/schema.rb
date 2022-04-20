@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_16_010044) do
+ActiveRecord::Schema.define(version: 2022_04_20_053407) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "user_id"
+    t.uuid "user_id"
     t.bigint "combination_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,18 +61,6 @@ ActiveRecord::Schema.define(version: 2022_04_16_010044) do
     t.index ["second_flavor_id"], name: "index_combinations_on_second_flavor_id"
   end
 
-  create_table "compabilities", force: :cascade do |t|
-    t.bigint "main_combination_id"
-    t.bigint "sub_combination_id"
-    t.string "kind", null: false
-    t.integer "score"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["main_combination_id"], name: "index_compabilities_on_main_combination_id"
-    t.index ["sub_combination_id"], name: "index_compabilities_on_sub_combination_id"
-  end
-
   create_table "flavors", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "category_id"
@@ -79,6 +68,16 @@ ActiveRecord::Schema.define(version: 2022_04_16_010044) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_flavors_on_category_id"
+  end
+
+  create_table "inquiries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "kind", null: false
+    t.string "user_name"
+    t.string "user_email"
+    t.string "content", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "rates", force: :cascade do |t|
@@ -95,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_04_16_010044) do
 
   create_table "review_combinations", force: :cascade do |t|
     t.bigint "combination_id"
-    t.bigint "user_id"
+    t.uuid "user_id"
     t.string "sweet"
     t.string "refresh"
     t.string "relax"
@@ -108,18 +107,7 @@ ActiveRecord::Schema.define(version: 2022_04_16_010044) do
     t.index ["user_id"], name: "index_review_combinations_on_user_id"
   end
 
-  create_table "review_compabilities", force: :cascade do |t|
-    t.bigint "compability_id"
-    t.bigint "user_id"
-    t.string "rating", null: false
-    t.string "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["compability_id"], name: "index_review_compabilities_on_compability_id"
-    t.index ["user_id"], name: "index_review_compabilities_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "crypted_password"
@@ -135,11 +123,7 @@ ActiveRecord::Schema.define(version: 2022_04_16_010044) do
   add_foreign_key "bookmarks", "combinations"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "coefficients", "combinations"
-  add_foreign_key "compabilities", "combinations", column: "main_combination_id"
-  add_foreign_key "compabilities", "combinations", column: "sub_combination_id"
   add_foreign_key "rates", "combinations"
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"
-  add_foreign_key "review_compabilities", "compabilities"
-  add_foreign_key "review_compabilities", "users"
 end

@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   enum role: { general: 0, admin: 1 }
 
+  mount_uploader :avatar, AvatarUploader
 
   def bookmark(combination)
     bookmark_combinations << combination

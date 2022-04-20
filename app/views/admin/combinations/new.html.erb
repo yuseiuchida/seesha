@@ -25,6 +25,7 @@
 									<%= f.label :first_flavor_id, class: "label" do %>
 										フレーバー <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :first_flavor_id %>
 									<%= f.select :first_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
 								</div>
 
@@ -34,6 +35,7 @@
 									<%= f.label :second_flavor_id, class: "label" do %>
 										フレーバー <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :second_flavor_id %>
 									<%= f.select :second_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
 								</div>
 
@@ -45,6 +47,7 @@
 									<%= f.label :rating_score, class: "label" do %>
 										評価 <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :rating_score %>
 									<div class="row">
 										<%= f.radio_button :rating_score, '4', class: "btn-check", autocomplete: "off" %>
 										<%= f.label :rating_score_4, 'VERY GOOD', class: "btn btn-outline-success col-lg-2" %>
@@ -67,6 +70,7 @@
 									<%= f.label :sweet_score, class: "label" do %>
 										甘さ <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :sweet_score %>
 									<div class="row">
 										<%= f.radio_button :sweet_score, '1', class: "btn-check", autocomplete: "off" %>
 										<%= f.label :sweet_score_1, '甘い', class: "btn btn-outline-success col-lg-2" %>
@@ -83,6 +87,7 @@
 									<%= f.label :refresh_score, class: "label" do %>
 										スッキリ感 <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :refresh_score %>
 									<div class="row">
 										<%= f.radio_button :refresh_score, '1', class: "btn-check", autocomplete: "off" %>
 										<%= f.label :refresh_score_1, 'スッキリ', class: "btn btn-outline-success col-lg-2" %>
@@ -99,6 +104,7 @@
 									<%= f.label :relax_score, class: "label" do %>
 										リラックス感 <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :relax_score %>
 									<div class="row">
 										<%= f.radio_button :relax_score, '1', class: "btn-check", autocomplete: "off" %>
 										<%= f.label :relax_score_1, 'リラックス', class: "btn btn-outline-success col-lg-2" %>
@@ -115,6 +121,7 @@
 									<%= f.label :easy_score, class: "label" do %>
 										吸いやすさ <span class="red-color">*</span>
 									<% end %>
+									<%= render 'shared/error_messages', object: f.object, item: :easy_score %>
 									<div class="row">
 										<%= f.radio_button :easy_score, '1', class: "btn-check", autocomplete: "off" %>
 										<%= f.label :easy_score_1, '吸いやすい', class: "btn btn-outline-success col-lg-2" %>

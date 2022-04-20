@@ -7,85 +7,64 @@
 			<!-- Main -->
 			<main id="main" class="content-area-container site-main">
 
-					<!-- Section -->
-					<div class="main-section">
+				<!-- Section -->
+				<div class="main-section">
 						<!-- container -->
-						<div class="container gx-4">
-							<!-- row -->
-							<div class="row gx-36">
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
 
-								<!-- col-lg-8 -->
-								<div class="col-lg-8 offset-lg-2">
-									<!-- Section title -->
-									<div class="section-title text-center">
-										<!-- Section title container -->
-										<div class="section-title-container">
-											<!-- Section title body -->
-											<div class="section-title-body">
-												<!-- Section title heading -->
-												<div class="section-title-heading">
-														<h2>フレーバー</h2>
-												</div><!-- /End Section title heading -->
-											</div><!--/End Section title body -->
-										</div><!-- /End Section title container -->
-									</div><!-- /End Section title -->
-									<!-- GAP -->
-									<div class="gap gap-36"></div>
-								</div><!-- /End col-lg-8 -->
+							<!-- col-lg-8 -->
+							<div class="offset-lg-2 col-lg-8">
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+										<!-- Section title body -->
+										<div class="section-title-body">
+											<!-- Section title heading -->
+											<div class="section-title-heading unchi">
+												<h2>Flavors</h2>
+												<h2>フレーバー</h2>
+											</div><!-- /End Section title heading -->
+										</div><!--/End Section title body -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
 
+							</div><!-- /End col-lg-8 -->
+							<div class="col-lg-2"><%= link_to "申請", inquiry_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+							
 
-								<div class="col-lg-12 row">
-									<h4 class="text-center">フルーツ系</h4>
-									<div class="gap gap-36"></div>
-									<% @flavors.where(category: 1).each do |flavor| %>
-										<!-- col-lg-4 -->
-										<div class="col-lg-2 mb-72">
+							<!-- col-lg-4 -->
+							<% @categories.each do |category| %>
+								<h5><%= category.name %></h5>
+								<div class="gap gap-36"></div>
+								<% @flavors.where(category_id: category.id).each do |flavor| %>
+									<div class="col-lg-3">
+										<!-- Block -->
+										<div class="card flavor-card">
+											<div class="card-img-top flavor-image"><%= image_tag flavor.flavor_image_url %></div>
+											<div class="card-body">
+												<div class="card-title flavor-text">
+													<%= link_to flavor_path(flavor) do %>
+														<p><%= flavor.name %><p>
+													<% end %>
+													<p><%= flavor.count_combinations %>件</p>
+												</div>
+											</div>
+										</div>
+									</div><!-- /End col-lg-4 -->
+								<% end %>
+							<% end %>
 
-											<p class="flavor-name text-center"><%= flavor.name %></p>
-											<div class="flavor-image text-center"><%= link_to image_tag(flavor.flavor_image_url), flavor_path(flavor) %></div>
-
-										</div><!-- /End col-lg-4 -->
-									<% end %>
-								</div>
-
-								<div class="col-lg-12 row">
-									<h4 class="text-center">スパイス系</h4>
-									<div class="gap gap-36"></div>
-									<% @flavors.where(category: 2).each do |flavor| %>
-										<!-- col-lg-4 -->
-										<div class="col-lg-2 mb-72">
-
-											<p class="flavor-name text-center"><%= flavor.name %></p>
-											<div class="flavor-image text-center"><%= link_to image_tag(flavor.flavor_image_url), flavor_path(flavor) %></div>
-
-										</div><!-- /End col-lg-4 -->
-									<% end %>
-								</div>
-
-								<div class="col-lg-12 row">
-									<h4 class="text-center">リキュール系</h4>
-									<div class="gap gap-36"></div>
-									<% @flavors.where(category: 3).each do |flavor| %>
-										<!-- col-lg-4 -->
-										<div class="col-lg-2 mb-72">
-
-											<p class="flavor-name text-center"><%= flavor.name %></p>
-											<div class="flavor-image text-center"><%= link_to image_tag(flavor.flavor_image_url), flavor_path(flavor) %></div>
-
-										</div><!-- /End col-lg-4 -->
-									<% end %>
-								</div>
-
-								<div class="col-lg-12 text-center">
-									<%= link_to 'フレーバー追加', new_flavor_path, class: "btn btn-md btn-outline btn-round btn-success ml-18 mr-18 mb-36" %>
-								</div>
-
-							</div><!-- /End row -->
-						</div><!-- /End container -->
-					</div><!-- /End Section -->
-
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
 
 			</main><!-- /End Main -->
 		</div><!-- /End Content area -->
 	</div><!-- /End row -->
 </div><!-- /End Page body -->
+

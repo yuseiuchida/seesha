@@ -5,7 +5,8 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12 text-center">
+            <h1>Combination</h1>
             <h1>コンビネーション</h1>
           </div>
         </div>
@@ -35,13 +36,46 @@
 						<div class="text-center m-3"><%= link_to '係数変更', edit_admin_combination_coefficient_path(@combination), class: "btn btn-warning" %></div>
 					</div>
 						
-
 				</div>
 
 
-
-
-
+				<div class="col-12">
+					<div class="text-center"><h1>Reviews</h1></div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">甘さ</th>
+								<th scope="col">スッキリ度</th>
+								<th scope="col">リラックス度</th>
+								<th scope="col">吸いやすさ</th>
+								<th scope="col">評価</th>
+								<th scope="col">コメント</th>
+								<th scope="col">ユーザー</th>
+								<th scope="col">作成日時</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @combination.review_combinations.each do |review| %>
+								<tr>
+									<td><%= review.id %></td>
+									<td><%= review.sweet %></td>
+									<td><%= review.refresh %></td>
+									<td><%= review.relax %></td>
+									<td><%= review.easy %></td>
+									<td><%= review.rating %></td>
+									<td><%= review.comment %></td>
+									<td><%= review.user.name %></td>
+									<td><%= review.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+									<td>
+										<%= link_to '削除', admin_combination_review_combination_path(@combination, review), class: "btn btn-danger", method: :delete %>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
 
 
 		</div>

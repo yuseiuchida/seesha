@@ -31,6 +31,8 @@ gem 'pry-rails'
 gem 'sorcery'
 gem 'htmlbeautifier'
 gem 'carrierwave', '~> 0.11.0'
+gem 'ransack'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,3 +60,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "twitter", "~> 7.0"
+
+gem "rails-i18n", "~> 7.0"

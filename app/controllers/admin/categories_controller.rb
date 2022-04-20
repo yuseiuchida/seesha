@@ -1,4 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
+	before_action :set_category, only: %i[show edit update]
+
 	def index
 		@categories = Category.all
 	end
@@ -17,16 +19,18 @@ class Admin::CategoriesController < Admin::BaseController
 	end
 
 	def edit
-		@category = Category.find(params[:id])
 	end
 
 	def update
-		@category = Category.find(params[:id])
 		if @category.update(category_params)
 			redirect_to admin_categories_path
 		else
 			render :edit
 		end
+	end
+
+	def show
+		@flavors = Flavor.where(category_id: @category.id)
 	end
 
 	def destroy
@@ -42,5 +46,9 @@ class Admin::CategoriesController < Admin::BaseController
 
 	def category_params
 		params.require(:category).permit(:name)
+	end
+
+	def set_category
+		@category = Category.find(params[:id])
 	end
 end

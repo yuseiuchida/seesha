@@ -3,25 +3,26 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-12 text-center">
+            <h1>Edit Category</h1>
             <h1>カテゴリー編集</h1>
           </div>
         </div>
-      </div>
+      </div><!-- /.container-fluid -->
     </section>
 
     <div class="container">
 			<div class="row">
-				<div class="col align-self-center">
+				<div class="offset-3 col-6 align-self-center">
 					<div class="card card-primary">
 						<div class="card-body row">
 							<%= form_with model: @category, url: admin_category_path(@category), local: true do |f| %>
-								<div class="form-group col-4">
+								<div class="form-group col-12">
 									<%= f.label :name, "名前", class: "form-group-label" %>
 									<%= f.text_field :name, class: "form-control" %>
 								</div>
 								<div class="text-center mt-3 col-12">
-									<%= f.submit "編集", class: 'btn btn-success btn-lg' %>
+									<%= f.submit "編集", class: 'btn btn-success btn-block' %>
 								</div>
 							<% end %>
 						</div>

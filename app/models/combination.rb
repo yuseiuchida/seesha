@@ -1,14 +1,13 @@
 class Combination < ApplicationRecord
 	belongs_to :first_flavor, class_name: "Flavor"
 	belongs_to :second_flavor, class_name: "Flavor"
-	has_many :compabilities, class_name: "Compability", foreign_key: "main_combination_id"
-	has_many :compabilities, class_name: "Compability", foreign_key: "sub_combination_id"
 	has_many :review_combinations, dependent: :destroy
 	has_one :rate, dependent: :destroy
 	has_one :coefficient, dependent: :destroy
+	has_many :bookmarks, dependent: :destroy
 
 	validates :first_flavor_id, uniqueness: { scope: :second_flavor_id }
-
+	validates :first_flavor_id, :second_flavor_id, :rating_score, :sweet_score, :refresh_score, :relax_score, :easy_score, presence: true
 	STATUS = ["BAD", "NOT GOOD", "NOT BAD", "GOOD", "VERY GOOD", "EXCELLENT"]
 
 	def setup

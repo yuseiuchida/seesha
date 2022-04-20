@@ -6,10 +6,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <h1>Combinations</h1>
             <h1>コンビネーション</h1>
           </div>
           <div class="col-sm-12">
-            <%= link_to '新規コンビネーション', new_admin_combination_path, class: "btn btn-warning mt-3" %>
+            <%= link_to '新規フレーバー', new_admin_flavor_path, class: "btn btn-warning mt-3" %>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -37,7 +38,7 @@
 								<td><%= combination.first_flavor.name %></td>
 								<td><%= combination.second_flavor.name %></td>
 								<td><%= combination.status %></td>
-								<td><%= combination.likes.count %></td>
+								<td><%= combination.bookmarks.count %></td>
 								<td><%= combination.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 								<td>
 									<%= link_to '詳細', admin_combination_path(combination), class: "btn btn-info" %>

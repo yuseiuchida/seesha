@@ -71,7 +71,8 @@
 
 												<!-- Block header -->
 												<div class="main-block-header testimonials-block-header">
-													<%= image_tag 'sample.jpeg' %>
+													<%= image_tag @combination.first_flavor.flavor_image_url %>
+													<%= image_tag @combination.second_flavor.flavor_image_url %>
 												</div><!-- /End Block header -->
 
 												<!-- Block body -->
@@ -80,21 +81,30 @@
 													<!-- Block heading -->
 													<div class="main-block-heading testimonials-block-heading">
 														<h5 class="name">
-															<%= @combination.keyword %>
+															<%= @combination.name %>
 														</h5>
-														<h6 class="role font-weight-500 accent-color">Hoge Hoge</h6>
+														<h6 class="role font-weight-500 accent-color"><%= @combination.status %></h6>
+														<span class="badge bg-success"><%= easy_status(@combination) %></span>
+														<span class="badge bg-danger"><%= sweet_status(@combination) %></span>
+														<span class="badge bg-warning"><%= refresh_status(@combination) %></span>
+														<span class="badge bg-primary"><%= relax_status(@combination) %></span>
 													</div><!-- /End Block heading -->
 
 													<!-- Block content -->
 													<div class="main-block-content testimonials-block-content">
 														<p><%= link_to 'show', combination_path(@combination) %></p>
+														<br>
+														<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ @combination.name }", target: '_blank' do %>
+															<p><i class="fab fa-twitter" style='color: #3399FF;'></i>share</p>
+														<% end %>
 													</div><!-- /End Block content -->
-
 												</div><!--/End Block body -->
 
 											</div><!-- /End Block container -->
 										</div><!-- /End Testimonials block -->
 									</div><!-- /End col-lg-4 -->
+
+
 
 									<!-- col-lg-8 -->
 									<div class="col-lg-8 offset-lg-2">
@@ -123,100 +133,12 @@
 
 									<!-- col-lg-12 -->
 									<div class="col-lg-12 text-center">
-										<%= link_to "とりあえず診断", search_path(@easy_search_id), class: "btn btn-md btn-outline btn-round btn-danger ml-18 mr-18 mb-36" %>
+										<%= link_to "とりあえず診断", search_path(@search_combination), class: "btn btn-md btn-outline btn-round btn-danger ml-18 mr-18 mb-36" %>
 										<%= link_to "おすすめ診断", searchs_path, class: "btn btn-md btn-outline btn-round btn-danger ml-18 mr-18 mb-36" %>
-
 									</div><!-- /End col-lg-12 -->
 
 								</div><!-- /End row -->
 						</div><!-- /End container -->
-				</div><!-- /End Section -->
-
-				<!-- boarder -->
-				<div class="main-section section-fullwidth pt-0 pb-0">
-					<div class="container-fluid gx-0">
-						<div class="row gx-36">
-							<div class="col-lg-12">
-								<div class="hr-divider hr-divider-layout-3 hr-divider-1px-border hr-divider-fullwidth grey-2-color"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Section -->
-				<div class="main-section accent-color-bg">
-						<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
-
-
-							<!-- col-lg-8 -->
-							<div class="col-lg-8 offset-lg-2">
-
-								<!-- Section title -->
-								<div class="section-title text-center">
-									<!-- Section title container -->
-									<div class="section-title-container">
-
-										<!-- Section title body -->
-										<div class="section-title-body">
-
-											<!-- Section title heading -->
-											<div class="section-title-heading">
-												<h2>追加でオーダーしたいおすすめのフレーバー</h2>
-											</div><!-- /End Section title heading -->
-
-										</div><!--/End Section title body -->
-
-									</div><!-- /End Section title container -->
-								</div><!-- /End Section title -->
-
-								<!-- GAP -->
-								<div class="gap gap-36"></div>
-
-							</div><!-- /End col-lg-8 -->
-
-							<% if @compabilities.exists? %>
-								<% @compabilities.each do |compability| %>
-									<!-- col-lg-4 -->
-									<div class="col-lg-4">
-										<!-- Testimonials block -->
-										<div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center">
-											<!-- Block container -->
-											<div class="main-block-container testimonials-block-container">
-
-												<!-- Block header -->
-												<div class="main-block-header testimonials-block-header">
-													<%= image_tag 'sample.jpeg' %>
-												</div><!-- /End Block header -->
-
-												<!-- Block body -->
-												<div class="main-block-body testimonials-block-body">
-
-													<!-- Block heading -->
-													<div class="main-block-heading testimonials-block-heading">
-														<h5 class="name">
-															<%= compability.sub_combination.keyword %>
-														</h5>
-														<h6 class="role font-weight-500 accent-color">Hoge Hoge</h6>
-													</div><!-- /End Block heading -->
-
-													<!-- Block content -->
-													<div class="main-block-content testimonials-block-content">
-														<p><%= link_to 'show', combination_path(@combination) %></p>
-													</div><!-- /End Block content -->
-
-												</div><!--/End Block body -->
-
-											</div><!-- /End Block container -->
-										</div><!-- /End Testimonials block -->
-									</div><!-- /End col-lg-4 -->
-								<% end %>
-							<% end %>
-
-						</div><!-- /End row -->
-					</div><!-- /End container -->
 				</div><!-- /End Section -->
 
 			</main><!-- /End Main -->

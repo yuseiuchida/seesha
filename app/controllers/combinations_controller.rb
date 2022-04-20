@@ -1,9 +1,14 @@
 class CombinationsController < ApplicationController
 	before_action :set_flavors, only: %i[new create]
+	before_action :set_q, only: %i[index finds]
+	skip_before_action :require_login, only: %i[index show finds]
 
 	def index
-		@combinations = Combination.all
-		@compabilities = Compability.all
+		if params[:sort_key].nil?
+			@rates = Rate.all.order(updated_at: :desc)
+		else
+			@rates = Rate.sort(params[:sort_key])
+		end
 	end
 
 	def new
@@ -14,8 +19,9 @@ class CombinationsController < ApplicationController
 		@combination = Combination.new(combination_params)
 		if @combination.save
 			@combination.setup
-			redirect_to combination_path(@combination)
+			redirect_to combination_path(@combination), success: "コンビネーション「#{@combination.name}」が追加されました"
 		else
+			flash.now[:danger] = '入力に誤りがあるか、既に登録されたフレーバーです'
 			render :new
 		end
 	end
@@ -31,6 +37,10 @@ class CombinationsController < ApplicationController
 		@like_combinations = current_user.like_combinations.includes(:user)
 	end
 
+	def finds
+		@results = @q.result
+	end
+
 	private
 
 	def combination_params
@@ -40,4 +50,8 @@ class CombinationsController < ApplicationController
 	def set_flavors
 		@flavors = Flavor.all
 	end
+
+  def set_q
+    @q = Combination.ransack(params[:q])
+  end
 end

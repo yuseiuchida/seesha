@@ -6,6 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <h1>Categories</h1>
             <h1>カテゴリー</h1>
           </div>
           <div class="col-sm-12">
@@ -34,7 +35,6 @@
 								<td><%= category.name %></td>
 								<td><%= category.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 								<td>
-									<%= link_to '詳細', admin_category_path(category), class: "btn btn-info" %>
 									<%= link_to '編集', edit_admin_category_path(category), class: "btn btn-success" %>
 									<%= link_to '削除', admin_category_path(category), class: "btn btn-danger", method: :delete %>
 								</td>

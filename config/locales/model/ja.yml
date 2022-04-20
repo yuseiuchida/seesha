@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        email: メールアドレス
+      combination:
+        rating_score: 評価
+        sweet_score: 甘さ
+        refresh_score: スッキリ度
+        relax_score: リラックス度
+        easy_score: 吸いやすさ
+      inquiry:
+        content: 内容
