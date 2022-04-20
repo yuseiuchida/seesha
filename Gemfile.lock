@@ -153,6 +153,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.4.5)
     multi_json (1.15.0)
@@ -160,6 +161,9 @@ GEM
     multipart-post (2.1.1)
     naught (1.1.0)
     nio4r (2.5.8)
+    nokogiri (1.13.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
@@ -301,6 +305,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
@@ -332,7 +337,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.0p0
 
 BUNDLED WITH
    2.2.26

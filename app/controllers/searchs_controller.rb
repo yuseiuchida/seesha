@@ -13,7 +13,6 @@ class SearchsController < ApplicationController
 
 	def show
 		@combination = Combination.find(params[:id])
-		@compabilities = Compability.where(main_combination_id: @combination.id).limit(2)
 		easy_searchs = Combination.all
 		
 		ids = []

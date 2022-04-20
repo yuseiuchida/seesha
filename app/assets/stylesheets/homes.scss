@@ -16,3 +16,10 @@
   height: 180px;
   width: auto;
 }
+
+.avatar-image img {
+  width: 120px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+}

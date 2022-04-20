@@ -22,7 +22,6 @@ class Admin::CombinationsController < Admin::BaseController
 	end
 
 	def show
-		@compabilities = Compability.where(main_combination_id: @combination.id)
 		@review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
 		@review_combination = ReviewCombination.new
 	end
