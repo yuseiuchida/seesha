@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: seesha_production
-  username: seesha
-  password: <%= ENV['SEESHA_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

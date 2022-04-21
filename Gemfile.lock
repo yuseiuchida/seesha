@@ -153,6 +153,7 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.5.1)
     multi_json (1.15.0)
@@ -160,7 +161,12 @@ GEM
     multipart-post (2.1.1)
     naught (1.1.0)
     nio4r (2.5.8)
+    nokogiri (1.13.4)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.4-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.8)
     oauth2 (1.4.9)
@@ -255,7 +261,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -300,7 +305,9 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -322,7 +329,6 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   sorcery
   spring
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   twitter (~> 7.0)
   tzinfo-data
