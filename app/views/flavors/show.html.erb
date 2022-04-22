@@ -71,7 +71,9 @@
 																	<span class="badge bg-warning"><%= refresh_status(combination) %></span>
 																	<span class="badge bg-primary"><%= relax_status(combination) %></span>
 																</div>
-																<div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+																<% if current_user.present? %>
+																	<div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+																<% end %>
 															</div>
 														</li>
 													</ul>

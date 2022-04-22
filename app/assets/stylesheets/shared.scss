@@ -1,0 +1,109 @@
+/* body ================================= */
+body {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  overflow-x: hidden;
+  line-height: inherit;
+  font-family: sans-serif, serif;
+
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  -webkit-touch-callout: none;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* header ================================= */
+.header-menu-section {
+  .dropdown-menu {
+    background-color: rgb(108, 63, 185);
+  }
+  .dropdown-item {
+    color: white;
+  }
+}
+
+.navbar-brand img {
+  height: 60px;
+  width: auto;
+}
+
+/* footer =================================  */
+.footer-section {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.footer-section-top {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: block;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .main-section {
+    padding-top: 72px;
+    padding-bottom: 18px;
+  }
+}
+
+.widget_nav_menu_horizontal ul {
+  width: auto;
+  margin: 0 -6px;
+  display: inline-block;
+}
+.widget_nav_menu_horizontal ul li {
+  padding: 0;
+  margin: 0 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.widget_nav_menu_horizontal ul li a {
+  line-height: 2;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+  /* 背景色などは割愛します */
+}

@@ -33,13 +33,14 @@
 									</div><!-- /End Section title -->
 
 
-									<div class="row">
+									<div class="combination-container row">
 										<%= search_form_for @q, url: finds_combinations_path do |f| %>
-											<div class="col-8">
+											<div class="search-field col-10">
 												<%= f.label :name_cont, 'キーワード', class: "label" %>
 												<%= f.search_field :name_cont, class: "form-control" %>
 											</div>
-											<div class="col-4 mt-48">
+											<div class="search-button col-2">
+												<br>
 												<%= f.submit '検索', class: "btn btn-dark btn-block" %>
 											</div>
 										<% end %>
@@ -49,7 +50,7 @@
 									<div class="gap gap-36"></div>
 
 								</div><!-- /End col-lg-8 -->
-								<div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+								<div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
 
 								<div class="combination-title">
 									<% if params[:sort_key].nil? %>
@@ -83,12 +84,12 @@
 												<div class="main-block-body">
 													<!-- Block content -->
 													<div class="main-block-content">
-														<ul class="icon-list bordered-list grey-2-color-border">
+														<ul class="combination-list">
 															<li>
 																<div class="row text-left">
-																	<div class="col-6">
+																	<div class="col-6 combination-name">
 																		<%= link_to combination_path(rate.combination) do %>
-																			<p><%= rate.combination.name %></p>
+																			<%= rate.combination.name %>
 																		<% end %>
 																	</div>
 																	<div class="col-5">
@@ -97,7 +98,7 @@
 																		<span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
 																		<span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
 																	</div>
-																	<% if current_user.exists? %>
+																	<% if current_user.present? %>
 																		<div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
 																	<% end %>
 																</div>

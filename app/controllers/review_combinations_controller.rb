@@ -10,9 +10,9 @@ class ReviewCombinationsController < ApplicationController
 	end
 
 	def destroy
-		review_combination = ReviewCombination.find(params[:combination_id])
+		review_combination = ReviewCombination.find(params[:id])
 		review_combination.update(comment: "")
-		redirect_to combination_path(params[:id])
+		redirect_to combination_path(params[:combination_id])
 	end
 
 	private

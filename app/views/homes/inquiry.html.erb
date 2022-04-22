@@ -42,7 +42,7 @@
 							<!-- Form -->
 							<%= form_with model: @inquiry, url: inquiry_path, class: "row form-block-sign-form", local: true do |f| %>
 
-								<div class="col-md-12"><p>*アプリにないフレーバーの申請もこちらからお願いします。</p></div>
+								<div class="col-md-12"><p><span class="red-color">*</span>アプリにないフレーバーの申請もこちらからお願いします。</p></div>
 								<br>
 								<br>
 								<br>
@@ -77,7 +77,7 @@
 
 								<!-- Submit button -->
 								<div class="col-lg-12">
-									<%= f.submit "お問い合わせ", class: "btn btn-accent btn-block" %>
+									<%= f.submit "お問い合わせ", class: "btn btn-secondary btn-block" %>
 								</div><!-- /End Submit button -->
 
 							<% end %><!-- /End Form -->
