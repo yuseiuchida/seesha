@@ -8,7 +8,7 @@
 				<!-- Navbar -->
 				<nav class="navbar navbar-expand-lg">
 					<!-- container -->
-					<div class="container gx-4">
+					<div class="container">
 						<!-- Logo -->
 						<div class="navbar-brand"><%= link_to image_tag('logo.png'), root_path %></div>
 						<!-- Header menu (Desktop) -->
@@ -20,14 +20,14 @@
 									<%= link_to "HOME", root_path, class: "nav-link text-light" %>
 								</li>
 								<!-- Flavor -->
-								<li class="nav-item">
-									<%= link_to "FLAVOR", combinations_path, class: "nav-link text-light" %>
-									<ul>
-										<li class="nav-item">
-											<%= link_to "コンビネーション", combinations_path, class: "nav-link text-light" %>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle text-light" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">FLAVOR</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+										<li>
+											<%= link_to "combinations(組み合わせ)", combinations_path, class: "dropdown-item" %>
 										</li>
-										<li class="nav-item">
-											<%= link_to "フレーバー", flavors_path, class: "nav-link text-light" %>
+										<li>
+											<%= link_to "flavors(フレーバー)", flavors_path, class: "dropdown-item" %>
 										</li>
 									</ul>
 								</li>

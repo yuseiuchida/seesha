@@ -3,11 +3,6 @@
   height: 600px;
 }
 
-.navbar-brand img {
-  height: 60px;
-  width: auto;
-}
-
 .black-color {
   background-color: black;
 }
@@ -17,9 +12,36 @@
   width: auto;
 }
 
-.avatar-image img {
-  width: 120px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 50%;
+/* counter ================================= */
+.counter-block {
+  margin-bottom: 12px;
 }
+
+.counter-block-content {
+  color: white;
+}
+
+/* bookmark ================================= */
+.bookmark-container {
+  .avatar-image img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+  }
+  .name {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .btn {
+    display: block;
+    margin: auto;
+    color: white;
+    margin-top: 30px;
+    width: 60px;
+  }
+}
+/* inquiry ================================= */

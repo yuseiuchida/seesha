@@ -42,9 +42,10 @@
 															<%= @combination.second_flavor.name %>
 														<% end %>
 													</h2>
-													<% if current_user.exists? %>
+													<% if current_user.present? %>
 														<div id="bookmark_combination_<%= @combination.id %>">
 															<%= render 'bookmarks_button', {combination: @combination} %>
+															<p>ブックマーク <%= @combination.bookmarks.length %>件</p>
 														</div>
 													<% end %>
 												</div><!-- /End Section title heading -->
@@ -71,7 +72,7 @@
 											<div class="section-title-body">
 
 												<!-- Section title heading -->
-												<div class="section-title-heading">
+												<div class="section-title-heading accent-color">
 													<h2><%= @combination.status %></h2>
 												</div><!-- /End Section title heading -->
 
@@ -85,7 +86,7 @@
 								<div class="gap gap-36"></div>
 
 								<!-- col-lg-3 -->
-								<div class="col-lg-3">
+								<div class="col-lg-3 easy-block">
 
 										<!-- Icon block -->
 										<div class="main-block icon-block text-center">
@@ -121,7 +122,7 @@
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
-								<div class="col-lg-3">
+								<div class="col-lg-3 sweet-block">
 
 										<!-- Icon block -->
 										<div class="main-block icon-block text-center">
@@ -157,7 +158,7 @@
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
-								<div class="col-lg-3">
+								<div class="col-lg-3 refresh-block">
 
 										<!-- Icon block -->
 										<div class="main-block icon-block text-center">
@@ -193,7 +194,7 @@
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
-								<div class="col-lg-3">
+								<div class="col-lg-3 relax-block">
 
 										<!-- Icon block -->
 										<div class="main-block icon-block text-center">
@@ -235,17 +236,6 @@
 	</div><!-- /End row -->
 </div><!-- /End Page body -->
 
-<!-- boarder -->
-<div class="main-section section-fullwidth pt-0 pb-0">
-	<div class="container-fluid gx-0">
-		<div class="row gx-36">
-			<div class="col-lg-12">
-				<div class="hr-divider hr-divider-layout-3 hr-divider-1px-border hr-divider-fullwidth grey-2-color"></div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- Page body ============================================================ -->
 <div id="page-body" class="page-body page-right-sidebar">
 	<!-- container -->
@@ -279,7 +269,7 @@
 														<!-- Block body -->
 														<div class="main-block-body comments-block-body">
 															<!-- Block heading -->
-															<div class="main-block-heading comments-block-heading section-title-small">
+															<div class="main-block-heading mb-54">
 																<h6 class="font-weight-500"><span><%= @review.count %> Comments</span></h6>
 															</div><!-- /End Block heading -->
 															<!-- Block content -->
@@ -297,13 +287,13 @@
 
 																					<!-- Comment Block Avatar -->
 																					<div class="main-block-header comment-block-header">
-																						<%= image_tag "avatar.jpeg" %>
+																						<%= image_tag review.user.avatar_url %>
 																					</div><!-- /End Comment Block Avatar -->
 																					<!-- Comment Block Body -->
 																					<div class="main-block-body comment-block-body mb-3">
 
 																						<!-- Comment Block Heading -->
-																						<div class="main-block-heading comment-block-heading secondary-font-family">
+																						<div class="main-block-heading comment-block-heading">
 																							<h5><%= review.user.name %></h5>
 																						</div><!-- /End Comment Block Heading -->
 

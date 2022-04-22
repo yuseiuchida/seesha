@@ -65,21 +65,21 @@
 									<!-- col-lg-4 -->
 									<div class="offset-lg-4 col-lg-4 offset-lg-4">
 										<!-- Testimonials block -->
-										<div class="main-block boxed-block-2y testimonials-block white-color-bg grey-2-color-border text-center">
+										<div class="main-block recommend-combination-block">
 											<!-- Block container -->
-											<div class="main-block-container testimonials-block-container">
+											<div class="main-block-container recommend-combination-container">
 
 												<!-- Block header -->
-												<div class="main-block-header testimonials-block-header">
+												<div class="main-block-header recommend-combination-header">
 													<%= image_tag @combination.first_flavor.flavor_image_url %>
 													<%= image_tag @combination.second_flavor.flavor_image_url %>
 												</div><!-- /End Block header -->
 
 												<!-- Block body -->
-												<div class="main-block-body testimonials-block-body">
+												<div class="main-block-body recommend-combination-body">
 
 													<!-- Block heading -->
-													<div class="main-block-heading testimonials-block-heading">
+													<div class="main-block-heading recommend-combination-heading">
 														<h5 class="name">
 															<%= @combination.name %>
 														</h5>
@@ -91,9 +91,8 @@
 													</div><!-- /End Block heading -->
 
 													<!-- Block content -->
-													<div class="main-block-content testimonials-block-content">
+													<div class="main-block-content recommend-combination-content mt-24">
 														<p><%= link_to 'show', combination_path(@combination) %></p>
-														<br>
 														<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ @combination.name }", target: '_blank' do %>
 															<p><i class="fab fa-twitter" style='color: #3399FF;'></i>share</p>
 														<% end %>
@@ -113,28 +112,23 @@
 										<div class="section-title text-center">
 											<!-- Section title container -->
 											<div class="section-title-container">
-
 												<!-- Section title body -->
 												<div class="section-title-body">
-
 													<!-- Section title heading -->
 													<div class="section-title-heading">
 														<h2>もう一度診断</h2>
 													</div><!-- /End Section title heading -->
-
 												</div><!--/End Section title body -->
-
 											</div><!-- /End Section title container -->
 										</div><!-- /End Section title -->
-
 									</div><!-- /End col-lg-8 -->
 
 
 
 									<!-- col-lg-12 -->
-									<div class="col-lg-12 text-center">
-										<%= link_to "とりあえず診断", search_path(@search_combination), class: "btn btn-md btn-outline btn-round btn-danger ml-18 mr-18 mb-36" %>
-										<%= link_to "おすすめ診断", searchs_path, class: "btn btn-md btn-outline btn-round btn-danger ml-18 mr-18 mb-36" %>
+									<div class="col-lg-12 search-links text-center mt-54">
+										<%= link_to "とりあえず診断", search_path(@search_combination), class: "btn  btn-danger ml-18 mr-18 mb-36" %>
+										<%= link_to "おすすめ診断", searchs_path, class: "btn btn-danger ml-18 mr-18 mb-36" %>
 									</div><!-- /End col-lg-12 -->
 
 								</div><!-- /End row -->

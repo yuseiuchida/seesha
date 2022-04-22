@@ -33,13 +33,14 @@
 										</div><!-- /End Section title container -->
 									</div><!-- /End Section title -->
 
-									<div class="row">
+									<div class="combination-container row">
 										<%= search_form_for @q, url: finds_combinations_path do |f| %>
-											<div class="col-8">
+											<div class="search-field col-10">
 												<%= f.label :name_cont, 'キーワード', class: "label" %>
 												<%= f.search_field :name_cont, class: "form-control" %>
 											</div>
-											<div class="col-4 mt-48">
+											<div class="search-button col-2">
+												<br>
 												<%= f.submit '検索', class: "btn btn-dark btn-block" %>
 											</div>
 										<% end %>
@@ -83,7 +84,7 @@
 																				<span class="badge bg-warning"><%= refresh_status(combination) %></span>
 																				<span class="badge bg-primary"><%= relax_status(combination) %></span>
 																			</div>
-																			<% if current_user.exists? %>
+																			<% if current_user.present? %>
 																				<div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
 																			<% end %>
 																		</div>
