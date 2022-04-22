@@ -11,7 +11,6 @@ import "@popperjs/core";
 import "bootstrap";
 import "../stylesheets/application";
 import "@fortawesome/fontawesome-free/js/all";
-import "../js/like";
 
 Rails.start();
 Turbolinks.start();
