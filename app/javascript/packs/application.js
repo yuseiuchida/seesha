@@ -9,8 +9,8 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "@popperjs/core";
 import "bootstrap";
-import "../stylesheets/application";
 import "@fortawesome/fontawesome-free/js/all";
+import "../stylesheets/application";
 
 Rails.start();
 Turbolinks.start();
