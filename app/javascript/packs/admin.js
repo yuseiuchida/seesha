@@ -11,7 +11,7 @@ import "@popperjs/core";
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
 import "admin-lte/dist/js/adminlte";
-import "../stylesheets/admin";
+import "../packs/admin";
 
 Rails.start();
 Turbolinks.start();
