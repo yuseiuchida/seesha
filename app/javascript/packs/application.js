@@ -10,7 +10,8 @@ import "channels";
 import "@popperjs/core";
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
-import "../packs/application";
+
+import "stylesheets/application";
 
 Rails.start();
 Turbolinks.start();
