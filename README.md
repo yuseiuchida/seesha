@@ -18,5 +18,10 @@
 　シーシャは好きなのに毎度シーシャ屋へ足を運ぶ度にフレーバーについて悩んでしまう焦ったい時間を少しでも解消したい思ったから
 意外にも同じ経験を持っている人が複数人いたので他の人にも使ってもらえるアプリになりそうだと思ったから
 
+#ER 図
+
+https://drive.google.com/file/d/1TnbINwrB-htnbzULEmlY04msaL_Yx0sX/view?usp=sharing
+[![Image from Gyazo](https://i.gyazo.com/35caa0898c0cf89946c2334fe9f644ae.png)](https://gyazo.com/35caa0898c0cf89946c2334fe9f644ae)
+
 ■ スケジュール
 未定
