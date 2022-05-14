@@ -1,6 +1,13 @@
 .home-background {
-  background-image: url("background.jpeg");
+  background-image: url("hookah.png");
   height: 600px;
+}
+
+.title-text {
+  color: whitesmoke;
+  font-weight: 400;
+  background-color: opacify($color: #000000, $amount: 0);
+  width: 20rem;
 }
 
 .black-color {

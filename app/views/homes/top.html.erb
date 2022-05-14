@@ -14,11 +14,10 @@
             <!-- row -->
             <div class="row gx-36 text-center">
               <div class="col-12 title-logo mt-3"><%= image_tag 'logo.png' %></div>
-              <div class="col-12"><h2>シーシャのオーダーの迷いから解放するアプリ</h2></div>
+              <div class="col-12 title-text"><h2>シーシャのオーダーの迷いから解放するアプリ</h2></div>
               <!-- search -->
               <div class="container search-block offset-2 col-8 row mt-72">
                 <div class="search-title">
-                  <h3>START</h3>
                   <div class="search-content mt-36">
                     <% if Combination.all.length > 0 %>
                       <p><%= link_to 'ランダム診断', rate_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
