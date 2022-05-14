@@ -47,18 +47,23 @@ ActiveRecord::Schema.define(version: 2022_04_20_053407) do
   create_table "combinations", force: :cascade do |t|
     t.bigint "first_flavor_id"
     t.bigint "second_flavor_id"
+    t.bigint "third_flavor_id"
+    t.bigint "fourth_flavor_id"
+    t.integer "total_flavors"
     t.string "status"
     t.string "name"
-    t.integer "rating_score", null: false
-    t.integer "sweet_score", null: false
-    t.integer "refresh_score", null: false
-    t.integer "relax_score", null: false
-    t.integer "easy_score", null: false
+    t.integer "rating_score"
+    t.integer "sweet_score"
+    t.integer "refresh_score"
+    t.integer "relax_score"
+    t.integer "easy_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["first_flavor_id", "second_flavor_id"], name: "index_combinations_on_first_flavor_id_and_second_flavor_id", unique: true
+    t.index ["first_flavor_id", "second_flavor_id", "third_flavor_id", "fourth_flavor_id"], name: "combinations_index", unique: true
     t.index ["first_flavor_id"], name: "index_combinations_on_first_flavor_id"
+    t.index ["fourth_flavor_id"], name: "index_combinations_on_fourth_flavor_id"
     t.index ["second_flavor_id"], name: "index_combinations_on_second_flavor_id"
+    t.index ["third_flavor_id"], name: "index_combinations_on_third_flavor_id"
   end
 
   create_table "flavors", force: :cascade do |t|

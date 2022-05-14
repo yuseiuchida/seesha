@@ -18,10 +18,10 @@
               <!-- search -->
               <div class="container search-block offset-2 col-8 row mt-72">
                 <div class="search-title">
-                  <h3>START SEARCHING</h3>
+                  <h3>START</h3>
                   <div class="search-content mt-36">
                     <% if Combination.all.length > 0 %>
-                      <p><%= link_to 'ランダム診断', search_path(@search_combination), class: "btn btn-danger btn-lg btn-round text-white" %></p>
+                      <p><%= link_to 'ランダム診断', rate_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                       <p><%= link_to 'おすすめ診断', searchs_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                     <% end %>
                   </div>

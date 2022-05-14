@@ -6,11 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Categories</h1>
-            <h1>カテゴリー</h1>
+            <h1>Category's Flavors</h1>
+            <h1>「 <%= @category.name %> 」のフレーバー</h1>
           </div>
+
           <div class="col-sm-12">
-            <%= link_to '新規カテゴリー', new_admin_category_path, class: "btn btn-warning mt-3" %>
+            <%= link_to '新規フレーバー', new_admin_flavor_path, class: "btn btn-warning mt-3" %>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -24,20 +25,22 @@
 						<tr>
 							<th scope="col">ID</th>
 							<th scope="col">名前</th>
+							<th scope="col">カテゴリー</th>
 							<th scope="col">作成日時</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<% @categories.each do |category| %>
+						<% @flavors.each do |flavor| %>
 							<tr>
-								<td><%= category.id %></td>
-								<td><%= category.name %></td>
-								<td><%= category.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+								<td><%= flavor.id %></td>
+								<td><%= flavor.name %></td>
+								<td><%= flavor.category.name %></td>
+								<td><%= flavor.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 								<td>
-									<%= link_to '詳細', admin_category_path(category), class: "btn btn-info" %>
-									<%= link_to '編集', edit_admin_category_path(category), class: "btn btn-success" %>
-									<%= link_to '削除', admin_category_path(category), class: "btn btn-danger", method: :delete %>
+									<%= link_to '詳細', admin_flavor_path(flavor), class: "btn btn-info" %>
+									<%= link_to '編集', edit_admin_flavor_path(flavor), class: "btn btn-success" %>
+									<%= link_to '削除', admin_flavor_path(flavor), class: "btn btn-danger", method: :delete %>
 								</td>
 							</tr>
 						<% end %>

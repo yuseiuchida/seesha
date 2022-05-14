@@ -14,21 +14,51 @@
     </section>
 
     <!-- Main content -->
-		<div class="container">
+		<section class="content">
 
-			<div class="row">
-				<div class="card offset-4 col-4">
-					<div class="card-head">
-						<div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
-					</div>
-					<div class="card-body text-center">
-						<p><%= @flavor.name %></p>
-						<p><%= @flavor.category.name %></p>
-						<div class="text-center mt-3"><%= link_to '編集', edit_admin_flavor_path(@flavor), class: "btn btn-success" %></div>
-					</div>
-				</div>
-			</div>
-		</div>
+
+      <div class="card offset-4 col-4">
+        <div class="card-head">
+          <div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
+        </div>
+        <div class="card-body text-center">
+          <p><%= @flavor.name %></p>
+          <p><%= @flavor.category.name %></p>
+          <div class="text-center mt-3"><%= link_to '編集', edit_admin_flavor_path(@flavor), class: "btn btn-success" %></div>
+        </div>
+      </div>
+      <div class="col-md-12 mt-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">フレーバー</th>
+              <th scope="col">評価</th>
+              <th scope="col">お気に入り</th>
+              <th scope="col">作成日時</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @combinations.each do |combination| %>
+              <tr>
+                <td><%= combination.id %></td>
+                <td><%= combination.name %></td>
+                <td><%= combination.status %></td>
+                <td><%= combination.bookmarks.count %></td>
+                <td><%= combination.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+                <td>
+                  <%= link_to '詳細', admin_combination_path(combination), class: "btn btn-info" %>
+                  <%= link_to '編集', edit_admin_combination_path(combination), class: "btn btn-success" %>
+                  <%= link_to '削除', admin_combination_path(combination), class: "btn btn-danger", method: :delete %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+		</section>
 
   </div>
 </div>

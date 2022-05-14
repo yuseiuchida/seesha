@@ -1,17 +1,21 @@
 class Combination < ApplicationRecord
 	belongs_to :first_flavor, class_name: "Flavor"
 	belongs_to :second_flavor, class_name: "Flavor"
+	belongs_to :third_flavor, class_name: "Flavor", optional: true
+	belongs_to :fourth_flavor, class_name: "Flavor", optional: true
 	has_many :review_combinations, dependent: :destroy
 	has_one :rate, dependent: :destroy
 	has_one :coefficient, dependent: :destroy
 	has_many :bookmarks, dependent: :destroy
 
-	validates :first_flavor_id, uniqueness: { scope: :second_flavor_id }
+	validates :first_flavor_id, uniqueness: { scope: [:second_flavor_id, :third_flavor_id, :fourth_flavor_id] }
 	validates :first_flavor_id, :second_flavor_id, :rating_score, :sweet_score, :refresh_score, :relax_score, :easy_score, presence: true
 	STATUS = ["BAD", "NOT GOOD", "NOT BAD", "GOOD", "VERY GOOD", "EXCELLENT"]
 
 	def setup
-		name = self.first_flavor.name + " " + self.second_flavor.name
+		name = self.first_flavor.name + " " + self.second_flavor.name if self.total_flavors == 2
+		name = self.first_flavor.name + " " + self.second_flavor.name + " " + self.third_flavor.name if self.total_flavors == 3
+		name = self.first_flavor.name + " " + self.second_flavor.name + " " + self.third_flavor.name + " " + self.fourth_flavor.name if self.total_flavors == 4
 		status = Combination::STATUS[self.rating_score]
 		self.update(name: name, status: status)
 		Coefficient.create(combination_id: self.id)

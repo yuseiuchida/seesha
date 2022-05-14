@@ -1,5 +1,6 @@
 class Admin::FlavorsController < Admin::BaseController
 	before_action :set_flavor, only: %i[show edit destroy]
+
 	def index
 		@flavors = Flavor.all
 	end
@@ -48,10 +49,6 @@ class Admin::FlavorsController < Admin::BaseController
 
 	def flavor_params
 		params.require(:flavor).permit(:name, :category_id, :flavor_image)
-	end
-
-	def set_category
-		@categories = Category.all
 	end
 
 	def set_flavor

@@ -4,7 +4,6 @@ class Admin::CombinationsController < Admin::BaseController
 
 	def index
 		@combinations = Combination.all
-		@compabilities = Compability.all
 	end
 
 	def new
@@ -54,7 +53,7 @@ class Admin::CombinationsController < Admin::BaseController
 	private
 
 	def combination_params
-		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
+		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id, :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
 	end
 
 	def set_flavors

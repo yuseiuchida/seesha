@@ -33,13 +33,15 @@
 										</div><!-- /End Section title container -->
 									</div><!-- /End Section title -->
 
+									<br>
 									<div class="combination-container row">
 										<%= search_form_for @q, url: finds_combinations_path do |f| %>
 											<div class="search-field col-10">
 												<%= f.label :name_cont, 'キーワード', class: "label" %>
 												<%= f.search_field :name_cont, class: "form-control" %>
 											</div>
-											<div class="search-button col-2">
+											<div class="search-button col-2 mt-2">
+												<br>
 												<br>
 												<%= f.submit '検索', class: "btn btn-dark btn-block" %>
 											</div>
