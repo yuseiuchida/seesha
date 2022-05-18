@@ -4,11 +4,12 @@ class FlavorsController < ApplicationController
 	def index
 		@flavors = Flavor.all
 		@categories = Category.all
+		@combinations = Combination.all
 	end
 
 	def show
 		@flavor = Flavor.find(params[:id])
-		@combinations = Combination.where(first_flavor_id: @flavor.id).or(Combination.where(second_flavor_id: @flavor.id))
+		@combinations = Combination.where(first_flavor_id: @flavor.id).or(Combination.where(second_flavor_id: @flavor.id)).or(Combination.where(third_flavor_id: @flavor.id)).or(Combination.where(fourth_flavor_id: @flavor.id))
 	end
 
 	private

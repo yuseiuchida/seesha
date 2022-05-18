@@ -20,6 +20,7 @@
                 <div class="search-title">
                   <div class="search-content mt-36">
                     <% if Combination.all.length > 0 %>
+                      <p><%= link_to 'ガチャ', new_gacha_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                       <p><%= link_to 'ランダム診断', rate_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                       <p><%= link_to 'おすすめ診断', searchs_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                     <% end %>
@@ -51,13 +52,15 @@
                       <!-- Heading -->
                       <div class="main-block-heading counter-block-heading">
                         <h5 class="h2 accent-color">
-                          <span
-                            data-from="0"
-                            data-to="900"
-                            data-speed="1000"
-                            data-refresh-interval="50">
-                            <%= Flavor.all.length %>
-                          </span>
+                          <%= link_to flavors_path, class: "home-link" do %>
+                            <span
+                              data-from="0"
+                              data-to="900"
+                              data-speed="1000"
+                              data-refresh-interval="50">
+                              <%= Flavor.all.length %>
+                            </span>
+                          <% end %>
                         </h5>
                       </div><!-- /End Heading -->
 
@@ -87,13 +90,15 @@
                       <!-- Heading -->
                       <div class="main-block-heading counter-block-heading">
                         <h5 class="h2 accent-color">
-                          <span
-                            data-from="0"
-                            data-to="900"
-                            data-speed="1000"
-                            data-refresh-interval="50">
-                            <%= Combination.all.length %>
-                          </span>
+                          <%= link_to combinations_path, class: "home-link" do %>
+                            <span
+                              data-from="0"
+                              data-to="900"
+                              data-speed="1000"
+                              data-refresh-interval="50">
+                              <%= Combination.all.length %>
+                            </span>
+                          <% end %>
                         </h5>
                       </div><!-- /End Heading -->
 

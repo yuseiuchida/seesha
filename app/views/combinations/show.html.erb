@@ -52,7 +52,6 @@
 
 												<!-- Block content -->
 												<div class="main-block-content recommend-combination-content mt-24">
-													<p><%= link_to 'show', combination_path(@combination) %></p>
 													<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ @combination.name }", target: '_blank' do %>
 														<p><i class="fab fa-twitter" style='color: #3399FF;'></i>share</p>
 													<% end %>

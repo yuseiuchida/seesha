@@ -19,6 +19,15 @@
   width: auto;
 }
 
+.home-link {
+  text-decoration: none;
+}
+
+.home-link:hover {
+  color: rgb(108, 63, 185);
+  background-color: transparent;
+}
+
 /* counter ================================= */
 .counter-block {
   margin-bottom: 12px;
