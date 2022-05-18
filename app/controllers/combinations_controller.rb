@@ -18,7 +18,7 @@ class CombinationsController < ApplicationController
 	def create
 		@combination = Combination.new(combination_params)
 		if @combination.save
-			@combination.setup
+			@combination.setup if @combination.rating_score.present?
 			redirect_to combination_path(@combination), success: "コンビネーション「#{@combination.name}」が追加されました"
 		else
 			flash.now[:danger] = '入力に誤りがあるか、既に登録されたフレーバーです'
@@ -43,11 +43,11 @@ class CombinationsController < ApplicationController
 	private
 
 	def combination_params
-		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
+		params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id, :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
 	end
 
 	def set_flavors
-		@flavors = Flavor.all
+		@flavors = Flavor.all.order(category_id: :asc)
 	end
 
   def set_q

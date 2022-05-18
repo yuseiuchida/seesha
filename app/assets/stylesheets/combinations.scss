@@ -64,6 +64,10 @@
   }
 }
 
+.combination-block {
+  margin-bottom: 1rem;
+}
+
 /* comment ================================= */
 .comment-block-container {
   margin-bottom: 54px;
@@ -85,3 +89,9 @@
 }
 
 /* show ================================= */
+.icon-block {
+  background-color: rgba(211, 211, 211, 0.2);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-radius: 5%;
+}

@@ -53,6 +53,16 @@
 										<!-- Form -->
 										<%= form_with model: @combination, url: combinations_path, class: "row", local: true do |f| %>
 
+											<div class="mb-3">
+												<label class="label">フレーバーの種類 <span class="red-color">*</span></label>
+												<br>
+												<%= f.radio_button :total_flavors, '2', class: "btn-check" %>
+												<%= f.label :total_flavors_2, '2種類', class: "btn btn-outline-success col-lg-2" %>
+												<%= f.radio_button :total_flavors, '3', class: "btn-check" %>
+												<%= f.label :total_flavors_3, '3種類', class: "btn btn-outline-success col-lg-2" %>
+												<%= f.radio_button :total_flavors, '4', class: "btn-check" %>
+												<%= f.label :total_flavors_4, '4種類', class: "btn btn-outline-success col-lg-2" %>
+											</div>
 
 											<!-- FirstFlavor -->
 											<div class="col-md-6">
@@ -70,6 +80,24 @@
 												<% end %>
 												<%= f.select :second_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
 											</div>
+
+											<!-- ThirdFlavor -->
+											<div class="col-md-6" id="flavor3" >
+												<%= f.label :third_flavor_id, class: "label" do %>
+													3つ目 <span class="red-color">*</span>
+												<% end %>
+												<%= f.select :third_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+											</div>
+
+											<!-- FourthFlavor -->
+											<div class="col-md-6" id="flavor4">
+												<%= f.label :fourth_flavor_id, class: "label" do %>
+													4つ目 <span class="red-color">*</span>
+												<% end %>
+												<%= f.select :fourth_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
+											</div>
+
+                      <p>※ 同一のフレーバーは組み込めません</p>
 
 											<!-- GAP -->
 											<div class="gap gap-36"></div>

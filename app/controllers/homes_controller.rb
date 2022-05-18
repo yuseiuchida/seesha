@@ -1,16 +1,6 @@
 class HomesController < ApplicationController
 	skip_before_action :require_login, only: %i[top terms privacy inquiry post]
 	def top
-		easy_searchs = Rate.where("rating_rate > ?" , 3.5)
-		if easy_searchs.exists?
-			ids = []
-			easy_searchs.each do |easy_search|
-				ids << easy_search.id
-			end
-			return @search_combination = Combination.find(ids.sample)
-		else
-			@search_combination = Combination.first
-		end
 	end
 
 	def mypage

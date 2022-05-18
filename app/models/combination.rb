@@ -1,17 +1,48 @@
 class Combination < ApplicationRecord
 	belongs_to :first_flavor, class_name: "Flavor"
 	belongs_to :second_flavor, class_name: "Flavor"
+	belongs_to :third_flavor, class_name: "Flavor", optional: true
+	belongs_to :fourth_flavor, class_name: "Flavor", optional: true
 	has_many :review_combinations, dependent: :destroy
 	has_one :rate, dependent: :destroy
 	has_one :coefficient, dependent: :destroy
 	has_many :bookmarks, dependent: :destroy
 
-	validates :first_flavor_id, uniqueness: { scope: :second_flavor_id }
+	validates :first_flavor_id, uniqueness: { scope: [:second_flavor_id, :third_flavor_id, :fourth_flavor_id] }
 	validates :first_flavor_id, :second_flavor_id, :rating_score, :sweet_score, :refresh_score, :relax_score, :easy_score, presence: true
+	validate :flavor_unique?
+	
 	STATUS = ["BAD", "NOT GOOD", "NOT BAD", "GOOD", "VERY GOOD", "EXCELLENT"]
 
+	def flavor_unique?
+    if fourth_flavor_id.present?
+      errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == fourth_flavor_id || second_flavor_id == fourth_flavor_id || third_flavor_id == fourth_flavor_id
+			errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == third_flavor_id || second_flavor_id == third_flavor_id
+			errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == second_flavor_id
+		elsif third_flavor_id.present?
+			errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == third_flavor_id || second_flavor_id == third_flavor_id
+			errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == second_flavor_id
+		else
+			errors.add('同一のフレーバーは組み合わせれません') if first_flavor_id == second_flavor_id
+		end
+	end
+
 	def setup
-		name = self.first_flavor.name + " " + self.second_flavor.name
+		ids = []
+		ids << self.first_flavor_id
+		ids << self.second_flavor_id
+		ids << self.third_flavor_id if self.third_flavor_id.present?
+		ids << self.fourth_flavor_id if self.fourth_flavor_id.present?
+		sort = ids.sort
+    
+		if sort.length == 2
+			name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name
+		elsif sort.length == 3
+			name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name + " " + Flavor.find(sort[2]).name
+		else
+			name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name + " " + Flavor.find(sort[2]).name + " " + Flavor.find(sort[3]).name
+		end
+
 		status = Combination::STATUS[self.rating_score]
 		self.update(name: name, status: status)
 		Coefficient.create(combination_id: self.id)

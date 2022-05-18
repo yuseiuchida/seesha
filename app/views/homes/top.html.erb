@@ -14,14 +14,14 @@
             <!-- row -->
             <div class="row gx-36 text-center">
               <div class="col-12 title-logo mt-3"><%= image_tag 'logo.png' %></div>
-              <div class="col-12"><h2>シーシャのオーダーの迷いから解放するアプリ</h2></div>
+              <div class="col-12 title-text"><h2>シーシャのオーダーの迷いから解放するアプリ</h2></div>
               <!-- search -->
               <div class="container search-block offset-2 col-8 row mt-72">
                 <div class="search-title">
-                  <h3>START SEARCHING</h3>
                   <div class="search-content mt-36">
                     <% if Combination.all.length > 0 %>
-                      <p><%= link_to 'ランダム診断', search_path(@search_combination), class: "btn btn-danger btn-lg btn-round text-white" %></p>
+                      <p><%= link_to 'ガチャ', new_gacha_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
+                      <p><%= link_to 'ランダム診断', rate_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                       <p><%= link_to 'おすすめ診断', searchs_path, class: "btn btn-danger btn-lg btn-round text-white" %></p>
                     <% end %>
                   </div>
@@ -52,13 +52,15 @@
                       <!-- Heading -->
                       <div class="main-block-heading counter-block-heading">
                         <h5 class="h2 accent-color">
-                          <span
-                            data-from="0"
-                            data-to="900"
-                            data-speed="1000"
-                            data-refresh-interval="50">
-                            <%= Flavor.all.length %>
-                          </span>
+                          <%= link_to flavors_path, class: "home-link" do %>
+                            <span
+                              data-from="0"
+                              data-to="900"
+                              data-speed="1000"
+                              data-refresh-interval="50">
+                              <%= Flavor.all.length %>
+                            </span>
+                          <% end %>
                         </h5>
                       </div><!-- /End Heading -->
 
@@ -88,13 +90,15 @@
                       <!-- Heading -->
                       <div class="main-block-heading counter-block-heading">
                         <h5 class="h2 accent-color">
-                          <span
-                            data-from="0"
-                            data-to="900"
-                            data-speed="1000"
-                            data-refresh-interval="50">
-                            <%= Combination.all.length %>
-                          </span>
+                          <%= link_to combinations_path, class: "home-link" do %>
+                            <span
+                              data-from="0"
+                              data-to="900"
+                              data-speed="1000"
+                              data-refresh-interval="50">
+                              <%= Combination.all.length %>
+                            </span>
+                          <% end %>
                         </h5>
                       </div><!-- /End Heading -->
 

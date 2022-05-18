@@ -30,6 +30,7 @@ class Admin::CategoriesController < Admin::BaseController
 	end
 
 	def show
+		@category = Category.find(params[:id])
 		@flavors = Flavor.where(category_id: @category.id)
 	end
 

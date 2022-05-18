@@ -39,22 +39,37 @@
 
 							<!-- col-lg-4 -->
 							<% @categories.each do |category| %>
-								<h5><%= category.name %></h5>
-								<div class="gap gap-36"></div>
+								<div class="combination-title">
+									<span><%= category.name %></span>
+								</div>
 								<% @flavors.where(category_id: category.id).each do |flavor| %>
 									<div class="col-lg-3">
 										<!-- Block -->
-										<div class="card flavor-card">
-											<div class="card-img-top flavor-image"><%= image_tag flavor.flavor_image_url %></div>
-											<div class="card-body">
-												<div class="card-title flavor-text">
-													<%= link_to flavor_path(flavor) do %>
-														<p><%= flavor.name %><p>
-													<% end %>
-													<p><%= flavor.count_combinations %>件</p>
-												</div>
-											</div>
-										</div>
+										<div class="main-bloc flavor-block">
+											<!-- Block container -->
+											<div class="main-block-container">
+												<!-- Block body -->
+												<div class="main-block-body">
+													<!-- Block content -->
+													<div class="main-block-content">
+														<ul class="combination-list">
+															<li>
+																<div class="row text-left">
+																	<div class="col-8 flavor-name">
+																		<%= link_to flavor_path(flavor) do %>
+																			<p><%= flavor.name %></p>
+																		<% end %>
+																	</div>
+																	<div class="col-4 flavor-count">
+																		<span class="badge bg-secondary"><%= find_combinations(flavor).length %></span>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div><!-- /End Block content -->
+												</div><!--/End Block body -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Block -->
 									</div><!-- /End col-lg-4 -->
 								<% end %>
 							<% end %>

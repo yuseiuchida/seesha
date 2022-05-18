@@ -7,13 +7,6 @@
 			<!-- Main -->
 			<main id="main" class="content-area-container site-main">
 
-        <!-- Section -->
-        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg">
-					<div class="first_flavor_background"><%= image_tag @combination.first_flavor.flavor_image_url %></div>
-					<div class="second_flavor_background"><%= image_tag @combination.second_flavor.flavor_image_url %></div>
-        </div><!-- /End Section -->
-
-
 				<!-- Section -->
 				<div class="main-section">
 					<!-- container -->
@@ -21,66 +14,53 @@
 							<!-- row -->
 							<div class="row gx-36">
 
-								<!-- col-lg-8 -->
-								<div class="col-lg-8 offset-lg-2">
+								<!-- col-lg-4 -->
+								<div class="offset-lg-2 col-lg-8 offset-lg-2">
+									<!-- Testimonials block -->
+									<div class="main-block recommend-combination-block">
+										<!-- Block container -->
+										<div class="main-block-container recommend-combination-container">
 
-									<!-- Section title -->
-									<div class="section-title text-center">
-										<!-- Section title container -->
-										<div class="section-title-container">
+											<% if current_user.present? %>
+												<div id="bookmark_combination_<%= @combination.id %>">
+													<%= render 'combinations/bookmarks_button', {combination: @combination} %>
+												</div>
+											<% end %>
 
-											<!-- Section title body -->
-											<div class="section-title-body">
+											<!-- Block header -->
+											<div class="main-block-header recommend-combination-header">
+												<%= image_tag @combination.first_flavor.flavor_image_url %>
+												<%= image_tag @combination.second_flavor.flavor_image_url %>
+												<%= image_tag @combination.third_flavor.flavor_image_url if @combination.third_flavor.present? %>
+												<%= image_tag @combination.fourth_flavor.flavor_image_url if @combination.fourth_flavor.present? %>
+											</div><!-- /End Block header -->
 
-												<!-- Section title heading -->
-												<div class="section-title-heading">
-													<h2>
-														<%= link_to flavor_path(@combination.first_flavor) do %>
-															<%= @combination.first_flavor.name %>
-														<% end %>
-														<%= link_to flavor_path(@combination.second_flavor) do %>
-															<%= @combination.second_flavor.name %>
-														<% end %>
-													</h2>
-													<% if current_user.present? %>
-														<div id="bookmark_combination_<%= @combination.id %>">
-															<%= render 'bookmarks_button', {combination: @combination} %>
-															<p>ブックマーク <%= @combination.bookmarks.length %>件</p>
-														</div>
+											<!-- Block body -->
+											<div class="main-block-body recommend-combination-body">
+
+												<!-- Block heading -->
+												<div class="main-block-heading recommend-combination-heading">
+													<h5 class="name">
+														<%= @combination.name %>
+													</h5>
+													<h6 class="role font-weight-500 accent-color"><%= @combination.status %></h6>
+													<span class="badge bg-success"><%= easy_status(@combination) %></span>
+													<span class="badge bg-danger"><%= sweet_status(@combination) %></span>
+													<span class="badge bg-warning"><%= refresh_status(@combination) %></span>
+													<span class="badge bg-primary"><%= relax_status(@combination) %></span>
+												</div><!-- /End Block heading -->
+
+												<!-- Block content -->
+												<div class="main-block-content recommend-combination-content mt-24">
+													<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ @combination.name }", target: '_blank' do %>
+														<p><i class="fab fa-twitter" style='color: #3399FF;'></i>share</p>
 													<% end %>
-												</div><!-- /End Section title heading -->
+												</div><!-- /End Block content -->
+											</div><!--/End Block body -->
 
-											</div><!--/End Section title body -->
-
-										</div><!-- /End Section title container -->
-									</div><!-- /End Section title -->
-
-									<!-- GAP -->
-									<div class="gap gap-36"></div>
-
-								</div><!-- /End col-lg-8 -->
-
-								<!-- col-lg-8 -->
-								<div class="col-lg-8 offset-lg-2">
-
-									<!-- Section title -->
-									<div class="section-title text-center">
-										<!-- Section title container -->
-										<div class="section-title-container">
-
-											<!-- Section title body -->
-											<div class="section-title-body">
-
-												<!-- Section title heading -->
-												<div class="section-title-heading accent-color">
-													<h2><%= @combination.status %></h2>
-												</div><!-- /End Section title heading -->
-
-											</div><!--/End Section title body -->
-
-										</div><!-- /End Section title container -->
-									</div><!-- /End Section title -->
-								</div><!-- /End col-lg-8 -->
+										</div><!-- /End Block container -->
+									</div><!-- /End Testimonials block -->
+								</div><!-- /End col-lg-4 -->
 
 								<!-- GAP -->
 								<div class="gap gap-36"></div>
@@ -88,146 +68,299 @@
 								<!-- col-lg-3 -->
 								<div class="col-lg-3 easy-block">
 
-										<!-- Icon block -->
-										<div class="main-block icon-block text-center">
-											<!-- Block container -->
-											<div class="main-block-container icon-block-container">
+									<!-- Icon block -->
+									<div class="main-block icon-block text-center">
+										<!-- Block container -->
+										<div class="main-block-container icon-block-container">
 
-												<!-- Block header -->
-												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-													<i class="fa-brands fa-ello"></i>
-												</div><!-- /End Block header -->
+											<!-- Block header -->
+											<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+												<i class="fa-brands fa-ello"></i>
+											</div><!-- /End Block header -->
 
-												<!-- Block body -->
-												<div class="main-block-body icon-block-body">
+											<!-- Block body -->
+											<div class="main-block-body icon-block-body">
 
-													<!-- Block heading -->
-													<div class="main-block-heading icon-block-heading">
-														<h4>吸いやすさ</h4>
-													</div><!-- /End Block heading -->
+												<!-- Block heading -->
+												<div class="main-block-heading icon-block-heading">
+													<h4>吸いやすさ</h4>
+												</div><!-- /End Block heading -->
 
-													<!-- Block content -->
-													<div class="main-block-content icon-block-content">
-														<p><%= easy_status_for_show(@combination) %></p>
-													</div><!-- /End Block content -->
+												<!-- Block content -->
+												<div class="main-block-content icon-block-content">
+													<p><%= easy_status_for_show(@combination) %></p>
+												</div><!-- /End Block content -->
 
-												</div><!--/End Block body -->
+											</div><!--/End Block body -->
 
-											</div><!-- /End Block container -->
-										</div><!-- /End Icon block -->
+										</div><!-- /End Block container -->
+									</div><!-- /End Icon block -->
 
-										<!-- GAP -->
-										<div class="gap gap-18 d-lg-none"></div>
+									<!-- GAP -->
+									<div class="gap gap-18 d-lg-none"></div>
 
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
 								<div class="col-lg-3 sweet-block">
 
-										<!-- Icon block -->
-										<div class="main-block icon-block text-center">
-											<!-- Block container -->
-											<div class="main-block-container icon-block-container">
+									<!-- Icon block -->
+									<div class="main-block icon-block text-center">
+										<!-- Block container -->
+										<div class="main-block-container icon-block-container">
 
-												<!-- Block header -->
-												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-													<i class="fa-solid fa-cubes-stacked"></i>
-												</div><!-- /End Block header -->
+											<!-- Block header -->
+											<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+												<i class="fa-solid fa-cubes-stacked"></i>
+											</div><!-- /End Block header -->
 
-												<!-- Block body -->
-												<div class="main-block-body icon-block-body">
+											<!-- Block body -->
+											<div class="main-block-body icon-block-body">
 
-													<!-- Block heading -->
-													<div class="main-block-heading icon-block-heading">
-														<h4>甘さ</h4>
-													</div><!-- /End Block heading -->
+												<!-- Block heading -->
+												<div class="main-block-heading icon-block-heading">
+													<h4>甘さ</h4>
+												</div><!-- /End Block heading -->
 
-													<!-- Block content -->
-													<div class="main-block-content icon-block-content">
-														<p><%= sweet_status_for_show(@combination) %></p>
-													</div><!-- /End Block content -->
+												<!-- Block content -->
+												<div class="main-block-content icon-block-content">
+													<p><%= sweet_status_for_show(@combination) %></p>
+												</div><!-- /End Block content -->
 
-												</div><!--/End Block body -->
+											</div><!--/End Block body -->
 
-											</div><!-- /End Block container -->
-										</div><!-- /End Icon block -->
+										</div><!-- /End Block container -->
+									</div><!-- /End Icon block -->
 
-										<!-- GAP -->
-										<div class="gap gap-18 d-lg-none"></div>
+									<!-- GAP -->
+									<div class="gap gap-18 d-lg-none"></div>
 
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
 								<div class="col-lg-3 refresh-block">
 
-										<!-- Icon block -->
-										<div class="main-block icon-block text-center">
-											<!-- Block container -->
-											<div class="main-block-container icon-block-container">
+									<!-- Icon block -->
+									<div class="main-block icon-block text-center">
+										<!-- Block container -->
+										<div class="main-block-container icon-block-container">
 
-												<!-- Block header -->
-												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-													<i class="fa-solid fa-wind"></i>
-												</div><!-- /End Block header -->
+											<!-- Block header -->
+											<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+												<i class="fa-solid fa-wind"></i>
+											</div><!-- /End Block header -->
 
-												<!-- Block body -->
-												<div class="main-block-body icon-block-body">
+											<!-- Block body -->
+											<div class="main-block-body icon-block-body">
 
-													<!-- Block heading -->
-													<div class="main-block-heading icon-block-heading">
-														<h4>スッキリ感</h4>
-													</div><!-- /End Block heading -->
+												<!-- Block heading -->
+												<div class="main-block-heading icon-block-heading">
+													<h4>スッキリ感</h4>
+												</div><!-- /End Block heading -->
 
-													<!-- Block content -->
-													<div class="main-block-content icon-block-content">
-														<p><%= refresh_status_for_show(@combination) %></p>
-													</div><!-- /End Block content -->
+												<!-- Block content -->
+												<div class="main-block-content icon-block-content">
+													<p><%= refresh_status_for_show(@combination) %></p>
+												</div><!-- /End Block content -->
 
-												</div><!--/End Block body -->
+											</div><!--/End Block body -->
 
-											</div><!-- /End Block container -->
-										</div><!-- /End Icon block -->
+										</div><!-- /End Block container -->
+									</div><!-- /End Icon block -->
 
-										<!-- GAP -->
-										<div class="gap gap-18 d-lg-none"></div>
+									<!-- GAP -->
+									<div class="gap gap-18 d-lg-none"></div>
 
 								</div><!-- /End col-lg-3 -->
 
 								<!-- col-lg-3 -->
 								<div class="col-lg-3 relax-block">
 
-										<!-- Icon block -->
-										<div class="main-block icon-block text-center">
-											<!-- Block container -->
-											<div class="main-block-container icon-block-container">
+									<!-- Icon block -->
+									<div class="main-block icon-block text-center">
+										<!-- Block container -->
+										<div class="main-block-container icon-block-container">
 
-												<!-- Block header -->
-												<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
-													<i class="fas fa-couch"></i>
-												</div><!-- /End Block header -->
+											<!-- Block header -->
+											<div class="main-block-header icon-block-header icon-solid accent-color-bg white-color">
+												<i class="fas fa-couch"></i>
+											</div><!-- /End Block header -->
 
-												<!-- Block body -->
-												<div class="main-block-body icon-block-body">
+											<!-- Block body -->
+											<div class="main-block-body icon-block-body">
 
-													<!-- Block heading -->
-													<div class="main-block-heading icon-block-heading">
-														<h4>リラックス感</h4>
-													</div><!-- /End Block heading -->
+												<!-- Block heading -->
+												<div class="main-block-heading icon-block-heading">
+													<h4>リラックス感</h4>
+												</div><!-- /End Block heading -->
 
-													<!-- Block content -->
-													<div class="main-block-content icon-block-content">
-														<p><%= relax_status_for_show(@combination) %></p>
-													</div><!-- /End Block content -->
+												<!-- Block content -->
+												<div class="main-block-content icon-block-content">
+													<p><%= relax_status_for_show(@combination) %></p>
+												</div><!-- /End Block content -->
 
-												</div><!--/End Block body -->
+											</div><!--/End Block body -->
 
-											</div><!-- /End Block container -->
-										</div><!-- /End Icon block -->
+										</div><!-- /End Block container -->
+									</div><!-- /End Icon block -->
 
-										<!-- GAP -->
-										<div class="gap gap-18 d-lg-none"></div>
+									<!-- GAP -->
+									<div class="gap gap-18 d-lg-none"></div>
 
 								</div><!-- /End col-lg-3 -->
+
+
+								<!-- Content area
+								================================================ -->
+								<div class="container mt-54">
+									<div id="primary" class="content-area col-lg-12">
+										<!-- Block container -->
+										<div class="main-block-container blog-block-container blog-block-inner-container">
+											<!-- Block body -->
+											<div class="main-block-body blog-block-body blog-block-inner-body">
+												<!-- Block footer -->
+												<div class="main-block-footer blog-block-footer blog-block-inner-footer">
+													<!-- Comments block -->
+													<div class="main-block comments-block">
+														<!-- Block container -->
+														<div class="main-block-container comments-block-container">
+															<!-- Block body -->
+															<div class="main-block-body comments-block-body">
+																<!-- Block heading -->
+																<div class="main-block-heading mb-54 combination-title">
+																	<span><%= @review.count %> Comments</span>
+																</div><!-- /End Block heading -->
+																<!-- Block content -->
+																<div class="main-block-content comments-block-content">
+																	<!-- Comments Block List -->
+																	<ul class="comments-block-list">
+																		<!-- Comments Block Item -->
+																		<li class="comments-block-item">
+																			<!-- Comment Block -->
+																			<div class="main-block comment-block">
+																				<!-- Comment Block Container -->
+																				<div class="main-block-container comment-block-container">
+
+																					<% @review.each do |review| %>
+
+																						<!-- Comment Block Avatar -->
+																						<div class="main-block-header comment-block-header">
+																							<%= image_tag review.user.avatar_url %>
+																						</div><!-- /End Comment Block Avatar -->
+																						<!-- Comment Block Body -->
+																						<div class="main-block-body comment-block-body mb-3">
+
+																							<!-- Comment Block Heading -->
+																							<div class="main-block-heading comment-block-heading">
+																								<h5><%= review.user.name %></h5>
+																							</div><!-- /End Comment Block Heading -->
+
+																							<!-- Comment Block Description -->
+																							<div class="main-block-content comment-block-content">
+																								<div class="row">
+																									<div class="col-10 mt-2"><p><%= review.comment %></p></div>
+																									<div class="col-2">
+																										<% if review.user.id == current_user.id %>
+																											<%= link_to "削除", combination_review_combination_path(@combination, review), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
+																										<% end %>
+																									</div>
+																								</div>
+																							</div><!-- /End Comment Block Description -->
+
+																						</div><!-- /End Comment Block Body -->
+
+																					<% end %>
+
+																				</div><!-- /End Comment Block Container -->
+																			</div><!-- /End Comment Block -->
+																		</li><!-- /End Comments Block Item -->
+																	</ul><!-- /End Comments Block List -->
+																</div><!-- /End Block content -->
+															</div><!--/End Block body -->
+														</div><!-- /End Block container -->
+													</div><!-- /End Comments -->
+
+
+													<!-- Reply block -->
+													<div class="main-block reply-block" id="reply">
+														<!-- Block container -->
+														<div class="main-block-container reply-block-container">
+
+															<!-- Block body -->
+															<div class="main-block-body reply-block-body">
+
+																<!-- Block heading -->
+																<div class="main-block-heading reply-block-heading section-title-small"></div>
+
+																<!-- Block content -->
+																<div class="main-block-content reply-block-content">
+																	<!-- Reply form -->
+																	<div class="form-block form-block-validation form-block-reply">
+																		<!-- Form container -->
+																		<div class="form-block-container">
+																			<!-- Form -->
+																			<%= form_with model: @review_combination, url: combination_review_combinations_path(@combination), class: "row", local: true do |f| %>
+
+																				<div class="col-md-7">
+																					<%= f.label :rating, class: "label" do %>
+																						評価 <span class="red-color">*</span>
+																					<% end %>
+																					<%= f.select :rating, ReviewCombination::RATING.map, {}, {class: "form-control"} %>
+																				</div>
+
+																				<div class="col-md-7">
+																					<%= f.label :sweet, class: "label" do %>
+																						甘さ
+																					<% end %>
+																					<%= f.select :sweet, ReviewCombination::SWEET.map, {}, {class: "form-control"} %>
+																				</div>
+
+																				<div class="col-md-7">
+																					<%= f.label :refresh, class: "label" do %>
+																						スッキリ感
+																					<% end %>
+																					<%= f.select :refresh, ReviewCombination::REFRESH.map, {}, {class: "form-control"} %>
+																				</div>
+
+																				<div class="col-md-7">
+																					<%= f.label :relax, class: "label" do %>
+																						リラックス感
+																					<% end %>
+																					<%= f.select :relax, ReviewCombination::RELAX.map, {}, {class: "form-control"} %>
+																				</div>
+
+																				<div class="col-md-7">
+																					<%= f.label :easy, class: "label" do %>
+																						吸いやすさ
+																					<% end %>
+																					<%= f.select :easy, ReviewCombination::EASY.map, {}, {class: "form-control"} %>
+																				</div>
+
+																				<!-- Comment -->
+																				<div class="col-lg-12">
+																					<%= f.label :comment, class: "label" do %>
+																						コメント
+																					<% end %>
+																					<%= f.text_area :comment, class: "form-control" %>
+																				</div><!-- /End Comment -->
+
+																				<!-- Submit button -->
+																				<div class="col-lg-12">
+																					<%= f.submit "投稿", class: "btn btn-secondary" %>
+																				</div><!-- /End Submit button -->
+
+																			<% end %><!-- /End Form -->
+																		</div><!-- /End Form container -->
+																	</div><!-- /End Reply form -->
+																</div><!-- /End Block content -->
+															</div><!--/End Block body -->
+														</div><!-- /End Block container -->
+													</div><!-- /End Comments -->
+												</div><!-- /End Block footer -->
+											</div><!--/End Block body -->
+										</div><!-- /End Block container -->
+									</div>
+								</div>
 							</div><!-- /End row -->
 					</div><!-- /End container -->
 				</div><!-- /End Section -->
@@ -236,190 +369,3 @@
 	</div><!-- /End row -->
 </div><!-- /End Page body -->
 
-<!-- Page body ============================================================ -->
-<div id="page-body" class="page-body page-right-sidebar">
-	<!-- container -->
-	<div class="container gx-4">
-		<!-- row -->
-		<div class="row main-row justify-content-center">
-
-			<!-- Content area
-			================================================ -->
-			<div id="primary" class="content-area col-lg-8">
-				<!-- Main -->
-				<main id="main" class="content-area-container site-main">
-					<!-- Blog wrapper -->
-					<div class="blog-block-wrapper">
-						<!-- row -->
-						<div class="row gx-36">
-							<!-- Post -->
-							<div class="blog-block-post col-lg-12">
-								<!-- Post -->
-								<article class="main-block blog-block blog-block-inner format-standard">
-									<!-- Block container -->
-									<div class="main-block-container blog-block-container blog-block-inner-container">
-										<!-- Block body -->
-										<div class="main-block-body blog-block-body blog-block-inner-body">
-											<!-- Block footer -->
-											<div class="main-block-footer blog-block-footer blog-block-inner-footer">
-												<!-- Comments block -->
-												<div class="main-block comments-block" id="comments">
-													<!-- Block container -->
-													<div class="main-block-container comments-block-container">
-														<!-- Block body -->
-														<div class="main-block-body comments-block-body">
-															<!-- Block heading -->
-															<div class="main-block-heading mb-54">
-																<h6 class="font-weight-500"><span><%= @review.count %> Comments</span></h6>
-															</div><!-- /End Block heading -->
-															<!-- Block content -->
-															<div class="main-block-content comments-block-content">
-																<!-- Comments Block List -->
-																<ul class="comments-block-list">
-																	<!-- Comments Block Item -->
-																	<li class="comments-block-item">
-																		<!-- Comment Block -->
-																		<div class="main-block comment-block">
-																			<!-- Comment Block Container -->
-																			<div class="main-block-container comment-block-container">
-
-																				<% @review.each do |review| %>
-
-																					<!-- Comment Block Avatar -->
-																					<div class="main-block-header comment-block-header">
-																						<%= image_tag review.user.avatar_url %>
-																					</div><!-- /End Comment Block Avatar -->
-																					<!-- Comment Block Body -->
-																					<div class="main-block-body comment-block-body mb-3">
-
-																						<!-- Comment Block Heading -->
-																						<div class="main-block-heading comment-block-heading">
-																							<h5><%= review.user.name %></h5>
-																						</div><!-- /End Comment Block Heading -->
-
-																						<!-- Comment Block Description -->
-																						<div class="main-block-content comment-block-content">
-																							<div class="row">
-																								<div class="col-10 mt-2"><p><%= review.comment %></p></div>
-																								<div class="col-2">
-																									<% if review.user.id == current_user.id %>
-																										<%= link_to "削除", combination_review_combination_path(@combination, review), class: "btn btn-sm btn-outline btn-round btn-dark", method: :delete %>
-																									<% end %>
-																								</div>
-																							</div>
-																						</div><!-- /End Comment Block Description -->
-
-																					</div><!-- /End Comment Block Body -->
-
-																				<% end %>
-
-																			</div><!-- /End Comment Block Container -->
-																		</div><!-- /End Comment Block -->
-																	</li><!-- /End Comments Block Item -->
-																</ul><!-- /End Comments Block List -->
-															</div><!-- /End Block content -->
-														</div><!--/End Block body -->
-													</div><!-- /End Block container -->
-												</div><!-- /End Comments -->
-
-
-												<!-- Reply block -->
-												<div class="main-block reply-block" id="reply">
-													<!-- Block container -->
-													<div class="main-block-container reply-block-container">
-
-														<!-- Block body -->
-														<div class="main-block-body reply-block-body">
-
-															<!-- Block heading -->
-															<div class="main-block-heading reply-block-heading section-title-small"></div>
-
-															<!-- Block content -->
-															<div class="main-block-content reply-block-content">
-																<!-- Reply form -->
-																<div class="form-block form-block-validation form-block-reply">
-																	<!-- Form container -->
-																	<div class="form-block-container">
-																		<!-- Form -->
-																		<%= form_with model: @review_combination, url: combination_review_combinations_path(@combination), class: "row", local: true do |f| %>
-
-
-
-																			<div class="col-md-7">
-																				<%= f.label :rating, class: "label" do %>
-																					評価 <span class="red-color">*</span>
-																				<% end %>
-																				<%= f.select :rating, ReviewCombination::RATING.map, {}, {class: "form-control"} %>
-																			</div>
-
-
-
-																			<div class="col-md-7">
-																				<%= f.label :sweet, class: "label" do %>
-																					甘さ
-																				<% end %>
-																				<%= f.select :sweet, ReviewCombination::SWEET.map, {}, {class: "form-control"} %>
-																			</div>
-
-
-
-																			<div class="col-md-7">
-																				<%= f.label :refresh, class: "label" do %>
-																					スッキリ感
-																				<% end %>
-																				<%= f.select :refresh, ReviewCombination::REFRESH.map, {}, {class: "form-control"} %>
-																			</div>
-
-
-
-																			<div class="col-md-7">
-																				<%= f.label :relax, class: "label" do %>
-																					リラックス感
-																				<% end %>
-																				<%= f.select :relax, ReviewCombination::RELAX.map, {}, {class: "form-control"} %>
-																			</div>
-
-
-
-																			<div class="col-md-7">
-																				<%= f.label :easy, class: "label" do %>
-																					吸いやすさ
-																				<% end %>
-																				<%= f.select :easy, ReviewCombination::EASY.map, {}, {class: "form-control"} %>
-																			</div>
-
-
-																			<!-- Comment -->
-																			<div class="col-lg-12">
-																				<%= f.label :comment, class: "label" do %>
-																					コメント
-																				<% end %>
-																				<%= f.text_area :comment, class: "form-control" %>
-																			</div><!-- /End Comment -->
-
-
-																			<!-- Submit button -->
-																			<div class="col-lg-12">
-																				<%= f.submit "投稿", class: "btn btn-primary" %>
-																			</div><!-- /End Submit button -->
-
-
-																		<% end %><!-- /End Form -->
-																	</div><!-- /End Form container -->
-																</div><!-- /End Reply form -->
-															</div><!-- /End Block content -->
-														</div><!--/End Block body -->
-													</div><!-- /End Block container -->
-												</div><!-- /End Comments -->
-											</div><!-- /End Block footer -->
-										</div><!--/End Block body -->
-									</div><!-- /End Block container -->
-								</article><!-- /End Post -->
-							</div><!-- /End Post -->
-						</div><!-- /End row -->
-					</div><!-- /End Blog wrapper -->
-				</main><!-- /End Main -->
-			</div><!-- /End Content area -->
-		</div><!-- /End row -->
-	</div><!-- /End container -->
-</div><!-- /End Page body -->

@@ -6,15 +6,6 @@
 		<div id="primary" class="content-area col-lg-12">
 			<!-- Main -->
 			<main id="main" class="content-area-container site-main">
-
-
-        <!-- Section -->
-        <div class="main-section parallax-section pt-0 pb-0 dark-1-color-bg">
-					<div class="flavor_background"><%= image_tag @flavor.flavor_image_url %></div>
-        </div><!-- /End Section -->
-
-
-
 				<!-- Section -->
 				<div class="main-section">
 						<!-- container -->
@@ -23,41 +14,45 @@
 						<div class="row gx-36">
 
 
-							<!-- col-lg-8 -->
-							<div class="col-lg-8 offset-lg-2">
+							<!-- col-lg-4 -->
+							<div class="offset-lg-4 col-lg-4 offset-lg-4">
+								<!-- Testimonials block -->
+								<div class="main-block recommend-combination-block">
+									<!-- Block container -->
+									<div class="main-block-container recommend-combination-container">
 
-								<!-- Section title -->
-								<div class="section-title text-center">
-									<!-- Section title container -->
-									<div class="section-title-container">
-										<!-- Section title body -->
-										<div class="section-title-body">
-											<!-- Section title heading -->
-											<div class="section-title-heading unchi">
-												<h2>Flavor</h2>
-												<h2><%= @flavor.name %></h2>
-												<p><%= @flavor.category.name %></p>
-											</div><!-- /End Section title heading -->
-										</div><!--/End Section title body -->
-									</div><!-- /End Section title container -->
-								</div><!-- /End Section title -->
+										<!-- Block header -->
+										<div class="main-block-header recommend-combination-header">
+											<%= image_tag @flavor.flavor_image_url %>
+										</div><!-- /End Block header -->
 
-								<!-- GAP -->
-								<div class="gap gap-36"></div>
+										<!-- Block body -->
+										<div class="main-block-body recommend-combination-body">
 
-							</div><!-- /End col-lg-8 -->
+											<!-- Block heading -->
+											<div class="main-block-heading recommend-combination-heading">
+												<h5 class="flavor-name">
+													<%= @flavor.name %>
+												</h5>
+												<span class="badge bg-warning"><%= @flavor.category.name %></span>
+											</div><!-- /End Block heading -->
+										</div><!--/End Block body -->
+
+									</div><!-- /End Block container -->
+								</div><!-- /End Testimonials block -->
+							</div><!-- /End col-lg-4 -->
 
 							<% @combinations.each do |combination| %>
 								<div class="col-lg-6">
 									<!-- Block -->
-									<div class="main-block">
+									<div class="main-block ombination-block">
 										<!-- Block container -->
 										<div class="main-block-container">
 											<!-- Block body -->
 											<div class="main-block-body">
 												<!-- Block content -->
 												<div class="main-block-content">
-													<ul class="icon-list bordered-list grey-2-color-border">
+													<ul class="combination-list">
 														<li>
 															<div class="row text-left">
 																<div class="col-6">

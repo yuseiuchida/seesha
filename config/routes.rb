@@ -22,13 +22,15 @@ Rails.application.routes.draw do
   resources :flavors, only: %i[index show]
   resources :categories, only: %i[index new create show]
   resources :searchs, only: %i[index show create]
+  get 'rate' => 'searchs#rate'
+  resources :gacha, only: %i[create new]
 
   namespace :admin do
     root to: 'dashboards#index'
     get 'login', to: 'user_sessions#new'
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
-    resources :categories, only: %i[index new create edit update destroy]
+    resources :categories, only: %i[index new show create edit update destroy]
     resources :flavors
     resources :users, only: %i[index new create edit update destroy]
     resources :combinations do

@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_combinations, through: :bookmarks, source: :combination
   has_many :review_combinations, dependent: :destroy
-  has_many :review_compabilities, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

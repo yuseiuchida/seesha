@@ -9,7 +9,11 @@ class SearchsController < ApplicationController
 		redirect_to search_path(@search_combination)
 	end
 
-
+  def rate
+		rate_ids = Rate.where("rating_rate > ?", 3.5).ids
+		@search_combination = Combination.find(Rate.find(rate_ids.sample).combination_id)
+		redirect_to search_path(@search_combination)
+	end
 
 	def show
 		@combination = Combination.find(params[:id])
