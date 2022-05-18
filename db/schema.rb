@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2022_04_20_053407) do
     t.integer "total_flavors"
     t.string "status"
     t.string "name"
-    t.integer "rating_score"
-    t.integer "sweet_score"
-    t.integer "refresh_score"
-    t.integer "relax_score"
-    t.integer "easy_score"
+    t.integer "rating_score", null: false
+    t.integer "sweet_score", null: false
+    t.integer "refresh_score", null: false
+    t.integer "relax_score", null: false
+    t.integer "easy_score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["first_flavor_id", "second_flavor_id", "third_flavor_id", "fourth_flavor_id"], name: "combinations_index", unique: true

@@ -6,7 +6,11 @@ class SearchsController < ApplicationController
 
 	def create
 		@search_combination = Rate.recommend(params)
-		redirect_to search_path(@search_combination)
+		if @search_combination.present?
+			redirect_to search_path(@search_combination)
+		else
+			redirect_to sorry_path
+		end
 	end
 
   def rate
@@ -17,12 +21,5 @@ class SearchsController < ApplicationController
 
 	def show
 		@combination = Combination.find(params[:id])
-		easy_searchs = Combination.all
-		
-		ids = []
-		easy_searchs.each do |easy_search|
-			ids << easy_search.id
-		end
-		@search_combination = Combination.find(ids.sample)
 	end
 end

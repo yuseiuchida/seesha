@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index new create show]
   resources :searchs, only: %i[index show create]
   get 'rate' => 'searchs#rate'
+  get 'sorry' => 'searchs#sorry'
   resources :gacha, only: %i[create new]
 
   namespace :admin do
