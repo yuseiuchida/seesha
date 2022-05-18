@@ -67,6 +67,6 @@ class Rate < ApplicationRecord
 				ids << rate.id
 			end
 		end
-		@search_combination = Combination.find(Rate.find(ids.sample).combination_id)
+		@search_combination = Combination.find(Rate.find(ids.sample).combination_id) if ids.present?
 	end
 end
