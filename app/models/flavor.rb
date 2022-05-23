@@ -12,4 +12,5 @@ class Flavor < ApplicationRecord
 		num = Combination.where(first_flavor_id: self.id).or(Combination.where(second_flavor_id: self.id))
 		num.count
 	end
+
 end

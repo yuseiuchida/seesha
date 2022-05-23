@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   resources :flavors, only: %i[index show]
   resources :categories, only: %i[index new create show]
   resources :searchs, only: %i[index show create]
-  get 'rate' => 'searchs#rate'
-  get 'sorry' => 'searchs#sorry'
+  get 'rate', to: 'searchs#rate'
+  get 'sorry', to: 'searchs#sorry'
   resources :gacha, only: %i[create new]
 
   namespace :admin do
