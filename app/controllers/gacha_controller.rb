@@ -1,4 +1,5 @@
 class GachaController < ApplicationController
+  skip_before_action :require_login, only: %i[new]
 	def new
     kind = [2, 3 ,4].sample
 		ids = Flavor.ids.shuffle.take(kind).sort
@@ -14,8 +15,5 @@ class GachaController < ApplicationController
 			name = @flavor1.name + " " + @flavor2.name + " " + @flavor3.name + " " + @flavor4.name
 		end
 		@combination = Combination.find_by(name: name)
-	end
-
-	def create
 	end
 end
