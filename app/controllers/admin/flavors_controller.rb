@@ -2,7 +2,11 @@ class Admin::FlavorsController < Admin::BaseController
 	before_action :set_flavor, only: %i[show edit destroy]
 
 	def index
-		@flavors = Flavor.all
+		if params[:sort_key].nil?
+      @flavors = Flavor.order(id: :asc)
+    else
+      @flavors = Flavor.sort(params[:sort_key])
+    end
 	end
 	
 	def new

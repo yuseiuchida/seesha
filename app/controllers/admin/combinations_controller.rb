@@ -3,7 +3,7 @@ class Admin::CombinationsController < Admin::BaseController
   before_action :set_combination, only: %i[show edit update destroy]
 
   def index
-    @combinations = Combination.all
+    @combinations = Combination.order(id: :desc)
   end
 
   def new

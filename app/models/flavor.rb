@@ -13,4 +13,13 @@ class Flavor < ApplicationRecord
 		num.count
 	end
 
+  def self.sort(sort_key)
+    case sort_key
+    when "id"
+      return all.order(id: :asc)
+    when "category"
+      return all.order(category_id: :asc)
+    end
+  end
+
 end
