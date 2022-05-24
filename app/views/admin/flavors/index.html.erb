@@ -22,9 +22,9 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th scope="col">ID</th>
+							<th scope="col"><%= link_to 'ID', admin_flavors_path(sort_key: "id") %></th>
 							<th scope="col">名前</th>
-							<th scope="col">カテゴリー</th>
+							<th scope="col"><%= link_to 'カテゴリー', admin_flavors_path(sort_key: "category") %></th>
 							<th scope="col">作成日時</th>
 							<th scope="col"></th>
 						</tr>

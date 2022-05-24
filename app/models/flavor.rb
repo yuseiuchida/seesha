@@ -12,4 +12,14 @@ class Flavor < ApplicationRecord
 		num = Combination.where(first_flavor_id: self.id).or(Combination.where(second_flavor_id: self.id))
 		num.count
 	end
+
+  def self.sort(sort_key)
+    case sort_key
+    when "id"
+      return all.order(id: :asc)
+    when "category"
+      return all.order(category_id: :asc)
+    end
+  end
+
 end

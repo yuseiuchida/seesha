@@ -13,6 +13,7 @@ class Combination < ApplicationRecord
 	validate :flavor_unique?
 	
 	STATUS = ["BAD", "NOT GOOD", "NOT BAD", "GOOD", "VERY GOOD", "EXCELLENT"]
+  
 
 	def flavor_unique?
     if fourth_flavor_id.present?

@@ -3,11 +3,24 @@
   height: 600px;
 }
 
-.title-text {
+.title-text h2 {
   color: whitesmoke;
   font-weight: 400;
   background-color: opacify($color: #000000, $amount: 0);
-  width: 20rem;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 7px;
+}
+
+.explain {
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  color: #d11e35;
+  font-size: 16px;
+  font-weight: bold;
+  background: whitesmoke;
+  border-radius: 15px;
 }
 
 .black-color {
