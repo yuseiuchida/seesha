@@ -65,54 +65,7 @@
 
 									<!-- col-lg-4 -->
 									<div class="offset-lg-2 col-lg-8 offset-lg-2">
-										<!-- Testimonials block -->
-										<div class="main-block recommend-combination-block">
-											<!-- Block container -->
-											<div class="main-block-container recommend-combination-container">
-
-												<!-- Block header -->
-												<div class="main-block-header recommend-combination-header">
-													<%= image_tag @flavor1.flavor_image_url %>
-													<%= image_tag @flavor2.flavor_image_url %>
-													<%= image_tag @flavor3.flavor_image_url if @flavor3.present? %>
-													<%= image_tag @flavor4.flavor_image_url if @flavor4.present? %>
-												</div><!-- /End Block header -->
-
-												<!-- Block body -->
-												<div class="main-block-body recommend-combination-body">
-
-													<!-- Block heading -->
-													<div class="main-block-heading recommend-combination-heading">
-														<h5 class="name">
-															<%= @flavor1.name %>
-															<%= @flavor2.name %>
-															<%= @flavor3.name if @flavor3.present? %>
-															<%= @flavor4.name if @flavor4.present? %>
-														</h5>
-														<% if @combination.present? %>
-															<h6 class="role font-weight-500 accent-color"><%= @combination.status %></h6>
-															<span class="badge bg-success"><%= easy_status(@combination) %></span>
-															<span class="badge bg-danger"><%= sweet_status(@combination) %></span>
-															<span class="badge bg-warning"><%= refresh_status(@combination) %></span>
-															<span class="badge bg-primary"><%= relax_status(@combination) %></span>
-														<% else %>
-															<p class="badge bg-secondary">評価なし</p>
-														<% end %>
-													</div><!-- /End Block heading -->
-
-													<!-- Block content -->
-													<div class="main-block-content recommend-combination-content mt-24">
-														<% if @combination.present? %>
-															<p><%= link_to 'show', combination_path(@combination) %></p>
-														<% else %>
-															<br>
-														<% end %>
-														<%= link_to 'ガチャ', new_gacha_path, class: "btn btn-danger ml-18 mr-18 mb-36 text-white text-left" %>
-													</div><!-- /End Block content -->
-												</div><!--/End Block body -->
-
-											</div><!-- /End Block container -->
-										</div><!-- /End Testimonials block -->
+                    <%= render 'combinations/combination', {combination: @combination}%>
 									</div><!-- /End col-lg-4 -->
 
 									<!-- col-lg-8 -->
@@ -138,6 +91,7 @@
 									<!-- col-lg-12 -->
 									<div class="col-lg-12 search-links text-center mt-54">
 										<%= link_to "診断する", searchs_path, class: "btn btn-danger ml-18 mr-18 mb-36" %>
+                    <%= link_to 'ガチャ', new_gacha_path, class: "btn btn-danger ml-18 mr-18 mb-36 text-white text-left" %>
 									</div><!-- /End col-lg-12 -->
 
 								</div><!-- /End row -->
