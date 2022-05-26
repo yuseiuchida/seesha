@@ -1,102 +1,82 @@
 <div id="page-body" class="page-body">
-	<!-- row -->
-	<div class="row main-row justify-content-center">
-		<!-- Content area
-		==================================================== -->
-		<div id="primary" class="content-area col-lg-12">
-			<!-- Main -->
-			<main id="main" class="content-area-container site-main">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
 
-				<!-- Section -->
-				<div class="main-section">
-						<!-- container -->
-						<div class="container gx-4">
-								<!-- row -->
-								<div class="row gx-36">
+        <!-- Section -->
+        <div class="main-section">
+            <!-- container -->
+            <div class="container gx-4">
+                <!-- row -->
+                <div class="row gx-36">
 
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
+                  <!-- col-lg-8 -->
+                  <div class="col-lg-8 offset-lg-2">
 
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
+                    <!-- Section title -->
+                    <div class="section-title text-center">
+                      <!-- Section title container -->
+                      <div class="section-title-container">
 
-												<!-- Section title body -->
-												<div class="section-title-body">
+                        <!-- Section title body -->
+                        <div class="section-title-body">
 
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2>診断結果</h2>
-													</div><!-- /End Section title heading -->
+                          <!-- Section title heading -->
+                          <div class="section-title-heading">
+                            <h2>診断結果</h2>
+                          </div><!-- /End Section title heading -->
 
-												</div><!--/End Section title body -->
+                        </div><!--/End Section title body -->
 
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
+                      </div><!-- /End Section title container -->
+                    </div><!-- /End Section title -->
 
-										<!-- GAP -->
-										<div class="gap gap-36"></div>
+                    <!-- GAP -->
+                    <div class="gap gap-36"></div>
 
-									</div><!-- /End col-lg-8 -->
+                  </div><!-- /End col-lg-8 -->
 
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
+                  <!-- col-lg-8 -->
+                  <div class="col-lg-8 offset-lg-2">
 
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
+                    <!-- Section title -->
+                    <div class="section-title text-center">
+                      <!-- Section title container -->
+                      <div class="section-title-container">
 
-												<!-- Section title body -->
-												<div class="section-title-body">
+                        <!-- Section title body -->
+                        <div class="section-title-body">
 
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2>おすすめのフレーバー</h2>
-													</div><!-- /End Section title heading -->
+                          <!-- Section title heading -->
+                          <div class="section-title-heading">
+                            <h2>おすすめのフレーバー</h2>
+                          </div><!-- /End Section title heading -->
 
-												</div><!--/End Section title body -->
+                        </div><!--/End Section title body -->
 
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
-									</div><!-- /End col-lg-8 -->
+                      </div><!-- /End Section title container -->
+                    </div><!-- /End Section title -->
+                  </div><!-- /End col-lg-8 -->
 
-									<!-- col-lg-4 -->
+                  <!-- col-lg-4 -->
                   <div class="offset-lg-2 col-lg-8 offset-lg-2">
                     <%= render 'combinations/combination', {combination: @combination}%>
                   </div><!-- /End col-lg-4 -->
 
-									<!-- col-lg-8 -->
-									<div class="col-lg-8 offset-lg-2">
+                  <!-- col-lg-8 -->
+                  <div class="col-lg-8 offset-lg-2">
+                    <%= render 'searchs/search'%>
+                  </div><!-- /End col-lg-8 -->
 
-										<!-- Section title -->
-										<div class="section-title text-center">
-											<!-- Section title container -->
-											<div class="section-title-container">
-												<!-- Section title body -->
-												<div class="section-title-body">
-													<!-- Section title heading -->
-													<div class="section-title-heading">
-														<h2>もう一度診断</h2>
-													</div><!-- /End Section title heading -->
-												</div><!--/End Section title body -->
-											</div><!-- /End Section title container -->
-										</div><!-- /End Section title -->
-									</div><!-- /End col-lg-8 -->
+                </div><!-- /End row -->
+            </div><!-- /End container -->
+        </div><!-- /End Section -->
 
-
-
-									<!-- col-lg-12 -->
-									<div class="col-lg-12 search-links text-center mt-54">
-										<%= link_to "診断する", searchs_path, class: "btn btn-danger ml-18 mr-18 mb-36" %>
-									</div><!-- /End col-lg-12 -->
-
-								</div><!-- /End row -->
-						</div><!-- /End container -->
-				</div><!-- /End Section -->
-
-			</main><!-- /End Main -->
-		</div><!-- /End Content area -->
-	</div><!-- /End row -->
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
 </div><!-- /End Page body -->

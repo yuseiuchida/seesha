@@ -94,7 +94,8 @@
   text-align: center;
   padding-top: 24px;
   .recommend-combination-heading {
-    .name {
+    p {
+      font-weight: bold;
       font-size: larger;
     }
   }
@@ -102,6 +103,21 @@
 
 .search-links a {
   color: white;
+}
+
+.search-link-item {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.search-link-item a {
+  width: 300px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 /* comment ================================= */
