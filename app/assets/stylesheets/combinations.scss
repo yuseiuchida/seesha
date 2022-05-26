@@ -68,6 +68,58 @@
   margin-bottom: 1rem;
 }
 
+/* commbinations/combination ================================= */
+
+.recommend-combination-status {
+  margin-top: 3rem;
+}
+.recommend-combination-block {
+  padding: 36px;
+  overflow: hidden;
+  background-color: rgba(211, 211, 211, 0.2);
+  margin-top: 54px;
+  margin-bottom: 54px;
+  .recommend-combination-header img {
+    width: 96px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .recommend-combination-header {
+    text-align: center;
+  }
+}
+
+.recommend-combination-body {
+  clear: both;
+  text-align: center;
+  padding-top: 24px;
+  .recommend-combination-heading {
+    p {
+      font-weight: bold;
+      font-size: larger;
+    }
+  }
+}
+
+.search-links a {
+  color: white;
+}
+
+.search-link-item {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.search-link-item a {
+  width: 300px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
 /* comment ================================= */
 .comment-block-container {
   margin-bottom: 54px;

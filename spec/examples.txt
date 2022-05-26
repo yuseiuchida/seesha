@@ -1,0 +1,4 @@
+example_id                          | status | run_time       |
+----------------------------------- | ------ | -------------- |
+./spec/models/flavor_spec.rb[1:1:1] | passed | 0.0199 seconds |
+./spec/models/flavor_spec.rb[1:1:2] | passed | 0.0019 seconds |

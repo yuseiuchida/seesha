@@ -19,7 +19,7 @@
     <% end %>
     <br>
     <% @categories.each do |category| %>
-      <%= link_to "#{category.name}", new_combination_path(first_category: category.id, second_category: @second_category, third_category: @third_category, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
+      <%= link_to "#{category.name}", new_admin_combination_path(first_category: category.id, second_category: @second_category, third_category: @third_category, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
     <% end %>
     <% if @first_category.present? %>
       <%= f.select :first_flavor_id, @first_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@first_category.name}"}, {class: "form-control"} %>
@@ -35,7 +35,7 @@
     <% end %>
     <br>
     <% @categories.each do |category| %>
-      <%= link_to "#{category.name}", new_combination_path(first_category: @first_category, second_category: category.id, third_category: @third_category, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
+      <%= link_to "#{category.name}", new_admin_combination_path(first_category: @first_category, second_category: category.id, third_category: @third_category, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
     <% end %>
     <% if @second_category.present? %>
       <%= f.select :second_flavor_id, @second_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@second_category.name}"}, {class: "form-control"} %>
@@ -51,7 +51,7 @@
     <% end %>
     <br>
     <% @categories.each do |category| %>
-      <%= link_to "#{category.name}", new_combination_path(first_category: @first_category, second_category: @second_category, third_category: category.id, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
+      <%= link_to "#{category.name}", new_admin_combination_path(first_category: @first_category, second_category: @second_category, third_category: category.id, fourth_category: @fourth_category), class: "btn btn-sm btn-outline-success" %>
     <% end %>
     <% if @third_category.present? %>
       <%= f.select :third_flavor_id, @third_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@third_category.name}"}, {class: "form-control"} %>
@@ -67,7 +67,7 @@
     <% end %>
     <br>
     <% @categories.each do |category| %>
-      <%= link_to "#{category.name}", new_combination_path(first_category: @first_category, second_category: @second_category, third_category: @third_category, fourth_category: category.id), class: "btn btn-sm btn-outline-success" %>
+      <%= link_to "#{category.name}", new_admin_combination_path(first_category: @first_category, second_category: @second_category, third_category: @third_category, fourth_category: category.id), class: "btn btn-sm btn-outline-success" %>
     <% end %>
     <% if @fourth_category.present? %>
       <%= f.select :fourth_flavor_id, @fourth_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@fourth_category.name}"}, {class: "form-control"} %>
@@ -80,7 +80,7 @@
   <div class="gap gap-36"></div>
 
   <div class="col-md-3">
-    <%= link_to 'フレーバーをリセット', new_combination_path, class: "btn btn-secondary btn-sm text-white" %>
+    <%= link_to 'フレーバーをリセット', new_admin_combination_path, class: "btn btn-secondary btn-sm text-white" %>
   </div>
   <div class="mt-3"><p>※ 同一のフレーバーをは組み込めません</p></div>
 
