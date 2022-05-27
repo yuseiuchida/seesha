@@ -1,124 +1,121 @@
 <div id="page-body" class="page-body">
-	<!-- row -->
-	<div class="row main-row justify-content-center">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
 
-		<div id="primary" class="content-area col-lg-12">
-				<!-- Main -->
-				<main id="main" class="content-area-container site-main">
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
 
-					<!-- Section -->
-					<div class="main-section">
-							<!-- container -->
-						<div class="container gx-4">
-							<!-- row -->
-							<div class="row gx-36">
-
-
-								<!-- col-lg-12 -->
-								<div class="col-lg-12">
-
-									<!-- Section title -->
-									<div class="section-title text-center">
-										<!-- Section title container -->
-										<div class="section-title-container">
-											<!-- Section title body -->
-											<div class="section-title-body">
-												<!-- Section title heading -->
-												<div class="section-title-heading">
-													<h2>Combinations</h2>
-													<h2>フレーバーの組み合わせ</h2>
-												</div><!-- /End Section title heading -->
-											</div><!--/End Section title body -->
-										</div><!-- /End Section title container -->
-									</div><!-- /End Section title -->
-
-									<br>
-									<div class="combination-container row">
-										<%= search_form_for @q, url: finds_combinations_path do |f| %>
-											<div class="search-field col-10">
-												<%= f.label :name_cont, 'キーワード', class: "label" %>
-												<%= f.search_field :name_cont, class: "form-control" %>
-											</div>
-											<div class="search-button col-2 mt-2">
-												<br>
-												<br>
-												<%= f.submit '検索', class: "btn btn-dark btn-block" %>
-											</div>
-										<% end %>
-									</div>
-
-									<!-- GAP -->
-									<div class="gap gap-36"></div>
-
-								</div><!-- /End col-lg-8 -->
-								<div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
-
-								<div class="combination-title">
-									<% if params[:sort_key].nil? %>
-										<span>一覧</span>
-									<% else %>
-										<span><%= params[:sort_key] %></span>
-									<% end %>
-								</div>
-
-								<nav class="navbar navbar-light bg-light">
-									<form class="container-fluid justify-content-start">
-										<%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-										<%= link_to "高評価 ", combinations_path(sort_key: Rate::ORDER[0]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-										<%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-										<%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-										<%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-										<%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-									</form>
-								</nav>
+        <!-- Section -->
+        <div class="main-section">
+            <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
 
 
-								<div class="gap gap-36"></div>
-								<!-- col-lg-4 -->
-								<% @rates.each do |rate| %>
-									<div class="col-lg-6">
-										<!-- Block -->
-										<div class="main-block combination-block">
-											<!-- Block container -->
-											<div class="main-block-container">
-												<!-- Block body -->
-												<div class="main-block-body">
-													<!-- Block content -->
-													<div class="main-block-content">
-														<ul class="combination-list">
-															<li>
-																<div class="row text-left">
-																	<div class="col-6 combination-name">
-																		<%= link_to combination_path(rate.combination) do %>
-																			<p><%= rate.combination.name %></p>
-																		<% end %>
-																	</div>
-																	<div class="col-5">
-																		<span class="badge bg-success"><%= easy_status(rate.combination) %></span>
-																		<span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
-																		<span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
-																		<span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
-																	</div>
-																	<% if current_user.present? %>
-																		<div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
-																	<% end %>
-																</div>
-															</li>
-														</ul>
-													</div><!-- /End Block content -->
-												</div><!--/End Block body -->
-											</div><!-- /End Block container -->
-										</div><!-- /End Block -->
-									</div><!-- /End col-lg-4 -->
-								<% end %>
+              <!-- col-lg-12 -->
+              <div class="col-lg-12">
 
-							</div><!-- /End row -->
-						</div><!-- /End container -->
-					</div><!-- /End Section -->
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h2>Combinations</h2>
+                        <h2>フレーバーの組み合わせ</h2>
+                      </div><!-- /End Section title heading -->
+                    </div><!--/End Section title body -->
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
 
-				</main><!-- /End Main -->
-		</div><!-- /End Content area -->
+                <br>
+                <div class="combination-container row">
+                  <%= search_form_for @q, url: finds_combinations_path do |f| %>
+                    <div class="search-field col-10">
+                      <%= f.label :name_cont, 'キーワード', class: "label" %>
+                      <%= f.search_field :name_cont, class: "form-control" %>
+                    </div>
+                    <div class="search-button col-2 mt-2">
+                      <br>
+                      <br>
+                      <%= f.submit '検索', class: "btn btn-dark btn-block" %>
+                    </div>
+                  <% end %>
+                </div>
 
-		
-	</div><!-- /End row -->
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
+
+              </div><!-- /End col-lg-8 -->
+              <div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
+
+              <div class="combination-title">
+                <% if params[:sort_key].nil? %>
+                  <span>一覧</span>
+                <% else %>
+                  <span><%= params[:sort_key] %></span>
+                <% end %>
+              </div>
+
+              <nav class="navbar navbar-light bg-light">
+                <form class="container-fluid justify-content-start">
+                  <%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                  <%= link_to "高評価 ", combinations_path(sort_key: Rate::ORDER[0]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                  <%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                  <%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                  <%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                  <%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]), class: "btn btn-sm btn-outline-secondary mr-3" %>
+                </form>
+              </nav>
+
+
+              <div class="gap gap-36"></div>
+              <!-- col-lg-4 -->
+              <% @rates.each do |rate| %>
+                <div class="col-lg-6">
+                  <!-- Block -->
+                  <div class="main-block combination-block">
+                    <!-- Block container -->
+                    <div class="main-block-container">
+                      <!-- Block body -->
+                      <div class="main-block-body">
+                        <!-- Block content -->
+                        <div class="main-block-content">
+                          <ul class="combination-list">
+                            <li>
+                              <div class="row text-left">
+                                <div class="col-6 combination-name">
+                                  <%= link_to combination_path(rate.combination) do %>
+                                    <p><%= rate.combination.name %></p>
+                                  <% end %>
+                                </div>
+                                <div class="col-5">
+                                  <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
+                                  <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
+                                  <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
+                                  <span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
+                                </div>
+                                <% if current_user.present? %>
+                                  <div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
+                                <% end %>
+                              </div>
+                            </li>
+                          </ul>
+                        </div><!-- /End Block content -->
+                      </div><!--/End Block body -->
+                    </div><!-- /End Block container -->
+                  </div><!-- /End Block -->
+                </div><!-- /End col-lg-4 -->
+              <% end %>
+
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
 </div><!-- /End Page body -->
