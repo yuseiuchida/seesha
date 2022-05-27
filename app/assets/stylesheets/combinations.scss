@@ -52,8 +52,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: rgba(211, 211, 211, 0.2);
-
+  background-color: #fff;
   padding: 1rem;
   .combination-name p {
     color: black;
@@ -66,6 +65,9 @@
   margin-bottom: 1rem;
 }
 
+.flavor-form {
+  margin-top: 2rem;
+}
 /* commbinations/combination ================================= */
 
 .recommend-combination-status {
@@ -144,4 +146,42 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   border-radius: 5%;
+}
+
+.icon-block-header {
+  margin-bottom: 1rem;
+}
+
+/* search ================================= */
+.question-field {
+  background-color: whitesmoke;
+  border-color: black;
+}
+
+/* gacha ================================= */
+.gacha-block {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(136, 173, 0);
+}
+
+.gacha-select-block {
+  position: absolute;
+  top: 20rem;
+}
+
+.gacha-select-block a {
+  margin: 3rem;
+  padding: 3rem;
+  font-size: xx-large;
+  font-weight: bolder;
+  border-radius: 5%;
+}
+
+.gacha-image {
+  position: absolute;
+  bottom: 5rem;
 }

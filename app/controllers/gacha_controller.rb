@@ -1,9 +1,16 @@
 class GachaController < ApplicationController
-  skip_before_action :require_login, only: %i[new]
+  skip_before_action :require_login, only: %i[new index create]
   def new
-    @combination = Combination.gacha
-    if Combination.find_by(name: @combination.name)
-      @combination = Combination.find_by(name: @combination.name)
-    end
+    @flavors = Flavor.where(id: params[:ids]).order(category_id: :asc)
+    name = @flavors.map(&:name).join(" ")
+    @combination = Combination.find_by(name: name)
+  end
+
+  def index; end
+
+
+  def create
+    ids = Flavor.gacha(params[:kind])
+    redirect_to new_gacha_path(ids: ids)
   end
 end

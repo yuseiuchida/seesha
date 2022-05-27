@@ -9,7 +9,7 @@
 
 .title-text h2 {
   color: whitesmoke;
-  font-weight: 400;
+  font-weight: bolder;
   background-color: opacify($color: #000000, $amount: 0);
   display: inline-block;
   border-radius: 15px;
@@ -41,7 +41,7 @@
 }
 
 .home-link:hover {
-  color: rgb(108, 63, 185);
+  font-weight: bolder;
   background-color: transparent;
 }
 

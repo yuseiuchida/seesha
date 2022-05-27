@@ -5,8 +5,6 @@
     <div id="primary" class="content-area col-lg-12">
         <!-- Main -->
         <main id="main" class="content-area-container site-main">
-
-
           <!-- Section -->
           <div class="main-section">
               <!-- container -->
@@ -37,13 +35,10 @@
                   <div class="combination-container row">
                     <%= search_form_for @q, url: finds_combinations_path do |f| %>
                       <div class="search-field col-10">
-                        <%= f.label :name_cont, 'キーワード', class: "label" %>
-                        <%= f.search_field :name_cont, class: "form-control" %>
+                        <%= f.search_field :name_cont, placeholder: "キーワードを入力", class: "form-control" %>
                       </div>
-                      <div class="search-button col-2 mt-2">
-                        <br>
-                        <br>
-                        <%= f.submit '検索', class: "btn btn-dark btn-block" %>
+                      <div class="search-button col-2">
+                        <%= f.submit '検索', class: "btn btn-dark btn-block form-control" %>
                       </div>
                     <% end %>
                   </div>
@@ -65,7 +60,7 @@
                   <% @results.each do |combination| %>
                     <div class="col-lg-6">
                       <!-- Block -->
-                      <div class="main-block">
+                      <div class="main-block combination-block">
                         <!-- Block container -->
                         <div class="main-block-container">
                           <!-- Block body -->

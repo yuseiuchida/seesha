@@ -23,8 +23,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index new create show]
   resources :searchs, only: %i[index show create]
   get 'sorry', to: 'searchs#sorry'
-  resources :gacha, only: %i[create new]
-
+  resources :gacha, only: %i[index create new]
   namespace :admin do
     root to: 'dashboards#index'
     get 'login', to: 'user_sessions#new'
