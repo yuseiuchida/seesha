@@ -1,0 +1,10 @@
+<div class="gacha-block">
+  <div class="gacha-select-block">
+    <%= link_to '2種類', gacha_index_path(kind: 2), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+    <%= link_to '3種類', gacha_index_path(kind: 3), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+    <%= link_to '4種類', gacha_index_path(kind: 4), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+  </div>
+  <div class="gacha-image">
+    <%= image_tag('gacha.gif') %>
+  </div>
+</div>

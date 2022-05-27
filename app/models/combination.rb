@@ -34,15 +34,8 @@ class Combination < ApplicationRecord
     ids << self.second_flavor_id
     ids << self.third_flavor_id if self.third_flavor_id.present?
     ids << self.fourth_flavor_id if self.fourth_flavor_id.present?
-    sort = ids.sort
     
-    if sort.length == 2
-      name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name
-    elsif sort.length == 3
-      name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name + " " + Flavor.find(sort[2]).name
-    else
-      name = Flavor.find(sort[0]).name + " " + Flavor.find(sort[1]).name + " " + Flavor.find(sort[2]).name + " " + Flavor.find(sort[3]).name
-    end
+    name = Flavor.where(id: ids).order(category_id: :asc).map(&:name).join(" ")
 
     status = Combination::STATUS[self.rating_score]
     self.update(name: name, status: status)
@@ -87,23 +80,5 @@ class Combination < ApplicationRecord
     Rate.find_by(combination_id: self.id).update(rating_rate: rating, sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy)
   end
 
-  def self.gacha
-    kind = [2, 3 ,4].sample
-    ids = Flavor.ids.shuffle.take(kind).sort
-    flavor1 = Flavor.find(ids[0])
-    flavor2 = Flavor.find(ids[1])
-    flavor3 = Flavor.find(ids[2]) if ids.length > 2
-    flavor4 = Flavor.find(ids[3]) if ids.length > 3
-    if ids.length == 2
-      name = flavor1.name + " " + flavor2.name
-      return Combination.new(first_flavor_id: flavor1.id, second_flavor_id: flavor2.id, name: name)
-    elsif ids.length == 3
-      name = flavor1.name + " " + flavor2.name + " " + flavor3.name
-      return Combination.new(first_flavor_id: flavor1.id, second_flavor_id: flavor2.id, third_flavor_id: flavor3.id, name: name)
-    else
-      name = flavor1.name + " " + flavor2.name + " " + flavor3.name + " " + flavor4.name
-      return Combination.new(first_flavor_id: flavor1.id, second_flavor_id: flavor2.id, third_flavor_id: flavor3.id, fourth_flavor_id: flavor4.id, name: name)
-    end
-  end
 
 end

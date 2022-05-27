@@ -1,7 +1,7 @@
 <%= form_with model: @combination, url: admin_combinations_path, class: "row", id: "combination_form", local: true do |f| %>
 
 
-  <div class="mb-3">
+  <div class="mb-24">
     <label class="label">フレーバーの種類 <span class="red-color">*</span></label>
     <br>
     <%= f.radio_button :total_flavors, '2', checked: @total_flavors == 2, class: "btn-check" %>
@@ -13,7 +13,7 @@
   </div>
 
   <!-- FirstFlavor -->
-  <div class="col-md-6">
+  <div class="col-md-6 flavor-form">
     <%= f.label :first_flavor_id, class: "label" do %>
       1つ目 <span class="red-color">*</span>
     <% end %>
@@ -24,12 +24,12 @@
     <% if @first_category.present? %>
       <%= f.select :first_flavor_id, @first_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@first_category.name}"}, {class: "form-control"} %>
     <% else %>
-      <div class="text-center mt-3"><h5>カテゴリーを選択してください</h5></div>
+      <div class="text-center mt-24"><h5>カテゴリーを選択してください</h5></div>
     <% end %>
   </div>
 
   <!-- SecondFlavor -->
-  <div class="col-md-6">
+  <div class="col-md-6 flavor-form">
     <%= f.label :second_flavor_id, class: "label" do %>
       2つ目 <span class="red-color">*</span>
     <% end %>
@@ -40,12 +40,12 @@
     <% if @second_category.present? %>
       <%= f.select :second_flavor_id, @second_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@second_category.name}"}, {class: "form-control"} %>
     <% else %>
-      <div class="text-center mt-3"><h5>カテゴリーを選択してください</h5></div>
+      <div class="text-center mt-24"><h5>カテゴリーを選択してください</h5></div>
     <% end %>
   </div>
 
   <!-- ThirdFlavor -->
-  <div class="col-md-6" id="flavor3" >
+  <div class="col-md-6 flavor-form" id="flavor3" >
     <%= f.label :third_flavor_id, class: "label" do %>
       3つ目 <span class="red-color">*</span>
     <% end %>
@@ -56,12 +56,12 @@
     <% if @third_category.present? %>
       <%= f.select :third_flavor_id, @third_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@third_category.name}"}, {class: "form-control"} %>
     <% else %>
-      <div class="text-center mt-3"><h5>カテゴリーを選択してください</h5></div>
+      <div class="text-center mt-24"><h5>カテゴリーを選択してください</h5></div>
     <% end %>
   </div>
 
   <!-- FourthFlavor -->
-  <div class="col-md-6" id="flavor4">
+  <div class="col-md-6 flavor-form" id="flavor4">
     <%= f.label :fourth_flavor_id, class: "label" do %>
       4つ目 <span class="red-color">*</span>
     <% end %>
@@ -72,7 +72,7 @@
     <% if @fourth_category.present? %>
       <%= f.select :fourth_flavor_id, @fourth_category.flavors.map{ |flavor| [flavor.name, flavor.id]}, {prompt: "#{@fourth_category.name}"}, {class: "form-control"} %>
     <% else %>
-      <div class="text-center mt-3"><h5>カテゴリーを選択してください</h5></div>
+      <div class="text-center mt-24"><h5>カテゴリーを選択してください</h5></div>
     <% end %>
   </div>
 

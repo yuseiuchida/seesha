@@ -44,14 +44,14 @@
 
 											<!-- Question Easy -->
 											<div class="label text-center">
-												<h5>Q1 普段からタバコは吸う？</h5>
+												<h5>Q1 普段からタバコは吸う？<span class="red-color">*</span></h5>
 											</div>
 
 											<%= f.radio_button :easy, 'not_smoke', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :easy_not_smoke, '吸わない', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :easy_not_smoke, '吸わない', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :easy, 'smoke', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :easy_smoke, '吸う', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :easy_smoke, '吸う', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 
 											<!-- GAP -->
@@ -59,15 +59,15 @@
 
 											<!-- Question Sweet -->
 											<div class="label text-center">
-												<h5>Q2 甘さの好みは？</h5>
+												<h5>Q2 甘さの好みは？<span class="red-color">*</span></h5>
 											</div>
 
 
 											<%= f.radio_button :sweet, 'sweet', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :sweet_sweet, '甘いやつ', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :sweet_sweet, '甘いやつ', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :sweet, 'not_sweet', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :sweet_not_sweet, '甘くないやつ', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :sweet_not_sweet, '甘くないやつ', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 
 											<!-- GAP -->
@@ -75,17 +75,17 @@
 
 											<!-- Question Refresh -->
 											<div class="label text-center">
-												<h5>Q3 どんな気分になりたい？</h5>
+												<h5>Q3 どんな気分になりたい？<span class="red-color">*</span></h5>
 											</div>
 
 											<%= f.radio_button :feeling, 'refresh', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :feeling_refresh, 'スッキリしたい', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :feeling_refresh, 'スッキリしたい', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :feeling, 'relax', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :feeling_relax, 'リラックスしたい', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :feeling_relax, 'リラックスしたい', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :feeling, 'none', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :feeling_none, 'こだわりなし', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :feeling_none, 'こだわりなし', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 
 											<!-- GAP -->
@@ -94,20 +94,30 @@
 
 											<!-- Question Flavor -->
 											<div class="label text-center">
-												<h5>Q4 どんなものが吸いたい？</h5>
+												<h5>Q4 どんなものが吸いたい？<span class="red-color">*</span></h5>
 											</div>
 
 											<%= f.radio_button :what, 'popular', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :what_popular, '人気のあるフレーバー', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :what_popular, '人気のあるフレーバー', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :what, 'unique', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :what_unique, '個性的なフレーバー', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :what_unique, '個性的なフレーバー', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :what, 'alcohol', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :what_alcohol, 'アルコールを含むフレーバー', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :what_alcohol, 'アルコールを含むフレーバー', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
 
 											<%= f.radio_button :what, 'none', class: "btn-check", autocomplete: "off" %>
-											<%= f.label :what_none, 'こだわりなし', class: "btn btn-outline-success col-md-12 mb-1" %>
+											<%= f.label :what_none, 'こだわりなし', class: "btn btn-outline-success col-md-12 mb-1 question-field" %>
+
+											<!-- GAP -->
+											<div class="gap gap-36"></div>
+
+											<!-- Question Flavor -->
+											<div class="label text-center">
+												<h5>Q5 どんな味が好き？</h5>
+											</div>
+
+											<%= f.text_field :keyword, class: "form-control question-field", placeholder: "空欄でも大丈夫だよ！" %>
 
 											<!-- GAP -->
 											<div class="gap gap-72"></div>

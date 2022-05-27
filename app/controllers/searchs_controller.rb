@@ -1,19 +1,26 @@
 class SearchsController < ApplicationController
-	skip_before_action :require_login
-	def index
-		@categories = Category.all
-	end
+  skip_before_action :require_login
+  def index
+    @categories = Category.all
+  end
 
-	def create
-		@search_combination = Rate.recommend(params)
-		if @search_combination.present?
-			redirect_to search_path(@search_combination)
-		else
-			redirect_to sorry_path
-		end
-	end
+  def create
+    combinations = Rate.recommend(search_params)
+    if combinations.present?
+      combination = combinations.where('name like ?', "%#{search_params[:keyword]}%").shuffle.push[0]
+      redirect_to search_path(id: combination.id, name: combination.name)
+    else
+      redirect_to sorry_path
+    end
+  end
 
-	def show
-		@combination = Combination.find(params[:id])
-	end
+  def show
+    @combination = Combination.find(params[:id])
+  end
+
+  private
+
+  def search_params
+    params.permit(:easy, :sweet, :feeling, :what, :keyword)
+  end
 end

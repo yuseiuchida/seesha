@@ -48,24 +48,25 @@ class Rate < ApplicationRecord
     if params[:what] == "popular"
       rates = feeling.where("rating_rate > ?", 3.5)
       rates.each do |rate|
-        ids << rate.id
+        ids << rate.combination_id
       end
     elsif params[:what] == "unique"
       rates = feeling.where("rating_rate < ?", 3.0)
       rates.each do |rate|
-        ids << rate.id
+        ids << rate.combination_id
       end
     elsif params[:what] == "alcohol"
       feeling.each do |rate|
         if rate.combination.first_flavor.category.name == "アルコール" or rate.combination.second_flavor.category.name == "アルコール"
-          ids << rate.id
+          ids << rate.combination_id
         end
       end
     else
       feeling.each do |rate|
-        ids << rate.id
+        ids << rate.combination_id
       end
     end
-    @search_combination = Combination.find(Rate.find(ids.sample).combination_id) if ids.present?
+    
+    return Combination.where(id: ids) if ids.present?
   end
 end

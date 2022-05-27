@@ -22,4 +22,8 @@ class Flavor < ApplicationRecord
     end
   end
 
+  def self.gacha(kind)
+    return ids = Flavor.ids.shuffle.take(kind.to_i).sort
+  end
+
 end
