@@ -1,1 +1,1 @@
-import "../js/search";
+import "../js/animation";

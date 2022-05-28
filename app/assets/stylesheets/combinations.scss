@@ -159,29 +159,58 @@
 }
 
 /* gacha ================================= */
-.gacha-block {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(136, 173, 0);
-}
-
 .gacha-select-block {
-  position: absolute;
-  top: 20rem;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .gacha-select-block a {
-  margin: 3rem;
-  padding: 3rem;
-  font-size: xx-large;
+  padding: 1rem;
+  font-size: large;
   font-weight: bolder;
   border-radius: 5%;
 }
 
 .gacha-image {
+  margin-top: 3rem;
+  max-width: 80%;
+  height: auto;
+  text-align: center;
+}
+
+/* animation ================================= */
+.clouds {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  bottom: 5rem;
+  overflow: hidden;
+}
+
+.clouds span {
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  background-image: url("cloud");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animate 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  to {
+    transform: scale(60);
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.smoked {
+  opacity: 0;
+  transition: all 3s;
 }
