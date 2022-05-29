@@ -1,0 +1,86 @@
+<div id="page-body" class="page-body">
+	<!-- row -->
+	<div class="row main-row justify-content-center">
+		<!-- Content area
+		==================================================== -->
+		<div id="primary" class="content-area col-lg-12">
+			<!-- Main -->
+			<main id="main" class="content-area-container site-main">
+
+				<!-- Section -->
+				<div class="main-section">
+						<!-- container -->
+					<div class="container gx-4">
+						<!-- row -->
+						<div class="row gx-36">
+
+							<!-- col-lg-8 -->
+							<div class="offset-lg-2 col-lg-8">
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+										<!-- Section title body -->
+										<div class="section-title-body">
+											<!-- Section title heading -->
+											<div class="section-title-heading unchi">
+												<h2>Shops</h2>
+												<h2>お店</h2>
+											</div><!-- /End Section title heading -->
+										</div><!--/End Section title body -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+              <% if current_user.present? %>
+                <div class="col-lg-2"><%= link_to "お店を追加", new_shop_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+							<% end %>
+
+							<!-- col-lg-4 -->
+							<% Shop::AREA.each do |area| %>
+								<div class="main-block-title">
+									<span><%= area %></span>
+								</div>
+								<% @shops.where(area: area).each do |shop| %>
+									<div class="col-lg-3">
+										<!-- Block -->
+										<div class="main-block">
+											<!-- Block container -->
+											<div class="main-block-container">
+												<!-- Block body -->
+												<div class="main-block-body">
+													<!-- Block content -->
+													<div class="main-block-content">
+														<ul class="main-block-list">
+															<li>
+																<div class="row item-block">
+																	<div class="col-8 item-name">
+																		<%= link_to shop_path(shop) do %>
+																			<p><%= shop.name %></p>
+																		<% end %>
+																	</div>
+																	<div class="col-4 flavor-count">
+																		<span class="badge bg-secondary"><%= shop.stock_flavors.length %></span>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div><!-- /End Block content -->
+												</div><!--/End Block body -->
+											</div><!-- /End Block container -->
+										</div><!-- /End Block -->
+									</div><!-- /End col-lg-4 -->
+								<% end %>
+							<% end %>
+
+						</div><!-- /End row -->
+					</div><!-- /End container -->
+				</div><!-- /End Section -->
+
+			</main><!-- /End Main -->
+		</div><!-- /End Content area -->
+	</div><!-- /End row -->
+</div><!-- /End Page body -->
+

@@ -1,0 +1,5 @@
+<% if shop.status?(flavor) %>
+  <%= render 'stocks/unfixed', {shop: shop, flavor: flavor} %>
+<% else %>
+  <%= render 'stocks/fixed', {shop: shop, flavor: flavor} %>
+<% end %>

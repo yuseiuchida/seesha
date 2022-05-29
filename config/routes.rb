@@ -20,6 +20,17 @@ Rails.application.routes.draw do
     end
   end
   resources :flavors, only: %i[index show]
+  resources :shops do
+    resources :stocks, only: %i[create destroy] do
+      collection do
+        post :fixed
+        delete :unfixed
+      end
+    end
+    member do
+      get :flavors
+    end
+  end
   resources :categories, only: %i[index new create show]
   resources :searchs, only: %i[index show create]
   get 'sorry', to: 'searchs#sorry'
@@ -31,6 +42,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     resources :categories, only: %i[index new show create edit update destroy]
     resources :flavors
+    resources :shops
     resources :users, only: %i[index new create edit update destroy]
     resources :combinations do
       resources :review_combinations, only: %i[destroy]

@@ -1,10 +1,88 @@
-<div class="gacha-block">
-  <div class="gacha-select-block">
-    <%= link_to '2種類', gacha_index_path(kind: 2), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-    <%= link_to '3種類', gacha_index_path(kind: 3), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-    <%= link_to '4種類', gacha_index_path(kind: 4), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-  </div>
-  <div class="gacha-image">
-    <%= image_tag('gacha.gif') %>
-  </div>
-</div>
+<div id="page-body" class="page-body">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
+
+        <!-- Section -->
+        <div class="main-section">
+          <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-8 offset-lg-2">
+
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h2>ガチャ</h2>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
+
+              </div><!-- /End col-lg-8 -->
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-8 offset-lg-2">
+
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <p>実際に美味しいかは保証できません。</p>
+                        <p>店舗によってはフレーバーの取り扱いがない場合があります。あらかじめご了承願います。</p>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+              </div><!-- /End col-lg-8 -->
+
+              <!-- col-lg-4 -->
+              <div class="gacha-select-block col-lg-8 offset-lg-2 row">
+                <div class="col-12">
+                  <%= link_to '2種のフレーバー', gacha_index_path(kind: 2), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+                </div>
+                <div class="col-12">
+                  <%= link_to '3種のフレーバー', gacha_index_path(kind: 3), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+                </div>
+                <div class="col-12">
+                  <%= link_to '4種のフレーバー', gacha_index_path(kind: 4), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+                </div>
+              </div>
+              <div class="gacha-image col-lg-8 offset-lg-2">
+                <%= image_tag('gacha.gif') %>
+              </div>
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
+</div><!-- /End Page body -->

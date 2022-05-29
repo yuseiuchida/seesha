@@ -1,32 +1,18 @@
-.first_flavor_background img {
-  object-fit: cover;
-  width: 50%;
-  height: 200px;
-  filter: blur(5px);
-  float: left;
-}
-
-.second_flavor_background img {
-  object-fit: cover;
-  width: 50%;
-  height: 200px;
-  filter: blur(5px);
-}
-
-.combination-title {
+.main-block-title {
   display: block;
   overflow: hidden;
-  margin-bottom: 36px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
-.combination-title span {
+.main-block-title span {
   position: relative;
   border-color: inherit;
   display: inline-block;
 }
 
-.combination-title span::after,
-.combination-title span::before {
+.main-block-title span::after,
+.main-block-title span::before {
   top: 50%;
   content: "";
   display: block;
@@ -38,52 +24,39 @@
   border-top-color: inherit;
 }
 
-.combination-title span::after {
+.main-block-title span::after {
   left: 100%;
   margin-left: 18px;
 }
 
-.combination-title span::before {
+.main-block-title span::before {
   right: 100%;
   margin-right: 18px;
-}
-
-.combination-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #fff;
-  padding: 1rem;
-  .combination-name p {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-.combination-block {
-  margin-bottom: 1rem;
 }
 
 .flavor-form {
   margin-top: 2rem;
 }
+
 /* commbinations/combination ================================= */
 
 .recommend-combination-status {
   margin-top: 3rem;
 }
+
 .recommend-combination-block {
   padding: 36px;
   overflow: hidden;
   background-color: rgba(211, 211, 211, 0.2);
   margin-top: 54px;
   margin-bottom: 54px;
+
   .recommend-combination-header img {
     width: 96px;
     border-radius: 50%;
     margin-right: 10px;
   }
+
   .recommend-combination-header {
     text-align: center;
   }
@@ -93,6 +66,7 @@
   clear: both;
   text-align: center;
   padding-top: 24px;
+
   .recommend-combination-heading {
     p {
       font-weight: bold;
@@ -159,29 +133,58 @@
 }
 
 /* gacha ================================= */
-.gacha-block {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(136, 173, 0);
-}
-
 .gacha-select-block {
-  position: absolute;
-  top: 20rem;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .gacha-select-block a {
-  margin: 3rem;
-  padding: 3rem;
-  font-size: xx-large;
+  padding: 1rem;
+  font-size: large;
   font-weight: bolder;
   border-radius: 5%;
 }
 
 .gacha-image {
+  margin-top: 3rem;
+  max-width: 80%;
+  height: auto;
+  text-align: center;
+}
+
+/* animation ================================= */
+.clouds {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  bottom: 5rem;
+  overflow: hidden;
+}
+
+.clouds span {
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  background-image: url("cloud");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animate 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  to {
+    transform: scale(60);
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.smoked {
+  opacity: 0;
+  transition: all 3s;
 }

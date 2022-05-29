@@ -1,0 +1,3 @@
+<%= link_to shop_stock_path(id: Stock.find_by(shop_id: shop.id, flavor_id: flavor.id).id, shop_id: shop.id, flavor_id: flavor.id), class:"float-left", method: :delete, remote: true do %>
+	<div class="check"></div>
+<% end %>

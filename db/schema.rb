@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_053407) do
+ActiveRecord::Schema.define(version: 2022_05_28_092219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -112,6 +112,30 @@ ActiveRecord::Schema.define(version: 2022_04_20_053407) do
     t.index ["user_id"], name: "index_review_combinations_on_user_id"
   end
 
+  create_table "shops", force: :cascade do |t|
+    t.uuid "user_id"
+    t.string "name", null: false
+    t.string "area"
+    t.string "address"
+    t.string "latlon", default: [], array: true
+    t.integer "status"
+    t.string "image"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shops_on_user_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.bigint "flavor_id"
+    t.bigint "shop_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flavor_id"], name: "index_stocks_on_flavor_id"
+    t.index ["shop_id"], name: "index_stocks_on_shop_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -131,4 +155,7 @@ ActiveRecord::Schema.define(version: 2022_04_20_053407) do
   add_foreign_key "rates", "combinations"
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"
+  add_foreign_key "shops", "users"
+  add_foreign_key "stocks", "flavors"
+  add_foreign_key "stocks", "shops"
 end

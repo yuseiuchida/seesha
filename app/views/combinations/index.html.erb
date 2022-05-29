@@ -50,7 +50,7 @@
               </div><!-- /End col-lg-8 -->
               <div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
 
-              <div class="combination-title">
+              <div class="main-block-title">
                 <% if params[:sort_key].nil? %>
                   <span>一覧</span>
                 <% else %>
@@ -75,22 +75,22 @@
               <% @rates.each do |rate| %>
                 <div class="col-lg-6">
                   <!-- Block -->
-                  <div class="main-block combination-block">
+                  <div class="main-block">
                     <!-- Block container -->
                     <div class="main-block-container">
                       <!-- Block body -->
                       <div class="main-block-body">
                         <!-- Block content -->
                         <div class="main-block-content">
-                          <ul class="combination-list">
+                          <ul class="main-block-list">
                             <li>
-                              <div class="row text-left">
-                                <div class="col-6 combination-name">
+                              <div class="row item-block">
+                                <div class="col-6 item-name">
                                   <%= link_to combination_path(rate.combination) do %>
                                     <p><%= rate.combination.name %></p>
                                   <% end %>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-5 item-status">
                                   <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
                                   <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
                                   <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
