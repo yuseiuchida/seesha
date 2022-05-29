@@ -1,32 +1,18 @@
-.first_flavor_background img {
-  object-fit: cover;
-  width: 50%;
-  height: 200px;
-  filter: blur(5px);
-  float: left;
-}
-
-.second_flavor_background img {
-  object-fit: cover;
-  width: 50%;
-  height: 200px;
-  filter: blur(5px);
-}
-
-.combination-title {
+.main-block-title {
   display: block;
   overflow: hidden;
-  margin-bottom: 36px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
-.combination-title span {
+.main-block-title span {
   position: relative;
   border-color: inherit;
   display: inline-block;
 }
 
-.combination-title span::after,
-.combination-title span::before {
+.main-block-title span::after,
+.main-block-title span::before {
   top: 50%;
   content: "";
   display: block;
@@ -38,52 +24,39 @@
   border-top-color: inherit;
 }
 
-.combination-title span::after {
+.main-block-title span::after {
   left: 100%;
   margin-left: 18px;
 }
 
-.combination-title span::before {
+.main-block-title span::before {
   right: 100%;
   margin-right: 18px;
-}
-
-.combination-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #fff;
-  padding: 1rem;
-  .combination-name p {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-.combination-block {
-  margin-bottom: 1rem;
 }
 
 .flavor-form {
   margin-top: 2rem;
 }
+
 /* commbinations/combination ================================= */
 
 .recommend-combination-status {
   margin-top: 3rem;
 }
+
 .recommend-combination-block {
   padding: 36px;
   overflow: hidden;
   background-color: rgba(211, 211, 211, 0.2);
   margin-top: 54px;
   margin-bottom: 54px;
+
   .recommend-combination-header img {
     width: 96px;
     border-radius: 50%;
     margin-right: 10px;
   }
+
   .recommend-combination-header {
     text-align: center;
   }
@@ -93,6 +66,7 @@
   clear: both;
   text-align: center;
   padding-top: 24px;
+
   .recommend-combination-heading {
     p {
       font-weight: bold;

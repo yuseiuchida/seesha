@@ -39,23 +39,23 @@
 
 							<!-- col-lg-4 -->
 							<% @categories.each do |category| %>
-								<div class="combination-title">
+								<div class="main-block-title">
 									<span><%= category.name %></span>
 								</div>
 								<% @flavors.where(category_id: category.id).each do |flavor| %>
 									<div class="col-lg-3">
 										<!-- Block -->
-										<div class="main-bloc flavor-block">
+										<div class="main-block">
 											<!-- Block container -->
 											<div class="main-block-container">
 												<!-- Block body -->
 												<div class="main-block-body">
 													<!-- Block content -->
 													<div class="main-block-content">
-														<ul class="combination-list">
+														<ul class="main-block-list">
 															<li>
-																<div class="row text-left">
-																	<div class="col-8 flavor-name">
+																<div class="row item-block">
+																	<div class="col-8 item-name">
 																		<%= link_to flavor_path(flavor) do %>
 																			<p><%= flavor.name %></p>
 																		<% end %>

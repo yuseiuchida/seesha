@@ -1,0 +1,1 @@
+document.getElementById('stock_flavor_<%= @flavor.id %>_status').innerHTML = '<%= j(render 'stocks/status_button', {shop: @shop, flavor: @flavor}) %>'

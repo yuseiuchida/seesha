@@ -1,0 +1,5 @@
+<% if shop.stock?(flavor) %>
+  <%= render 'stocks/unstock', {shop: shop, flavor: flavor} %>
+<% else %>
+  <%= render 'stocks/stock', {shop: shop, flavor: flavor} %>
+<% end %>

@@ -33,60 +33,60 @@
 
 							<div class="col-lg-12">
 
-									<!-- Team member block -->
-									<div class="main-block">
-										<!-- Block container -->
-										<div class="main-block-container bookmark-container">
+                <!-- Team member block -->
+                <div class="main-block">
+                  <!-- Block container -->
+                  <div class="main-block-container bookmark-container">
 
-											<!-- Block header -->
-											<div class="main-block-header avatar-image">
-												<%= image_tag current_user.avatar_url %>
-											</div><!-- /End Block header -->
+                    <!-- Block header -->
+                    <div class="main-block-header avatar-image">
+                      <%= image_tag current_user.avatar_url %>
+                    </div><!-- /End Block header -->
 
-											<!-- Block body -->
-											<div class="main-block-body">
+                    <!-- Block body -->
+                    <div class="main-block-body">
 
-												<!-- Block heading -->
-												<div class="main-block-heading">
-													<h3 class="name"><%= current_user.name %></h3>
-												</div><!-- /End Block heading -->
-												<div><%= link_to "編集", edit_user_path(current_user), class: "btn btn-success" %></div>
+                      <!-- Block heading -->
+                      <div class="main-block-heading">
+                        <h3 class="name"><%= current_user.name %></h3>
+                      </div><!-- /End Block heading -->
+                      <div><%= link_to "編集", edit_user_path(current_user), class: "btn btn-success" %></div>
 
-											</div><!--/End Block body -->
+                    </div><!--/End Block body -->
 
-										</div><!-- /End Block container -->
-									</div><!-- /End Team member block -->
+                  </div><!-- /End Block container -->
+                </div><!-- /End Team member block -->
 
-									<!-- GAP -->
-									<div class="gap gap-18 d-lg-none"></div>
+                <!-- GAP -->
+                <div class="gap gap-18 d-lg-none"></div>
 
 							</div><!-- /End col-lg-3 -->							
 							<!-- GAP -->
 							<div class="gap gap-36"></div>
 
-							<div class="combination-title">
+							<div class="main-block-title">
 									<span>ブックマーク</span>
 							</div>
 							<% @bookmarks.each do |bookmark| %>
 								<% Combination.where(id: bookmark.combination_id).each do |combination| %>
 									<div class="col-lg-6">
 										<!-- Block -->
-										<div class="main-block combination-block">
+										<div class="main-block">
 											<!-- Block container -->
 											<div class="main-block-container">
 												<!-- Block body -->
 												<div class="main-block-body">
 													<!-- Block content -->
 													<div class="main-block-content">
-														<ul class="combination-list">
+														<ul class="main-block-list">
 															<li>
-																<div class="row text-left">
-																	<div class="col-6 combination-name">
+																<div class="row item-block">
+																	<div class="col-6 item-name">
 																		<%= link_to combination_path(combination) do %>
 																			<p><%= combination.name %></p>
 																		<% end %>
 																	</div>
-																	<div class="col-5">
+																	<div class="col-5 item-status">
 																		<span class="badge bg-success"><%= easy_status(combination) %></span>
 																		<span class="badge bg-danger"><%= sweet_status(combination) %></span>
 																		<span class="badge bg-warning"><%= refresh_status(combination) %></span>

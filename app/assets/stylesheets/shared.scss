@@ -32,6 +32,7 @@ body {
   .dropdown-menu {
     background-color: rgb(108, 63, 185);
   }
+
   .dropdown-item {
     color: white;
   }
@@ -83,12 +84,14 @@ body {
   margin: 0 -6px;
   display: inline-block;
 }
+
 .widget_nav_menu_horizontal ul li {
   padding: 0;
   margin: 0 6px;
   display: inline-block;
   vertical-align: middle;
 }
+
 .widget_nav_menu_horizontal ul li a {
   line-height: 2;
   display: inline-block;
@@ -101,6 +104,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 footer {
   margin-top: auto;
   /* 背景色などは割愛します */
@@ -128,8 +132,9 @@ footer {
   backface-visibility: hidden;
 }
 
-.main-block .main-block-heading .meta-block {
+.main-block .main-block-heading {
   margin-top: 12px;
+
   .main-block-heading {
     width: 100%;
     display: block;
@@ -157,8 +162,7 @@ footer {
 }
 
 /* form ================================= */
-.form-block,
-.main-block-container {
+.form-block {
   padding: 0;
   margin: 0 auto;
   border-width: 0;
@@ -178,11 +182,13 @@ footer {
   margin: 0 -12px;
   position: relative;
 }
+
 .form-block-container::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .form-block-container form {
   margin: 0 0 -24px;
 }
@@ -190,27 +196,17 @@ footer {
 form {
   display: flex;
   flex-wrap: wrap;
+
   .red-color {
     color: red;
   }
 }
 
-.form-block form > p,
-.form-block form > div,
-.form-block form > .label {
-  padding-left: 12px;
-  padding-right: 12px;
-}
 
 .label {
   margin-bottom: 1rem;
 }
 
-.form-block-start form {
-  -webkit-flex-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
 
 .form-control {
   width: 100%;
@@ -229,41 +225,6 @@ form {
   outline: none !important;
   background-clip: padding-box;
   margin-top: 1rem;
-
-  -webkit-box-shadow: none;
-  box-shadow: none;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.form-control:focus {
-  outline: none;
-
-  -webkit-box-shadow: none;
-  box-shadow: none;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.form-block-sign .form-block-sign-form {
-  margin: 0;
-  padding: 36px 24px 12px;
-}
-
-.form-block-sign .form-block-sign-footer a {
-  color: inherit;
-  margin: 6px 6px 0;
-  display: inline-block;
-  text-decoration: none;
 }
 
 /* button ================================= */
@@ -272,7 +233,33 @@ form {
 }
 
 /* list ================================= */
-ul {
-  list-style-type: none;
-  padding-left: 0; /* 左にできる隙間を消す */
+
+
+.main-block-list {
+  list-style: none;
+
+  .item-block {
+    background-color: #fff;
+    padding: 1rem;
+  }
+}
+
+.item-name {
+  display: flex;
+}
+
+.item-name p {
+  color: #222;
+  font-weight: bold;
+  text-decoration: none;
+  position: absolute;
+}
+
+.item-status {
+  display: flex;
+}
+
+.main-block-list a {
+  text-decoration: none;
+  color: orange;
 }
