@@ -48,6 +48,10 @@ class Admin::FlavorsController < Admin::BaseController
 		end
 	end
 
+  def gathers
+    @flavor = Flavor.find(params[:id])
+    @hints = Hint.all
+  end
 
 	private
 

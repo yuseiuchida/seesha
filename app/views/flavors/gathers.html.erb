@@ -12,7 +12,7 @@
             <!-- container -->
           <div class="container gx-4">
             <!-- row -->
-            <div class="row gx-36">
+            <div class="row">
 
               <!-- col-lg-8 -->
               <div class="col-lg-2"><%= link_to "戻る", flavor_path(@flavor), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
@@ -25,9 +25,9 @@
                     <div class="section-title-body">
                       <!-- Section title heading -->
                       <div class="section-title-heading unchi">
-                        <h2>Flavor Hints</h2>
+                        <h2>Flavor #Hints</h2>
                         <h2><%= @flavor.name%></h2>
-                        <h2>ヒント</h2>
+                        <p>チェックを入れると #hint を追加できます。</p>
                       </div><!-- /End Section title heading -->
                     </div><!--/End Section title body -->
                   </div><!-- /End Section title container -->
@@ -52,7 +52,7 @@
                             <li>
                               <div class="row item-block">
                                 <div class="col-10 item-name">
-                                  <p><%= hint.content %></p>
+                                  # <%= hint.content %>
                                 </div>
                                 <div class="col-2 stock-flavor-check" id="flavor_hint_<%= hint.id %>">
                                   <%= render 'gathers/gathers_button', {flavor: @flavor, hint: hint} %>

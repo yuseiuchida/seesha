@@ -40,14 +40,9 @@
                           <div class="flavor-hints">
                             <% @flavor.gather_hints.each do |hint| %>
                               <span class=""># <%= hint.content %></span>
-                              <span class=""># <%= hint.content %></span>
-                              <span class=""># <%= hint.content %></span>
                             <% end %>
                           </div>
                         </div>
-                      </div>
-                      <div class="flavor-content">
-                        <p><%= @flavor.content %></p>
                       </div>
                       <%= render 'combinations/list', { combinations: @combinations }%>
                     </div><!--/End Block body -->

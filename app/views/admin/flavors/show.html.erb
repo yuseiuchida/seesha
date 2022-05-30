@@ -17,16 +17,23 @@
 		<section class="content">
 
 
-      <div class="card offset-4 col-4">
-        <div class="card-head">
-          <div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
+      <div class="card col-12">
+        <div class="card-head flavor-image text-center mt-3">
+          <%= image_tag @flavor.flavor_image_url %>
         </div>
         <div class="card-body text-center">
           <p><%= @flavor.name %></p>
           <p><%= @flavor.category.name %></p>
           <div class="text-center mt-3"><%= link_to '編集', edit_admin_flavor_path(@flavor), class: "btn btn-success" %></div>
         </div>
+        <div class="flavor-hints text-center">
+          <% @flavor.gather_hints.each do |hint| %>
+            <span class="badge bg-warning mr-1"># <%= hint.content %></span>
+          <% end %>
+        </div>
+        <div class="text-center mt-3"><%= link_to "追加", gathers_admin_flavor_path(@flavor), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
       </div>
+
       <div class="col-md-12 mt-3">
         <table class="table table-striped">
           <thead>

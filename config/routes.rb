@@ -21,9 +21,6 @@ Rails.application.routes.draw do
   end
   resources :flavors, only: %i[index show] do
     resources :gathers, only: %i[create destroy]
-    member do
-      get :gathers
-    end
   end
   resources :shops do
     resources :stocks, only: %i[create destroy] do
@@ -46,7 +43,11 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     resources :categories
-    resources :flavors
+    resources :flavors do
+      member do
+        get :gathers
+      end
+    end
     resources :hints
     resources :shops
     resources :users, only: %i[index new create edit update destroy]
