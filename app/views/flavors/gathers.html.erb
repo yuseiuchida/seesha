@@ -1,0 +1,78 @@
+<div id="page-body" class="page-body">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
+
+        <!-- Section -->
+        <div class="main-section">
+            <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-2"><%= link_to "戻る", flavor_path(@flavor), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+              <div class="col-lg-8">
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+                      <!-- Section title heading -->
+                      <div class="section-title-heading unchi">
+                        <h2>Flavor Hints</h2>
+                        <h2><%= @flavor.name%></h2>
+                        <h2>ヒント</h2>
+                      </div><!-- /End Section title heading -->
+                    </div><!--/End Section title body -->
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
+
+              </div><!-- /End col-lg-8 -->
+
+              <!-- col-lg-4 -->
+              <% @hints.each do |hint| %>
+                <div class="col-lg-3">
+                  <!-- Block -->
+                  <div class="main-block">
+                    <!-- Block container -->
+                    <div class="main-block-container">
+                      <!-- Block body -->
+                      <div class="main-block-body">
+                        <!-- Block content -->
+                        <div class="main-block-content">
+                          <ul class="main-block-list">
+                            <li>
+                              <div class="row item-block">
+                                <div class="col-10 item-name">
+                                  <p><%= hint.content %></p>
+                                </div>
+                                <div class="col-2 stock-flavor-check" id="flavor_hint_<%= hint.id %>">
+                                  <%= render 'gathers/gathers_button', {flavor: @flavor, hint: hint} %>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div><!-- /End Block content -->
+                      </div><!--/End Block body -->
+                    </div><!-- /End Block container -->
+                  </div><!-- /End Block -->
+                </div><!-- /End col-lg-4 -->
+              <% end %>
+
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
+</div><!-- /End Page body -->
+

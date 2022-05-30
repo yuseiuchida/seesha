@@ -33,7 +33,9 @@ gem 'htmlbeautifier'
 gem 'carrierwave', '~> 0.11.0'
 gem 'ransack'
 gem 'kaminari'
-
+gem 'geocoder', '~> 1.8'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'gon', '~> 6.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

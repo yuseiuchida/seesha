@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    gon.shops = Shop.all
   end
 
   def new
@@ -13,7 +14,8 @@ class ShopsController < ApplicationController
 
   def create
     @shop = current_user.shops.new(shop_params)
-    if @shop.save!
+    if @shop.save
+      @shop.geocoding if @shop.address.present?
       redirect_to shop_path(@shop)
     else
       flash.now[:danger] = "登録に失敗しました"
@@ -32,7 +34,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :image, :content, :area)
+    params.require(:shop).permit(:name, :address, :access, :operating, :closed, :link, :content, :area)
   end
 
   def set_category

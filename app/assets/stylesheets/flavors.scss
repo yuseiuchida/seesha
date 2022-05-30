@@ -26,3 +26,59 @@
   font-weight: bolder;
   color: #222;
 }
+
+/* flavors/flavor ================================= */
+.flavor-show-block {
+  background-color: rgb(177, 177, 177);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.flavor-show-header {
+  img {
+    width: 120px;
+    border-radius: 50%;
+  }
+
+  .image {
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.flavor-show-heading {
+  text-align: center;
+
+  h6 {
+    font-weight: bolder;
+    font-size: xx-large;
+  }
+}
+
+.flavor-show-body {
+  .flavor-content {
+    background-color: chocolate;
+    height: 3rem;
+  }
+
+  .flavor-combinations {
+    margin-top: 1rem;
+  }
+}
+
+
+.flavor-hints {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    background-color: orange;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    border-radius: 0.25rem;
+  }
+
+}

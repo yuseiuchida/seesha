@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_092219) do
+ActiveRecord::Schema.define(version: 2022_05_29_144126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -59,11 +59,13 @@ ActiveRecord::Schema.define(version: 2022_05_28_092219) do
     t.integer "easy_score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "user_id"
     t.index ["first_flavor_id", "second_flavor_id", "third_flavor_id", "fourth_flavor_id"], name: "combinations_index", unique: true
     t.index ["first_flavor_id"], name: "index_combinations_on_first_flavor_id"
     t.index ["fourth_flavor_id"], name: "index_combinations_on_fourth_flavor_id"
     t.index ["second_flavor_id"], name: "index_combinations_on_second_flavor_id"
     t.index ["third_flavor_id"], name: "index_combinations_on_third_flavor_id"
+    t.index ["user_id"], name: "index_combinations_on_user_id"
   end
 
   create_table "flavors", force: :cascade do |t|
@@ -72,7 +74,25 @@ ActiveRecord::Schema.define(version: 2022_05_28_092219) do
     t.string "flavor_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "user_id"
+    t.string "content"
     t.index ["category_id"], name: "index_flavors_on_category_id"
+    t.index ["user_id"], name: "index_flavors_on_user_id"
+  end
+
+  create_table "gathers", force: :cascade do |t|
+    t.bigint "flavor_id"
+    t.bigint "hint_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flavor_id"], name: "index_gathers_on_flavor_id"
+    t.index ["hint_id"], name: "index_gathers_on_hint_id"
+  end
+
+  create_table "hints", force: :cascade do |t|
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "inquiries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -112,14 +132,24 @@ ActiveRecord::Schema.define(version: 2022_05_28_092219) do
     t.index ["user_id"], name: "index_review_combinations_on_user_id"
   end
 
+  create_table "shop_images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "shop_id"
+    t.string "image"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_shop_images_on_shop_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.uuid "user_id"
     t.string "name", null: false
     t.string "area"
     t.string "address"
-    t.string "latlon", default: [], array: true
+    t.float "latitude"
+    t.float "longitude"
     t.integer "status"
-    t.string "image"
+    t.string "link"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -152,9 +182,14 @@ ActiveRecord::Schema.define(version: 2022_05_28_092219) do
   add_foreign_key "bookmarks", "combinations"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "coefficients", "combinations"
+  add_foreign_key "combinations", "users"
+  add_foreign_key "flavors", "users"
+  add_foreign_key "gathers", "flavors"
+  add_foreign_key "gathers", "hints"
   add_foreign_key "rates", "combinations"
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"
+  add_foreign_key "shop_images", "shops"
   add_foreign_key "shops", "users"
   add_foreign_key "stocks", "flavors"
   add_foreign_key "stocks", "shops"

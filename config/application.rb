@@ -14,6 +14,8 @@ module Seesha
     config.time_zone = 'Tokyo'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    Bundler.require(*Rails.groups)
+    Dotenv::Railtie.load
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

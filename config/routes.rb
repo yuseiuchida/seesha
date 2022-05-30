@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', as: :logout
   resources :users, only: %i[new create edit update]
   get 'users' => 'users#new'
-  resources :combinations, only: %i[index new create show] do
+  resources :combinations, only: %i[index new create show destroy] do
     resources :review_combinations, only: %i[create destroy]
     resources :bookmarks, only: %i[create destroy]
     collection do
@@ -19,7 +19,12 @@ Rails.application.routes.draw do
       get :finds
     end
   end
-  resources :flavors, only: %i[index show]
+  resources :flavors, only: %i[index show] do
+    resources :gathers, only: %i[create destroy]
+    member do
+      get :gathers
+    end
+  end
   resources :shops do
     resources :stocks, only: %i[create destroy] do
       collection do
@@ -40,8 +45,9 @@ Rails.application.routes.draw do
     get 'login', to: 'user_sessions#new'
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
-    resources :categories, only: %i[index new show create edit update destroy]
+    resources :categories
     resources :flavors
+    resources :hints
     resources :shops
     resources :users, only: %i[index new create edit update destroy]
     resources :combinations do

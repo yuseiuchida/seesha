@@ -45,30 +45,15 @@
 								<% @flavors.where(category_id: category.id).each do |flavor| %>
 									<div class="col-lg-3">
 										<!-- Block -->
-										<div class="main-block">
-											<!-- Block container -->
-											<div class="main-block-container">
-												<!-- Block body -->
-												<div class="main-block-body">
-													<!-- Block content -->
-													<div class="main-block-content">
-														<ul class="main-block-list">
-															<li>
-																<div class="row item-block">
-																	<div class="col-8 item-name">
-																		<%= link_to flavor_path(flavor) do %>
-																			<p><%= flavor.name %></p>
-																		<% end %>
-																	</div>
-																	<div class="col-4 flavor-count">
-																		<span class="badge bg-secondary"><%= find_combinations(flavor).length %></span>
-																	</div>
-																</div>
-															</li>
-														</ul>
-													</div><!-- /End Block content -->
-												</div><!--/End Block body -->
-											</div><!-- /End Block container -->
+										<div class="row item-block">
+                      <div class="col-8 item-name">
+                        <%= link_to flavor_path(flavor) do %>
+                          <%= flavor.name %>
+                        <% end %>
+                      </div>
+                      <div class="col-4 flavor-count">
+                        <span class="badge bg-secondary"><%= find_combinations(flavor).length %></span>
+                      </div>
 										</div><!-- /End Block -->
 									</div><!-- /End col-lg-4 -->
 								<% end %>

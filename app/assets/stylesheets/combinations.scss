@@ -41,31 +41,53 @@
 /* commbinations/combination ================================= */
 
 .recommend-combination-status {
-  margin-top: 3rem;
+  h6 {
+    font-weight: bolder;
+    font-size: xx-large;
+  }
 }
 
 .recommend-combination-block {
-  padding: 36px;
   overflow: hidden;
   background-color: rgba(211, 211, 211, 0.2);
-  margin-top: 54px;
-  margin-bottom: 54px;
+  padding-top: 1rem;
 
   .recommend-combination-header img {
-    width: 96px;
+    width: 120px;
     border-radius: 50%;
-    margin-right: 10px;
+  }
+}
+
+.recommend-combinations {
+
+  .image {
+    display: block;
+    text-align: right;
+    margin-bottom: 1rem;
   }
 
-  .recommend-combination-header {
+  .sorry-image {
+    display: block;
     text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .name {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    font-weight: bolder;
+    font-size: large;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
 .recommend-combination-body {
   clear: both;
   text-align: center;
-  padding-top: 24px;
 
   .recommend-combination-heading {
     p {
@@ -73,6 +95,42 @@
       font-size: larger;
     }
   }
+}
+
+.recommend-combination-content {
+  display: flex;
+  justify-content: center;
+
+  .action {
+    display: flex;
+  }
+
+  .bookmark {
+    margin: 1rem;
+    font-size: xx-large;
+
+    a {
+      color: orange;
+    }
+  }
+
+  .edit {
+    margin: 1rem;
+    font-size: xx-large;
+
+    a {
+      color: brown
+    }
+  }
+
+  .share {
+    margin: 1rem;
+    font-size: xx-large;
+  }
+}
+
+.search-link-block {
+  margin-top: 3rem;
 }
 
 .search-links a {
@@ -99,7 +157,7 @@
   margin-bottom: 54px;
 }
 
-.comments-block-list ul {
+.comments-block-list {
   list-style: none;
 }
 
@@ -117,13 +175,8 @@
 /* show ================================= */
 .icon-block {
   background-color: rgba(211, 211, 211, 0.2);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  border-radius: 5%;
-}
-
-.icon-block-header {
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* search ================================= */

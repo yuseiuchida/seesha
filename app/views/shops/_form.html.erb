@@ -25,17 +25,9 @@
   <!-- GAP -->
   <div class="gap gap-36"></div>
 
-  <!-- Content -->
-  <%= f.label :content, '情報', class: "form-label" %>
-
-  <%= f.text_area :content, class: "form-control", placeholder: "お店の雰囲気、営業時間や最寄駅など" %>
-
-  <!-- GAP -->
-  <div class="gap gap-36"></div>
-
-  <!-- Content -->
-  <%= f.label :image, "写真 イメージ", class: "label" %>
-  <%= f.file_field :image, class: "form-control" %>
+  <!-- Link -->
+  <%= f.label :link, "URL", class: "label" %>
+  <%= f.url_field :link, class: "form-control" %>
 
   <div class="gap gap-72"></div>
 

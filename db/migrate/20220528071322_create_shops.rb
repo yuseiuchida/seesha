@@ -5,9 +5,10 @@ class CreateShops < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :area
       t.string :address
-      t.string :latlon, array: true, default: []
+      t.float :latitude
+      t.float :longitude
       t.integer :status, deault: 0
-      t.string :image
+      t.string :link
       t.string :content
       t.timestamps
     end

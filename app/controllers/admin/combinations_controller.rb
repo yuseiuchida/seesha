@@ -7,7 +7,7 @@ class Admin::CombinationsController < Admin::BaseController
   end
 
   def new
-    @combination = Combination.new
+    @combination = current_user.combinations.new
     @first_category = Category.find(params[:first_category]) if params[:first_category].present?
     @second_category = Category.find(params[:second_category]) if params[:second_category].present?
     @third_category = Category.find(params[:third_category]) if params[:third_category].present?
@@ -22,7 +22,7 @@ class Admin::CombinationsController < Admin::BaseController
   end
 
   def create
-    @combination = Combination.new(combination_params)
+    @combination = current_user.combinations.new(combination_params)
     if @combination.save
       @combination.setup
       redirect_to admin_combination_path(@combination)
