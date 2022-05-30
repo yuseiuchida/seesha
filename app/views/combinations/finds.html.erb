@@ -25,8 +25,8 @@
                       <div class="section-title-body">
                         <!-- Section title heading -->
                         <div class="section-title-heading unchi">
-                          <h2>Combinations</h2>
-                          <h2>フレーバーの組み合わせ</h2>
+                          <h2>Mixes</h2>
+                          <h2>フレーバーミックス</h2>
                         </div><!-- /End Section title heading -->
                       </div><!--/End Section title body -->
                     </div><!-- /End Section title container -->
@@ -39,7 +39,7 @@
                         <%= f.search_field :name_cont, placeholder: "キーワードを入力", class: "form-control" %>
                       </div>
                       <div class="search-button col-2">
-                        <%= f.submit '検索', class: "btn btn-dark btn-block form-control" %>
+                        <%= f.submit '検索', class: "btn btn-success btn-block form-control" %>
                       </div>
                     <% end %>
                   </div>
@@ -56,52 +56,10 @@
                 <div class="gap gap-36"></div>
                 <!-- col-lg-4 -->
                 <% if @results.exists? %>
-
-
-                  <% @results.each do |combination| %>
-                    <div class="col-lg-6">
-                      <!-- Block -->
-                      <div class="main-block">
-                        <!-- Block container -->
-                        <div class="main-block-container">
-                          <!-- Block body -->
-                          <div class="main-block-body">
-                            <!-- Block content -->
-                            <div class="main-block-content">
-                                <ul class="main-block-list">
-                                  <li>
-                                    <div class="row item-block">
-                                      <div class="col-6 item-name">
-                                        <%= link_to combination_path(combination) do %>
-                                          <p><%= combination.name %></p>
-                                        <% end %>
-                                      </div>
-                                      <div class="col-5 item-status">
-                                        <span class="badge bg-success"><%= easy_status(combination) %></span>
-                                        <span class="badge bg-danger"><%= sweet_status(combination) %></span>
-                                        <span class="badge bg-warning"><%= refresh_status(combination) %></span>
-                                        <span class="badge bg-primary"><%= relax_status(combination) %></span>
-                                      </div>
-                                      <% if current_user.present? %>
-                                        <div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'bookmarks_button', {combination: combination} %></div>
-                                      <% end %>
-                                    </div>
-                                  </li>
-                                </ul>
-                            </div><!-- /End Block content -->
-                          </div><!--/End Block body -->
-                        </div><!-- /End Block container -->
-                      </div><!-- /End Block -->
-                    </div><!-- /End col-lg-4 -->
-                  <% end %>
+                  <%= render 'combinations/list', { combinations: @results }%>
                 <% else %>
                   <p class="text-center">該当なし</p>
                 <% end %>
-
-
-
-
-
               </div><!-- /End row -->
             </div><!-- /End container -->
           </div><!-- /End Section -->

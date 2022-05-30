@@ -13,7 +13,6 @@
             <!-- row -->
             <div class="row gx-36">
 
-
               <!-- col-lg-8 -->
               <div class="col-lg-8 offset-lg-2">
 
@@ -25,8 +24,8 @@
                     <div class="section-title-body">
                       <!-- Section title heading -->
                       <div class="section-title-heading">
-                        <h2>Combinations</h2>
-                        <h2>フレーバーの組み合わせ</h2>
+                        <h2>Mixes</h2>
+                        <h2>フレーバーミックス</h2>
                       </div><!-- /End Section title heading -->
                     </div><!--/End Section title body -->
                   </div><!-- /End Section title container -->
@@ -39,7 +38,7 @@
                       <%= f.search_field :name_cont, placeholder: "キーワードを入力", class: "form-control" %>
                     </div>
                     <div class="search-button col-2">
-                      <%= f.submit '検索', class: "btn btn-dark btn-block form-control" %>
+                      <%= f.submit '検索', class: "btn btn-success btn-block form-control" %>
                     </div>
                   <% end %>
                 </div>
@@ -50,6 +49,17 @@
               </div><!-- /End col-lg-8 -->
               <div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
 
+              <nav class="navbar">
+                <form class="container-fluid justify-content-start">
+                  <%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]), class: "btn btn-sm btn-secondary mr-3" %>
+                  <%= link_to "高評価 ", combinations_path(sort_key: Rate::ORDER[0]), class: "btn btn-sm btn-secondary mr-3" %>
+                  <%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]), class: "btn btn-sm btn-secondary mr-3" %>
+                  <%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]), class: "btn btn-sm btn-secondary mr-3" %>
+                  <%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]), class: "btn btn-sm btn-secondary mr-3" %>
+                  <%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]), class: "btn btn-sm btn-secondary mr-3" %>
+                </form>
+              </nav>
+
               <div class="main-block-title">
                 <% if params[:sort_key].nil? %>
                   <span>一覧</span>
@@ -58,56 +68,35 @@
                 <% end %>
               </div>
 
-              <nav class="navbar navbar-light bg-light">
-                <form class="container-fluid justify-content-start">
-                  <%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                  <%= link_to "高評価 ", combinations_path(sort_key: Rate::ORDER[0]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                  <%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                  <%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                  <%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                  <%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]), class: "btn btn-sm btn-outline-secondary mr-3" %>
-                </form>
-              </nav>
-
 
               <div class="gap gap-36"></div>
               <!-- col-lg-4 -->
-              <% @rates.each do |rate| %>
-                <div class="col-lg-6">
-                  <!-- Block -->
-                  <div class="main-block">
-                    <!-- Block container -->
-                    <div class="main-block-container">
-                      <!-- Block body -->
-                      <div class="main-block-body">
-                        <!-- Block content -->
-                        <div class="main-block-content">
-                          <ul class="main-block-list">
-                            <li>
-                              <div class="row item-block">
-                                <div class="col-6 item-name">
-                                  <%= link_to combination_path(rate.combination) do %>
-                                    <p><%= rate.combination.name %></p>
-                                  <% end %>
-                                </div>
-                                <div class="col-5 item-status">
-                                  <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
-                                  <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
-                                  <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
-                                  <span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
-                                </div>
-                                <% if current_user.present? %>
-                                  <div class="col-1" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'bookmarks_button', {combination: rate.combination} %></div>
-                                <% end %>
-                              </div>
-                            </li>
-                          </ul>
-                        </div><!-- /End Block content -->
-                      </div><!--/End Block body -->
-                    </div><!-- /End Block container -->
-                  </div><!-- /End Block -->
-                </div><!-- /End col-lg-4 -->
-              <% end %>
+
+
+              <div class="combinations-list row">
+
+                <% @rates.each do |rate| %>
+                  <div class="col-lg-6">
+                    <div class="row item-block">
+                      <div class="col-10 item-name">
+                        <%= link_to combination_path(rate.combination) do %>
+                          <%= rate.combination.name %>
+                        <% end %>
+                      </div>
+                      <% if current_user.present? %>
+                        <div class="col-2" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'combinations/bookmarks_button', {combination: rate.combination} %></div>
+                      <% end %>
+                      <div class="col-12 item-status">
+                        <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
+                        <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
+                        <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
+                        <span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
 
             </div><!-- /End row -->
           </div><!-- /End container -->

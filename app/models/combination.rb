@@ -3,6 +3,7 @@ class Combination < ApplicationRecord
   belongs_to :second_flavor, class_name: "Flavor"
   belongs_to :third_flavor, class_name: "Flavor", optional: true
   belongs_to :fourth_flavor, class_name: "Flavor", optional: true
+  belongs_to :user
   has_many :review_combinations, dependent: :destroy
   has_one :rate, dependent: :destroy
   has_one :coefficient, dependent: :destroy

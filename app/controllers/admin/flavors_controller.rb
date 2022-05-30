@@ -10,12 +10,12 @@ class Admin::FlavorsController < Admin::BaseController
 	end
 	
 	def new
-		@flavor = Flavor.new
+		@flavor = current_user.flavors.new
 		@categories = Category.all
 	end
 
 	def create
-		@flavor = Flavor.new(flavor_params)
+		@flavor = current_user.flavors.new(flavor_params)
 		if @flavor.save
 			redirect_to admin_flavors_path
 		else
@@ -48,6 +48,10 @@ class Admin::FlavorsController < Admin::BaseController
 		end
 	end
 
+  def gathers
+    @flavor = Flavor.find(params[:id])
+    @hints = Hint.all
+  end
 
 	private
 

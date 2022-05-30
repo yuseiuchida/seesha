@@ -1,89 +1,63 @@
 <div id="page-body" class="page-body">
-	<!-- row -->
-	<div class="row main-row justify-content-center">
-		<!-- Content area
-		==================================================== -->
-		<div id="primary" class="content-area col-lg-12">
-			<!-- Main -->
-			<main id="main" class="content-area-container site-main">
-				<!-- Section -->
-				<div class="main-section">
-						<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
+        <!-- Section -->
+        <div class="main-section">
+            <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row">
+
+              <!-- col-lg-4 -->
+              <div class="col-lg-12">
+                <!-- Testimonials block -->
+                <div class="flavor-show-block">
+                  <!-- Block container -->
+                  <div class="flavor-show-container">
+                    <!-- Block header -->
+                    <div class="flavor-show-header">
+                      <div class="image">
+                        <%= image_tag @flavor.flavor_image_url %>
+                      </div>
+                    </div><!-- /End Block header -->
+
+                    <!-- Block body -->
+                    <div class="flavor-show-body">
+
+                      <!-- Block heading -->
+                      <div class="flavor-show-heading">
+                        <h6 class="flavor-name">
+                          <%= @flavor.name %>
+                        </h6>
+                      </div><!-- /End Block heading -->
+                      <div class="flavor-hints-block row">
+                        <div class="col-12">
+                          <div class="flavor-hints">
+                            <% @flavor.gather_hints.each do |hint| %>
+                              <span class=""># <%= hint.content %></span>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                      <%= render 'combinations/list', { combinations: @combinations }%>
+                    </div><!--/End Block body -->
+
+                  </div><!-- /End Block container -->
+                </div><!-- /End Testimonials block -->
+              </div><!-- /End col-lg-4 -->
 
 
-							<!-- col-lg-4 -->
-							<div class="offset-lg-4 col-lg-4 offset-lg-4">
-								<!-- Testimonials block -->
-								<div class="main-block recommend-combination-block">
-									<!-- Block container -->
-									<div class="main-block-container recommend-combination-container">
 
-										<!-- Block header -->
-										<div class="main-block-header recommend-combination-header">
-											<%= image_tag @flavor.flavor_image_url %>
-										</div><!-- /End Block header -->
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
 
-										<!-- Block body -->
-										<div class="main-block-body recommend-combination-body">
-
-											<!-- Block heading -->
-											<div class="main-block-heading recommend-combination-heading">
-												<h5 class="flavor-name">
-													<%= @flavor.name %>
-												</h5>
-												<span class="badge bg-warning"><%= @flavor.category.name %></span>
-											</div><!-- /End Block heading -->
-										</div><!--/End Block body -->
-
-									</div><!-- /End Block container -->
-								</div><!-- /End Testimonials block -->
-							</div><!-- /End col-lg-4 -->
-
-							<% @combinations.each do |combination| %>
-								<div class="col-lg-6">
-									<!-- Block -->
-									<div class="main-block">
-										<!-- Block container -->
-										<div class="main-block-container">
-											<!-- Block body -->
-											<div class="main-block-body">
-												<!-- Block content -->
-												<div class="main-block-content">
-													<ul class="main-block-list">
-														<li>
-															<div class="row item-block">
-																<div class="col-6 item-name">
-																	<%= link_to combination_path(combination) do %>
-																		<p><%= combination.name %></p>
-																	<% end %>
-																</div>
-																<div class="col-5 item-status">
-																	<span class="badge bg-success"><%= easy_status(combination) %></span>
-																	<span class="badge bg-danger"><%= sweet_status(combination) %></span>
-																	<span class="badge bg-warning"><%= refresh_status(combination) %></span>
-																	<span class="badge bg-primary"><%= relax_status(combination) %></span>
-																</div>
-																<% if current_user.present? %>
-																	<div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
-																<% end %>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							<% end %>
-
-						</div><!-- /End row -->
-					</div><!-- /End container -->
-				</div><!-- /End Section -->
-
-			</main><!-- /End Main -->
-		</div><!-- /End Content area -->
-	</div><!-- /End row -->
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
 </div><!-- /End Page body -->

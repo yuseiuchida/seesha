@@ -2,42 +2,65 @@
 <div class="main-block recommend-combination-block">
   <!-- Block container -->
   <div class="main-block-container recommend-combination-container">
-
     <!-- Block header -->
-    <div class="main-block-header recommend-combination-header">
-      <%= image_tag flavors[0].flavor_image_url %>
-      <%= image_tag flavors[1].flavor_image_url %>
-      <%= image_tag flavors[2].flavor_image_url if flavors[2].present? %>
-      <%= image_tag flavors[3].flavor_image_url if flavors[3].present? %>
+    <div class="recommend-combination-header">
+      <div class="recommend-combinations row">
+        <div class="col-6 image">
+          <%= image_tag flavors[0].flavor_image_url %>
+        </div>
+        <div class="col-6 name">
+          <p class="name"><%= flavors[0].name %></p>
+        </div>
+      </div>
+      <div class="recommend-combinations row">
+        <div class="col-6 image">
+          <%= image_tag flavors[1].flavor_image_url %>
+        </div>
+        <div class="col-6 name">
+          <p class="name"><%= flavors[1].name %></p>
+        </div>
+      </div>
+      <% if flavors[2].present? %>
+        <div class="recommend-combinations row">
+          <div class="col-6 image">
+            <%= image_tag flavors[2].flavor_image_url %>
+          </div>
+          <div class="col-6 name">
+            <p class="name"><%= flavors[2].name %></p>
+          </div>
+        </div>
+      <% end %>
+      <% if flavors[3].present? %>
+        <div class="recommend-combinations row">
+          <div class="col-6 image">
+            <%= image_tag flavors[3].flavor_image_url %>
+          </div>
+          <div class="col-6 name">
+            <p class="name"><%= flavors[3].name %></p>
+          </div>
+        </div>
+      <% end %>
     </div><!-- /End Block header -->
 
     <!-- Block body -->
-    <div class="main-block-body recommend-combination-body">
-
+    <div class="recommend-combination-body">
       <!-- Block heading -->
-      <div class="main-block-heading recommend-combination-heading">
-        <p class="name"><%= flavors[0].name %></p>
-        <p class="name"><%= flavors[1].name %></p>
-        <% if flavors[2].present? %>
-          <p class="name"><%= flavors[2].name %></p>
-        <% else %>
-          <br>
-        <% end %>
-        <% if flavors[3].present? %>
-          <p class="name"><%= flavors[3].name %></p>
-        <% else %>
-          <br>
-        <% end %>
+      <div class="recommend-combination-heading">
         <div class="recommend-combination-status">
           <h6>評価はありません</h6>
         </div>
       </div><!-- /End Block heading -->
 
       <!-- Block content -->
-      <div class="main-block-content recommend-combination-content mt-24">
-        <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ flavors.map(&:name).join(" ") }", target: '_blank' do %>
-          <p><i class="fab fa-twitter" style='color: #3399FF;'></i>share</p>
-        <% end %>
+      <div class="recommend-combination-content mt-24">
+        <div class="action">
+          <div class="share">
+            <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ flavors.map(&:name).join(" ") }", target: '_blank' do %>
+              <i class="fab fa-twitter" style='color: #3399FF;'></i>
+            <% end %>
+          </div>
+        </div>
+
       </div><!-- /End Block content -->
     </div><!--/End Block body -->
 

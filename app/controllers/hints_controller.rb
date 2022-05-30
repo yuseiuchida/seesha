@@ -1,0 +1,2 @@
+class HintsController < ApplicationController
+end

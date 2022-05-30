@@ -1,0 +1,5 @@
+<% if flavor.gather?(hint) %>
+  <%= render 'gathers/ungather', {flavor: flavor, hint: hint} %>
+<% else %>
+  <%= render 'gathers/gather', {flavor: flavor, hint: hint} %>
+<% end %>

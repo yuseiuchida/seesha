@@ -12,7 +12,7 @@
     </section>
 
     <section class="content">
-			<div class="card offset-4 col-4">
+			<div class="card col-12">
 				<div class="card-head">
 					<div class="flavor-image text-center mt-3"><%= image_tag @flavor.flavor_image_url %></div>
 				</div>
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 
-			<div class="card offset-4 col-4">
+			<div class="card col-12">
 				<div class="card-body row">
 					<%= form_with model: @flavor, url: admin_flavor_path(@flavor), method: :patch, local: true do |f| %>
 						<div class="form-group col-12">

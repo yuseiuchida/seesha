@@ -68,14 +68,13 @@
                 </div><!-- /End Section title -->
               </div><!-- /End col-lg-8 -->
 
-              <!-- col-lg-4 -->
-              <div class="offset-lg-2 col-lg-8 offset-lg-2">
+              <div class="col-lg-12">
                 <% if @combination.present? %>
                   <%= render 'combinations/combination', {combination: @combination} %>
                 <% else %>
                   <%= render 'none_exist', {flavors: @flavors} %>
                 <% end %>
-              </div><!-- /End col-lg-4 -->
+              </div>
 
               <!-- col-lg-8 -->
               <div class="col-lg-8 offset-lg-2">

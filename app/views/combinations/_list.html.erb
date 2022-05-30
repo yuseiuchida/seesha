@@ -1,0 +1,24 @@
+<div class="combinations-list row">
+
+  <% combinations.each do |combination| %>
+    <div class="col-lg-6">
+      <div class="row item-block">
+        <div class="col-10 item-name">
+          <%= link_to combination_path(combination) do %>
+            <p><%= combination.name %></p>
+          <% end %>
+        </div>
+        <% if current_user.present? %>
+          <div class="col-2" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+        <% end %>
+        <div class="col-12 item-status">
+          <span class="badge bg-success"><%= easy_status(combination) %></span>
+          <span class="badge bg-danger"><%= sweet_status(combination) %></span>
+          <span class="badge bg-warning"><%= refresh_status(combination) %></span>
+          <span class="badge bg-primary"><%= relax_status(combination) %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -1,86 +1,112 @@
+<%= include_gon %>
 <div id="page-body" class="page-body">
-	<!-- row -->
-	<div class="row main-row justify-content-center">
-		<!-- Content area
-		==================================================== -->
-		<div id="primary" class="content-area col-lg-12">
-			<!-- Main -->
-			<main id="main" class="content-area-container site-main">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
 
-				<!-- Section -->
-				<div class="main-section">
-						<!-- container -->
-					<div class="container gx-4">
-						<!-- row -->
-						<div class="row gx-36">
+        <!-- Section -->
+        <div class="main-section">
+            <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
 
-							<!-- col-lg-8 -->
-							<div class="offset-lg-2 col-lg-8">
-								<!-- Section title -->
-								<div class="section-title text-center">
-									<!-- Section title container -->
-									<div class="section-title-container">
-										<!-- Section title body -->
-										<div class="section-title-body">
-											<!-- Section title heading -->
-											<div class="section-title-heading unchi">
-												<h2>Shops</h2>
-												<h2>お店</h2>
-											</div><!-- /End Section title heading -->
-										</div><!--/End Section title body -->
-									</div><!-- /End Section title container -->
-								</div><!-- /End Section title -->
-								<!-- GAP -->
-								<div class="gap gap-36"></div>
+              <!-- col-lg-8 -->
+              <div class="offset-lg-2 col-lg-8">
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+                      <!-- Section title heading -->
+                      <div class="section-title-heading unchi">
+                        <h2>Shops</h2>
+                        <h2>お店</h2>
+                      </div><!-- /End Section title heading -->
+                    </div><!--/End Section title body -->
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
 
-							</div><!-- /End col-lg-8 -->
+              </div><!-- /End col-lg-8 -->
               <% if current_user.present? %>
                 <div class="col-lg-2"><%= link_to "お店を追加", new_shop_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
-							<% end %>
+              <% end %>
 
-							<!-- col-lg-4 -->
-							<% Shop::AREA.each do |area| %>
-								<div class="main-block-title">
-									<span><%= area %></span>
-								</div>
-								<% @shops.where(area: area).each do |shop| %>
-									<div class="col-lg-3">
-										<!-- Block -->
-										<div class="main-block">
-											<!-- Block container -->
-											<div class="main-block-container">
-												<!-- Block body -->
-												<div class="main-block-body">
-													<!-- Block content -->
-													<div class="main-block-content">
-														<ul class="main-block-list">
-															<li>
-																<div class="row item-block">
-																	<div class="col-8 item-name">
-																		<%= link_to shop_path(shop) do %>
-																			<p><%= shop.name %></p>
-																		<% end %>
-																	</div>
-																	<div class="col-4 flavor-count">
-																		<span class="badge bg-secondary"><%= shop.stock_flavors.length %></span>
-																	</div>
-																</div>
-															</li>
-														</ul>
-													</div><!-- /End Block content -->
-												</div><!--/End Block body -->
-											</div><!-- /End Block container -->
-										</div><!-- /End Block -->
-									</div><!-- /End col-lg-4 -->
-								<% end %>
-							<% end %>
+              <div class="col-lg-12">
+                <div class="table-map" id="japan"></div>
+              </div>
 
-						</div><!-- /End row -->
-					</div><!-- /End container -->
-				</div><!-- /End Section -->
+              <div class="col-lg-12">
+                <div class="shop-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>エリア</th>
+                        <th>店舗名</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @shops.each do |shop| %>
+                        <tr>
+                          <td><%= shop.area %></td>
+                          <td>
+                            <%= link_to shop_path(shop) do %>
+                              <%= shop.name %>
+                            <% end %>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
 
-			</main><!-- /End Main -->
-		</div><!-- /End Content area -->
-	</div><!-- /End row -->
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
 </div><!-- /End Page body -->
 
+
+<script>
+  let map;
+  let marker = [];
+  let markerData = gon.shops;
+
+  function initMap() {
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('japan'), {
+      center: { lat: 36.643236190044306, lng: 138.1886115110814 },
+      zoom: 5.5,
+      disableDefaultUI: true,
+    });
+
+    for (var i = 0; i < markerData.length; i++) {
+
+      markerLatLng = new google.maps.LatLng({
+        lat: markerData[i]['latitude'],
+        lng: markerData[i]['longitude']
+      });
+
+      marker[i] = new google.maps.Marker({
+        position: markerLatLng,
+        map: map
+      });
+    }
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer>
+</script>

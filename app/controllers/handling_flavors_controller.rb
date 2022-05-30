@@ -1,2 +1,0 @@
-class HandlingFlavorsController < ApplicationController
-end
