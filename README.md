@@ -37,7 +37,7 @@
 # ■ ER 図
 
 https://drive.google.com/file/d/1TnbINwrB-htnbzULEmlY04msaL_Yx0sX/view?usp=sharing
-[![Image from Gyazo](https://i.gyazo.com/6ebb6d8e2de3cfd4a318233c1443995c.png)](https://gyazo.com/6ebb6d8e2de3cfd4a318233c1443995c)
+[![Image from Gyazo](https://i.gyazo.com/ef96f666a081d6b0344ce707960cc128.png)](https://gyazo.com/ef96f666a081d6b0344ce707960cc128)
 
 ■ スケジュール
 未定
