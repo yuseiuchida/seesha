@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Shops</h1>
+            <h1>お店</h1>
+          </div>
+          <div class="col-sm-12">
+            <%= link_to '新規', new_admin_shop_path, class: "btn btn-warning mt-3" %>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">店舗名</th>
+							<th scope="col">エリア</th>
+							<th scope="col">住所</th>
+							<th scope="col">作成者</th>
+							<th scope="col">作成日時</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @shops.each do |shop| %>
+							<tr>
+								<td><%= shop.id %></td>
+								<td><%= shop.name %></td>
+								<td><%= shop.area %></td>
+								<td><%= shop.address %></td>
+								<td><%= shop.user.name %></td>
+								<td><%= shop.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+								<td>
+									<%= link_to '詳細', admin_shop_path(shop), class: "btn btn-info" %>
+									<%= link_to '編集', edit_admin_shop_path(shop), class: "btn btn-success" %>
+									<%= link_to '削除', admin_shop_path(shop), class: "btn btn-danger", method: :delete %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</section>
+  </div>
+</div>

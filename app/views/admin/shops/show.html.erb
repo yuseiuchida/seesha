@@ -1,0 +1,92 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12 text-center">
+            <h1>Shop</h1>
+            <h1><%= @shop.name %></h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+		<section class="content">
+
+
+      <div class="card col-12 row ml-1">
+        <div class="card-head flavor-image text-center mt-3 col-12">
+
+        </div>
+        <div class="card-body shop-table col-12">
+          <div class="shop-block-heading">
+            <table>
+              <tbody>
+                <tr>
+                  <th>店舗名</th>
+                  <td><%= @shop.name %></td>
+                </tr>
+                <tr>
+                  <th>ステータス</th>
+                  <td><%= @shop.status %></td>
+                </tr>
+                <tr>
+                  <th>エリア</th>
+                  <td><%= @shop.area %></td>
+                </tr>
+                <tr>
+                  <th>住所</th>
+                  <td><%= @shop.address %></td>
+                </tr>
+                <tr>
+                  <th>座標</th>
+                  <td><%= @shop.latitude %>, <%= @shop.longitude %></td>
+                </tr>
+                <tr>
+                  <th>URL</th>
+                  <td><%= @shop.link %></td>
+                </tr>
+                <tr>
+                  <th>情報</th>
+                  <td><%= @shop.content %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center mt-3"><%= link_to '編集', edit_admin_shop_path(@shop), class: "btn btn-success" %></div>
+        </div>
+
+        <div class="col-12 mt-3">
+          <span>フレーバーの所属</span>
+          <%= link_to '管理', flavors_admin_shop_path(@shop) %>
+          <% @categories.each do |category| %>
+            <div class="admin-stock-table">
+              <p><%= category.name %></p>
+              <table class="table">
+                <tbody>
+                  <% @shop.stock_flavors.where(category_id: category.id).each do |flavor| %>
+                    <tr>
+                      <td><%= flavor.name %></td>
+                      <td class="status">
+                        <div id="stock_flavor_<%= flavor.id %>_status">
+                          <%= render 'stocks/status_button', { shop: @shop, flavor: flavor } %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+		</section>
+
+  </div>
+</div>

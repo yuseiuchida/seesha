@@ -49,7 +49,11 @@ Rails.application.routes.draw do
       end
     end
     resources :hints
-    resources :shops
+    resources :shops do
+      member do
+        get :flavors
+      end
+    end
     resources :users, only: %i[index new create edit update destroy]
     resources :combinations do
       resources :review_combinations, only: %i[destroy]

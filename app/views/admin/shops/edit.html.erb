@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12 text-center">
+            <h1>Edit Shop</h1>
+            <h1><%= @shop.name %></h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+		<section class="content">
+
+
+      <div class="card col-12 row ml-1">
+        <div class="card-head flavor-image text-center mt-3 col-12">
+
+        </div>
+        <div class="card-body shop-table col-12">
+          <%= form_with model: @shop, url: admin_shop_path(@shop), local: true do |f| %>
+            <div class="shop-block-heading">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>店舗名</th>
+                    <td><%= f.text_field :name, class: "admin-shop-form" %></td>
+                  </tr>
+                  <tr>
+                    <th>ステータス</th>
+                    <td><%= f.select :status, Shop.statuses.keys, {}, {class: "admin-shop-form"} %></td>
+                  </tr>
+                  <tr>
+                    <th>エリア</th>
+                    <td><%= f.select :area, Shop::AREA.map, {}, {class: "admin-shop-form"} %></td>
+                  </tr>
+                  <tr>
+                    <th>住所</th>
+                    <td><%= f.text_field :address, class: "admin-shop-form" %></td>
+                  </tr>
+                  <tr>
+                    <th>URL</th>
+                    <td><%= f.url_field :link, class: "admin-shop-form" %></td>
+                  </tr>
+                  <tr>
+                    <th>情報</th>
+                    <td><%= f.text_area :content, class: "admin-shop-form" %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-center mt-3"><%= f.submit "更新", class: "btn btn-success" %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+		</section>
+
+  </div>
+</div>

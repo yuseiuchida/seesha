@@ -62,7 +62,7 @@
 																	<div class="col-2 stock-flavor-check" id="stock_flavor_<%= flavor.id %>">
                                     <% if @shop.stock?(flavor) %>
                                       <% if @shop.status?(flavor) %>
-                                        <div class="fixedcheck"></div>
+                                        <span><i class="fas fa-lock"></i></span>
                                       <% else %>
                                         <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
                                       <% end %>

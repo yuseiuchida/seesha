@@ -7,7 +7,7 @@ class CreateShops < ActiveRecord::Migration[6.1]
       t.string :address
       t.float :latitude
       t.float :longitude
-      t.integer :status, deault: 0
+      t.integer :status, default: 0
       t.string :link
       t.string :content
       t.timestamps

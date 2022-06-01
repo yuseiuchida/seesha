@@ -3,7 +3,7 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-12 text-center">
+          <div class="col-sm-12 text-center admin-flavor-title">
             <h1>Flavor #Hints</h1>
             <%= link_to admin_flavor_path(@flavor) do %>
               <h1><%= @flavor.name %></h1>
@@ -13,35 +13,21 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <section class="content">
+    <section class="content row">
       <!-- col-lg-4 -->
       <% @hints.each do |hint| %>
         <div class="col-lg-3">
-          <!-- Block -->
-          <div class="main-block">
-            <!-- Block container -->
-            <div class="main-block-container">
-              <!-- Block body -->
-              <div class="main-block-body">
-                <!-- Block content -->
-                <div class="main-block-content">
-                  <ul class="main-block-list">
-                    <li>
-                      <div class="row item-block">
-                        <div class="col-10 item-name">
-                          # <%= hint.content %>
-                        </div>
-                        <div class="col-2 stock-flavor-check" id="flavor_hint_<%= hint.id %>">
-                          <%= render 'gathers/gathers_button', {flavor: @flavor, hint: hint} %>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div><!-- /End Block content -->
-              </div><!--/End Block body -->
-            </div><!-- /End Block container -->
-          </div><!-- /End Block -->
-        </div><!-- /End col-lg-4 -->
+          <div class="item-block-list">
+            <div class="item-block row">
+              <div class="col-10 item-name">
+                # <%= hint.content %>
+              </div>
+              <div class="col-2 stock-flavor-check" id="flavor_hint_<%= hint.id %>">
+                <%= render 'gathers/gathers_button', {flavor: @flavor, hint: hint} %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
 		</section>
   </div>

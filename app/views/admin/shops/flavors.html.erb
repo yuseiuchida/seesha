@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-12 text-center">
+            <h1>Stock Flavors</h1>
+            <h1><%= link_to "#{@shop.name}", admin_shop_path(@shop) %></h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+			<div class="col-12">
+        <% @categories.each do |category| %>
+          <div class="admin-stock-table">
+            <p><%= category.name %></p>
+            <table class="table">
+              <tbody>
+                <% @flavors.where(category_id: category.id).each do |flavor| %>
+                  <tr>
+                    <td ><%= flavor.name %></td>
+                    <td class="status">
+                      <% if @shop.stock?(flavor) %>
+                        <% if @shop.status?(flavor) %>
+                          <div id="stock_flavor_<%= flavor.id %>">
+                            <span><i class="fas fa-lock"></i></span>
+                          </div>
+                        <% else %>
+                          <div id="stock_flavor_<%= flavor.id %>">
+                            <%= render 'stocks/stocks_button', { shop: @shop, flavor: flavor } %>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <div id="stock_flavor_<%= flavor.id %>">
+                          <%= render 'stocks/stocks_button', { shop: @shop, flavor: flavor } %>
+                        </div>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+			</div>
+		</section>
+
+  </div>
+</div>
