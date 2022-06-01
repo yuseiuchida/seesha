@@ -4,6 +4,7 @@ class GachaController < ApplicationController
     @flavors = Flavor.where(id: params[:ids]).order(category_id: :asc)
     name = @flavors.map(&:name).join(" ")
     @combination = Combination.find_by(name: name)
+    @hints = Flavor.find_hints(@flavors)
   end
 
   def index; end

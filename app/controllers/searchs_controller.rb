@@ -7,7 +7,7 @@ class SearchsController < ApplicationController
   def create
     combinations = Rate.recommend(search_params)
     if combinations.present?
-      combination = combinations.where('name like ?', "%#{search_params[:keyword]}%").shuffle.push[0]
+      combination = combinations.find_name(search_params[:keyword]).shuffle.push[0]
       redirect_to search_path(id: combination.id, name: combination.name)
     else
       redirect_to sorry_path

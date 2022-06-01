@@ -13,21 +13,11 @@ class CombinationsController < ApplicationController
 
   def new
     @combination = current_user.combinations.new
-    @first_category = Category.find(params[:first_category]) if params[:first_category].present?
-    @second_category = Category.find(params[:second_category]) if params[:second_category].present?
-    @third_category = Category.find(params[:third_category]) if params[:third_category].present?
-    @fourth_category = Category.find(params[:fourth_category]) if params[:fourth_category].present?
-    if @fourth_category.present?
-      @total_flavors = 4
-    elsif @third_category.present?
-      @total_flavors = 3
-    else
-      @total_flavors = 2
-    end
   end
 
   def create
-    @combination = current_user.combinations.new(combination_params)
+    exchange_params = Combination.exchange(combination_params, params)
+    @combination = current_user.combinations.new(exchange_params)
     if @combination.save
       @combination.setup if @combination.rating_score.present?
       redirect_to combination_path(@combination), success: "コンビネーション「#{@combination.name}」が追加されました"

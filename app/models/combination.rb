@@ -12,6 +12,8 @@ class Combination < ApplicationRecord
   validates :first_flavor_id, uniqueness: { scope: [:second_flavor_id, :third_flavor_id, :fourth_flavor_id] }
   validates :first_flavor_id, :second_flavor_id, :rating_score, :sweet_score, :refresh_score, :relax_score, :easy_score, presence: true
   validate :flavor_unique?
+
+  scope :find_name, -> (name){ where('name like ?', "%#{name}%") }
   
   STATUS = ["BAD", "NOT GOOD", "NOT BAD", "GOOD", "VERY GOOD", "EXCELLENT"]
   
@@ -81,5 +83,16 @@ class Combination < ApplicationRecord
     Rate.find_by(combination_id: self.id).update(rating_rate: rating, sweet_rate: sweet, refresh_rate: refresh, relax_rate: relax, easy_rate: easy)
   end
 
+  def self.where_flavors(flavor)
+    where(first_flavor_id: flavor.id).or(Combination.where(second_flavor_id: flavor.id)).or(Combination.where(third_flavor_id: flavor.id)).or(Combination.where(fourth_flavor_id: flavor.id))
+  end
 
+  def self.exchange(combination_params, params)
+    exchange_params = combination_params
+    exchange_params[:first_flavor_id] = params[:combination][:"first_flavor_#{params[:combination][:first_flavor_category]}"]
+    exchange_params[:second_flavor_id] = params[:combination][:"second_flavor_#{params[:combination][:second_flavor_category]}"]
+    exchange_params[:third_flavor_id] = params[:combination][:"third_flavor_#{params[:combination][:third_flavor_category]}"] if params[:combination][:total_flavors].to_i > 2
+    exchange_params[:fourth_flavor_id] = params[:combination][:"fourth_flavor_#{params[:combination][:fourth_flavor_category]}"] if params[:combination][:total_flavors].to_i > 3
+    return exchange_params
+  end
 end

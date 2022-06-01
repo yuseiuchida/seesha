@@ -46,8 +46,13 @@
     <div class="recommend-combination-body">
       <!-- Block heading -->
       <div class="recommend-combination-heading">
-        <div class="recommend-combination-status">
-          <h6>評価はありません</h6>
+        <span>ヒント：以下の要素を含んだフレーバー達です</span>
+        <div class="recommend-combination-status flavor-hints">
+          <% if hints.present? %>
+            <% hints.each do |hint| %>
+              <span># <%= hint %></span>
+            <% end %>
+          <% end %>
         </div>
       </div><!-- /End Block heading -->
 

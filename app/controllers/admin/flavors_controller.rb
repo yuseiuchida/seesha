@@ -24,7 +24,7 @@ class Admin::FlavorsController < Admin::BaseController
 	end
 
 	def show
-		@combinations = Combination.where(first_flavor_id: @flavor.id).or(Combination.where(second_flavor_id: @flavor.id))
+		@combinations = Combination.where_flavors(@flavor)
 	end
 
 	def edit

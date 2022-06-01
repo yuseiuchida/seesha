@@ -69,18 +69,19 @@
 
       <!-- Block content -->
       <div class="recommend-combination-content mt-24">
-        <% unless current_page?(controller: 'combinations', action: 'show') %>
-          <% if combination.status.present? %>            
-            <p><%= link_to 'show', combination_path(combination) %></p>
-          <% end %>
-        <% end %>
-
         <div class="action">
           <div class="share">
             <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ combination.name }", target: '_blank' do %>
               <i class="fab fa-twitter" style='color: #3399FF;'></i>
             <% end %>
           </div>
+          <% if combination.status.present? %>
+            <div class="show">
+              <%= link_to combination_path(combination) do %>
+                <i class="fas fa-paper-plane"></i>
+              <% end %>
+            </div>
+          <% end %>
           <% if current_user.present? %>
             <div class="bookmark">
               <% if combination.status.present? %>

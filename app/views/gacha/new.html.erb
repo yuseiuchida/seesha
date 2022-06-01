@@ -1,9 +1,8 @@
-
 <div class="clouds">
   <span></span>
   <span></span>
 </div>
-<div id="page-body" class="page-body">
+<div id="page-body" class="page-body after-clouds">
   <!-- row -->
   <div class="row main-row justify-content-center">
     <!-- Content area
@@ -11,7 +10,6 @@
     <div id="primary" class="content-area col-lg-12">
       <!-- Main -->
       <main id="main" class="content-area-container site-main">
-
         <!-- Section -->
         <div class="main-section">
           <!-- container -->
@@ -72,7 +70,7 @@
                 <% if @combination.present? %>
                   <%= render 'combinations/combination', {combination: @combination} %>
                 <% else %>
-                  <%= render 'none_exist', {flavors: @flavors} %>
+                  <%= render 'none_exist', {flavors: @flavors, hints: @hints} %>
                 <% end %>
               </div>
 
