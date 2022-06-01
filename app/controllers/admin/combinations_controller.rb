@@ -22,7 +22,7 @@ class Admin::CombinationsController < Admin::BaseController
   end
 
   def show
-    @review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
+    @review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: '')
     @review_combination = ReviewCombination.new
   end
 
@@ -54,7 +54,8 @@ class Admin::CombinationsController < Admin::BaseController
   private
 
   def combination_params
-    params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id, :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
+    params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id,
+                                        :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
   end
 
   def set_categories

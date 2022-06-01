@@ -11,7 +11,7 @@ RSpec.describe Flavor, type: :model do
     end
 
     it 'フレーバー名が空欄でないこと' do
-      @flavor.name = " "
+      @flavor.name = ' '
       expect(@flavor).to be_invalid
     end
   end

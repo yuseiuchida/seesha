@@ -8,16 +8,15 @@ class Shop < ApplicationRecord
   validates :name, uniqueness: true
 
   geocoded_by :address
-  after_validation :geocode, :if => :address_changed? 
+  after_validation :geocode, if: :address_changed?
 
   enum status: { open: 0, close: 1 }
 
-  AREA = ["北海道 東北", "関東", "東京", "東海 北陸", "関西", "中国 四国", "九州 沖縄"]
-
+  AREA = ['北海道 東北', '関東', '東京', '東海 北陸', '関西', '中国 四国', '九州 沖縄']
 
   def geocoding
-    latlon = Geocoder.search(self.address).first.coordinates
-    self.update(latitude: latlon[0], longitude: latlon[1])
+    latlon = Geocoder.search(address).first.coordinates
+    update(latitude: latlon[0], longitude: latlon[1])
   end
 
   def stock(flavor)

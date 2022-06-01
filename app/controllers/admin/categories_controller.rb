@@ -1,55 +1,54 @@
 class Admin::CategoriesController < Admin::BaseController
-	before_action :set_category, only: %i[show edit update]
+  before_action :set_category, only: %i[show edit update]
 
-	def index
-		@categories = Category.all
-	end
+  def index
+    @categories = Category.all
+  end
 
-	def new
-		@category = Category.new
-	end
+  def new
+    @category = Category.new
+  end
 
-	def create
-		@category = Category.new(category_params)
-		if @category.save
-			redirect_to admin_categories_path
-		else
-			render :new
-		end
-	end
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to admin_categories_path
+    else
+      render :new
+    end
+  end
 
-	def edit
-	end
+  def edit; end
 
-	def update
-		if @category.update(category_params)
-			redirect_to admin_categories_path
-		else
-			render :edit
-		end
-	end
+  def update
+    if @category.update(category_params)
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
+  end
 
-	def show
-		@category = Category.find(params[:id])
-		@flavors = Flavor.where(category_id: @category.id)
-	end
+  def show
+    @category = Category.find(params[:id])
+    @flavors = Flavor.where(category_id: @category.id)
+  end
 
-	def destroy
-		@category = Category.find(params[:id])
-		if @category.destroy!
-			redirect_to admin_categories_path
-		else
-			render :index
-		end
-	end
+  def destroy
+    @category = Category.find(params[:id])
+    if @category.destroy!
+      redirect_to admin_categories_path
+    else
+      render :index
+    end
+  end
 
-	private
+  private
 
-	def category_params
-		params.require(:category).permit(:name)
-	end
+  def category_params
+    params.require(:category).permit(:name)
+  end
 
-	def set_category
-		@category = Category.find(params[:id])
-	end
+  def set_category
+    @category = Category.find(params[:id])
+  end
 end
