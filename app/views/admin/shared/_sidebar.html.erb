@@ -21,38 +21,37 @@
 						with font-awesome or any other icon font library -->
 				<li class="nav-item">
 					<%= link_to admin_root_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
 						<p>ダッシュボード</p>
 					<% end %>
 				</li>
 				<li class="nav-item">
 					<%= link_to admin_users_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
 						<p>ユーザー</p>
 					<% end %>
 				</li>
 				<li class="nav-item">
 					<%= link_to admin_categories_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
 						<p>カテゴリー</p>
 					<% end %>
 				</li>
 				<li class="nav-item">
-					<%= link_to admin_flavors_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
-						<p>フレーバー</p>
-					<% end %>
-				</li>
-				<li class="nav-item">
 					<%= link_to admin_hints_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
 						<p>ヒント</p>
 					<% end %>
 				</li>
 				<li class="nav-item">
+					<%= link_to admin_flavors_path, class: "nav-link" do %>
+						<p>フレーバー</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
 					<%= link_to admin_combinations_path, class: "nav-link" do %>
-						<i class="fas fa-angle-double-right"></i>
 						<p>コンビネーション</p>
+					<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to admin_shops_path, class: "nav-link" do %>
+						<p>ショップ</p>
 					<% end %>
 				</li>
 			</ul>

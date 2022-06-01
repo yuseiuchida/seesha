@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def new
-    @shop = Shop.new
+    @shop = current_user.shops.new
   end
 
   def create
@@ -34,7 +34,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :access, :operating, :closed, :link, :content, :area)
+    params.require(:shop).permit(:name, :address, :link, :content, :area)
   end
 
   def set_category

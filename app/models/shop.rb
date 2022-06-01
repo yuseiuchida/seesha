@@ -10,7 +10,7 @@ class Shop < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, :if => :address_changed? 
 
-  enum status: { open: 0, close: 1, hidden: 2 }
+  enum status: { open: 0, close: 1 }
 
   AREA = ["北海道 東北", "関東", "東京", "東海 北陸", "関西", "中国 四国", "九州 沖縄"]
 
