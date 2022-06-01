@@ -1,6 +1,8 @@
 class Flavor < ApplicationRecord
 	has_many :combinations, class_name: "Combination", foreign_key: "first_flavor_id", dependent: :destroy
 	has_many :combinations, class_name: "Combination", foreign_key: "second_flavor_id", dependent: :destroy
+	has_many :combinations, class_name: "Combination", foreign_key: "third_flavor_id", dependent: :destroy
+	has_many :combinations, class_name: "Combination", foreign_key: "fourth_flavor_id", dependent: :destroy
   has_many :gathers, dependent: :destroy
   has_many :gather_hints, through: :gathers, source: :hint
   has_many :stocks, dependent: :destroy
@@ -17,6 +19,22 @@ class Flavor < ApplicationRecord
 		num.count
 	end
 
+  def gather(hint)
+    gather_hints << hint
+  end
+
+  def ungather(hint)
+    gather_hints.delete(hint)
+  end
+
+  def gather?(hint)
+    gather_hints.include?(hint)
+  end
+
+  def get_hints
+    gather_hints.map(&:content)
+  end
+
   def self.sort(sort_key)
     case sort_key
     when "id"
@@ -30,15 +48,11 @@ class Flavor < ApplicationRecord
     return ids = Flavor.ids.shuffle.take(kind.to_i).sort
   end
 
-  def gather(hint)
-    gather_hints << hint
-  end
-
-  def ungather(hint)
-    gather_hints.delete(hint)
-  end
-
-  def gather?(hint)
-    gather_hints.include?(hint)
+  def self.find_hints(flavors)
+    hints = []
+    flavors.each do |flavor|
+      hints.concat(flavor.get_hints)
+    end
+    return hints.shuffle.uniq!
   end
 end

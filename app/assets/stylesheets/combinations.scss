@@ -114,6 +114,15 @@
     }
   }
 
+  .show {
+    margin: 1rem;
+    font-size: xx-large;
+
+    a {
+      color: green;
+    }
+  }
+
   .edit {
     margin: 1rem;
     font-size: xx-large;
@@ -207,7 +216,7 @@
 
 /* animation ================================= */
 .clouds {
-  height: 100vh;
+  height: 180vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -240,4 +249,8 @@
 .smoked {
   opacity: 0;
   transition: all 3s;
+}
+
+.after-clouds {
+  height: 180vh;
 }
