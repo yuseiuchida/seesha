@@ -18,7 +18,9 @@
 						<div class="card-body row">
 
 							<!-- Form -->
-              <%= render 'form' %>
+              <%= form_with model: @combination, url: admin_combinations_path, class: "row", id: "combination_form", local: true do |f| %>
+                <%= render 'form', {f: f} %>
+              <% end %>
 
 						</div>
 					</div>

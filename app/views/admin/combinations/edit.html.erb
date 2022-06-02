@@ -34,126 +34,13 @@
 
 				<div class="card card-primary col-12">
 					<div class="card-body row">
-						<!-- Form -->
-						<%= form_with model: @combination, url: admin_combination_path(@combination),method: :patch, class: "row", local: true do |f| %>
-
-
-							<!-- FirstFlavor -->
-							<div class="col-md-4">
-								<%= f.label :first_flavor_id, class: "label" do %>
-									フレーバー <span class="red-color">*</span>
-								<% end %>
-								<%= f.select :first_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
-							</div>
-
-
-							<!-- SecondFlavor -->
-							<div class="col-md-4">
-								<%= f.label :second_flavor_id, class: "label" do %>
-									フレーバー <span class="red-color">*</span>
-								<% end %>
-								<%= f.select :second_flavor_id, @flavors.map{ |flavor| [flavor.name, flavor.id]}, {}, {class: "form-control"} %>
-							</div>
-
-							<!-- GAP -->
-							<div class="gap gap-36"></div>
-
-							<!-- Rating -->
-							<div class="col-md-12 mt-3">
-								<%= f.label :rating_score, class: "label" do %>
-									評価 <span class="red-color">*</span>
-								<% end %>
-								<div class="row">
-									<%= f.radio_button :rating_score, '4', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :rating_score_4, 'VERY GOOD', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :rating_score, '3', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :rating_score_3, 'GOOD', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :rating_score, '2', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :rating_score_2, 'NOT BAD', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :rating_score, '1', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :rating_score_1, 'NOT GOOD', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :rating_score, '0', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :rating_score_1, 'BAD', class: "btn btn-outline-success col-lg-2" %>
-								</div>
-							</div>
-							
-							<!-- GAP -->
-							<div class="gap gap-36"></div>								
-
-							<!-- Sweet -->
-							<div class="col-md-12">
-								<%= f.label :sweet_score, class: "label" do %>
-									甘さ <span class="red-color">*</span>
-								<% end %>
-								<div class="row">
-									<%= f.radio_button :sweet_score, '1', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :sweet_score_1, '甘い', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :sweet_score, '0', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :sweet_score_0, '甘くない', class: "btn btn-outline-success col-lg-2" %>
-								</div>
-							</div>
-							
-							<!-- GAP -->
-							<div class="gap gap-36"></div>								
-
-							<!-- Refresh -->
-							<div class="col-md-12">
-								<%= f.label :refresh_score, class: "label" do %>
-									スッキリ感 <span class="red-color">*</span>
-								<% end %>
-								<div class="row">
-									<%= f.radio_button :refresh_score, '1', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :refresh_score_1, 'スッキリ', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :refresh_score, '0', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :refresh_score_0, 'スッキリしない', class: "btn btn-outline-success col-lg-2" %>
-								</div>
-							</div>
-							
-							<!-- GAP -->
-							<div class="gap gap-36"></div>								
-
-							<!-- Relax -->
-							<div class="col-md-12">
-								<%= f.label :relax_score, class: "label" do %>
-									リラックス感 <span class="red-color">*</span>
-								<% end %>
-								<div class="row">
-									<%= f.radio_button :relax_score, '1', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :relax_score_1, 'リラックス', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :relax_score, '0', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :relax_score_0, 'リラックスしない', class: "btn btn-outline-success col-lg-2" %>
-								</div>
-							</div>
-							
-							<!-- GAP -->
-							<div class="gap gap-36"></div>								
-
-							<!-- Easy -->
-							<div class="col-md-12">
-								<%= f.label :easy_score, class: "label" do %>
-									吸いやすさ <span class="red-color">*</span>
-								<% end %>
-								<div class="row">
-									<%= f.radio_button :easy_score, '1', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :easy_score_1, '吸いやすい', class: "btn btn-outline-success col-lg-2" %>
-									<%= f.radio_button :easy_score, '0', class: "btn-check", autocomplete: "off" %>
-									<%= f.label :easy_score_0, '癖がある', class: "btn btn-outline-success col-lg-2" %>
-								</div>
-							</div>
-							
-							<!-- GAP -->
-							<div class="gap gap-72"></div>								
-
-							<!-- Submit button -->
-							<div class="col-lg-12 mt-3">
-								<%= f.submit "編集", class: "btn btn-success" %>
-							</div>
-
-
-						<% end %><!-- /End Form -->
+            <%= form_with model: @combination, url: admin_combination_path(@combination), class: "row", id: "combination_form", local: true do |f| %>
+              <%= render 'form', {f: f} %>
+            <% end %>
 					</div>
 				</div>
 			</div>
 		</div>
   </div>
 </div>
+<%= javascript_pack_tag 'combination', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -1,5 +1,5 @@
 class Admin::CombinationsController < Admin::BaseController
-  before_action :set_categories, only: %i[new create]
+  before_action :set_categories, only: %i[new create edit update]
   before_action :set_combination, only: %i[show edit update destroy]
 
   def index
@@ -30,9 +30,7 @@ class Admin::CombinationsController < Admin::BaseController
     @like_combinations = current_user.like_combinations.includes(:user)
   end
 
-  def edit
-    @flavors = Flavor.all
-  end
+  def edit; end
 
   def update
     if @combination.update(combination_params)
