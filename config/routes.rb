@@ -62,4 +62,5 @@ Rails.application.routes.draw do
     end
     resources :inquiries, only: %i[edit update destroy]
   end
+  get '*path', controller: 'application', action: 'render_404'
 end
