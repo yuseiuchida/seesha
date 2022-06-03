@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'SeeSHA',
-      title: 'シーシャのフレーバーのオーダーの悩みから解放するアプリ「SeeSHA」',
+      title: 'フレーバーのオーダーの悩みから解放するアプリ「SeeSHA」',
       reverse: true,
       separator: '|',
       description: 'シーシャのフレーバーの組み合わせを探すならSeeSHA！シーシャ屋さんでフレーバーのオーダーで悩んだ経験はありませんか？初心者でも玄人でも簡単にフレーバーを決めてみよう！',
@@ -19,6 +19,9 @@ module ApplicationHelper
         url: 'https://www.seesha-app.com/',
         image: image_url('ogp.png'),
         locale: 'ja_JP',
+      }
+      twitter: {
+        card: 'summary_large_image',
       }
     }
   end
