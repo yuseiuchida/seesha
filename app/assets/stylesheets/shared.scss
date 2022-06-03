@@ -254,5 +254,23 @@ form {
     text-decoration: none;
   }
 
+}
 
+/* preview ================================= */
+
+#preview {
+  height: auto;
+  max-height: 20rem;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+#image-form {
+  display: none;
+}
+
+#input-image {
+  margin: auto;
+  margin-bottom: 1rem;
 }

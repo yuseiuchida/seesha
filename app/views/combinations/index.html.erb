@@ -49,16 +49,18 @@
               </div><!-- /End col-lg-8 -->
               <div class="col-lg-2"><%= link_to "NEW", new_combination_path, class: "btn btn-md btn-success ml-18 mr-18 mb-36 text-white" %></div>
 
-              <nav class="navbar">
-                <form class="container-fluid justify-content-start">
-                  <%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]), class: "btn btn-sm btn-secondary mr-3" %>
-                  <%= link_to "高評価 ", combinations_path(sort_key: Rate::ORDER[0]), class: "btn btn-sm btn-secondary mr-3" %>
-                  <%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]), class: "btn btn-sm btn-secondary mr-3" %>
-                  <%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]), class: "btn btn-sm btn-secondary mr-3" %>
-                  <%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]), class: "btn btn-sm btn-secondary mr-3" %>
-                  <%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]), class: "btn btn-sm btn-secondary mr-3" %>
-                </form>
-              </nav>
+
+              <div class="combination-sorts">
+                <%= link_to "一覧", combinations_path(sort_key: Rate::ORDER[5]) %>
+
+                <%= link_to "吸いやすい", combinations_path(sort_key: Rate::ORDER[1]) %>
+
+                <%= link_to "甘い", combinations_path(sort_key: Rate::ORDER[2]) %>
+
+                <%= link_to "スッキリ", combinations_path(sort_key: Rate::ORDER[3]) %>
+
+                <%= link_to "リラックス", combinations_path(sort_key: Rate::ORDER[4]) %>
+              </div>
 
               <div class="main-block-title">
                 <% if params[:sort_key].nil? %>
@@ -68,35 +70,28 @@
                 <% end %>
               </div>
 
-
-              <div class="gap gap-36"></div>
               <!-- col-lg-4 -->
 
-
-              <div class="combinations-list row">
-
-                <% @rates.each do |rate| %>
-                  <div class="col-lg-6">
-                    <div class="row item-block">
-                      <div class="col-10 item-name">
-                        <%= link_to combination_path(rate.combination) do %>
-                          <%= rate.combination.name %>
-                        <% end %>
-                      </div>
-                      <% if current_user.present? %>
-                        <div class="col-2" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'combinations/bookmarks_button', {combination: rate.combination} %></div>
+              <% @rates.each do |rate| %>
+                <div class="col-lg-6">
+                  <div class="row item-block">
+                    <div class="col-10 item-name">
+                      <%= link_to combination_path(rate.combination) do %>
+                        <%= rate.combination.name %>
                       <% end %>
-                      <div class="col-12 item-status">
-                        <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
-                        <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
-                        <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
-                        <span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
-                      </div>
+                    </div>
+                    <% if current_user.present? %>
+                      <div class="col-2" id="bookmark_combination_<%= rate.combination.id %>"><%= render 'combinations/bookmarks_button', {combination: rate.combination} %></div>
+                    <% end %>
+                    <div class="col-12 item-status">
+                      <span class="badge bg-success"><%= easy_status(rate.combination) %></span>
+                      <span class="badge bg-danger"><%= sweet_status(rate.combination) %></span>
+                      <span class="badge bg-warning"><%= refresh_status(rate.combination) %></span>
+                      <span class="badge bg-primary"><%= relax_status(rate.combination) %></span>
                     </div>
                   </div>
-                <% end %>
-
-              </div>
+                </div>
+              <% end %>
 
             </div><!-- /End row -->
           </div><!-- /End container -->

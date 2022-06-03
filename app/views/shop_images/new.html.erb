@@ -25,9 +25,9 @@
 										<div class="section-title-body">
 											<!-- Section title heading -->
 											<div class="section-title-heading unchi">
-												<h2>Stock Flavors</h2>
+												<h2>Shop Images</h2>
 												<h2><%= @shop.name%></h2>
-												<h2>在庫</h2>
+												<h2>画像追加</h2>
 											</div><!-- /End Section title heading -->
 										</div><!--/End Section title body -->
 									</div><!-- /End Section title container -->
@@ -36,35 +36,17 @@
 								<div class="gap gap-36"></div>
 
 							</div><!-- /End col-lg-8 -->
+							
 
-              <% @categories.each do |category| %>
-                <div class="main-block-title">
-                  <span><%= category.name %></span>
-                </div>
-                <% @flavors.where(category_id: category.id).each do |flavor| %>
-                  <div class="col-lg-3">
-                    <!-- Block -->
-                    <div class="row item-block">
-                      <div class="col-10 item-name">
-                        <%= link_to flavor_path(flavor) do %>
-                          <%= flavor.name %>
-                        <% end %>
-                      </div>
-                      <div class="col-2 stock-flavor-check" id="stock_flavor_<%= flavor.id %>">
-                        <% if @shop.stock?(flavor) %>
-                          <% if @shop.status?(flavor) %>
-                            <span><i class="fas fa-lock"></i></span>
-                          <% else %>
-                            <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
-                          <% end %>
-                        <% else %>
-                          <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
-                        <% end %>
-                      </div>
-                    </div><!-- /End Block -->
-                  </div><!-- /End col-lg-4 -->
+							<div class="offset-2 col-8">
+                <%= form_with model: @shop_image, url: shop_shop_images_path(shop_id: @shop.id), local: true do |f| %>
+                  <label id="input-image">
+                    <%= f.file_field :image, class: "form-control", id: "image-form" %>
+                    <%= image_tag 'file.png', id: "preview" %>
+                  </label>
+                  <%= f.submit '追加', class: "btn btn-success btn-block form-control" %>
                 <% end %>
-              <% end %>
+							</div>
 
 
 						</div><!-- /End row -->
@@ -75,4 +57,4 @@
 		</div><!-- /End Content area -->
 	</div><!-- /End row -->
 </div><!-- /End Page body -->
-
+<%= javascript_pack_tag 'preview', media: 'all', 'data-turbolinks-track': 'reload' %>

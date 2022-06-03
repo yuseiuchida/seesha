@@ -134,11 +134,13 @@ ActiveRecord::Schema.define(version: 2022_05_29_144126) do
 
   create_table "shop_images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "shop_id"
+    t.uuid "user_id"
     t.string "image"
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_shop_images_on_shop_id"
+    t.index ["user_id"], name: "index_shop_images_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -190,6 +192,7 @@ ActiveRecord::Schema.define(version: 2022_05_29_144126) do
   add_foreign_key "review_combinations", "combinations"
   add_foreign_key "review_combinations", "users"
   add_foreign_key "shop_images", "shops"
+  add_foreign_key "shop_images", "users"
   add_foreign_key "shops", "users"
   add_foreign_key "stocks", "flavors"
   add_foreign_key "stocks", "shops"

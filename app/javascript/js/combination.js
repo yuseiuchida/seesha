@@ -26,7 +26,7 @@ kind4.addEventListener("click", function () {
 
 
 function setFlavors() {
-  for (let i = category_length; i > 1; i--) {
+  for (let i = category_length; i > 0; i--) {
     let b = document.getElementById("combination_first_flavor_" + i)
     let c = document.getElementById("combination_second_flavor_" + i)
     b.setAttribute("disabled", true);
@@ -34,6 +34,14 @@ function setFlavors() {
     c.setAttribute("disabled", true);
     c.style.display = "none";
   }
+  let value1 = categoryButton1.value
+  let value2 = categoryButton2.value
+  let d = document.getElementById("combination_first_flavor_" + value1);
+  let e = document.getElementById("combination_second_flavor_" + value2);
+  d.removeAttribute("disabled");
+  d.style.display = "";
+  e.removeAttribute("disabled");
+  e.style.display = "";
   removeFlavor3();
   removeFlavor4();
 }

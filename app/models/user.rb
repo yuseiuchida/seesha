@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :bookmark_combinations, through: :bookmarks, source: :combination
   has_many :review_combinations, dependent: :destroy
   has_many :shops
+  has_many :shop_images
   has_many :flavors
   has_many :combinations
 
