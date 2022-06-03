@@ -2,32 +2,23 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'SeeSHA',
-      title: 'タイトル',
+      title: 'シーシャのフレーバーのオーダーの悩みから解放するアプリ「SeeSHA」',
       reverse: true,
-      separator: '|',   #Webサイト名とページタイトルを区切るために使用されるテキスト
-      description: 'ページの説明',
-      keywords: 'シーシャ,  フレーバー, おすすめ',   #キーワードを「,」区切りで設定する
-      canonical: request.original_url,   #優先するurlを指定する
+      separator: '|',
+      description: 'シーシャのフレーバーの組み合わせを探すならSeeSHA！シーシャ屋さんでフレーバーのオーダーで悩んだ経験はありませんか？初心者でも玄人でも簡単にフレーバーを決めてみよう！',
+      canonical: https://www.seesha-app.com/,
       noindex: ! Rails.env.production?,
-      icon: [                    #favicon、apple用アイコンを指定する
-        { href: image_url('favicon.ico') },
-        { href: image_url('icon.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
+      icon: [
+        { href: image_url('smoke.png') },
       ],
       og: {
-        site_name: 'サイト名',
-        title: 'タイトル',
-        description: 'ページの説明', 
+        site_name: 'SeeSHA',
+        title: 'シーシャのフレーバーのオーダーの悩みから解放するアプリ「SeeSHA」',
+        description: 'シーシャのフレーバーの組み合わせを探すならSeeSHA！シーシャ屋さんでフレーバーのオーダーで悩んだ経験はありませんか？初心者でも玄人でも簡単にフレーバーを決めてみよう！',
         type: 'website',
-        url: request.original_url,
+        url: https://www.seesha-app.com/,
         image: image_url('ogp.png'),
         locale: 'ja_JP',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        site: '@ツイッターのアカウント名',
-      }
-      fb: {
-        app_id: '自身のfacebookのapplication ID'
       }
     }
   end
