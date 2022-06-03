@@ -1,26 +1,25 @@
 class FlavorsController < ApplicationController
-	before_action :set_category
-	skip_before_action :require_login
+  before_action :set_category
+  skip_before_action :require_login
 
-	def index
-		@flavors = Flavor.all
-		@categories = Category.all
-		@combinations = Combination.all
-	end
+  def index
+    @flavors = Flavor.all
+    @categories = Category.all
+    @combinations = Combination.all
+  end
 
-	def show
-		@flavor = Flavor.find(params[:id])
-		@combinations = Combination.where_flavors(@flavor)
-	end
+  def show
+    @flavor = Flavor.find(params[:id])
+    @combinations = Combination.where_flavors(@flavor)
+  end
 
-	private
+  private
 
-	def flavor_params
-		params.require(:flavor).permit(:name, :category_id, :flavor_image)
-	end
+  def flavor_params
+    params.require(:flavor).permit(:name, :category_id, :flavor_image)
+  end
 
-	def set_category
-		@categories = Category.all
-	end
-
+  def set_category
+    @categories = Category.all
+  end
 end

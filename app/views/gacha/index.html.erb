@@ -64,18 +64,18 @@
               </div><!-- /End col-lg-8 -->
 
               <!-- col-lg-4 -->
-              <div class="gacha-select-block col-lg-8 offset-lg-2 row">
-                <div class="col-12">
-                  <%= link_to '2種のフレーバー', gacha_index_path(kind: 2), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-                </div>
-                <div class="col-12">
-                  <%= link_to '3種のフレーバー', gacha_index_path(kind: 3), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-                </div>
-                <div class="col-12">
-                  <%= link_to '4種のフレーバー', gacha_index_path(kind: 4), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
-                </div>
+
+              <div class="col-12 text-center">
+                <%= link_to '2種のフレーバー', gacha_index_path(kind: 2), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
               </div>
-              <div class="gacha-image col-lg-8 offset-lg-2">
+              <div class="col-12 text-center">
+                <%= link_to '3種のフレーバー', gacha_index_path(kind: 3), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+              </div>
+              <div class="col-12 text-center">
+                <%= link_to '4種のフレーバー', gacha_index_path(kind: 4), class: "btn btn-danger mb-36 text-white text-left", method: :post %>
+              </div>
+
+              <div class="gacha-image text-center col-12">
                 <%= image_tag('gacha.gif') %>
               </div>
             </div><!-- /End row -->

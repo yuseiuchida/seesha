@@ -75,17 +75,47 @@
 
 }
 
-
-
-
-
-
 /* shops/shop ================================= */
 
 .shop-block-header {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
+}
+
+.shop-image-block {
+  height: 20rem;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 1rem;
+  display: flex;
+  overflow-x: scroll;
+
+
+  .shop-image {
+    height: 100%;
+    margin: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .shop-image-head {
+    height: 90%;
+    width: auto;
+
+    img {
+      display: inline;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .shop-image-body {
+    text-align: center;
+  }
+}
+
+.shop-image-block::-webkit-scrollbar {
+  display: none;
 }
 
 .shop-map {
@@ -121,6 +151,10 @@
   table td {
     background-color: #f3f4f5;
     width: 70%;
+
+    a {
+      color: #222;
+    }
   }
 
   table th,

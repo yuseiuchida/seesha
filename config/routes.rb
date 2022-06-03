@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         delete :unfixed
       end
     end
+    resources :shop_images, only: %i[new create destroy]
     member do
       get :flavors
     end

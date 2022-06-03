@@ -38,6 +38,14 @@
   margin-top: 2rem;
 }
 
+.combination-sorts {
+  a {
+    padding: 0.2rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+  }
+}
+
 /* commbinations/combination ================================= */
 
 .recommend-combination-status {
@@ -208,8 +216,6 @@
 }
 
 .gacha-image {
-  margin-top: 3rem;
-  max-width: 80%;
   height: auto;
   text-align: center;
 }

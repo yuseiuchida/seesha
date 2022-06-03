@@ -4,6 +4,5 @@ class Stock < ApplicationRecord
 
   validates :shop_id, uniqueness: { scope: :flavor_id }
 
-  enum status: { unfixed: 0, fixed: 1}
-
+  enum status: { unfixed: 0, fixed: 1 }
 end

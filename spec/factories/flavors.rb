@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :flavor do
-    name {'テストフレーバー'}
+    name { 'テストフレーバー' }
     association :category
   end
 end

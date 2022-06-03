@@ -4,11 +4,11 @@ class CombinationsController < ApplicationController
   skip_before_action :require_login, only: %i[index show finds]
 
   def index
-    if params[:sort_key].nil?
-      @rates = Rate.all.order(updated_at: :desc)
-    else
-      @rates = Rate.sort(params[:sort_key])
-    end
+    @rates = if params[:sort_key].nil?
+               Rate.all.order(updated_at: :desc)
+             else
+               Rate.sort(params[:sort_key])
+             end
   end
 
   def new
@@ -29,7 +29,7 @@ class CombinationsController < ApplicationController
 
   def show
     @combination = Combination.find(params[:id])
-    @review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: "")
+    @review = ReviewCombination.where(combination_id: @combination.id).where.not(comment: '')
     @review_combination = ReviewCombination.new
   end
 
@@ -50,7 +50,8 @@ class CombinationsController < ApplicationController
   private
 
   def combination_params
-    params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id, :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
+    params.require(:combination).permit(:first_flavor_id, :second_flavor_id, :third_flavor_id, :fourth_flavor_id,
+                                        :total_flavors, :sweet_score, :refresh_score, :relax_score, :easy_score, :rating_score)
   end
 
   def set_categories

@@ -14,6 +14,26 @@
 						<div class="row gx-36">
 
 							<div class="col-lg-12">
+								<!-- Section title -->
+								<div class="section-title text-center">
+									<!-- Section title container -->
+									<div class="section-title-container">
+										<!-- Section title body -->
+										<div class="section-title-body">
+											<!-- Section title heading -->
+											<div class="section-title-heading unchi">
+												<h2>Shop</h2>
+												<h2><%= @shop.name%></h2>
+											</div><!-- /End Section title heading -->
+										</div><!--/End Section title body -->
+									</div><!-- /End Section title container -->
+								</div><!-- /End Section title -->
+								<!-- GAP -->
+								<div class="gap gap-36"></div>
+
+							</div><!-- /End col-lg-8 -->
+
+							<div class="col-lg-12">
                 <%= render 'shop', { shop: @shop, categories: @categories, flavors: @flavors }%>
 							</div>
 

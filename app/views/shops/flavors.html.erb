@@ -36,50 +36,36 @@
 								<div class="gap gap-36"></div>
 
 							</div><!-- /End col-lg-8 -->
-							
 
-							<!-- col-lg-4 -->
-							<% @categories.each do |category| %>
-								<div class="main-block-title">
-									<span><%= category.name %></span>
-								</div>
-								<% @flavors.where(category_id: category.id).each do |flavor| %>
-									<div class="col-lg-3">
-										<!-- Block -->
-										<div class="main-block">
-											<!-- Block container -->
-											<div class="main-block-container">
-												<!-- Block body -->
-												<div class="main-block-body">
-													<!-- Block content -->
-													<div class="main-block-content">
-														<ul class="main-block-list">
-															<li>
-																<div class="row item-block">
-																	<div class="col-10 item-name">
-                                    <%= flavor.name %>
-																	</div>
-																	<div class="col-2 stock-flavor-check" id="stock_flavor_<%= flavor.id %>">
-                                    <% if @shop.stock?(flavor) %>
-                                      <% if @shop.status?(flavor) %>
-                                        <span><i class="fas fa-lock"></i></span>
-                                      <% else %>
-                                        <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
-                                      <% end %>
-                                    <% else %>
-                                      <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
-                                    <% end %>
-																	</div>
-																</div>
-															</li>
-														</ul>
-													</div><!-- /End Block content -->
-												</div><!--/End Block body -->
-											</div><!-- /End Block container -->
-										</div><!-- /End Block -->
-									</div><!-- /End col-lg-4 -->
-								<% end %>
-							<% end %>
+              <% @categories.each do |category| %>
+                <div class="main-block-title">
+                  <span><%= category.name %></span>
+                </div>
+                <% @flavors.where(category_id: category.id).each do |flavor| %>
+                  <div class="col-lg-3">
+                    <!-- Block -->
+                    <div class="row item-block">
+                      <div class="col-10 item-name">
+                        <%= link_to flavor_path(flavor) do %>
+                          <%= flavor.name %>
+                        <% end %>
+                      </div>
+                      <div class="col-2 stock-flavor-check" id="stock_flavor_<%= flavor.id %>">
+                        <% if @shop.stock?(flavor) %>
+                          <% if @shop.status?(flavor) %>
+                            <span><i class="fas fa-lock"></i></span>
+                          <% else %>
+                            <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
+                          <% end %>
+                        <% else %>
+                          <%= render 'stocks/stocks_button', {shop: @shop, flavor: flavor} %>
+                        <% end %>
+                      </div>
+                    </div><!-- /End Block -->
+                  </div><!-- /End col-lg-4 -->
+                <% end %>
+              <% end %>
+
 
 						</div><!-- /End row -->
 					</div><!-- /End container -->

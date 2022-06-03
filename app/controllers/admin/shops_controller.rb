@@ -16,7 +16,7 @@ class Admin::ShopsController < Admin::BaseController
       @shop.geocoding if @shop.address.present?
       redirect_to admin_shop_path(@shop)
     else
-      flash.now[:danger] = "登録に失敗しました"
+      flash.now[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -38,7 +38,7 @@ class Admin::ShopsController < Admin::BaseController
 
   def destroy
     @shop.destroy!
-		redirect_to admin_shops_path
+    redirect_to admin_shops_path
   end
 
   def flavors

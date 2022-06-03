@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
       @shop.geocoding if @shop.address.present?
       redirect_to shop_path(@shop)
     else
-      flash.now[:danger] = "登録に失敗しました"
+      flash.now[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -44,5 +44,4 @@ class ShopsController < ApplicationController
   def set_shop
     @shop = Shop.find(params[:id])
   end
-
 end

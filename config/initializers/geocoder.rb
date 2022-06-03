@@ -1,13 +1,13 @@
 Geocoder.configure(
   # Geocoding options
-  timeout: 5,                 # geocoding service timeout (secs)
-  lookup: :google,         # name of geocoding service (symbol)
+  timeout: 5, # geocoding service timeout (secs)
+  lookup: :google, # name of geocoding service (symbol)
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
-  language: :ja,              # ISO-639 language code
-  use_https: true,           # use HTTPS for lookup requests? (if supported)
+  language: :ja, # ISO-639 language code
+  use_https: true, # use HTTPS for lookup requests? (if supported)
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
-  api_key: "AIzaSyBBW2NCFpHBb1bayv0bS8hKU8yrbv_RM8M",
+  api_key: 'AIzaSyBBW2NCFpHBb1bayv0bS8hKU8yrbv_RM8M',
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
 
   # Exceptions that should not be rescued by default
@@ -16,7 +16,7 @@ Geocoder.configure(
   # always_raise: [],
 
   # Calculation options
-  units: :km,                 # :km for kilometers or :mi for miles
+  units: :km # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
 
   # Cache configuration

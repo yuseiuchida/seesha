@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -13,7 +13,7 @@ module Seesha
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
     Bundler.require(*Rails.groups)
     Dotenv::Railtie.load
     # Configuration for the application, engines, and railties goes here.
