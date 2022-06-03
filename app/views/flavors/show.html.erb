@@ -11,48 +11,40 @@
             <!-- container -->
           <div class="container gx-4">
             <!-- row -->
-            <div class="row">
+            <div class="row flavor-show-block">
 
               <!-- col-lg-4 -->
               <div class="col-lg-12">
                 <!-- Testimonials block -->
-                <div class="flavor-show-block">
-                  <!-- Block container -->
-                  <div class="flavor-show-container">
-                    <!-- Block header -->
-                    <div class="flavor-show-header">
-                      <div class="image">
-                        <%= image_tag @flavor.flavor_image_url %>
+                <div class="flavor-show-container">
+                  <!-- Block header -->
+                  <div class="flavor-show-header">
+                    <div class="image">
+                      <%= image_tag @flavor.flavor_image_url %>
+                    </div>
+                  </div><!-- /End Block header -->
+
+                  <!-- Block body -->
+                  <div class="flavor-show-body">
+
+                    <!-- Block heading -->
+                    <div class="flavor-show-heading">
+                      <h6 class="flavor-name">
+                        <%= @flavor.name %>
+                      </h6>
+                    </div><!-- /End Block heading -->
+                    <div class="flavor-hints-block">
+                      <div class="flavor-hints">
+                        <% @flavor.gather_hints.each do |hint| %>
+                          <span># <%= hint.content %></span>
+                        <% end %>
                       </div>
-                    </div><!-- /End Block header -->
+                    </div>
+                  </div><!--/End Block body -->
 
-                    <!-- Block body -->
-                    <div class="flavor-show-body">
-
-                      <!-- Block heading -->
-                      <div class="flavor-show-heading">
-                        <h6 class="flavor-name">
-                          <%= @flavor.name %>
-                        </h6>
-                      </div><!-- /End Block heading -->
-                      <div class="flavor-hints-block row">
-                        <div class="col-12">
-                          <div class="flavor-hints">
-                            <% @flavor.gather_hints.each do |hint| %>
-                              <span># <%= hint.content %></span>
-                            <% end %>
-                          </div>
-                        </div>
-                      </div>
-                      <%= render 'combinations/list', { combinations: @combinations }%>
-                    </div><!--/End Block body -->
-
-                  </div><!-- /End Block container -->
-                </div><!-- /End Testimonials block -->
+                </div><!-- /End Block container -->
               </div><!-- /End col-lg-4 -->
-
-
-
+              <%= render 'combinations/list', { combinations: @combinations }%>
             </div><!-- /End row -->
           </div><!-- /End container -->
         </div><!-- /End Section -->

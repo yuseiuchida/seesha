@@ -1,11 +1,11 @@
 class ShopsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
   before_action :set_category, only: %i[show flavors]
-  before_action :set_shop, only: %i[show flavors]
+  before_action :set_shop, only: %i[show flavors edit update]
 
   def index
-    @shops = Shop.all
-    gon.shops = Shop.all
+    @shops = Shop.order(area: :desc)
+    gon.shops = Shop.order(area: :desc)
   end
 
   def new
@@ -25,6 +25,17 @@ class ShopsController < ApplicationController
 
   def show
     @flavors = @shop.stock_flavors
+  end
+
+  def edit; end
+
+  def update
+    if @shop.update(shop_params)
+      @shop.geocoding if @shop.address.present?
+      redirect_to shop_path(@shop)
+    else
+      render :edit
+    end
   end
 
   def flavors

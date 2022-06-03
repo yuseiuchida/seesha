@@ -11,8 +11,7 @@ class Shop < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   enum status: { open: 0, close: 1 }
-
-  AREA = ['北海道 東北', '関東', '東京', '東海 北陸', '関西', '中国 四国', '九州 沖縄']
+  enum area: {"北海道": 0, "東北": 1, "関東": 2, "都内": 3, "東海": 4, "北陸": 5, "関西": 6, "中国 四国": 7, "九州": 8, " 沖縄": 9}
 
   def geocoding
     latlon = Geocoder.search(address).first.coordinates

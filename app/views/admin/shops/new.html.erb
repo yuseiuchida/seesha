@@ -33,7 +33,7 @@
                   </tr>
                   <tr>
                     <th>エリア</th>
-                    <td><%= f.select :area, Shop::AREA.map, {}, {class: "admin-shop-form"} %></td>
+                    <td><%= f.select :area, Shop.areas.keys, {}, {class: "admin-shop-form"} %></td>
                   </tr>
                   <tr>
                     <th>住所</th>

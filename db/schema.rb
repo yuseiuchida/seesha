@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2022_05_29_144126) do
     t.string "flavor_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.uuid "user_id"
     t.string "content"
+    t.uuid "user_id"
     t.index ["category_id"], name: "index_flavors_on_category_id"
     t.index ["user_id"], name: "index_flavors_on_user_id"
   end
@@ -146,11 +146,11 @@ ActiveRecord::Schema.define(version: 2022_05_29_144126) do
   create_table "shops", force: :cascade do |t|
     t.uuid "user_id"
     t.string "name", null: false
-    t.string "area"
+    t.integer "area"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "link"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
