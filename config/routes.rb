@@ -51,8 +51,10 @@ Rails.application.routes.draw do
     end
     resources :hints
     resources :shops do
+      resources :shop_images, only: %i[new create destroy]
       member do
         get :flavors
+        get :images
       end
     end
     resources :users, only: %i[index new create edit update destroy]
@@ -62,5 +64,4 @@ Rails.application.routes.draw do
     end
     resources :inquiries, only: %i[edit update destroy]
   end
-  get '*path', controller: 'application', action: 'render_404'
 end

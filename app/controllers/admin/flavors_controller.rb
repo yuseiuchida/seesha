@@ -1,5 +1,6 @@
 class Admin::FlavorsController < Admin::BaseController
   before_action :set_flavor, only: %i[show edit destroy]
+  before_action :set_categories, only: %i[new create edit update]
 
   def index
     @flavors = if params[:sort_key].nil?
@@ -11,7 +12,6 @@ class Admin::FlavorsController < Admin::BaseController
 
   def new
     @flavor = current_user.flavors.new
-    @categories = Category.all
   end
 
   def create
@@ -28,7 +28,7 @@ class Admin::FlavorsController < Admin::BaseController
   end
 
   def edit
-    @categories = Category.all
+
   end
 
   def update
@@ -61,5 +61,9 @@ class Admin::FlavorsController < Admin::BaseController
 
   def set_flavor
     @flavor = Flavor.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.all
   end
 end
