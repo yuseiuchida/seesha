@@ -1,0 +1,22 @@
+// Place all the styles related to the admin::shop_images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.image-card-header {
+  height: fit-content;
+  width: fit-content;
+
+  input {
+    width: 100%;
+  }
+}
+
+.image-card-header img {
+  height: 100%;
+  width: auto;
+
+}
+
+.image-card-body {
+  text-align: center;
+  margin-top: 0.5rem;
+}

@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     resources :shop_images, only: %i[new create destroy]
     member do
       get :flavors
+      get :gacha
+      post :gachagacha
+      get :pon
     end
   end
   resources :categories, only: %i[index new create show]
@@ -51,8 +54,10 @@ Rails.application.routes.draw do
     end
     resources :hints
     resources :shops do
+      resources :shop_images, only: %i[create destroy]
       member do
         get :flavors
+        get :images
       end
     end
     resources :users, only: %i[index new create edit update destroy]

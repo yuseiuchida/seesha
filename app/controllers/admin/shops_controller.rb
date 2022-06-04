@@ -1,6 +1,6 @@
 class Admin::ShopsController < Admin::BaseController
   before_action :set_category, only: %i[show flavors]
-  before_action :set_shop, only: %i[show flavors edit update destroy]
+  before_action :set_shop, only: %i[show flavors edit update destroy images]
 
   def index
     @shops = Shop.all
@@ -43,6 +43,9 @@ class Admin::ShopsController < Admin::BaseController
 
   def flavors
     @flavors = Flavor.all
+  end
+
+  def images
   end
 
   private

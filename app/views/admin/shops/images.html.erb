@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-12 text-center">
+            <h1>Shop Images</h1>
+            <h1><%= link_to "#{@shop.name}", admin_shop_path(@shop) %></h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content row">
+      <div class="col-3 image-card">
+        <%= form_with model: @shop.shop_images.new, url: admin_shop_shop_images_path(shop_id: @shop.id), local: true do |f| %>
+
+          <div class="image-card-header">
+            <label id="input-image">
+              <%= f.file_field :image, class: "form-control", id: "image-form" %>
+              <%= image_tag 'file.png', id: "preview" %>
+            </label>
+            <%= f.submit '追加', class: "btn btn-success" %>
+          </div>
+
+        <% end %>
+      </div>
+      <% @shop.shop_images.except(id: nil).each do |image| %>
+        <div class="col-3 image-card">
+
+          <div class="image-card-header">
+            <%= image_tag image.image_url %>
+          </div>
+          <div class="image-card-body">
+            <%= link_to "削除", admin_shop_shop_image_path(shop_id: @shop.id, id: image.id), class: "btn btn-danger", method: :delete %>
+          </div>
+
+        </div>
+      <% end %>
+		</section>
+
+  </div>
+</div>
+<%= javascript_pack_tag 'preview', media: 'all', 'data-turbolinks-track': 'reload' %>

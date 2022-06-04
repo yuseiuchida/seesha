@@ -3,7 +3,7 @@ class CreateShops < ActiveRecord::Migration[6.1]
     create_table :shops do |t|
       t.references :user, type: :uuid, foreign_key: true
       t.string :name, null: false
-      t.string :area
+      t.integer :area
       t.string :address
       t.float :latitude
       t.float :longitude

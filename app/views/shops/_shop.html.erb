@@ -64,11 +64,16 @@
     <div class="col-12">
       <div class="shop-block-content">
         <div class="shop-block-info row">
-          <div class="offset-lg-2 col-lg-8"><h2>フレーバー</h2></div>
+          <div class="col-lg-2">
+            <% if shop.stock_flavors.present? && shop.stock_flavors.length > 1 %>
+              <%= link_to "専用ガチャ", gacha_shop_path(shop), class: "btn btn-md btn-round btn-danger ml-18 mr-18 mb-36 text-white" %>
+            <% end %>
+          </div>
+          <div class="col-lg-8"><h2>フレーバー</h2></div>
           <% if current_user.present? %>
             <div class="col-lg-2"><%= link_to "在庫管理", flavors_shop_path(shop), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
           <% end %>
-
+          
           <% @categories.each do |category| %>
             <div class="main-block-title">
               <span><%= category.name %></span>
