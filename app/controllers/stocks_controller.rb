@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   before_action :set_shop
-  before_action :set_flavor
+  before_action :set_flavor, except: %i[stock_all stock_empty]
 
   def create
     @shop.stock(@flavor)
@@ -16,6 +16,16 @@ class StocksController < ApplicationController
 
   def unfixed
     @shop.unfixed(@flavor)
+  end
+
+  def stock_all
+    @shop.stock_all
+    redirect_to flavors_shop_path(@shop)
+  end
+
+  def stock_empty
+    @shop.stock_empty
+    redirect_to flavors_shop_path(@shop)
   end
 
   private

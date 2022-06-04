@@ -13,6 +13,26 @@ class FlavorsController < ApplicationController
     @combinations = Combination.where_flavors(@flavor)
   end
 
+  def new
+    @flavor = current_user.flavors.new
+  end
+
+  def create
+    @flavor = current_user.flavors.new(flavor_params)
+    if @flavor.save
+      redirect_to flavors_path, success: "#{@flavor.name}を登録しました"
+    else
+      flash.now[:danger] = "登録に失敗しました"
+      render :new
+    end
+  end
+
+  def destroy
+    @flavor = Flavor.find(params[:id])
+    @flavor.destroy!
+    redirect_to flavors_path, success: "フレーバーを削除しました"
+  end
+
   private
 
   def flavor_params

@@ -41,4 +41,14 @@ class Shop < ApplicationRecord
   def status?(flavor)
     stocks.find_by(flavor_id: flavor.id).status == Stock.statuses.keys[1]
   end
+
+  def stock_empty
+    stocks.where(status: 0).destroy_all
+  end
+
+  def stock_all
+    stock_empty
+    ids = self.stocks.map(&:flavor_id)
+    stock_flavors << Flavor.where.not(id: ids)
+  end
 end

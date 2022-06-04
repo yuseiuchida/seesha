@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   skip_before_action :require_login, only: %i[index show gacha gachagacha pon]
   before_action :set_category, only: %i[show flavors]
-  before_action :set_shop, only: %i[show flavors edit update gacha gachagacha pon]
+  before_action :set_shop, only: %i[show flavors edit update gacha gachagacha pon lock]
 
   def index
     @shops = Shop.order(area: :desc)
@@ -56,6 +56,11 @@ class ShopsController < ApplicationController
   def gachagacha
     ids = @shop.stock_flavors.gacha(params[:kind])
     redirect_to pon_shop_path(ids: ids, id: @shop.id)
+  end
+
+  def lock
+    @shop.stocks.update(status: 1)
+    redirect_to shop_path(@shop)
   end
 
   private

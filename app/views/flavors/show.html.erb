@@ -40,6 +40,13 @@
                         <% end %>
                       </div>
                     </div>
+                    <% if current_user.present? && @flavor.user.id == current_user.id %>
+                      <div class="flavor-actions">
+                        <%= link_to flavor_path(@flavor), method: :delete do %>
+                          <i class="fas fa-trash-alt"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
                   </div><!--/End Block body -->
 
                 </div><!-- /End Block container -->

@@ -37,6 +37,8 @@
 
 							</div><!-- /End col-lg-8 -->
 
+              <%= link_to "全てチェック", stock_all_shop_stocks_path(shop_id: @shop.id), method: :post %>
+              <%= link_to "全てアンチェック", stock_empty_shop_stocks_path(shop_id: @shop.id), method: :post %>
               <% @categories.each do |category| %>
                 <div class="main-block-title">
                   <span><%= category.name %></span>

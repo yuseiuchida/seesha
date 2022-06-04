@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get :finds
     end
   end
-  resources :flavors, only: %i[index show] do
+  resources :flavors, only: %i[index show new create destroy] do
     resources :gathers, only: %i[create destroy]
   end
   resources :shops do
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       collection do
         post :fixed
         delete :unfixed
+        post :stock_all
+        post :stock_empty
       end
     end
     resources :shop_images, only: %i[new create destroy]
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
       get :gacha
       post :gachagacha
       get :pon
+      post :lock
     end
   end
   resources :categories, only: %i[index new create show]

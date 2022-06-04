@@ -1,0 +1,22 @@
+<div class="col-12">
+  <%= f.label :name, class: "label" do %>
+    フレーバー名 <span class="red-color">*</span>
+  <% end %>
+  <%= render 'shared/error_messages', object: f.object, item: :name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="col-12">
+  <%= f.label :catgory_id, class: "label" do %>
+    カテゴリー <span class="red-color">*</span>
+  <% end %>
+  <%= render 'shared/error_messages', object: f.object, item: :category_id %>
+  <%= f.select :category_id, @categories.map{|category| [category.name, category.id]}, {prompt: "カテゴリー"}, {class: "form-control"} %>
+</div>
+<div class="col-lg-12">
+  <%= f.label :flavor_image, "イメージ", class: "label" %>
+  <label id="input-image">
+    <%= f.file_field :flavor_image, class: "form-control", id: "image-form" %>
+    <%= image_tag 'file.png', id: "preview" %>
+  </label>
+</div>
+<div class="gap gap-36"></div>

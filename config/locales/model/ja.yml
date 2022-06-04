@@ -14,3 +14,6 @@ ja:
         easy_score: 吸いやすさ
       inquiry:
         content: 内容
+      flavor:
+        name: フレーバー名
+        category_id: カテゴリー

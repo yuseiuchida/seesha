@@ -73,7 +73,9 @@
           <% if current_user.present? %>
             <div class="col-lg-2"><%= link_to "在庫管理", flavors_shop_path(shop), class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
           <% end %>
-          
+          <% if current_user.present? && @shop.user.id == current_user.id %>
+            <%= link_to '一括ロック', lock_shop_path(@shop), method: :post %>
+          <% end %>
           <% @categories.each do |category| %>
             <div class="main-block-title">
               <span><%= category.name %></span>

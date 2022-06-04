@@ -34,9 +34,12 @@
 								<div class="gap gap-36"></div>
 
 							</div><!-- /End col-lg-8 -->
-							<div class="col-lg-2"><%= link_to "申請", inquiry_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+              <% if current_user.present? %>
+                <div class="col-lg-2"><%= link_to "New", new_flavor_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+              <% else %>
+                <div class="col-lg-2"><%= link_to "申請", inquiry_path, class: "btn btn-md btn-round btn-success ml-18 mr-18 mb-36 text-white" %></div>
+              <% end %>
 							
-
 							<!-- col-lg-4 -->
 							<% @categories.each do |category| %>
 								<div class="main-block-title">

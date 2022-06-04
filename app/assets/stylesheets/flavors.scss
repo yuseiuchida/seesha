@@ -82,3 +82,15 @@
   }
 
 }
+
+.flavor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: brown;
+    font-size: xx-large;
+  }
+}
