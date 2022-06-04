@@ -1,0 +1,107 @@
+<div class="clouds">
+  <span></span>
+  <span></span>
+</div>
+<div id="page-body" class="page-body after-clouds">
+  <!-- row -->
+  <div class="row main-row justify-content-center">
+    <!-- Content area
+    ==================================================== -->
+    <div id="primary" class="content-area col-lg-12">
+      <!-- Main -->
+      <main id="main" class="content-area-container site-main">
+        <!-- Section -->
+        <div class="main-section">
+          <!-- container -->
+          <div class="container gx-4">
+            <!-- row -->
+            <div class="row gx-36">
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-8 offset-lg-2">
+
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <h2>ガチャ</h2>
+                        <h2><%= link_to "#{@shop.name}", shop_path(@shop) %></h2>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+
+                <!-- GAP -->
+                <div class="gap gap-36"></div>
+
+              </div><!-- /End col-lg-8 -->
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-8 offset-lg-2">
+
+                <!-- Section title -->
+                <div class="section-title text-center">
+                  <!-- Section title container -->
+                  <div class="section-title-container">
+
+                    <!-- Section title body -->
+                    <div class="section-title-body">
+
+                      <!-- Section title heading -->
+                      <div class="section-title-heading">
+                        <p>実際に美味しいかは保証できません。</p>
+                      </div><!-- /End Section title heading -->
+
+                    </div><!--/End Section title body -->
+
+                  </div><!-- /End Section title container -->
+                </div><!-- /End Section title -->
+              </div><!-- /End col-lg-8 -->
+
+              <div class="col-lg-12">
+                <% if @combination.present? %>
+                  <%= render 'combinations/combination', {combination: @combination} %>
+                <% else %>
+                  <%= render 'gacha/none_exist', {flavors: @flavors, hints: @hints} %>
+                <% end %>
+              </div>
+
+              <!-- col-lg-8 -->
+              <div class="col-lg-12">
+                <div class="search-link-block">
+                  <div class="section-title text-center">
+                    <!-- Section title container -->
+                    <div class="section-title-container">
+                      <!-- Section title body -->
+                      <div class="section-title-body">
+                        <!-- Section title heading -->
+                        <div class="section-title-heading">
+                          <h2>もう一度</h2>
+                        </div><!-- /End Section title heading -->
+                      </div><!--/End Section title body -->
+                    </div><!-- /End Section title container -->
+                  </div><!-- /End Section title -->
+                  <div class="search-link-field">
+                    <div class="search-link-item">
+                      <%= link_to '専用ガチャ', gacha_shop_path(@shop), class: "btn btn-danger mb-36 text-white text-left" %>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /End col-lg-8 -->
+            </div><!-- /End row -->
+          </div><!-- /End container -->
+        </div><!-- /End Section -->
+
+      </main><!-- /End Main -->
+    </div><!-- /End Content area -->
+  </div><!-- /End row -->
+</div><!-- /End Page body -->
+<%= javascript_pack_tag 'animation', 'data-turbolinks-track': 'reload' %>

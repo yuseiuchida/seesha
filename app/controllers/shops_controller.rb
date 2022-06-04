@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show gacha gachagacha pon]
   before_action :set_category, only: %i[show flavors]
-  before_action :set_shop, only: %i[show flavors edit update]
+  before_action :set_shop, only: %i[show flavors edit update gacha gachagacha pon]
 
   def index
     @shops = Shop.order(area: :desc)
@@ -40,6 +40,22 @@ class ShopsController < ApplicationController
 
   def flavors
     @flavors = Flavor.all
+  end
+
+  def pon
+    @flavors = @shop.stock_flavors.where(id: params[:ids]).order(category_id: :asc)
+    name = @flavors.map(&:name).join(' ')
+    @combination = Combination.find_by(name: name)
+    @hints = Flavor.find_hints(@flavors)
+  end
+
+  def gacha
+
+  end
+
+  def gachagacha
+    ids = @shop.stock_flavors.gacha(params[:kind])
+    redirect_to pon_shop_path(ids: ids, id: @shop.id)
   end
 
   private
