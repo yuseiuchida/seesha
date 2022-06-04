@@ -11,6 +11,8 @@ class Flavor < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+  validates :name, length: { maximum: 16 }
+  validates :category_id, presence: true
 
   mount_uploader :flavor_image, FlavorImageUploader
 

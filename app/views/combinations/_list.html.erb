@@ -1,13 +1,13 @@
 <% combinations.each do |combination| %>
   <div class="col-lg-6">
     <div class="row item-block">
-      <div class="col-10 item-name">
+      <div class="col-11 item-name">
         <%= link_to combination_path(combination) do %>
           <p><%= combination.name %></p>
         <% end %>
       </div>
       <% if current_user.present? %>
-        <div class="col-2" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
+        <div class="col-1" id="bookmark_combination_<%= combination.id %>"><%= render 'combinations/bookmarks_button', {combination: combination} %></div>
       <% end %>
       <div class="col-12 item-status">
         <span class="badge bg-success"><%= easy_status(combination) %></span>

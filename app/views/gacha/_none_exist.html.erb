@@ -9,7 +9,7 @@
           <%= image_tag flavors[0].flavor_image_url %>
         </div>
         <div class="col-6 name">
-          <p class="name"><%= flavors[0].name %></p>
+          <p><%= flavors[0].name %></p>
         </div>
       </div>
       <div class="recommend-combinations row">
@@ -17,7 +17,7 @@
           <%= image_tag flavors[1].flavor_image_url %>
         </div>
         <div class="col-6 name">
-          <p class="name"><%= flavors[1].name %></p>
+          <p><%= flavors[1].name %></p>
         </div>
       </div>
       <% if flavors[2].present? %>
@@ -26,7 +26,7 @@
             <%= image_tag flavors[2].flavor_image_url %>
           </div>
           <div class="col-6 name">
-            <p class="name"><%= flavors[2].name %></p>
+            <p><%= flavors[2].name %></p>
           </div>
         </div>
       <% end %>
@@ -36,7 +36,7 @@
             <%= image_tag flavors[3].flavor_image_url %>
           </div>
           <div class="col-6 name">
-            <p class="name"><%= flavors[3].name %></p>
+            <p><%= flavors[3].name %></p>
           </div>
         </div>
       <% end %>
@@ -60,7 +60,7 @@
       <div class="recommend-combination-content mt-24">
         <div class="action">
           <div class="share">
-            <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【おすすめのフレーバー】%0a%0a#{ flavors.map(&:name).join(" ") }", target: '_blank' do %>
+            <%= link_to "https://twitter.com/share?url=https://www.seesha-app.com/&text=【おすすめのフレーバー】%0a%0a#{ flavors.map(&:name).join(" ") }", target: '_blank' do %>
               <i class="fab fa-twitter" style='color: #3399FF;'></i>
             <% end %>
           </div>

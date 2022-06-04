@@ -47,11 +47,15 @@
                 </tr>
                 <tr>
                   <th>URL</th>
-                  <td><%= @shop.link %></td>
+                  <td><%= link_to "#{@shop.link}", "#{@shop.link}" %></td>
                 </tr>
                 <tr>
                   <th>情報</th>
                   <td><%= @shop.content %></td>
+                </tr>
+                <tr>
+                  <th>画像</th>
+                  <td><%= link_to "#{@shop.shop_images.length}件", images_admin_shop_path(@shop) %></td>
                 </tr>
               </tbody>
             </table>
