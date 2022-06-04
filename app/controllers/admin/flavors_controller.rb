@@ -27,9 +27,7 @@ class Admin::FlavorsController < Admin::BaseController
     @combinations = Combination.where_flavors(@flavor)
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     @flavor = Flavor.find(params[:id])

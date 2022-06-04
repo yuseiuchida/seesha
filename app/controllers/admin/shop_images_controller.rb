@@ -3,9 +3,9 @@ class Admin::ShopImagesController < Admin::BaseController
   def create
     @shop_image = @shop.shop_images.new(shop_image_params)
     if @shop_image.save
-      redirect_to images_admin_shop_path(@shop), success: "画像が追加されました"
+      redirect_to images_admin_shop_path(@shop), success: '画像が追加されました'
     else
-      redirect_to images_admin_shop_path(@shop), danger: "画像の追加に失敗しました"
+      redirect_to images_admin_shop_path(@shop), danger: '画像の追加に失敗しました'
     end
   end
 

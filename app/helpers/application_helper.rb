@@ -8,9 +8,9 @@ module ApplicationHelper
       separator: '|',
       description: 'シーシャのフレーバーの組み合わせを探すならSeeSHA！シーシャ屋さんでフレーバーのオーダーで悩んだ経験はありませんか？初心者でも玄人でも簡単にフレーバーを決めてみよう！',
       canonical: 'https://www.seesha-app.com/',
-      noindex: ! Rails.env.production?,
+      noindex: !Rails.env.production?,
       icon: [
-        { href: image_url('smoke.png') },
+        { href: image_url('smoke.png') }
       ],
       og: {
         site_name: 'SeeSHA',
@@ -19,7 +19,7 @@ module ApplicationHelper
         type: 'website',
         url: 'https://www.seesha-app.com/',
         image: image_url('ogp.png'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image'

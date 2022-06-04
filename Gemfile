@@ -33,10 +33,10 @@ gem 'geocoder', '~> 1.8'
 gem 'gon', '~> 6.4'
 gem 'htmlbeautifier'
 gem 'kaminari'
+gem 'meta-tags'
 gem 'pry-rails'
 gem 'ransack'
 gem 'sorcery'
-gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

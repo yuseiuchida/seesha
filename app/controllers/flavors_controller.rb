@@ -22,7 +22,7 @@ class FlavorsController < ApplicationController
     if @flavor.save
       redirect_to flavors_path, success: "#{@flavor.name}を登録しました"
     else
-      flash.now[:danger] = "登録に失敗しました"
+      flash.now[:danger] = '登録に失敗しました'
       render :new
     end
   end
@@ -30,7 +30,7 @@ class FlavorsController < ApplicationController
   def destroy
     @flavor = Flavor.find(params[:id])
     @flavor.destroy!
-    redirect_to flavors_path, success: "フレーバーを削除しました"
+    redirect_to flavors_path, success: 'フレーバーを削除しました'
   end
 
   private

@@ -11,7 +11,7 @@ class Shop < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   enum status: { open: 0, close: 1 }
-  enum area: {"北海道": 0, "東北": 1, "関東": 2, "都内": 3, "東海": 4, "北陸": 5, "関西": 6, "中国 四国": 7, "九州": 8, " 沖縄": 9}
+  enum area: { "北海道": 0, "東北": 1, "関東": 2, "都内": 3, "東海": 4, "北陸": 5, "関西": 6, "中国 四国": 7, "九州": 8, " 沖縄": 9 }
 
   def geocoding
     latlon = Geocoder.search(address).first.coordinates
@@ -48,7 +48,7 @@ class Shop < ApplicationRecord
 
   def stock_all
     stock_empty
-    ids = self.stocks.map(&:flavor_id)
+    ids = stocks.map(&:flavor_id)
     stock_flavors << Flavor.where.not(id: ids)
   end
 end

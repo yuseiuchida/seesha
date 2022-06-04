@@ -45,8 +45,7 @@ class Admin::ShopsController < Admin::BaseController
     @flavors = Flavor.all
   end
 
-  def images
-  end
+  def images; end
 
   private
 

@@ -49,9 +49,7 @@ class ShopsController < ApplicationController
     @hints = Flavor.find_hints(@flavors)
   end
 
-  def gacha
-
-  end
+  def gacha; end
 
   def gachagacha
     ids = @shop.stock_flavors.gacha(params[:kind])
