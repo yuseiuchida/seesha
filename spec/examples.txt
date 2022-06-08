@@ -1,5 +1,27 @@
-example_id                          | status | run_time        |
------------------------------------ | ------ | --------------- |
-./spec/models/flavor_spec.rb[1:1:1] | passed | 0.02206 seconds |
-./spec/models/flavor_spec.rb[1:1:2] | passed | 0.00206 seconds |
-./spec/system/users_spec.rb[1:1:1]  | failed | 4.25 seconds    |
+example_id                                                | status  | run_time        |
+--------------------------------------------------------- | ------- | --------------- |
+./spec/helpers/admin/handling_flavors_helper_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/helpers/admin/hints_helper_spec.rb[1:1]            | pending | 0 seconds       |
+./spec/helpers/admin/shop_images_helper_spec.rb[1:1]      | pending | 0 seconds       |
+./spec/helpers/admin/shops_helper_spec.rb[1:1]            | pending | 0 seconds       |
+./spec/helpers/gathers_helper_spec.rb[1:1]                | pending | 0.00001 seconds |
+./spec/helpers/handling_flavors_helper_spec.rb[1:1]       | pending | 0.00001 seconds |
+./spec/helpers/hints_helper_spec.rb[1:1]                  | pending | 0.00001 seconds |
+./spec/helpers/shop_images_helper_spec.rb[1:1]            | pending | 0.00001 seconds |
+./spec/helpers/stocks_helper_spec.rb[1:1]                 | pending | 0.00001 seconds |
+./spec/models/gather_spec.rb[1:1]                         | pending | 0 seconds       |
+./spec/models/hint_spec.rb[1:1]                           | pending | 0.00001 seconds |
+./spec/models/shop_image_spec.rb[1:1]                     | pending | 0 seconds       |
+./spec/models/shop_spec.rb[1:1]                           | pending | 0.00001 seconds |
+./spec/models/stock_spec.rb[1:1]                          | pending | 0 seconds       |
+./spec/requests/admin/handling_flavors_spec.rb[1:1:1]     | pending | 0 seconds       |
+./spec/requests/admin/hints_spec.rb[1:1:1]                | pending | 0.00002 seconds |
+./spec/requests/admin/shop_images_spec.rb[1:1:1]          | pending | 0.00001 seconds |
+./spec/requests/admin/shops_spec.rb[1:1:1]                | pending | 0 seconds       |
+./spec/requests/gathers_spec.rb[1:1:1]                    | pending | 0 seconds       |
+./spec/requests/handling_flavors_spec.rb[1:1:1]           | pending | 0.00001 seconds |
+./spec/requests/hints_spec.rb[1:1:1]                      | pending | 0.00001 seconds |
+./spec/requests/shop_images_spec.rb[1:1:1]                | pending | 0 seconds       |
+./spec/requests/stocks_spec.rb[1:1:1]                     | pending | 0 seconds       |
+./spec/system/users_spec.rb[1:1:1]                        | passed  | 0.6897 seconds  |
+./spec/system/users_spec.rb[1:2:1]                        | passed  | 4.6 seconds     |
