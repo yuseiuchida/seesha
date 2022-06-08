@@ -1,4 +1,5 @@
 FactoryBot.define do
-  factory :gather do
+  factory :combination do
+
   end
 end
