@@ -40,4 +40,5 @@ https://drive.google.com/file/d/1TnbINwrB-htnbzULEmlY04msaL_Yx0sX/view?usp=shari
 [![Image from Gyazo](https://i.gyazo.com/61151ec827bc08a80a20d30c76b44959.png)](https://gyazo.com/61151ec827bc08a80a20d30c76b44959)
 
 ■ スケジュール
-未定
+2022年4月〜5月中旬　RUNTEQ内公開
+2022年6月　デプロイ
